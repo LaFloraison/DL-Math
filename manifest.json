@@ -3,7 +3,13 @@
     {
       "num": "01",
       "name": "Introduction",
-      "sections": []
+      "sections": [
+        {
+          "id": "1.0",
+          "title": "Introduction to Deep Learning Math",
+          "path": "decomposition/chapters/ch01-Introduction/sec-all.txt"
+        }
+      ]
     },
     {
       "num": "02",
