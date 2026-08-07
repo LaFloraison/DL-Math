@@ -1,0 +1,1085 @@
+{
+  "chapters": [
+    {
+      "num": "01",
+      "name": "Introduction",
+      "sections": []
+    },
+    {
+      "num": "02",
+      "name": "Linear Algebra",
+      "sections": [
+        {
+          "id": "2.1",
+          "title": "INTRODUCTION Linear algebra provides the",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.1-INTRODUCTION-Linear-algebra-provides-the.txt"
+        },
+        {
+          "id": "2.2.1.1",
+          "title": "What Is a Vector",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.1.1-What-Is-a-Vector.txt"
+        },
+        {
+          "id": "2.2.1.2",
+          "title": "Vector Operations",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.1.2-Vector-Operations.txt"
+        },
+        {
+          "id": "2.2.1.3",
+          "title": "Vector Components",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.1.3-Vector-Components.txt"
+        },
+        {
+          "id": "2.2.1.4",
+          "title": "Magnitude and Direction The magnitude of",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.1.4-Magnitude-and-Direction-The-magnitude-of.txt"
+        },
+        {
+          "id": "2.2.1.5",
+          "title": "Vector Spaces A vector space is a set of",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.1.5-Vector-Spaces-A-vector-space-is-a-set-of.txt"
+        },
+        {
+          "id": "2.2.3.1",
+          "title": "Data Representation  a   Feature Vectors",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.3.1-Data-Representation--a---Feature-Vectors.txt"
+        },
+        {
+          "id": "2.2.3.2",
+          "title": "Neural Network Parameters The parameters",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.3.2-Neural-Network-Parameters-The-parameters.txt"
+        },
+        {
+          "id": "2.2.3.3",
+          "title": "Activation Functions and Layers",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.3.3-Activation-Functions-and-Layers.txt"
+        },
+        {
+          "id": "2.2.3.4",
+          "title": "Dot Product in Neural Network The dot pr",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.3.4-Dot-Product-in-Neural-Network-The-dot-pr.txt"
+        },
+        {
+          "id": "2.2.3.5",
+          "title": "Gradient Descent and Backpropagation A g",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.3.5-Gradient-Descent-and-Backpropagation-A-g.txt"
+        },
+        {
+          "id": "2.2.3.6",
+          "title": "Batch Processing Learning models  partic",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.3.6-Batch-Processing-Learning-models--partic.txt"
+        },
+        {
+          "id": "2.2.3.7",
+          "title": "Convolutional Neural Networks",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.2.3.7-Convolutional-Neural-Networks.txt"
+        },
+        {
+          "id": "2.3.1",
+          "title": "What Is a Matrix",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.1-What-Is-a-Matrix.txt"
+        },
+        {
+          "id": "2.3.2",
+          "title": "Dimensions",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.2-Dimensions.txt"
+        },
+        {
+          "id": "2.3.3.7",
+          "title": "Symmetric Matrix",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.3.7-Symmetric-Matrix.txt"
+        },
+        {
+          "id": "2.3.4.1",
+          "title": "Addition and Subtraction",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.4.1-Addition-and-Subtraction.txt"
+        },
+        {
+          "id": "2.3.4.3",
+          "title": "Matrix Multiplication For two matrices t",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.4.3-Matrix-Multiplication-For-two-matrices-t.txt"
+        },
+        {
+          "id": "2.3.4.6",
+          "title": "Inverse For some square matrices  the in",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.4.6-Inverse-For-some-square-matrices--the-in.txt"
+        },
+        {
+          "id": "2.3.5.1",
+          "title": "System of Linear Equations",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.5.1-System-of-Linear-Equations.txt"
+        },
+        {
+          "id": "2.3.5.3",
+          "title": "Transformations Matrices perform linear",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.5.3-Transformations-Matrices-perform-linear.txt"
+        },
+        {
+          "id": "2.3.6.1",
+          "title": "Data Representation  a   Input Data  In",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.6.1-Data-Representation--a---Input-Data--In.txt"
+        },
+        {
+          "id": "2.3.6.2",
+          "title": "Parameters of the Network",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.6.2-Parameters-of-the-Network.txt"
+        },
+        {
+          "id": "2.3.6.3",
+          "title": "Operations in Layers  a   Matrix Multipl",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.6.3-Operations-in-Layers--a---Matrix-Multipl.txt"
+        },
+        {
+          "id": "2.3.6.4",
+          "title": "Activation Functions After matrix multip",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.6.4-Activation-Functions-After-matrix-multip.txt"
+        },
+        {
+          "id": "2.3.6.5",
+          "title": "Backpropagation  a   Gradient Matrices",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.6.5-Backpropagation--a---Gradient-Matrices.txt"
+        },
+        {
+          "id": "2.3.6.6",
+          "title": "Regularization",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.6.6-Regularization.txt"
+        },
+        {
+          "id": "2.3.6.7",
+          "title": "Optimizers  a   RMSprop  RMSprop  Root M",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.6.7-Optimizers--a---RMSprop--RMSprop--Root-M.txt"
+        },
+        {
+          "id": "2.3.6.8",
+          "title": "Batch Normalization",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.3.6.8-Batch-Normalization.txt"
+        },
+        {
+          "id": "2.4.1",
+          "title": "Tensors",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.4.1-Tensors.txt"
+        },
+        {
+          "id": "2.4.2.2",
+          "title": "Tensor Dot Product  or Tensor Contractio",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.4.2.2-Tensor-Dot-Product--or-Tensor-Contractio.txt"
+        },
+        {
+          "id": "2.4.3",
+          "title": "Tensors in Deep Learning At a high level",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.4.3-Tensors-in-Deep-Learning-At-a-high-level.txt"
+        },
+        {
+          "id": "2.4.4",
+          "title": "Tensor Operations in Deep Learning  a",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.4.4-Tensor-Operations-in-Deep-Learning--a.txt"
+        },
+        {
+          "id": "2.5",
+          "title": "LINEAR TRANSFORMATIONS A linear transfor",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5-LINEAR-TRANSFORMATIONS-A-linear-transfor.txt"
+        },
+        {
+          "id": "2.5.1",
+          "title": "Matrix Representation of Linear Transfor",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.1-Matrix-Representation-of-Linear-Transfor.txt"
+        },
+        {
+          "id": "2.5.2.1",
+          "title": "Scaling Scaling involves multiplying vec",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.2.1-Scaling-Scaling-involves-multiplying-vec.txt"
+        },
+        {
+          "id": "2.5.2.4",
+          "title": "Shearing",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.2.4-Shearing.txt"
+        },
+        {
+          "id": "2.5.3",
+          "title": "Linear Transformations in Deep Learning",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.3-Linear-Transformations-in-Deep-Learning.txt"
+        },
+        {
+          "id": "2.5.3.1",
+          "title": "Neural Network Layers",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.3.1-Neural-Network-Layers.txt"
+        },
+        {
+          "id": "2.5.3.2",
+          "title": "Convolutional Neural Networks",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.3.2-Convolutional-Neural-Networks.txt"
+        },
+        {
+          "id": "2.5.3.3",
+          "title": "Embeddings In NLP  embedding layers map",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.3.3-Embeddings-In-NLP--embedding-layers-map.txt"
+        },
+        {
+          "id": "2.5.3.4",
+          "title": "Regularization Techniques While normaliz",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.3.4-Regularization-Techniques-While-normaliz.txt"
+        },
+        {
+          "id": "2.5.3.5",
+          "title": "Initialization When initializing the wei",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.3.5-Initialization-When-initializing-the-wei.txt"
+        },
+        {
+          "id": "2.5.3.6",
+          "title": "Loss Functions and Optimization",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.5.3.6-Loss-Functions-and-Optimization.txt"
+        },
+        {
+          "id": "2.6",
+          "title": "MATRIX FACTORIZATIONS",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.6-MATRIX-FACTORIZATIONS.txt"
+        },
+        {
+          "id": "2.6.1",
+          "title": "LU Decomposition",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.6.1-LU-Decomposition.txt"
+        },
+        {
+          "id": "2.6.2",
+          "title": "QR Decomposition",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.6.2-QR-Decomposition.txt"
+        },
+        {
+          "id": "2.6.3",
+          "title": "Singular Value Decomposition SVD represe",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.6.3-Singular-Value-Decomposition-SVD-represe.txt"
+        },
+        {
+          "id": "2.6.4",
+          "title": "Eigenvalues and Eigenvectors Eigenvalues",
+          "path": "decomposition/chapters/ch02-Linear-Algebra/sec-2.6.4-Eigenvalues-and-Eigenvectors-Eigenvalues.txt"
+        }
+      ]
+    },
+    {
+      "num": "03",
+      "name": "Multivariate Calculus",
+      "sections": [
+        {
+          "id": "3.1",
+          "title": "INTRODUCTION In this chapter  we delve i",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.1-INTRODUCTION-In-this-chapter--we-delve-i.txt"
+        },
+        {
+          "id": "3.2",
+          "title": "PARTIAL DERIVATIVES Partial derivatives",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.2-PARTIAL-DERIVATIVES-Partial-derivatives.txt"
+        },
+        {
+          "id": "3.2.1",
+          "title": "Geometric Interpretation",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.2.1-Geometric-Interpretation.txt"
+        },
+        {
+          "id": "3.3",
+          "title": "PARTIAL DERIVATIVES IN DEEP LEARNING In",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.3-PARTIAL-DERIVATIVES-IN-DEEP-LEARNING-In.txt"
+        },
+        {
+          "id": "3.4",
+          "title": "GRADIENTS In multivariable calculus  the",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.4-GRADIENTS-In-multivariable-calculus--the.txt"
+        },
+        {
+          "id": "3.5",
+          "title": "GRADIENT IN DEEP LEARNING",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.5-GRADIENT-IN-DEEP-LEARNING.txt"
+        },
+        {
+          "id": "3.5.1",
+          "title": "Gradient Descent",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.5.1-Gradient-Descent.txt"
+        },
+        {
+          "id": "3.5.2",
+          "title": "Backpropagation The backpropagation algo",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.5.2-Backpropagation-The-backpropagation-algo.txt"
+        },
+        {
+          "id": "3.6",
+          "title": "JACOBIANS Jacobian is a fundamental conc",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.6-JACOBIANS-Jacobian-is-a-fundamental-conc.txt"
+        },
+        {
+          "id": "3.6.1",
+          "title": "Jacobian Determinant",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.6.1-Jacobian-Determinant.txt"
+        },
+        {
+          "id": "3.6.2",
+          "title": "Relationship with the Chain Rule",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.6.2-Relationship-with-the-Chain-Rule.txt"
+        },
+        {
+          "id": "3.6.3",
+          "title": "Computational Aspects",
+          "path": "decomposition/chapters/ch03-Multivariate-Calculus/sec-3.6.3-Computational-Aspects.txt"
+        }
+      ]
+    },
+    {
+      "num": "04",
+      "name": "Probability Theory",
+      "sections": [
+        {
+          "id": "4.1",
+          "title": "INTRODUCTION In this chapter  we begin b",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.1-INTRODUCTION-In-this-chapter--we-begin-b.txt"
+        },
+        {
+          "id": "4.2",
+          "title": "PROBABILITY DISTRIBUTIONS Probability di",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2-PROBABILITY-DISTRIBUTIONS-Probability-di.txt"
+        },
+        {
+          "id": "4.2.1",
+          "title": "Discrete Probability Distributions",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.1-Discrete-Probability-Distributions.txt"
+        },
+        {
+          "id": "4.2.2",
+          "title": "Continuous Probability Distributions",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.2-Continuous-Probability-Distributions.txt"
+        },
+        {
+          "id": "4.2.2.1",
+          "title": "Uniform Distribution  Continuous",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.2.1-Uniform-Distribution--Continuous.txt"
+        },
+        {
+          "id": "4.2.2.2",
+          "title": "Normal  Gaussian  Distribution",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.2.2-Normal--Gaussian--Distribution.txt"
+        },
+        {
+          "id": "4.2.2.3",
+          "title": "Exponential Distribution It is used to m",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.2.3-Exponential-Distribution-It-is-used-to-m.txt"
+        },
+        {
+          "id": "4.2.2.4",
+          "title": "Beta and Gamma Distributions The beta di",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.2.4-Beta-and-Gamma-Distributions-The-beta-di.txt"
+        },
+        {
+          "id": "4.2.3.1",
+          "title": "Mean  Expected Value",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.3.1-Mean--Expected-Value.txt"
+        },
+        {
+          "id": "4.2.3.2",
+          "title": "Variance and Standard Deviation Variance",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.3.2-Variance-and-Standard-Deviation-Variance.txt"
+        },
+        {
+          "id": "4.2.3.3",
+          "title": "Skewness",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.3.3-Skewness.txt"
+        },
+        {
+          "id": "4.2.3.4",
+          "title": "Kurtosis",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.3.4-Kurtosis.txt"
+        },
+        {
+          "id": "4.2.4.1",
+          "title": "Probability Mass Function The probabilit",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.4.1-Probability-Mass-Function-The-probabilit.txt"
+        },
+        {
+          "id": "4.2.4.2",
+          "title": "Probability Density Function It is used",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.4.2-Probability-Density-Function-It-is-used.txt"
+        },
+        {
+          "id": "4.2.4.3",
+          "title": "Cumulative Distribution Function",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.4.3-Cumulative-Distribution-Function.txt"
+        },
+        {
+          "id": "4.2.5",
+          "title": "Connection Between Overfitting and Under",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.5-Connection-Between-Overfitting-and-Under.txt"
+        },
+        {
+          "id": "4.2.6",
+          "title": "Connecting BNNs to Probability Distribut",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.6-Connecting-BNNs-to-Probability-Distribut.txt"
+        },
+        {
+          "id": "4.2.6.1",
+          "title": "Prior Distribution",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.6.1-Prior-Distribution.txt"
+        },
+        {
+          "id": "4.2.6.2",
+          "title": "Posterior Distribution",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.6.2-Posterior-Distribution.txt"
+        },
+        {
+          "id": "4.2.6.3",
+          "title": "Prediction",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.2.6.3-Prediction.txt"
+        },
+        {
+          "id": "4.3",
+          "title": "SAMPLING METHODS Sampling methods are es",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3-SAMPLING-METHODS-Sampling-methods-are-es.txt"
+        },
+        {
+          "id": "4.3.1",
+          "title": "Simple Random Sampling Simple random sam",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.1-Simple-Random-Sampling-Simple-random-sam.txt"
+        },
+        {
+          "id": "4.3.10",
+          "title": "Gibbs Sampling Gibbs sampling is a speci",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.10-Gibbs-Sampling-Gibbs-sampling-is-a-speci.txt"
+        },
+        {
+          "id": "4.3.11",
+          "title": "Latin Hypercube Sampling Latin hypercube",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.11-Latin-Hypercube-Sampling-Latin-hypercube.txt"
+        },
+        {
+          "id": "4.3.12",
+          "title": "Resampling Methods Techniques like boots",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.12-Resampling-Methods-Techniques-like-boots.txt"
+        },
+        {
+          "id": "4.3.13.1",
+          "title": "Overfitting Overfitting occurs when a mo",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.13.1-Overfitting-Overfitting-occurs-when-a-mo.txt"
+        },
+        {
+          "id": "4.3.13.2",
+          "title": "Underfitting Underfitting occurs when a",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.13.2-Underfitting-Underfitting-occurs-when-a.txt"
+        },
+        {
+          "id": "4.3.2",
+          "title": "Stratified Random Sampling Stratified ra",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.2-Stratified-Random-Sampling-Stratified-ra.txt"
+        },
+        {
+          "id": "4.3.3",
+          "title": "Cluster Sampling Cluster sampling divide",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.3-Cluster-Sampling-Cluster-sampling-divide.txt"
+        },
+        {
+          "id": "4.3.4",
+          "title": "Systematic Sampling Systematic sampling",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.4-Systematic-Sampling-Systematic-sampling.txt"
+        },
+        {
+          "id": "4.3.6",
+          "title": "Monte Carlo Sampling Monte Carlo samplin",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.6-Monte-Carlo-Sampling-Monte-Carlo-samplin.txt"
+        },
+        {
+          "id": "4.3.7",
+          "title": "Importance Sampling Importance sampling",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.7-Importance-Sampling-Importance-sampling.txt"
+        },
+        {
+          "id": "4.3.8",
+          "title": "Rejection Sampling Rejection sampling in",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.8-Rejection-Sampling-Rejection-sampling-in.txt"
+        },
+        {
+          "id": "4.3.9",
+          "title": "Markov Chain Monte Carlo Markov Chain Mo",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.3.9-Markov-Chain-Monte-Carlo-Markov-Chain-Mo.txt"
+        },
+        {
+          "id": "4.4",
+          "title": "BAYESIAN STATISTICS Bayesian statistics",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.4-BAYESIAN-STATISTICS-Bayesian-statistics.txt"
+        },
+        {
+          "id": "4.4.1",
+          "title": "Overfitting and Bayesian Statistics Over",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.4.1-Overfitting-and-Bayesian-Statistics-Over.txt"
+        },
+        {
+          "id": "4.4.2",
+          "title": "Underfitting and Bayesian Statistics",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.4.2-Underfitting-and-Bayesian-Statistics.txt"
+        },
+        {
+          "id": "4.4.3",
+          "title": "Bayesian Neural Networks BNNs extend tra",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.4.3-Bayesian-Neural-Networks-BNNs-extend-tra.txt"
+        },
+        {
+          "id": "4.5",
+          "title": "MOMENTS IN STATISTICS AND PROBABILITY TH",
+          "path": "decomposition/chapters/ch04-Probability-Theory/sec-4.5-MOMENTS-IN-STATISTICS-AND-PROBABILITY-TH.txt"
+        }
+      ]
+    },
+    {
+      "num": "05",
+      "name": "Optimization Theory",
+      "sections": [
+        {
+          "id": "5.1",
+          "title": "INTRODUCTION Optimization theory is a ke",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.1-INTRODUCTION-Optimization-theory-is-a-ke.txt"
+        },
+        {
+          "id": "5.2",
+          "title": "OPTIMIZATION THEORY Optimization theory",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.2-OPTIMIZATION-THEORY-Optimization-theory.txt"
+        },
+        {
+          "id": "5.3.1",
+          "title": "Linear Optimization Linear optimization",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.1-Linear-Optimization-Linear-optimization.txt"
+        },
+        {
+          "id": "5.3.10",
+          "title": "Branch and Bound and Cutting Plane Metho",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.10-Branch-and-Bound-and-Cutting-Plane-Metho.txt"
+        },
+        {
+          "id": "5.3.11",
+          "title": "Evolutionary Algorithms",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.11-Evolutionary-Algorithms.txt"
+        },
+        {
+          "id": "5.3.3",
+          "title": "Integer Optimization Integer optimizatio",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.3-Integer-Optimization-Integer-optimizatio.txt"
+        },
+        {
+          "id": "5.3.4",
+          "title": "Convex Optimization Convex optimization",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.4-Convex-Optimization-Convex-optimization.txt"
+        },
+        {
+          "id": "5.3.5",
+          "title": "Combinatorial Optimization Combinatorial",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.5-Combinatorial-Optimization-Combinatorial.txt"
+        },
+        {
+          "id": "5.3.6",
+          "title": "Gradient Descent Gradient descent is a f",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.6-Gradient-Descent-Gradient-descent-is-a-f.txt"
+        },
+        {
+          "id": "5.3.7",
+          "title": "Stochastic Optimization",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.7-Stochastic-Optimization.txt"
+        },
+        {
+          "id": "5.3.8",
+          "title": "Simplex Method The Simplex method is a f",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.8-Simplex-Method-The-Simplex-method-is-a-f.txt"
+        },
+        {
+          "id": "5.3.9",
+          "title": "Lagrangian Multipliers",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.3.9-Lagrangian-Multipliers.txt"
+        },
+        {
+          "id": "5.4",
+          "title": "GLOBAL VERSUS LOCAL OPTIMA Understanding",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.4-GLOBAL-VERSUS-LOCAL-OPTIMA-Understanding.txt"
+        },
+        {
+          "id": "5.5",
+          "title": "RECENT DEVELOPMENTS IN OPTIMIZATION",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.5-RECENT-DEVELOPMENTS-IN-OPTIMIZATION.txt"
+        },
+        {
+          "id": "5.6",
+          "title": "OPTIMIZATION METHODS IN DEEP LEARNING Op",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.6-OPTIMIZATION-METHODS-IN-DEEP-LEARNING-Op.txt"
+        },
+        {
+          "id": "5.6.1",
+          "title": "Batch Gradient Descent  BGD  BGD  specif",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.6.1-Batch-Gradient-Descent--BGD--BGD--specif.txt"
+        },
+        {
+          "id": "5.6.2",
+          "title": "Stochastic Gradient Descent  SGD  SGD is",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.6.2-Stochastic-Gradient-Descent--SGD--SGD-is.txt"
+        },
+        {
+          "id": "5.6.4",
+          "title": "Momentum Momentum is an optimization tec",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.6.4-Momentum-Momentum-is-an-optimization-tec.txt"
+        },
+        {
+          "id": "5.6.5",
+          "title": "Adagrad  Adaptive Gradient Algorithm  Ad",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.6.5-Adagrad--Adaptive-Gradient-Algorithm--Ad.txt"
+        },
+        {
+          "id": "5.6.6",
+          "title": "Root Mean Square Propagation  RMSprop  R",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.6.6-Root-Mean-Square-Propagation--RMSprop--R.txt"
+        },
+        {
+          "id": "5.6.7",
+          "title": "Adam  Adaptive Moment Estimation",
+          "path": "decomposition/chapters/ch05-Optimization-Theory/sec-5.6.7-Adam--Adaptive-Moment-Estimation.txt"
+        }
+      ]
+    },
+    {
+      "num": "06",
+      "name": "Information Theory",
+      "sections": [
+        {
+          "id": "6.1",
+          "title": "INTRODUCTION Information theory is found",
+          "path": "decomposition/chapters/ch06-Information-Theory/sec-6.1-INTRODUCTION-Information-theory-is-found.txt"
+        },
+        {
+          "id": "6.2",
+          "title": "ENTROPY Entropy  in the context of infor",
+          "path": "decomposition/chapters/ch06-Information-Theory/sec-6.2-ENTROPY-Entropy--in-the-context-of-infor.txt"
+        },
+        {
+          "id": "6.3",
+          "title": "JOINT AND CONDITIONAL ENTROPY",
+          "path": "decomposition/chapters/ch06-Information-Theory/sec-6.3-JOINT-AND-CONDITIONAL-ENTROPY.txt"
+        },
+        {
+          "id": "6.3.1",
+          "title": "Joint Entropy When we talk about two ran",
+          "path": "decomposition/chapters/ch06-Information-Theory/sec-6.3.1-Joint-Entropy-When-we-talk-about-two-ran.txt"
+        },
+        {
+          "id": "6.3.2",
+          "title": "Conditional Entropy Conditional entropy",
+          "path": "decomposition/chapters/ch06-Information-Theory/sec-6.3.2-Conditional-Entropy-Conditional-entropy.txt"
+        },
+        {
+          "id": "6.4",
+          "title": "INFORMATION GAIN Information gain quanti",
+          "path": "decomposition/chapters/ch06-Information-Theory/sec-6.4-INFORMATION-GAIN-Information-gain-quanti.txt"
+        },
+        {
+          "id": "6.5",
+          "title": "MUTUAL INFORMATION Mutual information is",
+          "path": "decomposition/chapters/ch06-Information-Theory/sec-6.5-MUTUAL-INFORMATION-Mutual-information-is.txt"
+        },
+        {
+          "id": "6.6",
+          "title": "DATA COMPRESSION",
+          "path": "decomposition/chapters/ch06-Information-Theory/sec-6.6-DATA-COMPRESSION.txt"
+        }
+      ]
+    },
+    {
+      "num": "07",
+      "name": "Graph Theory",
+      "sections": [
+        {
+          "id": "7.1",
+          "title": "INTRODUCTION In the world of deep learni",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.1-INTRODUCTION-In-the-world-of-deep-learni.txt"
+        },
+        {
+          "id": "7.2",
+          "title": "GRAPH THEORY FOR DEEP LEARNING Understan",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.2-GRAPH-THEORY-FOR-DEEP-LEARNING-Understan.txt"
+        },
+        {
+          "id": "7.2.2",
+          "title": "Directed Graph",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.2.2-Directed-Graph.txt"
+        },
+        {
+          "id": "7.2.2.3",
+          "title": "Directed Graph Example",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.2.2.3-Directed-Graph-Example.txt"
+        },
+        {
+          "id": "7.2.3",
+          "title": "Undirected Graph",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.2.3-Undirected-Graph.txt"
+        },
+        {
+          "id": "7.2.3.3",
+          "title": "Undirected Graph Example",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.2.3.3-Undirected-Graph-Example.txt"
+        },
+        {
+          "id": "7.2.4",
+          "title": "Weighted Graph",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.2.4-Weighted-Graph.txt"
+        },
+        {
+          "id": "7.3",
+          "title": "GRAPH NEURAL NETWORKS Graph neural netwo",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.3-GRAPH-NEURAL-NETWORKS-Graph-neural-netwo.txt"
+        },
+        {
+          "id": "7.4",
+          "title": "WHY GRAPHS FOR DEEP LEARNING",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.4-WHY-GRAPHS-FOR-DEEP-LEARNING.txt"
+        },
+        {
+          "id": "7.4.1",
+          "title": "Intuitive Representation of Complex Rela",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.4.1-Intuitive-Representation-of-Complex-Rela.txt"
+        },
+        {
+          "id": "7.4.2",
+          "title": "Encoding Relational Information Graphs i",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.4.2-Encoding-Relational-Information-Graphs-i.txt"
+        },
+        {
+          "id": "7.4.3",
+          "title": "Flexibility and Versatility Graphs can r",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.4.3-Flexibility-and-Versatility-Graphs-can-r.txt"
+        },
+        {
+          "id": "7.4.4",
+          "title": "Efficiency and Scalability with GNNs GNN",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.4.4-Efficiency-and-Scalability-with-GNNs-GNN.txt"
+        },
+        {
+          "id": "7.4.5",
+          "title": "Uncovering Advanced Insights",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.4.5-Uncovering-Advanced-Insights.txt"
+        },
+        {
+          "id": "7.5.1",
+          "title": "Node Classification Graph convolutional",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.5.1-Node-Classification-Graph-convolutional.txt"
+        },
+        {
+          "id": "7.5.2",
+          "title": "Graph Classification",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.5.2-Graph-Classification.txt"
+        },
+        {
+          "id": "7.6",
+          "title": "CHALLENGES Addressing the challenges ass",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.6-CHALLENGES-Addressing-the-challenges-ass.txt"
+        },
+        {
+          "id": "7.6.1",
+          "title": "Scalability",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.6.1-Scalability.txt"
+        },
+        {
+          "id": "7.6.2",
+          "title": "Dynamic Graphs",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.6.2-Dynamic-Graphs.txt"
+        },
+        {
+          "id": "7.6.3",
+          "title": "Heterogeneous Graphs Another challenge i",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.6.3-Heterogeneous-Graphs-Another-challenge-i.txt"
+        },
+        {
+          "id": "7.7.1",
+          "title": "GraphSAGE  Graph Sample and Aggregation",
+          "path": "decomposition/chapters/ch07-Graph-Theory/sec-7.7.1-GraphSAGE--Graph-Sample-and-Aggregation.txt"
+        }
+      ]
+    },
+    {
+      "num": "08",
+      "name": "Differential Geometry",
+      "sections": [
+        {
+          "id": "8.1",
+          "title": "INTRODUCTION As we move into the digital",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.1-INTRODUCTION-As-we-move-into-the-digital.txt"
+        },
+        {
+          "id": "8.2.1",
+          "title": "Manifolds A manifold is a topological sp",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.2.1-Manifolds-A-manifold-is-a-topological-sp.txt"
+        },
+        {
+          "id": "8.2.2",
+          "title": "Tangent Space",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.2.2-Tangent-Space.txt"
+        },
+        {
+          "id": "8.2.3",
+          "title": "Metric Tensor The metric tensor is a key",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.2.3-Metric-Tensor-The-metric-tensor-is-a-key.txt"
+        },
+        {
+          "id": "8.2.4",
+          "title": "Curvature Curvature is a concept that de",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.2.4-Curvature-Curvature-is-a-concept-that-de.txt"
+        },
+        {
+          "id": "8.3",
+          "title": "DIFFERENTIAL GEOMETRY IN DEEP LEARNING D",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.3-DIFFERENTIAL-GEOMETRY-IN-DEEP-LEARNING-D.txt"
+        },
+        {
+          "id": "8.3.1",
+          "title": "Loss Landscapes",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.3.1-Loss-Landscapes.txt"
+        },
+        {
+          "id": "8.3.2",
+          "title": "Feature Space Analysis As data passes th",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.3.2-Feature-Space-Analysis-As-data-passes-th.txt"
+        },
+        {
+          "id": "8.3.3",
+          "title": "Neural Network Generalization",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.3.3-Neural-Network-Generalization.txt"
+        },
+        {
+          "id": "8.3.4",
+          "title": "Information Geometry",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.3.4-Information-Geometry.txt"
+        },
+        {
+          "id": "8.4.1",
+          "title": "Regularization Building on our earlier e",
+          "path": "decomposition/chapters/ch08-Differential-Geometry/sec-8.4.1-Regularization-Building-on-our-earlier-e.txt"
+        }
+      ]
+    },
+    {
+      "num": "09",
+      "name": "Topology in DL",
+      "sections": [
+        {
+          "id": "9.1",
+          "title": "INTRODUCTION In the vast field of deep l",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.1-INTRODUCTION-In-the-vast-field-of-deep-l.txt"
+        },
+        {
+          "id": "9.2",
+          "title": "BASIC TOPOLOGY Topology is a part of mat",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.2-BASIC-TOPOLOGY-Topology-is-a-part-of-mat.txt"
+        },
+        {
+          "id": "9.2.1",
+          "title": "Continuous Transformations and Invarianc",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.2.1-Continuous-Transformations-and-Invarianc.txt"
+        },
+        {
+          "id": "9.2.2",
+          "title": "Neural Networks and Topological Structur",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.2.2-Neural-Networks-and-Topological-Structur.txt"
+        },
+        {
+          "id": "9.3",
+          "title": "RELATION TO CONVERGENCE OF LEARNING ALGO",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.3-RELATION-TO-CONVERGENCE-OF-LEARNING-ALGO.txt"
+        },
+        {
+          "id": "9.3.1.1",
+          "title": "Depth  Number of Layers  The depth of a",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.3.1.1-Depth--Number-of-Layers--The-depth-of-a.txt"
+        },
+        {
+          "id": "9.3.1.2",
+          "title": "Width  Number of Nodes per Layer",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.3.1.2-Width--Number-of-Nodes-per-Layer.txt"
+        },
+        {
+          "id": "9.3.2",
+          "title": "Skip Connections Skip connections  also",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.3.2-Skip-Connections-Skip-connections--also.txt"
+        },
+        {
+          "id": "9.3.3",
+          "title": "Recurrent Connections Recurrent neural n",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.3.3-Recurrent-Connections-Recurrent-neural-n.txt"
+        },
+        {
+          "id": "9.3.4",
+          "title": "Activation Functions",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.3.4-Activation-Functions.txt"
+        },
+        {
+          "id": "9.4",
+          "title": "TOPOLOGICAL DATA ANALYSIS IN NEURAL NETW",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.4-TOPOLOGICAL-DATA-ANALYSIS-IN-NEURAL-NETW.txt"
+        },
+        {
+          "id": "9.4.1",
+          "title": "Persistent Homology Persistent homology",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.4.1-Persistent-Homology-Persistent-homology.txt"
+        },
+        {
+          "id": "9.5",
+          "title": "TOPOLOGICAL DATA ANALYSIS WITH DEEP LEAR",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.5-TOPOLOGICAL-DATA-ANALYSIS-WITH-DEEP-LEAR.txt"
+        },
+        {
+          "id": "9.5.1",
+          "title": "Persistent Homology in Deep Learning",
+          "path": "decomposition/chapters/ch09-Topology-in-DL/sec-9.5.1-Persistent-Homology-in-Deep-Learning.txt"
+        }
+      ]
+    },
+    {
+      "num": "10",
+      "name": "Harmonic Analysis CNNs",
+      "sections": [
+        {
+          "id": "10.1",
+          "title": "INTRODUCTION",
+          "path": "decomposition/chapters/ch10-Harmonic-Analysis-CNNs/sec-10.1-INTRODUCTION.txt"
+        },
+        {
+          "id": "10.2.1",
+          "title": "Fundamentals of Fourier Analysis The str",
+          "path": "decomposition/chapters/ch10-Harmonic-Analysis-CNNs/sec-10.2.1-Fundamentals-of-Fourier-Analysis-The-str.txt"
+        },
+        {
+          "id": "10.2.2",
+          "title": "Fourier Transform The Fourier transform",
+          "path": "decomposition/chapters/ch10-Harmonic-Analysis-CNNs/sec-10.2.2-Fourier-Transform-The-Fourier-transform.txt"
+        },
+        {
+          "id": "10.2.3",
+          "title": "Inverse Fourier Transform The inverse Fo",
+          "path": "decomposition/chapters/ch10-Harmonic-Analysis-CNNs/sec-10.2.3-Inverse-Fourier-Transform-The-inverse-Fo.txt"
+        },
+        {
+          "id": "10.3",
+          "title": "WAVELETS Wavelet analysis is a useful to",
+          "path": "decomposition/chapters/ch10-Harmonic-Analysis-CNNs/sec-10.3-WAVELETS-Wavelet-analysis-is-a-useful-to.txt"
+        },
+        {
+          "id": "10.3.1",
+          "title": "Wavelet Transform The wavelet transform",
+          "path": "decomposition/chapters/ch10-Harmonic-Analysis-CNNs/sec-10.3.1-Wavelet-Transform-The-wavelet-transform.txt"
+        },
+        {
+          "id": "10.3.2",
+          "title": "Applications of WT",
+          "path": "decomposition/chapters/ch10-Harmonic-Analysis-CNNs/sec-10.3.2-Applications-of-WT.txt"
+        },
+        {
+          "id": "10.4",
+          "title": "CONVOLUTION IN THE FREQUENCY DOMAIN FOR",
+          "path": "decomposition/chapters/ch10-Harmonic-Analysis-CNNs/sec-10.4-CONVOLUTION-IN-THE-FREQUENCY-DOMAIN-FOR.txt"
+        },
+        {
+          "id": "10.4.1",
+          "title": "Convolution Theorem The convolution theo",
+          "path": "decomposition/chapters/ch10-Harmonic-Analysis-CNNs/sec-10.4.1-Convolution-Theorem-The-convolution-theo.txt"
+        }
+      ]
+    },
+    {
+      "num": "11",
+      "name": "Dynamical Systems RNNs",
+      "sections": [
+        {
+          "id": "11.1",
+          "title": "INTRODUCTION In this chapter  we look at",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.1-INTRODUCTION-In-this-chapter--we-look-at.txt"
+        },
+        {
+          "id": "11.2",
+          "title": "THEORY OF DYNAMICAL SYSTEMS AND DIFFEREN",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.2-THEORY-OF-DYNAMICAL-SYSTEMS-AND-DIFFEREN.txt"
+        },
+        {
+          "id": "11.2.1",
+          "title": "Dynamical Systems",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.2.1-Dynamical-Systems.txt"
+        },
+        {
+          "id": "11.2.1.1",
+          "title": "Discrete Dynamical Systems",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.2.1.1-Discrete-Dynamical-Systems.txt"
+        },
+        {
+          "id": "11.2.1.2",
+          "title": "Continuous Dynamical Systems Unlike disc",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.2.1.2-Continuous-Dynamical-Systems-Unlike-disc.txt"
+        },
+        {
+          "id": "11.2.2",
+          "title": "Differential Equations",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.2.2-Differential-Equations.txt"
+        },
+        {
+          "id": "11.2.2.1",
+          "title": "Ordinary Differential Equations Ordinary",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.2.2.1-Ordinary-Differential-Equations-Ordinary.txt"
+        },
+        {
+          "id": "11.2.2.2",
+          "title": "Partial Differential Equations Partial d",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.2.2.2-Partial-Differential-Equations-Partial-d.txt"
+        },
+        {
+          "id": "11.3.1",
+          "title": "Memory and Dynamics Recurrent neural net",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.3.1-Memory-and-Dynamics-Recurrent-neural-net.txt"
+        },
+        {
+          "id": "11.3.2",
+          "title": "Explaining via ODEs",
+          "path": "decomposition/chapters/ch11-Dynamical-Systems-RNNs/sec-11.3.2-Explaining-via-ODEs.txt"
+        }
+      ]
+    },
+    {
+      "num": "12",
+      "name": "Quantum Computing",
+      "sections": [
+        {
+          "id": "12.1",
+          "title": "INTRODUCTION Quantum computing combines",
+          "path": "decomposition/chapters/ch12-Quantum-Computing/sec-12.1-INTRODUCTION-Quantum-computing-combines.txt"
+        },
+        {
+          "id": "12.2",
+          "title": "INTRODUCTION TO QUANTUM COMPUTING",
+          "path": "decomposition/chapters/ch12-Quantum-Computing/sec-12.2-INTRODUCTION-TO-QUANTUM-COMPUTING.txt"
+        },
+        {
+          "id": "12.2.1",
+          "title": "Qubits",
+          "path": "decomposition/chapters/ch12-Quantum-Computing/sec-12.2.1-Qubits.txt"
+        },
+        {
+          "id": "12.2.2",
+          "title": "Superposition",
+          "path": "decomposition/chapters/ch12-Quantum-Computing/sec-12.2.2-Superposition.txt"
+        },
+        {
+          "id": "12.2.3",
+          "title": "Entanglement",
+          "path": "decomposition/chapters/ch12-Quantum-Computing/sec-12.2.3-Entanglement.txt"
+        },
+        {
+          "id": "12.3.1",
+          "title": "Key Quantum Algorithms Quantum algorithm",
+          "path": "decomposition/chapters/ch12-Quantum-Computing/sec-12.3.1-Key-Quantum-Algorithms-Quantum-algorithm.txt"
+        },
+        {
+          "id": "12.3.2",
+          "title": "Quantum Machine Learning Algorithms Quan",
+          "path": "decomposition/chapters/ch12-Quantum-Computing/sec-12.3.2-Quantum-Machine-Learning-Algorithms-Quan.txt"
+        },
+        {
+          "id": "12.4.1",
+          "title": "Quantum Neural Networks  QNNs  QNNs comb",
+          "path": "decomposition/chapters/ch12-Quantum-Computing/sec-12.4.1-Quantum-Neural-Networks--QNNs--QNNs-comb.txt"
+        }
+      ]
+    }
+  ]
+}
