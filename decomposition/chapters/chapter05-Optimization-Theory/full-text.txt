@@ -1,0 +1,1600 @@
+
+--- PDF PAGE 133 ---
+120 Mathematical Foundations for Deep Learning
+3. Standardized Moments:  Standardized moments are the central moments divided by an appro -
+priate power of the standard deviation. These moments provide shape-  related characteristics 
+of the distribution, including skewness and kurtosis. The general formula is as follows:
+Standardized moment=µ
+σn
+n
+where:
+ •μn is the nth central moment,
+ •σ is the standard deviation.
+4. Skewness (Third Standardized Moment):  We explained skewness as it measures the asym -
+metry of the distribution. A skewness value of zero indicates a symmetric distribution. 
+Positive skewness indicates a longer right tail, and negative skewness indicates a longer left 
+tail:
+Skewness=µ
+σ3
+3
+4. Kurtosis (Fourth standardized moment):  We explained kurtosis as it measures the 
+“tailedness” of the distribution. A kurtosis of 3 corresponds to a normal distribution. Values 
+greater than 3 indicate heavy tails (leptokurtic), while values less than 3 indicate light tails 
+(platykurtic).
+Kurtosis=−µ
+σ4
+43
+For a right-  skewed distribution with a positive skewness value of 1.5, this means that the distribution 
+has a longer right tail compared to the left. If the kurtosis is greater than 3, it indicates the distribu -
+tion has more extreme values or outliers compared to a normal distribution.
+Figure 4.12  illustrates a comparative analysis of three different probability distributions using 
+histograms: the normal distribution, the skewnorm (positive skew) distribution, and the Laplace 
+(heavy tails) distribution. Figure 4.12 , top-  left, subplot displays the normal distribution in blue, 
+showcasing a symmetric bell-  shaped curve centered around the mean, highlighting its character -
+istic of light tails and symmetry, which indicates that data is evenly distributed around the central 
+value. Figure 4.12 , top-  right, subplot presents the skewnorm distribution in green, demonstrating 
+a positive skew where the tail on the right side is longer or fatter than the left. This indicates that 
+a majority of the data values fall to the left of the mean, with fewer high-  value outliers stretching 
+the distribution to the right. Figure 4.12 , bottom-  left, subplot depicts the Laplace distribution in 
+red, characterized by a sharper peak at the mean and heavier tails compared to the normal distribu -
+tion, signifying a higher probability of extreme values occurring and more variability in the data. 
+Figure 4.12 , bottom-  right, subplot overlays all three distributions using their respective colors, blue 
+for normal, green for skewnorm, and red for Laplace, with semi-  transparency, allowing for direct 
+comparison of the distributions within the same scale and axes. This composite view highlights the 
+differences in their shapes, central tendencies, and tail behaviors. Each subplot includes grid lines 
+for better readability and axes labeled with “Value” and “Frequency” to indicate the data range and 
+the count of occurrences within each bin, respectively. The normal distribution shows symmetry 
+and light tails, suggesting data points are commonly close to the mean. The skewnorm distribution  
+ 
+  
+
+--- PDF PAGE 134 ---
+121 Probability Theory and Statistics
+FIGURE 4.12  Comparison of distribution shapes.
+  newgenrtpdf
+
+--- PDF PAGE 135 ---
+122 Mathematical Foundations for Deep Learning
+highlights asymmetry due to its positive skew, indicating a tendency toward lower values with occa -
+sional higher outliers. The Laplace distribution emphasizes the presence of heavy tails, implying a 
+higher likelihood of extreme deviations from the mean.
+4.5.1   m oment S and Bnn S
+BNNs fundamentally alter the traditional NN paradigm by directly incorporating uncertainty into 
+the model’s structure using probability distributions for weights. Let us explore how moments are 
+critical in managing this uncertainty and influencing model performance. In BNNs, each weight is 
+characterized not by a single fixed value but by a probability distribution. The first two moments 
+of these distributions, the mean and variance, are particularly significant. The mean represents the 
+expected value of the weight, essentially indicating the “average” strength of the connection the 
+weight represents. The variance measures the uncertainty or reliability of this weight. A higher 
+variance suggests less confidence in the weight’s exactness, introducing a degree of flexibility or 
+hesitance in the model’s decisions.
+The complexity of a BNN can have a profound impact on its performance. A highly complex 
+BNN, with numerous parameters or low variance in weight distributions, might be overfitted by 
+capturing not just the underlying data patterns but also the noise, including higher moments like 
+skewness and kurtosis. Conversely, a too simplistic BNN might fail to capture sufficient moments of 
+the data distribution, overlooking crucial information that could lead to underfitting. In BNNs, vari -
+ance also plays a dual role by acting as a form of regularization. High variance on certain weights 
+can indicate areas where the model should be less confident, preventing it from relying too heavily 
+on data that may represent noise rather than signal. This mechanism helps to balance the model, 
+ensuring it does not become overly confident based on the limited or noisy training data, thereby 
+mitigating the risk of overfitting. Overfitting could occur if the model’s weights had variances close 
+to 0, leading to excessive certainty in potentially noisy data patterns. In BNNs, each weight wi is 
+modeled as a distribution characterized by moments (mean and variance):
+ wii i  N~, µσ2()  
+where:
+ •μi is the mean (expected value) of the weight,
+ •σi is the variance (uncertainty) of the weight.
+Suppose in a BNN a particular weight has a mean of 0.5 and a variance of 0.1. The model is confi -
+dent in the connection strength but allows for some uncertainty. If another weight has a variance of 
+0.3, this indicates more uncertainty in that weight’s value, meaning the model is less confident in 
+the connection.
+Figure 4.13  illustrates the effect of weight variance in BNNs on prediction stability and con -
+fidence. Figure 4.13  is divided into two subplots: In subplot Figure 4.13 a (BNN with low weight 
+variance), the blue prediction lines are closely clustered around the true function, represented by the 
+green line. This clustering indicates that the model’s predictions are consistent and closely aligned 
+with the actual underlying relationship, demonstrating high confidence and stability. The light blue 
+shaded area encompasses the range of these predictions, highlighting the model’s narrow uncer -
+tainty band. Conversely, subplot Figure 4.13 b (BNN with high weight variance) showcases a more 
+dispersed set of orange prediction lines surrounding the same green true function. This dispersion 
+reflects the model’s increased uncertainty due to high variance in its weights, resulting in a broader 
+prediction range illustrated by the light orange shaded area. 
+  
+
+--- PDF PAGE 136 ---
+123 Probability Theory and Statistics
+FIGURE 4.13  Effect of weight variance in BNN. (a) BNN with low variance, (b) BNN with high variance.
+  newgenrtpdf
+
+--- PDF PAGE 137 ---
+124 Mathematical Foundations for Deep Learning
+4.5.2   c onnection  Between  moment S and overfitting / underfitting
+Moments are crucial in shaping our understanding of data distributions and how they relate to model 
+fitting in statistics and machine learning. Here, we explore how moments impact the assumptions 
+behind model building and the common pitfalls of overfitting and underfitting. Statistical and 
+machine learning models often rely on specific assumptions about their data distributions. For 
+example, linear regression models assume that residuals are normally distributed, which pertains 
+to having zero skewness (symmetry) and a certain kurtosis (peakedness). We can validate these 
+assumptions by understanding moments such as mean, variance, skewness, and kurtosis. Significant 
+deviations in these moments from expected values can indicate a potential misfit, suggesting that 
+the model may not perform well on data that does not adhere to these assumed distributions. 
+Overfitting occurs when a model too closely fits the training data, capturing noise and outliers as 
+if they were true underlying patterns. This issue can arise if the model is excessively complex or 
+needs to be correctly regularized. While mean and variance often receive most of the focus, higher 
+moments like skewness and kurtosis are also critical. If these higher moments are influenced by 
+noise, and the model attempts to accommodate them, it may overfit. Monitoring these moments 
+can serve as a diagnostic tool; for instance, a model that captures extreme skewness or kurtosis 
+in the training data may be overfitting, especially if these characteristics are not representative 
+of the broader dataset. Conversely, underfitting happens when a model is too simplistic, often 
+considering only the first moment (mean) and possibly the second (variance) but ignoring more 
+complex moments such as skewness and kurtosis. This lack of complexity can prevent the model 
+from capturing essential patterns in the data, leading to poor training and unseen data performance. 
+Monitoring all moments provides insights into potentially overlooked data distribution aspects. For 
+example, if the data exhibits high skewness or kurtosis and the model needs to account for these, it 
+might underfit, failing to generalize effectively. The higher moments (skewness γ and kurtosis κ) 
+are computed as:
+ γµ
+σκµ
+σ=−( ]=−( ] [),[)XX3
+34
+4 
+where:
+ •μ is the mean,
+ •σ is the standard deviation.
+Suppose you are fitting a regression model to a dataset with a mean (first moment) of 0, variance 
+(second moment) of 1, skewness (third moment) of 0.5, and kurtosis (fourth moment) of 3.5. If your 
+model only accounts for the mean and variance, it may underfit by failing to capture the skewness 
+and kurtosis of the data. Alternatively, if the model attempts to fit extreme skewness (e.g., skewness 
+of 2) caused by noise in the training set, it may overfit. In overfitting, the model may overly conform 
+to deviations in these higher moments (e.g., skewness and kurtosis), while in underfitting, it ignores 
+these moments, leading to poor generalization. Monitoring these metrics helps diagnose and miti -
+gate fitting issues.
+Figure 4.14  presents a comparative analysis of how different data distributions, specifically posi -
+tively skewed data and high kurtosis data, impact the performance of a simple linear regression 
+model. Figure 4.14 a displays positively skewed data generated using a skewed normal distribution. 
+The scatter plot, depicted in blue, shows a concentration of data points on the left side with a tail 
+extending to the right, characteristic of positive skewness. The orange line represents the linear fit 
+applied to this skewed data. Due to the asymmetry in the data distribution, the linear model fails to 
+capture the underlying trend effectively, resulting in a fit that does not align well with the majority of  
+  
+
+--- PDF PAGE 138 ---
+125 Probability Theory and Statistics
+FIGURE 4.14  (a) Fit to positively skewed data, and (b) fit to high kurtosis data.
+  newgenrtpdf
+
+--- PDF PAGE 139 ---
+126 Mathematical Foundations for Deep Learning
+the data points. Conversely, Figure 4.14 b on the right showcases high kurtosis data generated using 
+the Laplace distribution. The scatter plot in green exhibits a sharp peak with heavy tails, indicative of 
+high kurtosis. The same orange linear fit is applied to this dataset, revealing that the model struggles 
+to accommodate the pronounced peak and the extreme values in the tails. This results in a linear fit 
+that oversimplifies the data’s variability, failing to accurately represent the distribution’s heavy tails.
+4.6  REAL-  WORLD APPLICATIONS AND EXAMPLES
+4.6.1   image recognition  and proce SSing
+Linear algebra is fundamental in image recognition and processing tasks. Images are typically 
+represented as matrices, where each pixel is a value in a matrix. Operations like image filtering, 
+transformation, and enhancement involve matrix manipulations such as convolution, eigen -
+value decomposition, and singular value decomposition (SVD). convolutional neural networks 
+(CNNs), which are widely used for image recognition tasks, rely on these linear algebra 
+operations to extract features, recognize patterns, and classify images accurately. For example, 
+in facial recognition systems, CNNs  process the pixel values of images through multiple layers 
+of convolutions, pooling, and fully connected layers to identify and verify individuals based on 
+their facial features.
+4.6.2   n atural  language  proce SSing
+Probability theory and statistics are essential in Natural Language Processing ( NLP), where models 
+often need to handle the uncertainty and variability inherent in human language. Language models, 
+such as those used in machine translation or text generation, rely on probability distributions to 
+predict the likelihood of a word or sequence of words given a context. Bayesian methods, which 
+combine prior knowledge with observed data to update beliefs, are particularly useful in NLP tasks 
+that involve uncertainty. For example, in a spam detection system, Bayesian classifiers use prob -
+ability distributions to calculate the likelihood that an email is spam based on the presence of certain 
+keywords or phrases, making decisions even when there is ambiguity in the data.
+4.6.3   r oBotic S and control  SyStemS
+In robotics, the principles of multivariate calculus and linear algebra are applied to control systems 
+and motion planning. Robots must navigate and interact with their environment, which requires 
+solving optimization problems in real time. For example, the control of a robotic arm involves 
+computing the joint angles needed to move the end effector to a desired position. This computa -
+tion requires solving a system of non-  linear equations, which is achieved using techniques from 
+multivariate calculus and linear algebra. Additionally, probability theory is used in robotics for state 
+estimation and sensor fusion, where the robot must estimate its position and orientation based on 
+noisy sensor data.
+4.6.4   h ealthcare  and medical  diagno SticS
+In healthcare, statistical methods and probability theory are applied to medical diagnostics and 
+treatment planning. Bayesian networks, which model the probabilistic relationships between 
+different variables, are used to predict the likelihood of diseases based on patient symptoms and 
+medical history. For example, in a diagnostic system for cancer detection, a Bayesian network can 
+integrate various risk factors, such as genetic predispositions and lifestyle choices, to estimate the 
+probability of a patient having cancer. This probabilistic approach allows for more personalized and 
+accurate diagnoses, enabling better treatment decisions. 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 140 ---
+127 Probability Theory and Statistics
+4.7  HANDS-  ON EXAMPLE
+In this section, we will walk through a hands-  on example that demonstrates the application of 
+probabilistic models and the handling of uncertainty in NNs using BNNs. We will use a synthetic 
+dataset to show how BNNs  provide a measure of uncertainty in their predictions compared to trad -
+itional NNs.
+4.7.1  Step 1. S etup and import  liBrarie S
+In this section, we are installing and importing the necessary packages for our project. The 
+command!pip install tensorflow tensorflow-  probability matplotlib NumPy ensures that the latest 
+versions of the TensorFlow, TensorFlow Probability, matplotlib, and NumPy libraries are installed. 
+After installing, we import these libraries to make use of their functions and capabilities throughout 
+the project.
+# Install the required packages
+!pip install tensorflow tensorflow-  probability matplotlib numpy
+import tensorflow as tf
+import tensorflow_  probability as tfp
+import numpy as np
+import matplotlib.pyplot as plt
+4.7.2  Step 2. generate  Synthetic  data
+In this step, we are generating synthetic data to use in our model or for visualization purposes. 
+First, by setting np.random.seed(42), we ensure that the random number generation is consistent 
+across runs, which is important for reproducibility. Then, x =  np.linspace(−3, 3, 100) creates an 
+array of 100 evenly spaced values between −3 and 3, which serves as the input data points. The 
+corresponding y values are generated using the sine function (np.sin(x)) with added noise (0.3 * 
+np.random.randn(100)) to simulate a real-  world scenario where data is often noisy. Finally, a scatter 
+plot of the data is created using matplotlib, with appropriate labels for the axes and a title to describe 
+the plot.
+# Generate synthetic data
+np.random.seed(42)
+x =  np.linspace(-  3, 3, 100)
+y =  np.sin(x) +   0.3 * np.random.randn(100)
+plt.scatter(x, y, label=  ‘Data ’)
+plt.xlabel( ‘x’)
+plt.ylabel( ‘y’)
+plt.legend()
+plt.title( ‘Synthetic Data ’)
+plt.show() 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 141 ---
+128 Mathematical Foundations for Deep Learning
+4.7.3  Step 3. define the Bnn
+In this step, we are defining a BNN using TensorFlow and TensorFlow Probability. First, the tf.   
+keras.backend.set_  floatx(‘float64’) command ensures that all computations are done with double 
+precision (64-  bit floats) for better numerical stability. The create_  bnn_  model() function builds a 
+sequential model with three layers using DenseFlipout from TensorFlow Probability. DenseFlipout 
+layers allow the model to learn weight distributions, enabling it to estimate uncertainty in 
+predictions. The model has two hidden layers, each with 64 units and Rectified Linear Unit (ReLU) 
+activation, and one output layer with a single unit for regression. After creating the model, it is 
+compiled with the Adam optimizer and mean squared error loss, which are commonly used for 
+training NNs. This setup prepares the BNN for training on data, enabling it to handle uncertainty 
+in predictions effectively.
+# Define a Bayesian Neural Network
+tf.keras.backend.set_  floatx( ‘float64 ’)
+def create_  bnn_ model():
+model =  tf.keras.Sequential([
+tfp.layers.DenseFlipout(64, activation=  ‘relu ’, input_  
+shape= (1,)),
+tfp.layers.DenseFlipout(64, activation=  ‘relu ’),
+tfp.layers.DenseFlipout(1)
+])
+return model
+bnn_ model =  create_  bnn_ model()
+bnn_ model.compile(optimizer=  tf.optimizers.Adam(learning_  rate= 
+0.01),
+loss= ‘mean_ squared_  error ’)
+4.7.4  Step 4. train the Bnn
+# Train the Bayesian Neural Network
+bnn_ model.fit(x, y, epochs=  1000, verbose=  0)
+4.7.5  Step 5. make prediction S and plot uncertainty
+In this step, we are using the previously defined BNN to make predictions and visualize the results 
+along with uncertainty estimates. The x_  test array is created using np.linspace(−3, 3, 100) to gen -
+erate 100 evenly spaced points within the range of −3 to 3, which serve as test inputs. The BNN 
+model is run 100 times (for _   in range(100)) to obtain multiple predictions for each input point, 
+capturing the model’s uncertainty. These predictions are stored in y_  pred, which is then converted 
+into a NumPy array for easier manipulation. We calculate the mean (y_  pred_  mean) and standard 
+deviation (y_  pred_  std) of the predictions at each test point, reflecting the model’s predictive distri -
+bution. Finally, we plot the results: the original data points are shown as blue scatter points, the mean 
+predictions as a red line, and the uncertainty (±2 standard deviations) as a shaded region around 
+the mean. 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 142 ---
+129 Probability Theory and Statistics
+# Make predictions with the BNN
+x_ test =  np.linspace(-  3, 3, 100)
+y_ pred =  [bnn_ model(x_  test) for _   in range(100)]
+y_ pred =  np.array(y_  pred)
+# Calculate mean and standard deviation of predictions
+y_ pred_ mean =  y_ pred.mean(axis=  0).flatten()
+y_ pred_ std =  y_ pred.std(axis=  0).flatten()
+# Plot the results
+plt.figure(figsize=  (10, 6))
+plt.scatter(x, y, label=  ‘Data ’, color=  ’blue ’)
+plt.plot(x_  test, y_  pred_ mean, label=  ‘Predictive Mean ’, color=  ’red’)
+plt.fill_  between(x_  test, y_  pred_ mean -  2 * y_ pred_ std, y_ 
+pred_ mean +  2 * y_ pred_ std, color=  ‘red’, alpha=  0.3, label=  
+’Uncertainty ( ±2 std) ’)
+plt.xlabel( ‘x’)
+plt.ylabel( ‘y’)
+plt.legend()
+plt.title( ‘Bayesian Neural Network Predictions with 
+Uncertainty ’)
+plt.show()
+Figure 4.15  demonstrates the predictive capability and uncertainty quantification of a BNN on a 
+synthetic dataset. Figure 4.15 a shows the predictive mean (red line) and the actual data points (blue). 
+Figure 4.15 b highlights the uncertainty (±2 standard deviations), predictive mean, and actual data. 
+The shaded area in Figure 4.15 b represents the uncertainty, showing how the BNN  captures the vari -
+ability in its predictions.
+4.8  COMMON MISTAKES AND TROUBLESHOOTING TIPS
+4.8.1   u nder Standing  proBaBility diStriBution S
+ •Mistake:  Confusing discrete and continuous distributions.
+ •Tip: Remember that discrete distributions deal with countable outcomes (e.g., number of  
+heads in coin flips), while continuous distributions handle outcomes over a range (e.g., height  
+of individuals).
+FIGURE 4.15  Predictive mean and actual data points of a BNN on synthetic data. 
+  
+  
+
+--- PDF PAGE 143 ---
+130 Mathematical Foundations for Deep Learning
+ •Mistake:  Misinterpreting the properties of distributions (e.g., thinking all data are normally 
+distributed).
+ •Tip: Always check the data and select the appropriate distribution. For example, a Poisson 
+distribution can model the number of events occurring in a fixed interval.
+4.8.2   a pplying  proBaBility diStriBution S
+ •Mistake:  Using inappropriate distributions for the data type.
+ •Tip: Match your data characteristics to the distribution. For instance, the binomial distribu -
+tion can be used for binary outcomes, and the normal distribution can be used for continuous, 
+symmetric data.
+4.8.3   o verfitting  and underfitting
+ •Mistake:  Ignoring signs of overfitting and underfitting in model performance.
+ •Tip: Monitor model performance on both training and validation sets. High training accuracy but 
+low validation accuracy indicates overfitting. Low accuracy on both sets suggests underfitting.
+ •Mistake:  Not using regularization techniques to combat overfitting.
+ •Tip: To penalize model complexity, Implement regularization methods like L1/ L2 regulariza -
+tion, dropout, or Bayesian priors.
+4.8.4   BayeSian neural  network S
+ •Mistake:  Treating BNNs like traditional NNs without considering uncertainty.
+ •Tip: Embrace the probabilistic nature of BNNs . Use the posterior distributions of weights to 
+gauge uncertainty in predictions, which is crucial for making informed decisions.
+4.8.5   m oment S in StatiSticS
+ •Mistake:  Misinterpreting the significance of higher-  order moments like skewness and kurtosis.
+ •Tip: Use skewness to understand asymmetry in data and kurtosis to assess tail heaviness. 
+These moments provide deeper insights into data distribution beyond mean and variance.
+ •Mistake:  Relying solely on mean and variance for data analysis.
+ •Tip: Consider higher-  order moments when data exhibits skewness or heavy tails. This can pre -
+vent misinterpretation of data characteristics and improve model fitting.
+4.8.6   Sampling  method S
+ •Mistake:  Not ensuring randomness in sampling.
+ •Tip: Implement truly random sampling methods to avoid bias. For systematic sampling, ensure 
+that the population does not have periodic patterns that could bias results.
+ •Mistake:  Ignoring the need for stratified sampling in heterogeneous populations.
+ •Tip: Use stratified sampling to ensure all population subgroups are adequately represented, 
+improving the precision of estimates.
+4.8.7   BayeSian StatiSticS
+ •Mistake:  Choosing inappropriate priors in Bayesian models.
+ •Tip: Select priors that reflect prior knowledge or are non-  informative when little prior infor -
+mation is available. Sensitivity analysis can help understand the impact of different priors on 
+posterior distributions. 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 144 ---
+131 Probability Theory and Statistics
+4.9  REVIEW QUESTIONS
+1. How do BNNs handle uncertainty differently from traditional NNs? Discuss the role of prob -
+ability distributions in BNNs .
+2. Explain the concepts of overfitting and underfitting in the context of statistical modeling. 
+What are some methods used to prevent these issues in machine learning models?
+3. Define and explain the importance of the following terms in the context of probability 
+distributions: mean, variance, skewness, kurtosis.
+4. What is Bayes’ theorem, and how is it applied to Bayesian statistics? Provide a simple 
+example to illustrate its use.
+5. Discuss how model complexity affects the performance of a machine learning model. How 
+do Bayesian statistics help manage model complexity?
+6. Compare and contrast the three sampling methods discussed in the chapter. Which method 
+would you choose for a given scenario involving a large, heterogeneous population, and 
+why?
+7. Provide an example of a real-  world application where the statistical principles discussed in 
+this chapter can be applied. How do these principles improve the prediction accuracy or reli -
+ability of the model?
+8. What are regularization techniques, and how do they relate to Bayesian statistics? Explain 
+how these techniques help in handling overfitting.
+9. How does understanding the uncertainty in model predictions benefit the deployment of 
+machine learning models in sensitive areas like healthcare or autonomous driving?
+10. How do prior and posterior distributions differ in Bayesian statistics? Discuss their roles in 
+updating beliefs as new data becomes available and provide an example of how this concept 
+is applied in machine learning.
+4.10  PROGRAMMING QUESTIONS
+4.10.1   e aSy
+Implement a program that generates a set of data points following a normal distribution.
+1. Use a random number generator to create a set of data points that follow a normal distribu -
+tion with a specified mean and standard deviation.
+2. Calculate the theoretical PDF  of the normal distribution using the specified mean and 
+standard deviation.
+4.10.2   m edium
+Implement Bayesian linear regression to predict a dependent variable based on an independent 
+variable.
+1. Create a dataset with an independent variable, x, and a dependent variable, y, with added 
+Gaussian noise.
+2. Specify the Bayesian linear regression model with priors for the weights and noise.
+3. Use a Bayesian inference method to estimate the posterior distributions of the weights.
+4. Generate predictions for new data points and compute credible intervals for the 
+predictions. 
+ 
+ 
+  
+
+--- PDF PAGE 145 ---
+132 Mathematical Foundations for Deep Learning
+4.10.3   h ard
+Implement variational inference for a BNN to perform classification on a synthetic dataset.
+1. Create a synthetic dataset for a binary classification problem with clear decision boundaries.
+2. Specify the architecture of the BNN  using variational inference methods (e.g., Bayes by 
+Backprop or Flipout layers in TensorFlow Probability).
+3. Train the BNN on the synthetic dataset using an appropriate optimizer and loss function.
+4. Perform variational inference to estimate the posterior distributions of the weights.
+5. Generate predictions for a grid of points covering the input space. Compute the uncertainty 
+in the predictions for each point in the grid.  
+
+--- PDF PAGE 146 ---
+133 DOI: 10.1201/9781032690742-55 Optimization Theory
+5.1  INTRODUCTION
+Optimization theory is a key part of mathematics and applied sciences, and it takes a deep look 
+into how we make decisions. At its core, optimization is about finding the best solution from many 
+possible options. It’s focused on accuracy, blending logic and function to achieve the most effective 
+results. Whenever we seek knowledge or try to solve a problem, we’re quietly pursuing perfection, 
+and optimization guides us on this journey toward excellence. From dividing up resources in an 
+economy to improving the algorithms that run our digital world, the search for the best choice is 
+always ongoing. Optimization theory provides the tools and viewpoints we need to navigate this 
+area, offering solutions and a deeper understanding of how we reach them. This chapter explores 
+some of the most popular optimization methods in deep learning.
+5.2  OPTIMIZATION THEORY
+Optimization theory is basically about making choices and picking the best option from a set of 
+available alternatives based on specific, measurable criteria. At its core, it sheds light on the prin -
+ciple of selection: when faced with many options, how do we identify the most suitable or advan -
+tageous one? This field provides systematic and analytical methods to determine the “best” choice, 
+where “best” could mean minimizing costs, maximizing efficiency, reducing waste, or achieving 
+any other measurable goal. For example, imagine a business evaluating different marketing strat -
+egies to find the most cost-  effective one, an engineer choosing the most durable material for a new 
+design, or a traveler planning the quickest route to their destination. Constraints are an essential 
+part of optimization problems. They define the feasible solutions and ensure that these solutions are 
+practical and applicable to real-  world scenarios. Constraints limit the decision variables and set the 
+boundaries for the optimal solution. They are restrictions or limitations placed on decision variables 
+and can be equality constraints (e.g., x +  y =  10) or inequality constraints (e.g., x +  y ≤ 10). These 
+constraints shape the feasible region in the decision variable space, within which the optimal solu -
+tion must be found. There are different types of constraints:
+ •Equality constraints  must be satisfied exactly, such as the total weight of items in a knapsack 
+problem.
+ •Inequality constraints  set an upper or lower limit, like a budget constraint where total costs 
+must not exceed a specific value.
+ •Bound constraints  directly limit the range of decision variables, such as a percentage that 
+must be between 0 and 100. 
+ 
+  
+
+--- PDF PAGE 147 ---
+134 Mathematical Foundations for Deep Learning
+Feasible solutions are those that meet all the constraints, while infeasible solutions violate one  
+or more constraints. Active constraints are those that, if slightly changed, would alter the optimal  
+solution. Binding constraints are specific inequality constraints that are exactly met at the optimal  
+solution and directly influence it. Many optimization algorithms are initially designed for problems  
+without constraints. However, there are several effective methods to handle constraints. Penalty  
+methods convert a constrained problem into an unconstrained one by adding penalties to the  
+objective function for any violations of the constraints.
+Figure 5.1  features two primary constraint lines: the green line represents the inequality xx124+≤,    
+while the orange line corresponds to 2 612xx+≤ . These lines present the boundaries within which 
+the variables x1 and x2 must lie to satisfy both constraints simultaneously. The area where these 
+constraints overlap is a shaded area, highlighting the feasible region where potential solutions exist. 
+At the core of this feasible region lies the optimal solution, marked prominently with a large purple 
+scatter point. This point, situated at the coordinates ( x1, x2), represents the values of x1 and x2 that 
+maximize the objective function 3 x1 +  2x2 while adhering to the defined constraints.
+5.3  TYPES OF OPTIMIZATIONS
+5.3.1   l inear optimization
+Linear optimization, also known as linear programming, focuses on finding the best outcome, like 
+maximizing profit or minimizing cost, in models where all relationships are linear. The main com -
+ponent is the objective function that you want to optimize. For example, if you’re trying to maximize 
+profit from selling two products, A and B, the objective function could be written as Pa Ab B=+ , 
+where a and b represent the profit per unit of products A and B, respectively. In linear optimization, 
+FIGURE 5.1  Feasible region and constraints in linear programming. 
+ 
+  
+
+--- PDF PAGE 148 ---
+135 Optimization Theory
+you have limits called constraints, which are expressed as linear equations or inequalities. Using 
+the example above, constraints might include limitations on available resources like raw materials 
+or labor, represented in linear terms. These constraints define the set of all feasible solutions that 
+meet the requirements. The optimal solution is the one that maximizes or minimizes the objective 
+function within this feasible set. In two-  dimensional cases, this optimal point is often found at a 
+vertex of the feasible polygon, the corner points of the area defined by the constraints. The sim -
+plex method is the most recognized technique for solving linear optimization problems, but other 
+methods, like interior point methods, are also effective, especially in specific situations. However, 
+linear optimization assumes that both the objective function and the constraints are linear, which 
+might not be true in more complex, real-  world scenarios. Nonetheless, some non-  linear problems 
+can be approximated as linear to make use of linear optimization methods, broadening their applic -
+ability. The general form of a linear optimization problem is:
+ Maximizeo r minimizeZc xc xc xnn=++…+11 22 
+Subject to:
+ ax ax ax bnn11 11 22 11++ …+ ≤  
+ ax ax ax bnn21 12 22 22++ …+ ≤  
+ xx xn120 ,,,…≥ 
+Suppose a company produces two products, A and B, with profit margins of $3 per unit for product 
+A and $4 per unit for product B. The objective function for maximizing profit is:
+ MaximizePA B=+34  
+Subject to the following constraints: A +  2B ≤ 14 (raw material constraint), 3A +  B ≤ 18 (labor con -
+straint), and A, B  ≥ 0.
+Figure 5.2  features two primary constraint lines: the light blue line represents the inequality 
+A B+≤21 4 , while the blue line corresponds to A B+≤18 . These lines present the boundaries within 
+which the variables A and B must reside to satisfy both constraints simultaneously. The intersection 
+of these constraints forms the vertices of the feasible region, which is shaded to visually demarcate 
+the area where potential solutions lie. At the core of this feasible region is the optimal solution, 
+marked prominently with a large green point. This point, situated at approximately (4, 3), represents 
+the values of A and B which maximize the objective function P =  3A +  4B while adhering to the 
+defined constraints. Additionally, the red dashed line represents the objective function at its optimal 
+value, P =  24, illustrating the level curve of the objective function that intersects the feasible region 
+at the optimal point. This line serves as a visual cue, demonstrating how the objective function 
+interacts with the constraints to determine the optimal solution.
+5.3.2   n on- linear  optimization
+Non-  linear optimization deals with situations where the objective function, the constraints, or both  
+involve non-  linear relationships. Unlike linear relationships, which are represented by straight lines  
+or flat surfaces, non-  linear interactions add complexity, making these problems more challenging  
+and more reflective of real-  world dynamics. This flexibility is crucial in many scientific and indus -
+trial applications because it models complex relationships. In non-  linear optimization, the objective  
+function includes non-  linear expressions of the decision variables. For example, consider the   
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 149 ---
+136 Mathematical Foundations for Deep Learning
+function PA BA B=+ −2334 , where the goal is to maximize or minimize P. This creates a dynamic  
+landscape of possible solutions, making the optimization process more complicated. Constraints can  
+also be non-  linear, such as A B229+≤, which represents a circular boundary in a two-  dimensional  
+space for variables A and B. This geometric constraint shapes the feasible solution space into forms  
+that are not just flat or polyhedral. The solution techniques include:
+(a) Gradient-  Based Methods:  These include gradient descent, Newton’s method, and quasi-  
+Newton methods, which utilize derivatives to guide the optimization process.
+(b) Direct Search Methods:  For instance, the Nelder–  Mead method operates without derivative 
+information and is suitable for problems where derivatives are infeasible to calculate.
+(c) Evolutionary and Genetic Algorithms:  Inspired by natural selection, these methods use 
+heuristic approaches to explore the solution space, which is especially useful in complex 
+landscapes.
+A general non-  linear optimization problem can be formulated as:
+ Maximizeo r minimizefx xxn12,,,… ()  
+Subject to:
+ gx xx bg xx xb gx xx bnn mn m 11 21 21 22 12,,, , ,,, ,, ,,,… () ≤… () ≤… … () ≤ 
+FIGURE 5.2  Linear optimization: feasible region and objective function. 
+ 
+  
+
+--- PDF PAGE 150 ---
+137 Optimization Theory
+In this case, f(x1, x2) represents the non-  linear objective function, and g(x1, x2) represents the non-  
+linear constraints, shaping the feasible region. Techniques like gradient descent would be used to find 
+optimal solutions. Suppose you aim to maximize the non-  linear objective function PA BAB,()=+22,   
+subject to the non-  linear constraint A B229+≤, which represents a circular boundary with a radius 
+of 3. The feasible solution space is the interior of this circle, and the maximum value of P occurs at 
+the boundary where PA BA B=+ −2334 , producing a maximum value of P(3, 0)=  9.
+Figure 5.3  features a vibrant contour map of the objective function PA BA B=+ −2334 , rendered 
+using the perceptually uniform colormap. Central to the visualization is the constraint A B229+≤
+, depicted as a prominent dashed black circle with a radius of 3. This boundary defines the feasible 
+region in which optimization must occur. The area inside the circle, where both constraints are sat -
+isfied, is subtly highlighted with a semitransparent overlay of the same colormap, reinforcing the 
+feasible region’s significance without overwhelming the objective function’s contours. Additionally, 
+a specific point within the feasible region, such as (1, 1), is marked with a large red scatter point.
+5.3.3   integer  optimization
+Integer optimization (IO), or integer programming (IP), focuses on optimization problems where  
+some or all decision variables must assume integer values. This requirement arises when fractional  
+solutions are impractical, such as determining the number of items to produce, personnel assignments,  
+or scheduling tasks. IO is critical for problems demanding discrete solutions, presenting unique  
+challenges distinct from those of continuous optimization. The types of IO are:
+FIGURE 5.3  Non-  linear optimization with constraints.   
+
+--- PDF PAGE 151 ---
+138 Mathematical Foundations for Deep Learning
+(a) Pure Integer Programming (PIP):  All decision variables are integers.
+(b) Mixed Integer Programming (MIP):  Combines integer and continuous variables, addressing 
+a more complete range of practical scenarios.
+(c) Binary Integer Programming (BIP):  Decision variables are binary (0 or 1), ideal for problems 
+involving binary decisions like turning a process on or off.
+In some optimization problems, the variables are required to be whole numbers (integers). The 
+objective function, which we aim to maximize or minimize, can be linear or non-  linear, leading to 
+situations known as linear IP or non-  linear IP. Similarly, the constraints in these problems can be linear 
+or non-  linear and may also demand that the variables be integers. Several techniques are employed to 
+solve these IP problems. One method is branch and bound (B&B), which involves branching on the 
+fractional parts of variables. This technique systematically explores different possible solutions and 
+uses upper and lower bounds to reduce the search space, making it easier to find the optimal integer 
+solution. Another approach is cutting plane method, which add extra constraints called cutting planes 
+to the problem. These methods derive valid inequalities to eliminate fractional solutions, guiding the 
+search toward integer solutions. Additionally, heuristic methods like rounding or diving provide quick 
+ways to find feasible integer solutions. While these methods are faster, they may not always find the 
+best possible solution but offer an acceptable one. A general IO problem can be formulated as:
+ Maximizeo r minimizeZc xc xc xnn=++…+11 22 
+Subject to:
+ ax ax ax bx xxnn n11 11 22 11 12++ …+ ≤… ∈, ,,,  
+This formulation captures the requirement that decision variables must be integers, and methods 
+like B&B or cutting plane methods are used to solve these problems. Suppose a company needs 
+to produce tables and chairs. The decision variables are the number of tables T and chairs C to 
+produce. The profit is given by the linear objective function Z TC=+20 15 , and the constraint is 
+that the total production cannot exceed 100 units T C+≤100 . As fractional tables or chairs cannot 
+be produced, T and C must be integers. The IO problems are classified as NP-  hard, meaning the 
+computational difficulty can scale exponentially with problem size. The discrete nature of the solu -
+tion space restricts the use of gradient-  based optimization methods that are effective in continuous 
+scenarios. Due to their complexity, IO problems often necessitate specialized computational tools.
+Figure 5.4  illustrates the feasible region defined by the constraint A +  B ≤ 12 and highlights the 
+optimal solution that maximizes the objective function P =  3A +  2B. The plot features a grid of 
+discrete points where both A and B range from 0 to 12, representing all possible combinations of 
+these variables. The feasible solutions are depicted using a scatter plot with square markers, colored 
+according to their corresponding objective function values P. The semitransparent light gray shading 
+delineates the feasible region where the constraint A +  B ≤ 12 is satisfied, providing a boundary 
+that confines the optimization problem’s solution space. At the heart of the feasible region lies the 
+optimal solution, marked prominently with a large golden-  yellow scatter point. This point represents 
+the values of A and B that maximize the objective function P while adhering to the constraint.
+5.3.4   c onvex  optimization
+Convex optimization is a specialized area within optimization where both the objective function and 
+the constraints are convex. This property greatly simplifies the optimization process because any 
+local minimum is also a global minimum, eliminating the uncertainty often found in non-  convex 
+optimization. A function f is considered convex over an interval I if, for any two points x1 and x2 in 
+I and any λ in the interval [0, 1], the following inequality holds: 
+ 
+  
+
+--- PDF PAGE 152 ---
+139 Optimization Theory
+ f xx fx fxλλ λλ12 1211+−( ) () ≤()+−( )() 
+Graphically, this means that the line segment between any two points on the graph of the function 
+lies above or on the graph itself. A set S is convex if, for every pair of points x1 and x2 in S and 
+any λ in the interval [0, 1], the point λλxx121+−( ) also belongs to S. This ensures that the 
+entire line segment between any two points in S is contained within S. Convex optimization 
+problems have several key features. First, if a solution exists, it is unique and globally optimal. 
+Unlike non-  convex problems, convex optimization does not have local optima that are not global. 
+Additionally, the intersection of all constraints forms a convex feasible set, which simplifies 
+the search for the optimal solution. Various techniques are used to solve convex optimization 
+problems. Gradient descent is an iterative method that moves in the direction of the steepest 
+decrease of the function. Interior point methods explore the inside of the feasible set to find the 
+optimal solution. Subgradient and proximal methods are particularly useful for convex optimiza -
+tion problems that are not smooth. Despite their advantages, convex optimization problems can 
+present challenges. Finding the global optimum might be computationally demanding, especially 
+in high-  dimensional spaces. Moreover, not all real-  world problems are convex, and transforming 
+non- convex problems into convex ones can be limiting and impractical. A general convex opti -
+mization problem can be formulated as:
+ Minimizefx () 
+FIGURE 5.4  Integer optimization. 
+ 
+  
+
+--- PDF PAGE 153 ---
+140 Mathematical Foundations for Deep Learning
+Subject to:
+ gx ixi()≤∀ ∈0,  
+where:
+ •f(x) is a convex function,
+ •gi(x) represents convex constraints, and
+ •C is a convex set.
+This ensures that any local minimum is also a global minimum, and techniques like gradient descent 
+or interior point can efficiently solve such problems. Consider the convex function f(x) =  x2 +  4x +  
+4, which has a global minimum at x =  −2. The objective is to minimize this function, subject to the 
+constraint x ≥ −3. As f(x) is convex and the constraint forms a convex set, the optimal solution is 
+x =  −2, where the function achieves its minimum value of 0.
+In Figure 5.5 , the function f xx()=2 is plotted as a smooth curve. This quadratic function 
+represents a simple convex shape, making it suitable for demonstrating the gradient descent method. 
+The gradient descent process begins at the starting point, marked by the green dot, located on the 
+right side of the function. From here, gradient descent iteratively updates the value of x to minimize 
+f(x). At each step, the algorithm moves in the direction of the negative gradient (the slope of the 
+function at the current point), adjusting x to decrease the function value. These steps are represented 
+by the blue dots along the curve. Each dot shows a position where the algorithm evaluates and 
+updates the function value, gradually moving toward the minimum. As the algorithm approaches 
+FIGURE 5.5  Convex optimization using gradient descent on f xx()=2.
+   
+
+--- PDF PAGE 154 ---
+141 Optimization Theory
+the minimum point, highlighted in yellow, the steps become smaller. This behavior illustrates that 
+as the gradient (slope) decreases near the minimum, the updates become less significant, allowing 
+the algorithm to converge precisely at the minimum. The minimum of f xx()=2 occurs at x =  0, 
+where the function value is also zero. The shaded area under the curve provides visual emphasis on 
+the function’s domain, while the red dashed line shows the trajectory of the algorithm’s updates, 
+highlighting how it progressively converges toward the minimum.
+5.3.5   c omBinatorial  optimization
+Combinatorial optimization is an important field within optimization that deals with problems 
+in discrete and combinatorial settings, such as finding the shortest path in a network or graph. It 
+addresses optimization challenges where the solution space consists of distinct, countable options, 
+and the number of possible solutions can be immense, often increasing exponentially as the problem 
+grows larger. A key feature of combinatorial optimization is the discrete nature of its solution space, 
+meaning solutions are separate and countable. As the size of the problem increases, the complexity 
+and the number of potential solutions expand dramatically. These problems often involve selecting 
+the best combination or sequence of elements from a set, which is a defining characteristic of this 
+type of optimization. Common examples of combinatorial optimization problems include the trav -
+eling salesman problem (TSP), where the objective is to find the shortest possible route that visits 
+each city exactly once and returns to the starting point. Another example is graph coloring, where 
+colors are assigned to the vertices of a graph so that no two adjacent vertices share the same color, 
+aiming to use the fewest colors possible. Bin packing involves efficiently packing objects of different 
+sizes into the smallest number of bins. Various techniques are used to solve combinatorial optimiza -
+tion problems. Exact algorithms, such as B&B or the Hungarian algorithm, guarantee an optimal 
+solution but are often very computationally intensive. Heuristic algorithms, like the greedy method 
+or hill climbing, aim to find a good solution quickly, though they do not guarantee the best pos -
+sible solution. Metaheuristic algorithms, such as genetic algorithms or ant colony optimization, are 
+higher-  level strategies that guide simpler heuristics toward better solutions. The main challenges in 
+combinatorial optimization include the NP-  hard nature of many of these problems, meaning there is 
+no known efficient (polynomial-  time) solution, and it is uncertain if one exists. Additionally, the vast 
+size of the solution space makes exhaustive searches impractical except for the smallest problems.
+Figure 5.6  showcases an example of the TSP, which is a classic optimization problem where the 
+objective is to determine the shortest possible route that visits each city exactly once and returns to 
+the starting point. The figure illustrates five cities, labeled A, B, C, D, and E, positioned on a 2D 
+coordinate plane. Each city is marked with a distinct shape and color to enhance clarity. The optimal 
+path connecting these cities is shown by the dark line traversing from one city to the next. The total 
+length of this optimal route is indicated in the legend as 20.06 units, representing the shortest path 
+that satisfies the TSP criteria for these specific cities. The path begins at city A (blue circle), moves 
+through city B (orange star), then continues to city E (purple plus), city C (green triangle), and 
+finally reaches city D (red diamond) before looping back to city A.
+The objective function for the TSP is:
+ Minimize
+in
+iidxx
+=+ ∑()
+11,  
+where:
+ •xi is the ith city in the tour,
+ •d(xi, xi+ 1) represents the distance between cities xi and xi+ 1, and
+ •the solution space consists of all possible permutations of city visits, making the problem 
+combinatorial. 
+  
+
+--- PDF PAGE 155 ---
+142 Mathematical Foundations for Deep Learning
+This formulation represents the challenge of finding the optimal sequence of cities with an enormous  
+solution space, often tackled using exact or heuristic methods. Consider the TSP with five cities.  
+The goal is to find the shortest route that visits each city exactly once and returns to the starting city.  
+If there are five cities, there are 120 possible routes (since 5! =   120). Using an exact algorithm like  
+B&B, the shortest route can be found by systematically evaluating and pruning possible routes.
+5.3.6  g radient  deScent
+Gradient descent is a foundational optimization technique in machine learning, essential for solving 
+complex problems where analytical solutions are either unavailable or computationally prohibitive. 
+This iterative method is adept at navigating multi-  dimensional data landscapes to find the local min -
+imum of a function, typically a loss function in machine learning contexts. The primary objective 
+of gradient descent is to minimize the loss function, which measures the discrepancy between the 
+predicted outputs of a model and the actual outcomes. The principle behind gradient descent is 
+analogous to descending a hill. Mathematically, this is achieved by moving in the direction opposite 
+to the function’s gradient at the current point, which points toward the steepest ascent. Let us go to 
+the detailed mechanics of it:
+ •Gradient:  For a function f x(), where x is a vector of parameters, the gradient ∇()fx is a 
+vector of partial derivatives. It indicates the direction and rate of the steepest increase.
+FIGURE 5.6  Traveling salesman problem. 
+  
+
+--- PDF PAGE 156 ---
+143 Optimization Theory
+ •Update Rule:  The parameter vector x is updated iteratively using the rule: xx fxxnewo ld old=− ∇ () α  
+where α is the learning rate.
+ •Convergence:  Properly tuning the learning rate, and under certain conditions (e.g., con -
+vexity of the function), gradient descent can converge to the global minimum. In non-  convex 
+scenarios, it may settle at a local minimum or a saddle point.
+Gradient descent comes in several variations, each designed to enhance efficiency, stability, or con -
+vergence when solving optimization problems. Stochastic gradient descent (SGD) uses a single 
+randomly selected data point to estimate the gradient, which speeds up each iteration and can help 
+avoid getting stuck in local minima. Mini-  batch gradient descent uses a small subset of data to com -
+pute the gradient, offering a middle ground between the speed of SGD and the stability of using 
+the full dataset. The momentum method adds a portion of the previous update to the current step. 
+This approach aims to accelerate convergence and reduce oscillations, especially in areas where the 
+loss function changes sharply. Adaptive learning rate methods, like Adagrad, RMSprop, and Adam, 
+adjust the learning rate based on previous gradients. This allows for more precise convergence and 
+improved stability during training. Setting the learning rate too high can cause the algorithm to 
+diverge, while setting it too low might lead to slow convergence or getting stuck in suboptimal points. 
+With non-  convex functions, there’s a risk of converging to local minima or saddle points instead of 
+the global minimum. As gradient descent is sensitive to the scale of the features, normalizing or 
+standardizing them is often necessary for effective optimization. Despite these challenges, gradient 
+descent remains a fundamental tool in optimization, especially in machine learning. It supports a 
+wide range of applications, from simple regression tasks to complex deep learning algorithms. Its 
+flexibility and efficiency make it indispensable for researchers and practitioners.
+The updated rule for gradient descent is given by:
+ θ θα θnewo ld=− ∇ ()J 
+where:
+ •θ is the parameter vector,
+ •α is the learning rate, and
+ •∇∇J(θ) is the gradient of the cost function with respect to θ.
+This iterative process continues until the gradient converges, minimizing the loss function and 
+finding the optimal parameters for the model. Suppose you are training a linear regression model 
+to predict house prices. The cost function Jmhx yiiθθ ()=∑ ()−1
+22()  needs to be minimized, where 
+θ represents the model parameters. Let the initial value of θ =  0.5, and the gradient at this point be 
+calculated as ∇∇J(θ) =  1.2. Using a learning rate α =  0.01, the update rule would adjust θ as follows:
+ θ θα θnew=− ∇ ()=− ×= J 05 00 11 20 488 .. ..  
+Figure 5.7  shows the trajectory of gradient descent on the quadratic function f(x) =   x2. The plot starts 
+with a high initial value (the “Starting Point”) and iteratively updates based on the gradient, moving 
+toward the function’s minimum. The objective is to reach the lowest point of the function, which is 
+at x =  0, also marked as the “Final Point.” Each red dashed line and crimson scatter point represents 
+a step in the gradient descent process, with every fifth step labeled for clarity. The goal is to illus -
+trate how the gradient descent algorithm takes steps proportional to the negative of the gradient to 
+minimize the function. The plot helps visualize the optimization process, showing how the gradient 
+descent path narrows down towards the optimal solution. 
+  
+
+--- PDF PAGE 157 ---
+144 Mathematical Foundations for Deep Learning
+FIGURE 5.7  Gradient descent on a quadratic function.
+  newgenrtpdf
+
+--- PDF PAGE 158 ---
+145 Optimization Theory
+5.3.7   Stocha Stic optimization
+Stochastic optimization is a field that deals with problems under uncertainty. In these cases, some 
+parts of the model, such as parameters, constraints, or the objective function, include random 
+variables. This uncertainty makes the optimization process more complex but also more reflective 
+of real-  world situations. The goal in stochastic optimization is often to find a feasible and optimal 
+solution on average or with a high probability rather than one that is deterministically optimal. This 
+approach is crucial for handling scenarios where exact information about the model is unavailable 
+or when the system is subject to random fluctuations and noise. Several techniques are used in sto -
+chastic optimization. One method is sample average approximation (SAA), which involves solving 
+the problem multiple times using different samples from the probability distributions of the uncer -
+tain parameters and then averaging the results. Another technique is SGD, an extension of the trad -
+itional gradient descent method that uses a randomly selected subset of data, called a mini-  batch, 
+to perform each update. This method is commonly used in machine learning for training models on 
+large datasets. Monte Carlo simulation is also employed to assess the impact of risk and uncertainty 
+in prediction and forecasting models by simulating a wide range of possible outcomes. Stochastic 
+optimization faces several challenges. The inherent uncertainty in these problems makes solutions 
+computationally complex and difficult to obtain. The quality of the solutions heavily depends on the 
+quality and quantity of the data available about the uncertainties involved, leading to data depend -
+ency issues. Scalability becomes a concern as the size of the data and the number of uncertain 
+parameters increase, requiring significantly more computational resources to find a solution effi -
+ciently. Despite these challenges, stochastic optimization is increasingly important in industries 
+and sectors where uncertainty is a significant factor. By incorporating randomness directly into 
+the decision-  making process, organizations can develop strategies that are not only theoretically 
+optimal but also practical and robust against real-  world variability and unpredictability. This opti -
+mization approach improves decision-  making by providing frameworks that anticipate and effect -
+ively manage the inherent uncertainties of various operational environments. The general form of a 
+stochastic optimization problem is:
+ Minimizefx,ξ()  
+where:
+ •f(x, ξ) is the objective function,
+ •ξ represents random variables (uncertainties), and
+ • is the expectation over the random variables.
+Techniques such as SAA estimate the objective by averaging over several samples of ξ, helping 
+optimize decisions under uncertainty. Suppose a company wants to optimize its inventory man -
+agement under uncertain demand. Using SGD, they aim to minimize the cost function J(θ), where 
+θ represents the reorder point. With demand data subject to randomness, they update the reorder 
+point iteratively using small mini-  batches of demand data. If the gradient estimate at iteration 1 is 
+∇∇J(θ) =  0.6 and the learning rate is α =  0.05, the updated reorder point would be:
+ θ θα θθnewo ld=− ∇ ()=− ×J00 50 6 ..  
+Figure 5.8 , illustrates the process of SGD for optimizing the objective function f xx()=+2noise .   
+The blue line represents the noisy objective function, f xx()=+2noise , which includes random -
+ness, making the curve less smooth. The path of SGD is traced with red dashed lines, highlighting 
+the steps taken from the starting point to the final point. The green dot marks the starting point of  
+ 
+  
+
+--- PDF PAGE 159 ---
+146 Mathematical Foundations for Deep Learning
+FIGURE 5.8  Stochastic gradient descent.
+  newgenrtpdf
+
+--- PDF PAGE 160 ---
+147 Optimization Theory
+x =  10, where the optimization process begins. The orange dot indicates the final point after 30 
+iterations, showing where the algorithm has converged. Red dots along the dashed line indicate the 
+positions visited by SGD at each iteration. To avoid clutter, every fifth step is annotated with “Step 
+X”, where X is the iteration number, showing the algorithm’s progression.
+5.3.8   Simplex  method
+The Simplex method is a fundamental algorithm in linear optimization, widely used to solve linear 
+programming problems. In linear programming, the primary objective is to maximize or minimize 
+a linear function while satisfying a set of linear equality or inequality constraints. These constraints 
+define the feasible region, which is typically a polyhedron or polytope where the solution must lie. 
+If an optimal solution exists, it will be found at one of the vertices (corner points) of this feasible 
+region. The algorithm starts at a vertex of the feasible region and moves from one vertex to another, 
+checking at each step whether the move improves the value of the objective function. This process 
+continues until it reaches a vertex where no adjacent vertex offers a better value, indicating that the 
+optimal solution has been found. The Simplex method is generally very efficient in practice, even 
+though its worst-  case time complexity can be exponential. This means that while it could theoretic -
+ally take a very long time for some problems, it usually performs exceptionally well in real-  world 
+scenarios. Sometimes, the method might cycle between the same vertices without making progress. 
+To prevent this, strategies like Bland’s Rule are used to ensure that the algorithm moves toward a 
+solution without getting stuck in a loop. Every linear programming problem has a corresponding 
+dual problem. Understanding the relationship between the original (primal) problem and its dual can 
+provide deeper insights and can sometimes simplify finding the solution. The Simplex method has 
+been adapted into various forms to handle more complex situations, such as the Two-  Phase Simplex 
+method and the Revised Simplex method. While the Simplex method remains a dominant technique 
+in linear programming, it faces competition from interior-  point methods, which can be more suit -
+able for solving very large-  scale linear programming problems. The linear programming problem 
+in standard form is:
+ MaximizeZc xc xc xnn=++…+11 22 
+Subject to:
+ Axb x≤≥,0  
+where:
+ •c ccn12,,,…  are the coefficients of the objective function,
+ •A is the matrix of constraint coefficients,
+ •x is the vector of decision variables, and
+ •b is the vector of constraint bounds.
+This formulation represents the optimization problem, where the Simplex method navigates the 
+feasible region defined by the constraints to find the optimal solution. Consider a linear program -
+ming problem to maximize the objective function Z =  3x1 +  2x2, subject to the constraints:
+ xx xx xx12 12 1242 60+≤ +≤ ≥,, ,  
+The Simplex method starts at one vertex of the feasible region, say (0, 0), and iteratively moves 
+to adjacent vertices, checking for improvement in the objective function. The method eventually 
+reaches the optimal solution at x1 =  2, where Z =  10. 
+ 
+ 
+  
+
+--- PDF PAGE 161 ---
+148 Mathematical Foundations for Deep Learning
+Figure 5.9  demonstrates the application of the Simplex method in solving a linear programming 
+problem. The objective is to find the optimal solution that maximizes or minimizes a linear  
+objective function subject to constraints. In this illustration, the constraints are represented by the  
+lines: xx124+≤ (blue line) and 2612xx+≤  (green line). These constraints define the feasible  
+region, shaded in light gray. The feasible region is the set of all points that satisfy both inequalities  
+simultaneously, and it represents all possible solutions to the linear programming problem. The  
+Simplex path is marked in brown and shows the sequence of steps taken by the Simplex algorithm  
+as it moves from one vertex of the feasible region to another, improving the objective function  
+value at each step. The path culminates at the optimal point (2, 2), highlighted in yellow, which  
+represents the optimal solution that maximizes (or minimizes) the objective function under the  
+given constraints.
+5.3.9   l agrangian  multiplier S
+Lagrange multipliers are a robust optimization method used to find a function’s local maxima 
+and minima subject to equality constraints. Named after Joseph-  Louis Lagrange, this technique 
+transforms constrained optimization problems into unconstrained ones, facilitating their solu -
+tion. Consider the problem of finding the extremum (maximum or minimum) of a function/  
+subject to a constraint gx xxn120 ,,,… () =. The method introduces an auxiliary variable, λ (the 
+Lagrange multiplier), to incorporate the constraint into the objective function. The Lagrangian, 
+L, is formulated as:
+ xx xf xx xg xx xnn n12 12 12,,,, ,,, ,,,… () =…() +…() λλ  
+FIGURE 5.9  Simplex method. 
+ 
+  
+
+--- PDF PAGE 162 ---
+149 Optimization Theory
+To find the extremum of f subject to g, we solve for the points where the gradient of the Lagrangian 
+is zero:
+ ∇= ∇+∇=Lf g λ 0 
+This results in a system of equations that, when solved, provide the values of the variables and 
+the Lagrange multiplier. The Lagrange multiplier, has a meaningful interpretation. Generally, it 
+measures the rate of change in the maximum or minimum value of the objective function as the 
+constraint varies. Lagrange multipliers are applied across various fields. In economics, they are 
+used for utility maximization and cost minimization problems. In machine learning, algorithms 
+like support vector machines use Lagrange multipliers for optimization with constraints. While 
+robust, Lagrange multipliers are primarily suited for equality constraints. For problems involving 
+inequality constraints, methods like the Karush–  Kuhn–  Tucker (KKT) conditions are more appro -
+priate. Consider maximizing the function f(x, y) =   xy, subject to the constraint x +  y =  10. Using the 
+Lagrange multiplier λ, we form the Lagrangian:
+ xy xy xy,, λλ( )=+ −− ( ) 10  
+To find the extremum, we take the partial derivatives with respect to x, y, and λ and set them equal 
+to zero:
+ ∂
+∂=−=∂
+∂=−=∂
+∂=− −=
+xyyxx y λλλ00 10 0 ,,  
+Solving this system yields x =  y =  5, giving the maximum value of f(x, y)  =  25. The Lagrange multi -
+plier method transforms a constrained optimization problem into an unconstrained one by introdu -
+cing a new variable λ. The Lagrangian is defined as:
+ xf xg xc ,λλ()=()+ ()−  
+where:
+ •f(x) is the objective function,
+ •g(x) =  c is the constraint,
+ •λ is the Lagrange multiplier.
+The solution is found by solving the system of equations obtained from setting the gradients of the 
+Lagrangian to zero:
+ ∇()=x,λ 0 
+Figure 5.10  displays a contour plot of the function f(x, y)=   xy, with contour lines representing levels 
+of constant function values. The color gradient indicates the objective function’s values, transitioning 
+from blue (lower values) to red (higher values), giving a visual sense of how f(x, y)  changes across 
+the plane. The dashed blue circle represents the constraint xy221+=, which defines the feasible 
+region for this optimization problem. This constraint forms a circle of radius 1 centered at the origin, 
+encompassing all points that satisfy the equation. The red dots marked as optimal points (0.71, 0.71 
+and −0.71, −0.71) indicate where the function reaches its maximum and minimum values within the 
+constrained region. These points are located on the circle where the product xy is maximized and 
+minimized, showing how the constraint influences the objective function’s optimization. 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 163 ---
+150 Mathematical Foundations for Deep Learning
+5.3.10  Branch  and Bound  and cutting  plane method S
+B&B and cutting plane methods are crucial algorithms for solving optimization problems, particu -
+larly combinatorial and IP challenges. B&B is a systematic method for exploring possible solutions 
+within a tree structure. The process begins with branching, where the main problem is divided 
+into smaller subproblems, creating branches in a solution tree. In bounding, each subproblem is 
+evaluated by calculating a bound, and if this bound is better than the current best solution, the 
+subproblem is explored further; otherwise, it is discarded. Pruning occurs when subproblems that 
+cannot improve upon the best-  known solution are eliminated, enhancing efficiency by reducing 
+unnecessary calculations. The cutting plane methods iteratively solve IP problems by refining the 
+feasible region. Here are its general steps:
+(a) Starting Solution:  Start by solving the problem’s linear programming relaxation, ignoring 
+integer constraints.
+FIGURE 5.10  Optimization with constraints. 
+  
+
+--- PDF PAGE 164 ---
+151 Optimization Theory
+(b) Check & Cut:  Verify if the solution meets integer constraints. If not, a cut (linear inequality) 
+is added to exclude the current fractional solution while retaining feasible integer points.
+(c) Iterate:  Repeat until an acceptable integer solution is found or proven that none exists.
+The B&B method explores a solution tree, where each subproblem is a branch, and solutions are 
+bounded. The cutting plane method iterates by adding constraints to refine the feasible region. For 
+the cutting plane method, starting from a linear relaxation:
+MaximizeZc xc x=+11 22 Subject to: Axb x≤≥,0
+If the solution is not integer, add a cut (a linear inequality) to exclude fractional solutions while 
+retaining feasible integer points. These methods iteratively refine and solve the problem, improving 
+computational efficiency by avoiding exhaustive searches. Consider an IP problem where we aim to 
+maximize Z =  3x1 +  4x2, subject to the constraints x1 +  2x2 ≤ 8 and x1, x2 ≥ 0, with x1 and x2 required 
+to be integers. Using B&B, we solve the linear relaxation (ignoring integer constraints), yielding 
+a solution of x1 =  4, x2 =  2. We then branch by creating subproblems where x1 ≤ 3 and x1 ≥ 4, con -
+tinuing to solve and prune subproblems until the optimal integer solution is found.
+Figure 5.11  illustrates the B&B tree used to solve a knapsack problem, a combinatorial optimiza -
+tion challenge where the goal is to maximize the value of items placed in a knapsack without exceeding 
+its weight capacity. The tree starts with the initial node labeled “Start” (value =   0, weight =   0), where 
+no items have been considered yet. From this node, the algorithm branches out, evaluating two 
+choices: Include item 1 (value =   40, weight =   2) or exclude item 1 (value =   0, weight =   0). Each 
+choice generates a new branch, exploring the impact of either including or excluding the item. As 
+the tree progresses, it evaluates further branches for item 2, following the same process of including 
+or excluding the item. Nodes that exceed the weight capacity are marked as pruned/  infeasible, indi -
+cating that these paths do not satisfy the problem’s constraints and are thus discarded from fur -
+ther consideration. The algorithm eventually reaches the optimal node (value =   190, weight =   10), 
+representing the best possible solution that maximizes the value while staying within the weight 
+limit. This node is highlighted to signify that the optimal solution has been found.
+Figure 5.12  illustrates the cutting plane method for solving an integer linear programming (ILP) 
+problem. This approach refines the feasible region of a linear programming problem to efficiently iden -
+tify integer solutions. The plot presents a system of constraints, each represented as a line: −x − 2y ≤ 
+−3 (blue line), x +   2y ≤ 8 (green line), and 2x +   y ≤ 10 (purple line). These constraints collectively form 
+the feasible region, shaded in light gray, where all points satisfy the inequalities simultaneously. The 
+objective is to find an integer solution within this region that optimizes the objective function. To achieve 
+this, the figure shows two cutting planes represented by dashed lines. Cutting plane 1, marked as a red 
+dashed line, adds an additional constraint to exclude non-  integer solutions from the feasible region. 
+Cutting plane 2, shown as an orange dashed line, further refines the solution space, ensuring that only 
+integer solutions remain. The optimal solution, indicated by a yellow dot within the feasible region, 
+represents the best integer solution that meets all constraints while optimizing the objective function.
+5.3.11   e volutionary  algorithm S
+Evolutionary algorithms (EAs) are optimization techniques inspired by natural selection. They 
+simulate the biological principles of evolution, including survival of the fittest, to solve complex 
+problems in various fields such as computer science and engineering. These are the basic concepts:
+ •Population:  A group of potential solutions.
+ •Chromosomes:  Each potential solution.
+ •Genes:  Elements of a solution.
+ •Fitness:  The quality or suitability of a solution.  
+
+--- PDF PAGE 165 ---
+152 Mathematical Foundations for Deep Learning
+FIGURE 5.11  Branch and Bound tree for knapsack problem.
+  newgenrtpdf
+
+--- PDF PAGE 166 ---
+153 Optimization Theory
+The major steps in EAs are:
+ •Initialization:  Generate an initial population of possible solutions randomly.
+ •Selection:  Choose solutions based on fitness to contribute to the next generation. Higher 
+fitness increases the likelihood of selection.
+ •Crossover (Recombination):  Combine selected solutions to create new ones, mimicking 
+reproduction.
+ •Mutation:  Introduce small changes to new solutions with a certain probability to ensure gen -
+etic diversity.
+ •Replacement:  Replace the old population with the new one.
+ •Termination:  Repeat the process until a stopping criterion is met, such as a maximum number 
+of generations or a satisfactory fitness level.
+The types of EAs include genetic algorithms (GAs), which are the most popular type and use muta -
+tion, crossover, and selection to evolve potential solutions. Genetic programming evolves computer 
+programs as solutions, while differential evolution is used for real-  valued function optimization. 
+Evolution strategies focus on strategy parameters such as mutation strength, and evolutionary pro -
+gramming focuses on the mutation of finite-  state machines. The main applications of EAs include 
+function optimization, where they are used to find the maximum or minimum of functions. In machine 
+learning, they are used for feature selection, hyperparameter tuning, and neural network training. 
+The advantages of EAs include flexibility, as they can be applied to a wide range of problems, and 
+global search capabilities, as they have a higher likelihood of finding global optima than many trad -
+itional methods. They also support parallelism, allowing for the simultaneous evaluation of many 
+FIGURE 5.12  Cutting plane method.  
+
+--- PDF PAGE 167 ---
+154 Mathematical Foundations for Deep Learning
+solutions, which can be done in parallel with modern hardware. However, the limitations include 
+being computationally intensive, as the required computational resources can grow significantly 
+with problem size and complexity. Additionally, they do not provide certainty, often offering rea -
+sonable solutions without guaranteeing the global optimum. In GAs, the fitness function evaluates 
+each solution x:
+ Fitnessxf x ()=() 
+The process involves applying selection, where individuals are chosen based on fitness scores. This 
+is followed by crossover, which generates new offspring by combining traits from selected individ -
+uals. Finally, mutation is applied by randomly altering some genes to maintain diversity within the 
+population and prevent premature convergence. This iterative process continues until the stopping 
+criteria are met, typically optimizing the objective function. Suppose you are optimizing a function 
+f(x) =  −x2 +  4x. You initialize a population of 10 potential solutions (chromosomes) for the variable 
+x, each with random values between 0 and 5. The fitness of each solution is calculated using the 
+objective function f(x), and after selection, crossover, and mutation steps, the best solution x =  2, 
+with a fitness value of f(2) =   4, is found after 100 generations.
+Figure 5.13 , demonstrates the application of a GA to optimize the Rastrigin function, a common 
+benchmark problem in evolutionary computation. The Rastrigin function, known for its large search 
+space and many local minima, is defined as f dx x
+id
+iix()=⋅ +− ()
+=∑ 10 10 2
+12cos( ) π , where d is the 
+FIGURE 5.13  Genetic algorithm optimization of Rastrigin function. 
+  
+
+--- PDF PAGE 168 ---
+155 Optimization Theory
+number of dimensions. This example plots the function in two dimensions over the range [−5.12, 
+5.12] for x and y. The contours are filled using the colormap, visually representing the function’s 
+values across the grid. A color bar on the side indicates the corresponding function values. The GA 
+is executed to find the minimum value of the Rastrigin function over 50 generations with a popula -
+tion size of 100, selecting 20 parents in each generation and applying a mutation rate of 0.1. The best 
+solution the GA finds is highlighted with a red dot on the contour map, indicating the optimal point.
+5.4  GLOBAL VERSUS LOCAL OPTIMA
+Understanding the difference between global and local best solutions in optimization is very 
+important because it affects how we find the best answer to a problem. This challenge is especially 
+significant in complex problems where the solution landscape has many ups and downs. A global 
+optimum is the absolute best solution among all possible options. For problems where we want to 
+minimize something (like cost), it’s the lowest point. For problems where we want to maximize 
+something (like profit), it’s the highest point. A local optimum, on the other hand, is a solution that’s 
+better than nearby options but might not be the best overall, like finding a small hill that isn’t the 
+tallest mountain. You can think of the function we’re trying to optimize as a landscape with hills and 
+valleys. The local optima are the smaller hills and valleys, while the global optimum is the highest 
+hill or the deepest valley. Many optimization methods might get stuck at a local optimum, depending 
+on where they start. When there are multiple local optima, the landscape becomes rugged, making 
+it harder to find the global best solution. In simpler problems, called convex problems, any local 
+optimum is also a global optimum, which makes finding the best solution easier. However, in more 
+complicated, non-  convex problems, it’s hard to tell if the solution we found is the absolute best 
+without knowing the whole landscape. To avoid getting stuck at local optima, we can use sev -
+eral strategies. One method is random restarts, where we run the optimization multiple times from 
+different starting points to increase the chances of finding the global optimum. Another technique is 
+simulated annealing, which is inspired by the process of slowly cooling metal to make its structure 
+more uniform—  a practice in metallurgy. In optimization, this means occasionally accepting worse 
+solutions to escape local optima and explore more possibilities. We can also use GAs, which mimic 
+natural selection by keeping a group of possible solutions and combining them in new ways, hoping 
+to find better solutions through processes similar to mutation and crossover in biology. Swarm intel -
+ligence techniques, like particle swarm optimization, use multiple agents that move through the 
+solution space, sharing information to find the best solution together. In real-  world applications 
+such as machine learning, finance, and engineering, optimization problems often have complex 
+landscapes with many local optima. Whether we end up at a local or global optimum can greatly 
+affect performance, costs, and outcomes. While we can’t always guarantee we’ll find the global best 
+solution, using different techniques, monitoring how the solution progresses, and understanding the 
+problem better can help us get closer to it.
+A general optimization problem can be represented as:
+ Minimizefx x () ∈, 
+where f(x) is the objective function, and S is the solution space. A global minimum is defined as:
+ f xf xx*()≤()∀∈,  
+A local minimum occurs when:
+ f xf xx x**, ()≤()∀in then eighborhood of   
+ 
+ 
+  
+
+--- PDF PAGE 169 ---
+156 Mathematical Foundations for Deep Learning
+Strategies like simulated annealing or GAs are used to escape local optima and find the global min -
+imum in complex landscapes. Consider a non-  convex function f xx x()=− +4332 . The function  
+has two local minima and one global minimum. A local minimum occurs at x =  2, where f(2) =   2,  
+but the global minimum occurs at x =  0.5, where f(0.5) =   −0.375. If an optimization algorithm starts  
+near x =  2, it may converge to the local minimum instead of the global minimum.
+Figure 5.14  presents the plot of the function f xx x()=−⋅+ ( ) () 122 showing its behavior across 
+the domain with key points. The graph illustrates the different types of extrema, including a local 
+minimum, a local maximum, and a global minimum. The function initially rises to a local maximum 
+at the point (−0.60, 3.58), marked in green. This point is where the function reaches a temporary peak 
+before declining. As the graph continues, it reaches a local minimum at (−2, 0), highlighted in red. 
+This local minimum indicates a point where the function temporarily decreases before increasing 
+again. However, this is not the lowest value the function can attain within the entire domain. Further 
+along, the function drops to the global minimum at the point (1, 0), shown in orange. This global 
+minimum represents the lowest point of the function across its entire domain, indicating the true 
+minimum value of f(x). Beyond this point, the function rises again.
+5.5  RECENT DEVELOPMENTS IN OPTIMIZATION
+The rise of big data and more powerful computers has greatly changed the field of optimization. New 
+developments such as distributed and real-  time optimization, quantum computing, and advances in 
+machine learning are key areas of current research. These advancements are driven by the need 
+to solve large problems efficiently and make quick decisions. As data grows rapidly, optimiza -
+tion algorithms need to process huge amounts of information effectively. Big data often involves 
+FIGURE 5.14  Global versus local optima. 
+  
+
+--- PDF PAGE 170 ---
+157 Optimization Theory
+complex, high-  dimensional spaces where traditional methods may not work well, so new strategies 
+are needed to handle these challenges. Optimization tasks are now often spread out and run across 
+multiple computers or nodes, which helps in dealing with large-  scale problems. However, this brings 
+challenges like ensuring data security, keeping everything synchronized, and managing communica -
+tion between nodes. Optimization is also very important in situations that need immediate solutions 
+or decisions in a short time, often as data is being created. Examples include self-  driving cars and 
+high-  speed trading systems. These applications must balance speed and accuracy to compute quickly 
+without losing solution quality. Quantum computers, which use principles from quantum mechanics, 
+offer incredible computing power. Algorithms like the quantum approximate optimization algorithm 
+(QAOA) are being developed to tap into this potential, possibly bringing big changes to fields like 
+cryptography, materials science, and machine learning. Machine learning, especially deep learning, 
+relies a lot on optimization to train models. At the same time, machine learning techniques are 
+improving optimization algorithms. Automated systems help in choosing the best machine learning 
+models and fine-  tuning their settings. In real-  world situations that often have uncertain or noisy data, 
+robust optimization finds solutions that work well under different scenarios, while stochastic opti -
+mization deals with uncertainties in constraints and objectives. Moreover, real-  world problems often 
+have conflicting goals, leading to new methods that aim to find the best possible solutions where 
+improving one goal doesn’t make another worse. Optimization is going through a major change, 
+driven by new technologies and the complexities of modern problems. As we move further into the 
+digital age, optimization remains essential for finding efficient and effective solutions in a rapidly 
+changing world. In distributed optimization, we often solve a problem by spreading it across mul -
+tiple computers or nodes. This can be represented as:
+ Minimiz ex Xfx fx
+in
+i ()= ()∈
+=∑
+1 
+where:
+ •fi(x) is the local objective function on the ith node,
+ •X is the shared feasible set across nodes.
+Techniques such as distributed gradient descent are used to optimize functions across mul -
+tiple machines, significantly speeding up the process for large-  scale data. Consider an optimiza -
+tion problem in high-  frequency trading that requires decision-  making in less than a millisecond. 
+Using real-  time optimization, an algorithm balances speed and accuracy by processing 1 million 
+transactions per second across 100 nodes, reducing latency from 5 milliseconds to 1 millisecond.
+Figure 5.15  demonstrates the process of distributed optimization applied to the objective 
+function f xx x()=+210sin( ) . The function’s behavior, represented by the blue curve, displays 
+the combined effects of a quadratic term and a sinusoidal component, resulting in multiple local 
+minima and maxima across the domain. The function’s domain is divided into different regions, 
+each assigned to a separate node, indicated by distinct shaded areas. Node 1, represented in dark 
+gray, Node 2 in green, Node 3 in tan, Node 4 in pink, and Node 5 in light blue, each handle a specific 
+segment of the function. The results from each node are marked with dots, showing where each node 
+has found significant points such as local minima or maxima. For example, Node 1 identifies a point 
+at (−6.00, 38.79), while Node 3 finds a local minimum at (−2.00, −5.09). The figure illustrates how 
+distributed optimization techniques divide the problem into smaller, manageable parts, allowing 
+each node to optimize the function locally within its region. This approach not only enhances com -
+putational efficiency but also allows for parallel processing, which is especially advantageous for 
+large-  scale or complex optimization problems.  
+
+--- PDF PAGE 171 ---
+158 Mathematical Foundations for Deep Learning
+FIGURE 5.15  Distributed optimization.
+  newgenrtpdf
+
+--- PDF PAGE 172 ---
+159 Optimization Theory
+5.6  OPTIMIZATION METHODS IN DEEP LEARNING
+Optimization in deep learning is crucial because the goal is to minimize (or sometimes maximize) 
+a loss function. This loss function measures how far our predictions are from the actual values. By 
+optimizing this function, we ensure that our model generalizes well to new, unseen data.
+5.6.1   Batch gradient  deScent (Bgd)
+BGD, specifically, calculates the gradient of the loss function with respect to each parameter for 
+the entire training dataset at once. BGD guarantees convergence to the global optimum for convex 
+functions and is straightforward to implement. It systematically reduces the loss function by taking 
+steps proportional to the negative gradient of the loss function. The steps are controlled by a learning 
+rate, which determines the size of each step. The algorithm works by first initializing the parameters 
+randomly. Then, for each iteration, the gradient of the loss function with respect to each parameter 
+is calculated using the entire dataset. The parameters are updated by subtracting the product of the 
+learning rate and the gradient. This process is repeated until the parameters converge to values that 
+minimize the loss function. However, BGD is not feasible for large datasets that do not fit in memory. 
+It can also be slow on extensive datasets due to the need to process the entire dataset for each update. 
+This means that every iteration can be time-  consuming, especially for high-  dimensional data. The 
+update rule for BGD is:
+ θ θα θnewo ld=− ∇ ()J 
+where:
+ •θ is the parameter vector,
+ •α is the learning rate, and
+ •∇J(θ) is the gradient of the loss function J(θ), calculated over the entire dataset.
+This process is repeated until convergence, minimizing the loss function for the entire dataset. 
+Suppose you are training a linear regression model to predict house prices. The loss function is the 
+mean squared error (MSE), and you have a dataset with 1,000 houses. Using BGD, you calculate the 
+gradient of the loss function for all 1,000 houses in each iteration. With a learning rate of α =  0.01, 
+the parameters θ are updated by subtracting α × ∇J(θ) from the current values. For example, if the 
+gradient of the loss function at a specific iteration is ∇J(θ) =  [1.5, −2.0], and the current parameter 
+values are θ =  [2.0, 3.0], the updated parameters will be calculated as:
+ θ θα θnewc urrent=− ×∇ ()J 
+Substituting the values:
+ θnew=[] −×−= ][ −+ = ][ 2030 00 11 52 02 00 015 30 00 21 985 .,.. ., .. ., .. ., 3 30 2 .  
+This process continues until the parameters θ converge to values that minimize the loss function, 
+ensuring the model provides the best predictions for house prices based on the training data. 
+BGD ensures smooth updates, but its computational cost can become a bottleneck for very large 
+datasets. 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 173 ---
+160 Mathematical Foundations for Deep Learning
+5.6.2   Stocha Stic gradient  deScent (Sgd)
+SGD is an optimization algorithm used to minimize the loss function by iteratively adjusting the 
+model parameters. Unlike BGD, which computes the gradient using the entire dataset, SGD computes 
+the gradient using only a single sample (or a small batch) at each iteration. SGD is known for its 
+faster convergence compared to BGD, especially when dealing with large datasets. As it updates the 
+parameters more frequently, it often reaches a good solution faster. Additionally, the noisy updates 
+from using individual samples can help SGD escape local optima, providing a better chance of 
+finding a global optimum in non-  convex optimization problems. The algorithm works by first initial -
+izing the parameters randomly. For each iteration, it selects a random sample from the dataset and 
+computes the gradient of the loss function with respect to each parameter. The parameters are then 
+updated by subtracting the product of the learning rate and the gradient. This process is repeated, 
+and a new random sample is selected at each iteration until convergence. However, the high vari -
+ance in updates can cause SGD to oscillate around the minimum, making convergence harder to 
+control. This variability means that while SGD can quickly reach the vicinity of the optimal solu -
+tion, it might struggle to settle precisely at the minimum. Techniques such as learning rate decay, 
+momentum, and mini-  batching are often employed to mitigate these issues and stabilize conver -
+gence. The update rule for SGD is:
+ θ θα θnewo ld=− ∇ ()()()Jx yii;,  
+where:
+ •θ is the parameter vector,
+ •α is the learning rate, and
+ •∇()()()Jx yiiθ;,  is the gradient of the loss function computed for the single sample xyii()()( ), .
+This process repeats, updating the model for each random sample, allowing faster convergence in 
+large datasets. Suppose you are training a model to predict stock prices with a dataset of 10,000 
+samples. In each iteration, SGD randomly selects one sample and updates the parameters based on 
+that sample. If the learning rate α= 0.001 and the gradient for a specific iteration is 0.5, the parameter 
+θ is updated as:
+ θ θθnewo ld old=− ×= −0 001 05 0 0005 .. .  
+5.6.3   m ini- Batch gradient  deScent
+Mini-  batch gradient descent is an optimization algorithm that offers a compromise between BGD 
+and SGD. It updates the model parameters based on smaller subsets, or “mini-  batches,” of the 
+dataset. Mini-  batch gradient descent combines the advantages of both BGD and SGD. By using 
+mini-  batches, it reduces the variance in parameter updates compared to SGD, leading to more stable 
+convergence. At the same time, it does not require processing the entire dataset in each iteration, 
+making it more efficient than BGD. This approach can also benefit from parallelized hardware, such 
+as Graphics Processing Units (GPUs), which can process mini-  batches concurrently. The algorithm 
+works by first initializing the parameters randomly. Each iteration randomly selects a mini-  batch 
+of samples from the dataset and computes the gradient of the loss function with respect to the 
+parameters using only this mini-  batch. The parameters are then updated by subtracting the product 
+of the learning rate and the gradient. This process is repeated for each mini-  batch until the entire 
+dataset has been processed, completing one epoch. The procedure is iterated over multiple epochs 
+until convergence. One of the key considerations in mini-  BGD is the choice of batch size. The batch  
+ 
+ 
+  
+
+--- PDF PAGE 174 ---
+161 Optimization Theory
+size can significantly impact performance and convergence speed. A smaller batch size offers noisier 
+updates and may benefit from the regularization effects similar to those of SGD. In contrast, a larger 
+batch size provides a more accurate estimate of the gradient, leading to more stable updates, but at 
+the cost of computational efficiency. The update rule for mini-  BGD is:
+ θ θα θnewo ld=− ∇ ()
+=()()∑1
+1mJx y
+im
+ii;,  
+where:
+ •θ is the parameter vector,
+ •α is the learning rate,
+ •m is the mini-  batch size, and
+ •∇()()()Jx yiiθ;,  is the gradient of the loss function computed for the mini-  batch samples 
+xyii()()( ), .
+This method strikes a balance between the computational efficiency of BGD and the frequent 
+updates of SGD. Suppose you are training a neural network with 10,000 samples, and you decide 
+to use a mini-  batch size of 100. In each iteration, you randomly select 100 samples from the dataset 
+and compute the gradient. If the learning rate α =  0.01 and the average gradient for the mini-  batch 
+is 0.4, the parameter θ is updated as:
+ θ θθnewo ld old=− ×= −00 10 40 004 .. .  
+5.6.4   m omentum
+Momentum is an optimization technique used to accelerate gradient descent by considering past 
+gradients in the update process. This approach helps gradient descent algorithms converge faster 
+and reduce oscillations, especially in cases where the objective function’s surface has features of 
+different scales or saddle points. The key idea behind momentum is to maintain a velocity vector 
+that accumulates the gradient of the loss function over time. This accumulated gradient is used to 
+update the model parameters, resulting in faster convergence and smoother trajectories. The velocity 
+vector is updated using a combination of the current gradient and the previous velocity. The updated 
+equations for gradient descent with momentum are as follows:
+ vv ftt t=+ ∇ ()−βα θ1 
+ θ θtt tv+=−1 
+where:
+ •vt is the velocity vector at iteration t,
+ •β is the momentum term (a hyperparameter typically set between 0 and 1),
+ •∇()ftθis the gradient of the loss function with respect to the parameters at iteration t,
+ •θtare the model parameters at iteration t, and
+ •α is the learning rate.
+The momentum term β controls the contribution of the previous gradients to the current update. 
+A higher momentum value emphasizes the past gradients more, leading to faster convergence but  
+ 
+ 
+ 
+  
+
+--- PDF PAGE 175 ---
+162 Mathematical Foundations for Deep Learning
+potentially overshooting the minimum if set too high. Momentum offers several advantages. It 
+accelerates convergence compared to vanilla SGD, particularly in the presence of saddle points or 
+when the features have different scales. Reducing fluctuations helps the optimization process navi -
+gate the parameter space more efficiently and reach the optimum faster. However, momentum also 
+introduces an additional hyperparameter, the momentum term β, which requires tuning. The choice 
+of β can also significantly impact the performance of the optimization algorithm, and finding the 
+optimal value often involves empirical experimentation. Assume we’re optimizing a simple quad -
+ratic function using gradient descent with momentum. The function we want to minimize is:
+ f xx()=−() 32 
+For example, if the parameters are:
+ •Learning rate ( α): 0.1,
+ •Momentum ( β): 0.9,
+ •Initial value of x: 0 (starting point), and
+ •Gradient at iteration t is gt =  2(xt−3)
+At iteration 1, starting from x0 =  0:
+ •Gradient is: g1 =  2(x0−3) =   2(0−3) =   −6
+ •Velocity update is: vvg10109 00 16 06=+ =× +× − ()=− βα .. .
+ •Parameter update is: x1 =  x0 -  v1 =  0 -  (−0.6) =   0.6
+At iteration 2:
+ •Gradient is: g2 =  2(x1−3) =   2(−0.6 − 3) =   −7.2
+ •Velocity update is: vvg21209 06 01 72 12 6=+ =× −( )+× − ( )=− βα .. .. .
+ •Parameter update is: x2 =  x1 -  v2 =  −0.6 -   (−1.26) =   1.86
+Here, you can see how the momentum term accelerates the descent by considering the past vel -
+ocity v1 along with the new gradient g2, leading to a faster movement toward the minimum at x =  3. 
+As the iterations progress, the oscillations are reduced, allowing the algorithm to converge more 
+efficiently.
+5.6.5   a dagrad  (adaptive  gradient  algorithm )
+Adagrad is an optimization algorithm that adapts the learning rates of all model parameters by 
+scaling them inversely proportional to the square root of the sum of all historical squared gradients. 
+This method is particularly useful for dealing with sparse data and features that have varying degrees 
+of informativeness. The key idea behind Adagrad is to adjust the learning rate for each parameter 
+individually, allowing for larger updates for infrequent parameters and smaller updates for frequent 
+ones. This is achieved by accumulating the squared gradients over time and using this accumulated 
+value to adjust the learning rates. The update rule for Adagrad is as follows:
+ gg fti ti ti,, ,() =+ ∇ ()−12θ  
+ θ θαθti ti
+titigf,,
+,,=−
++∇()−−11  
+ 
+ 
+  
+
+--- PDF PAGE 176 ---
+163 Optimization Theory
+where:
+ •∇()ftiθ, is the gradient of the loss function with respect to parameter i at iteration t,
+ •gt,i is the sum of the squares of the gradients with respect to parameter i up to iteration t,
+ •α is the global learning rate, and
+ •is a small constant added to prevent division by zero.
+Adagrad is particularly advantageous for dealing with sparse data, where some features are much 
+more informative than others. By scaling the learning rate based on historical gradients, Adagrad 
+ensures that infrequent but informative features receive larger updates, improving the model’s ability 
+to learn from these features. However, one of the main drawbacks of Adagrad is that the learning 
+rate can decrease significantly over time, causing the algorithm to stop learning prematurely. As the 
+sum of squared gradients grows, the effective learning rate diminishes, which can hinder further 
+progress, especially in non-  convex optimization problems or over long training periods. Assume we 
+are optimizing a simple function:
+ f xy xy,()=+222 
+For example, if the parameters are:
+ •Global learning rate ( α): 0.1
+ •Small constant ( ϵ): 10−8
+ •Initial values of x0 =  2, y0 =  2
+At iteration 1, we calculate the gradients for x and y:
+ •Gradient of x: gx1 =  2x0 =  2 × 2 =   4
+ •Gradient of y: gy1 =  4y0 =  4 × 2 =   8
+ •Accumulated squared gradients for x and y: Gg Ggxx yy1122
+112241 68 64== == ==,
+ •Update rule for x1: xx
+Gg
+xx10
+118201
+16 1042 01 11 9 =−
++×= −
++×=−× =
+−α
+...
+ •Update rule for y1: yy
+Gg
+yy10
+118201
+64 1082 01 11 9 =−
++×= −
++×=−× =
+−α
+...
+At iteration 2:
+ •Gradients at new values x1 =  1.9, y1 =  1.9: .. ,. .ggxy2221 93 84 19 76=× == ×=
+ •Accumulated squared gradients:
+ GG gG Ggxx xy yy21 222
+21 22216 38 30 44 64 76 121 76=+=+ == += +=.. ,. .  
+ •Update rule for x2: x281901
+30 44 1038 19 0 069 1 831 =−
++×≈ −=
+−..
+... ..
+ •Update rule for y2: y281901
+121 76 1076 19 0 069 1 831 =−
++×≈ −=
+−..
+... ..
+As you can see, the learning rate for both x and y decreased slightly at the second iteration due to 
+the accumulation of squared gradients. This helps balance the learning, allowing more updates to  
+  
+
+--- PDF PAGE 177 ---
+164 Mathematical Foundations for Deep Learning
+infrequent parameters while slowing down updates to frequent ones. However, over many iterations, 
+the learning rate will continue to diminish.
+5.6.6   r oot mean SQuare propagation  (rmSprop)
+RMSprop is an optimization algorithm designed to address the issue of diminishing learning rates in 
+Adagrad. By introducing a decay factor, RMSprop ensures that the learning rate does not decrease 
+too aggressively, making it more suitable for training deep networks. RMSprop modifies Adagrad by 
+maintaining a moving average of the squared gradients instead of accumulating all the past squared 
+gradients. This moving average helps to prevent the learning rates from becoming excessively small, 
+allowing the optimization process to continue learning effectively over time. The update rule for 
+RMSprop is as follows:
+ gfti ti,,=∇()θ 
+ EgE ggti ti ti,, ,()2
+1221= ][+−()−ββ  
+ θ θα
+ti ti
+titiEgg+=−
++12,,
+,, 
+where:
+ •gt,i is the gradient of the function f with respect to the parameter θi at iteration t,
+ •β is the decay rate (typically set to 0.9),
+ •Egti,2 is the moving average of squared gradients for parameter i up to iteration t,
+ •θt+ 1,i is the updated parameter,
+ •α is the global learning rate,
+ •ϵ is a small constant to prevent division by zero.
+RMSprop’s decay rate γ controls how much the algorithm considers the recent gradients compared 
+to the past gradients. By adjusting this parameter, RMSprop can balance the influence of the current 
+gradient and the historical gradients, preventing the learning rate from diminishing too quickly. The 
+main advantage of RMSprop is that it resolves Adagrad’s problem of diminishing learning rates, 
+making it more suitable for training deep neural networks. The controlled adjustment of learning 
+rates allows RMSprop to maintain a more consistent and effective learning process, even over 
+extended training periods. Assume we are optimizing a simple function:
+ f xx()=−() 22 
+For example, if the parameters are:
+ •Global learning rate ( α): 0.01,
+ •Decay rate ( β): 0.9,
+ •Small constant ( ϵ): 10−8, and
+ •Initial value of x0 =  4.
+At iteration 1, we calculate the gradient for x:
+ •Gradient at x0: gx1 =  2(x0−2) =   2(4−2) =   4
+ •Exponential moving average of squared gradients (starting from 0): 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 178 ---
+165 Optimization Theory
+ EgE ggxx x12
+02
+12210 9001 41 6= ][+−() =× +× = ββ .. .  
+ •Update rule for x1: xx
+Egg
+xx10
+1218400 1
+16 1044 01 39 =−
++×= −
++×≈ −=
+−α
+.
+...
+At iteration 2:
+ •Gradient at x1 =  3.9: gx2 =  2(3.9−2) =   3.8
+ •Update the exponential moving average of squared gradients:
+ Egx22209 16 01 38 2 928 =× +× =.... .  
+ •Update rule for x2: x283900 1
+2 928 1038 39 00 73 83 =−
++×≈ −=
+−..
+... ..
+In this example, RMSprop adjusts the learning rate dynamically by calculating the exponentially 
+decaying average of past squared gradients. This prevents the learning rate from diminishing too 
+rapidly, as seen with Adagrad, allowing for more controlled and consistent updates to x.
+5.6.7   a dam (adaptive  moment  eStimation )
+Adam is an optimization algorithm that combines the benefits of both Adagrad and RMSprop. 
+It leverages the advantages of adaptive learning rates and incorporates momentum to accelerate 
+convergence and stabilize updates. Adam maintains individual learning rates for each param -
+eter by computing the first and second moments of the gradients. The first moment is the mean 
+of the gradients, and the second is the gradients’ uncentered variance. These moments are used 
+to adapt the learning rates for each parameter dynamically. The updated rules for Adam are as 
+follows:
+ gftt=∇()θ 
+ m mgtt t=+ − ()−ββ11 11  
+ vv gtt t=+ − ()−ββ21 221  
+ ˆmm
+tt
+t=−11β 
+ ˆvv
+tt
+t=−12β 
+ θ θα
+tt
+ttvm+=−
++1ˆˆ
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  

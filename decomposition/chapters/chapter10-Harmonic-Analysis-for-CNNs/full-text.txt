@@ -1,0 +1,777 @@
+
+--- PDF PAGE 298 ---
+285 Topology in Deep Learning
+Step 6:  We augment each data point with its dataset’s topological feature. For example, the first point 
+in Dataset A has original coordinates (1, 0)  and a topological feature value of 0.7. Therefore, the 
+augmented vector is (1, 0, 0.7) . Similarly, for Dataset B, the first point has coordinates (0.1, 0.9)  
+with a topological feature value of 0, resulting in the augmented vector (0.1, 0.9, 0) .
+Step 7:  We use the augmented data to train a neural network for classification. The network archi -
+tecture is structured as follows: The input layer consists of three neurons, representing the 
+x- coordinate, y- coordinate, and topological feature. The hidden layer contains a small number 
+of neurons, such as five, using an activation function like ReLU. The output layer comprises 
+one neuron with a sigmoid activation function, designed for binary classification to distinguish 
+between Dataset A and Dataset B. The training process is as follows: For each epoch, we per -
+form the following steps:
+1. Forward Pass:  Compute the output of the network for each data point.
+2. Loss Calculation:  Use a loss function like binary crossentropy to measure the difference 
+between predicted and actual labels.
+3. Backpropagation:  Compute gradients of the loss with respect to weights and biases.
+4. Parameter Update:  Adjust weights and biases using an optimizer like stochastic gra -
+dient descent (SGD).
+Step 8:  After training, we evaluate the neural network’s performance on a test set (could be a 
+subset of the data or new data points).
+Figure 9.7  presents an analysis of two datasets, one circular (Dataset A) and one square (Dataset 
+B), using persistent homology and Vietoris–  Rips complexes to study their topological features 
+across different scales. Figure 9.7 a shows Dataset A, which consists of points arranged in a circular 
+shape. Similarly, Figure 9.7 b displays Dataset B, where points form a square-  like structure. These 
+datasets highlight the initial spatial arrangement of the data. Figure 9.7 c illustrates the Vietoris–  Rips 
+complex for the circular dataset at ϵ =  0.8. This complex connects points based on their pairwise 
+distances, capturing the underlying circular topology through the formation of loops while pre -
+serving the dataset’s geometric structure. Figure 9.7 d shows the persistence diagram for Dataset 
+A (circle), where connected components (H0) and loops (H1) are tracked as the scale parameter 
+changes. The diagram reveals the persistence of the circular structure, with the H1 loop indicating 
+the presence of a significant circular feature. Figure 9.7 e presents the Vietoris–  Rips complex for 
+the square dataset at ϵ =  0.8. This representation connects points in the square, forming a network 
+that captures its geometric structure, including potential loops. Figure 9.7 f displays the persistence 
+diagram for Dataset B (square), showing connected components (H0) and loops (H1). The square’s 
+topology is reflected in the emergence and disappearance of loops, highlighting differences in per -
+sistence compared to the circular dataset.
+9.5.2   Betti numBerS in deep learning
+Betti numbers are whole numbers that show how many different types of holes exist in a shape or 
+space. They provide a quick summary of how complex the shape of the data is. In deep learning, 
+Betti numbers help us understand the structure of the data better and make our models stronger and 
+more reliable. Using Betti numbers in neural networks is useful for two main purposes: analyzing 
+data complexity and improving model robustness. When analyzing data complexity, Betti numbers 
+can be calculated to measure how complicated the dataset is. This understanding helps in choosing 
+the right neural network design. For example, if the data has many complex features indicated by 
+high Betti numbers, we might need deeper or more advanced network structures to capture these 
+intricate patterns. Additionally, Betti numbers can guide us in deciding how to prepare the data or 
+apply specific techniques to handle its complexity effectively during training. In terms of model   
+
+--- PDF PAGE 299 ---
+286 Mathematical Foundations for Deep Learning
+FIGURE 9.7  (a) Dataset A (circle), (b) Dataset B (square), (c) Vietoris–  Rips complex circle at epsilon 0.8, (d) persistence diagram for Dataset A (circle), (e) Vietoris–  
+Rips complex square at epsilon =   0.8, (f) persistence diagram for Dataset B (square).
+  newgenrtpdf
+
+--- PDF PAGE 300 ---
+287 Topology in Deep Learning
+robustness, Betti numbers provide insights into the topological properties of the data, which helps 
+in building models that can handle these features well. For instance, if the data has many loops, as 
+shown by a high first Betti number, the model can be designed to recognize and work with these 
+loops accurately. Incorporating this topological information makes models better at dealing with 
+noisy data and unexpected changes. Furthermore, Betti numbers can be added as extra features to 
+the data, enhancing the model’s ability to capture the true structure of the data and perform better on 
+new, unseen information. Imagine we have two datasets composed of 2D points: Dataset A: Points 
+arranged in a circular shape (simple topology), and Dataset B: Points forming a figure-  eight shape 
+(more complex topology). Our goal is to analyze the topological complexity of these datasets using 
+Betti numbers and understand how this information can inform the design and robustness of a neural 
+network trained to classify these shapes. Betti numbers are integers that quantify the topological 
+features of a space: β₀₀ (Zeroth Betti number) counts the number of connected components. β₁₁ (first 
+Betti number) counts the number of 1D holes (loops). β₂₂ (second Betti number) counts the number 
+of 2D voids (in 3D space).
+• Computing Betti Numbers for Dataset A (Circle):
+1. We represent the circle using points sampled uniformly around a unit circle. Points, (cos( θi)
+,sin(θi)) for i =  1, 2, ..., N, where θi are angles evenly spaced between 0 and 2 π. For simpli -
+city, let’s take N =  8 points:
+ a .c os(, sin( )) ,, 00 10( ) =() 
+ b // // .c os(, sin( )) ,, ππ44 22 22 ( ) =( ) 
+ c // .c os(, sin( )) ,, ππ22 01 ( ) =() 
+ d // // .c os(, sin( )) ,, 34 34 22 22ππ ( ) =−( ) 
+ e .c os(, sin( )) ,, ππ( ) =−( )10  
+ f /s in // / .c os(, () ), , 54 54 22 22 ππ ( ) =− −( ) 
+ g / / .c os(, sin( )) ,, 32 32 01 ππ ( ) =−( )  
+ h / sin/ // .c os(, () ), 74 74 22 22ππ ( ) =−( ). 
+2. We Construct a Vietoris–  Rips Complex:  In constructing a Vietoris–  Rips complex, the first 
+step is to compute the distance matrix, which involves calculating the pairwise distances 
+between points in the dataset. For instance, the distance between Point 1 and Point 2 is
+  approximately d122212 20 22 0 765,(/ )( /) .=− +− ≈ . The next step is to choose a 
+distance threshold ( ϵ). This value determines which points are connected; if the distance 
+between two points is less than or equal to ϵ, they are connected in the complex.
+3. Computing Betti Numbers at Different  ϵ Values:  At ϵ =  0.7, edges connect pairs of points 
+where dij,.≤07 di. The connected components ( β₀) indicate that each point remains a sep -
+arate component, so β₀ =  8. No loops are formed at this stage, resulting in β₁ =  0. At ϵ =  1.1,  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 301 ---
+288 Mathematical Foundations for Deep Learning
+more connections form between the points. All points become connected, resulting in β₀ =  1. 
+A single loop forms around the circle, so β₁ =  1. At ϵ =  2.0, the complex fills in with higher-  
+dimensional simplices. The connected components remain at one ( β₀ =  1), but the loop fills 
+in, causing β₁ to drop to 0.
+• Computing Betti Numbers for Dataset B:
+1. Dataset Representation:  We represent the figure-  eight by combining two circles intersecting 
+at the origin: The top loop is centered at (0, 1) with points defined as (cos( θi), sin(θi)+ 1). The 
+bottom loop is centered at (0, –  1) with points given by (cos( θi), sin(θi) − 1). In both cases, 
+N =  8 points are used per loop.
+2. Building a Simplicial Complex:  Building a simplicial complex begins with computing the 
+distance matrix by calculating pairwise distances between points. Next, choose appropriate 
+ϵ values, similar to the previous approach, to determine which points are connected in the 
+complex based on their pairwise distances.
+3. Computing Betti Numbers:  At ϵ =  0.7, points within each loop start connecting internally. 
+The total number of connected components is two, as the top and bottom loops remain sep -
+arate, resulting in β₀₀ =  2. No loops are present at this stage, so β₁₁ =  0. At ϵ =  1.1, the inter -
+section point at the origin connects the two loops, reducing the connected components to 
+one (β₀₀ =  1). Two loops form, one in each loop of the figure-  eight, giving β₁₁ =  2. At ϵ =  2.0, 
+the loops begin to fill in, and the connected components remain at one ( β₀₀ =  1). Both loops 
+are filled, reducing β₁₁ to 0. Interpreting the Betti numbers for the given datasets provides 
+insights into their topological structure. For Dataset A, the Betti numbers are β₀₀ =  1 and 
+β₁₁ =  1. The value of β₀₀ =  1 indicates that the dataset consists of one connected component, 
+meaning all points form a single continuous structure. The value of β₁₁ =  1 means there is one 
+loop, which corresponds to the circular shape of the dataset. In Dataset B, the Betti numbers 
+are β₀₀ =  1 and β₁₁ =  2. The β₀₀ =  1 shows that after merging all parts of the figure-  eight, the 
+dataset still has one connected component. The β₁₁ =  2 indicates the presence of two loops, 
+corresponding to the two distinct loops in the figure-  eight shape.
+Figure 9.8  illustrates the application of TDA in deep learning, focusing on the relationship 
+between the loss landscape and topological persistence. Figure 9.8 a depicts the loss landscape, 
+where the normalized loss is plotted against the perturbation index. The color gradient highlights 
+variations in normalized loss, with darker shades representing lower values and lighter shades indi -
+cating higher losses. This visualization captures the ruggedness and overall structure of the opti -
+mization surface, emphasizing regions of low loss that correspond to stable solutions. Figure 9.8 b 
+presents the persistence diagram, which tracks the birth and death of topological features, such 
+as connected components (H0) and loops (H1), during the analysis of the loss landscape. Points 
+near the diagonal represent short-  lived features, typically considered noise, while points farther 
+away correspond to significant topological structures that persist across scales. For example, the 
+H0 features highlight the number of distinct connected regions, while H1 features capture cyclic 
+patterns in the loss landscape.
+9.6  REAL-  WORLD APPLICATIONS AND EXAMPLES
+9.6.1   Biological  network  analy SiS
+In the field of bioinformatics, topology plays a crucial role in understanding the complex interactions 
+within biological networks, such as protein–  protein interaction networks and gene regulatory 
+networks. TDA  enables researchers to uncover patterns and relationships that are not immediately  
+  
+
+--- PDF PAGE 302 ---
+289 Topology in Deep Learning
+FIGURE 9.8  TDA in deep learning: (a) loss landscape and (b) persistence diagram.
+  newgenrtpdf
+
+--- PDF PAGE 303 ---
+290 Mathematical Foundations for Deep Learning
+apparent using traditional methods. For example, by analyzing the topological features of these 
+networks, such as loops and connected components, scientists can identify key regulatory pathways 
+and potential targets for drug development. The use of Betti numbers and persistent homology helps 
+in quantifying the robustness and connectivity of these networks, leading to better insights into the 
+underlying biological processes.
+9.6.2   m aterial  Science  and nanotechnology
+Topology is also integral to material science, particularly in the design and analysis of nanomaterials. 
+The topological properties of materials, such as the arrangement of atoms in a lattice or the connect -
+ivity of pores in a spongy material, can significantly influence their physical properties. For instance, 
+topological insulators, materials that conduct electricity on their surface but not in their interior, 
+are a prime example of how topological considerations guide the development of new materials 
+with unique electrical properties. Understanding the topological structure of these materials allows 
+scientists to design more efficient and resilient nanostructures for applications in electronics, energy 
+storage, and catalysis.
+9.6.3   r oBotic S and autonomou S SyStemS
+In robotics, topology helps in the design and control of autonomous systems that must navigate com -
+plex environments. Topological maps, which abstract the environment into a network of connected 
+regions, enable robots to plan and execute paths efficiently. For instance, in the development of 
+autonomous vehicles, topological mapping allows the vehicle to understand its surroundings and 
+navigate safely through dynamic and unpredictable environments. This approach is essential for 
+tasks such as urban driving, where the vehicle must make decisions based on the connectivity and 
+layout of roads, intersections, and other obstacles.
+9.6.4   n euro Science  and Brain connectivity
+In neuroscience, topology provides valuable insights into the brain’s connectivity and function. 
+The human brain can be modeled as a complex network where neurons and synapses form intricate 
+topological structures. By applying TDA , researchers can study the brain’s connectivity patterns and 
+understand how different regions interact to produce cognitive functions. For example, persistent 
+homology has been used to analyze the topology of brain networks in patients with neurological 
+disorders, revealing changes in connectivity that correlate with disease progression. This approach 
+is crucial for developing more effective treatments and interventions for conditions like Alzheimer’s.
+9.6.5   Social  network  analy SiS
+Topology is also applicable in the analysis of social networks, where it helps in understanding the 
+structure and dynamics of human interactions. Social networks can be represented as graphs, with 
+individuals as nodes and their relationships as edges. By studying the topological features of these 
+graphs, such as clusters and communities, researchers can gain insights into social behavior, influ -
+ence patterns, and the spread of information or diseases. For instance, topological analysis can 
+identify influential individuals or groups within a network, which is valuable for targeted marketing 
+campaigns, public health interventions, and understanding the spread of misinformation. 
+ 
+ 
+  
+
+--- PDF PAGE 304 ---
+291 Topology in Deep Learning
+9.6.6   f inancial  modeling  and riSk aSSeSSment
+In finance, topology aids in modeling the complex relationships between assets and markets. TDA 
+allows for the identification of persistent features in financial data, such as market cycles and 
+anomalies, which can inform trading strategies and risk management practices. By analyzing the 
+topological structure of financial networks, such as the connections between different markets or 
+the relationships between assets in a portfolio, investors can better understand market dynamics 
+and make more informed decisions. This approach is particularly useful in stress testing, where 
+understanding the topological structure of financial systems can help in predicting how markets 
+might react to extreme events.
+9.7  HANDS-  ON EXAMPLE
+In this hands-  on section, we will cover persistent homology, Betti numbers, and visualize high-  
+dimensional data using t- SNE  and UMAP .
+9.7.1  Step 1. inStall reQuired  liBrarie S
+In this section, we are installing and importing a variety of libraries essential for working with 
+graph neural networks, dimensionality reduction, and topological data analysis. This combination of 
+libraries enables us to work with graph-  based neural networks, analyze high-  dimensional data using 
+dimensionality reduction techniques, and perform topological data analysis, which can uncover 
+hidden structures in datasets.
+!pip install spektral umap-  learn gudhi
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.layers import Input, Dense
+from tensorflow.keras.models import Model
+from spektral.layers import GCNConv
+from spektral.utils import normalized_  adjacency
+from scipy.sparse import csr_  matrix
+import matplotlib.pyplot as plt
+import networkx as nx
+from sklearn.datasets import make_  swiss_ roll
+from sklearn.manifold import TSNE
+import umap
+import gudhi as gd
+from gudhi import CubicalComplex, SimplexTree
+9.7.2  Step 2. generate  the SwiSS roll dataSet
+In this line of code, we are generating a synthetic Swiss Roll dataset using the make_  swiss_  roll 
+function from scikit-  learn. This dataset is often used in machine learning to test and visualize 
+dimensionality reduction techniques because of its complex, non-  linear structure. The Swiss Roll is 
+a 3D dataset that resembles a spiral rolled up in 3D space. 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 305 ---
+292 Mathematical Foundations for Deep Learning
+n_ samples =   1000
+noise =  0.05
+X, color =   make_ swiss_ roll(n_ samples, noise=  noise)
+9.7.3  Step 3. compute  the perSiStent homology  uSing gudhi
+In this section, we are performing TDA on the Swiss Roll dataset using the Gudhi library. Specifically, 
+we are computing the persistence diagram of the dataset through the following tasks: Rips Complex 
+Construction, Simplex Tree Creation and Persistence Diagram Computation.
+rips_ complex =   gd.RipsComplex(points=  X, max_ edge_ length= 1.0)
+simplex_  tree =  rips_ complex.create_  simplex_  tree(max_  dimension=  2)
+diag =  simplex_  tree.persistence()
+9.7.4  Step 4. extract  Betti numBerS
+In this line of code, we are calculating the Betti numbers of the Swiss Roll dataset using the sim -
+plex tree that was constructed earlier through the Rips complex. By calculating Betti numbers, we 
+gain a deeper understanding of the inherent structure of the Swiss Roll dataset, revealing important 
+topological properties that may not be easily visible in lower-  dimensional projections or traditional 
+data analysis methods.
+betti_ numbers =   simplex_  tree.betti_  numbers()
+9.7.5  Step 5. apply t- Sne to reduce  dimen SionS
+In this section, we are applying t-  SNE (t-  Distributed Stochastic Neighbor Embedding) to the Swiss 
+Roll dataset for dimensionality reduction. t- SNE  is particularly useful for visualizing complex 
+datasets with non-  linear structures, as it reveals clusters and local patterns that might not be captured 
+by linear methods like PCA .
+tsne =  TSNE(n_  components=  2, random_  state= 42)
+X_ tsne =  tsne.fit_  transform(X)
+9.7.6  Step 6. apply umap  to reduce  dimen SionS
+In this section, we are applying UMAP (Uniform Manifold Approximation and Projection) to 
+the Swiss Roll dataset for dimensionality reduction. UMAP  is favored in many cases due to 
+its balance between preserving local and global structures in the data, and the results can be 
+visualized to reveal patterns, clusters, or the underlying structure of complex datasets like the 
+Swiss Roll.
+umap_ reducer =   umap.UMAP(random_  state= 42) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 306 ---
+293 Topology in Deep Learning
+X_ umap =  umap_ reducer.fit_  transform(X)
+9.7.7  Step 7. plotting  all graph S in one frame
+In this section, we are visualizing the Swiss Roll dataset and its dimensionality-  reduced 
+representations using t- SNE , UMAP , and a Persistence Diagram to explore the topological features 
+of the dataset.
+fig, axs =   plt.subplots(2, 2, figsize=  (16, 12))
+# Plot a: Swiss Roll Dataset
+ax =  fig.add_  subplot(2, 2, 1, projection=  ‘3d’)
+ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=  color, cmap=  plt.
+cm.Spectral)
+ax.set_ title( “a) Swiss Roll Dataset ”)
+# Plot b: t-  SNE Embedding of the Swiss Roll Dataset
+axs[0, 1].scatter(X_  tsne[:, 0], X_  tsne[:, 1], c=  color, cmap=  
+plt.cm.Spectral)
+axs[0, 1].set_  title( “b) t- SNE Embedding of the Swiss Roll 
+Dataset ”)
+axs[0, 1].set_  xlabel( “t- SNE 1 ”)
+axs[0, 1].set_  ylabel( “t- SNE 2 ”)
+# Plot c: UMAP Embedding of the Swiss Roll Dataset
+axs[1, 0].scatter(X_  umap[:, 0], X_  umap[:, 1], c=  color, cmap=  
+plt.cm.Spectral)
+axs[1, 0].set_  title( “c) UMAP Embedding of the Swiss Roll 
+Dataset ”)
+axs[1, 0].set_  xlabel( “UMAP 1 ”)
+axs[1, 0].set_  ylabel( “UMAP 2 ”)
+# Plot d: Persistence Diagram
+gd.plot_  persistence_  diagram(diag, axes=  axs[1, 1])
+axs[1, 1].set_  title( “d) Persistence Diagram ”)
+plt.tight_  layout()
+plt.show()
+Figure 9.9  provides a detailed analysis of the Swiss Roll dataset using dimensionality reduc -
+tion techniques and persistent homology. Figure 9.9 a illustrates the Swiss Roll dataset in its ori -
+ginal 3D form, with points color-  coded to represent variations along the z- axis. This dataset is a 
+well-  known example of a non-  linear manifold in 3D space, often used to evaluate the effective -
+ness of dimensionality reduction algorithms. Figure 9.9 b presents a 3D t- SNE  embedding of the 
+dataset, where the high-  dimensional Swiss Roll is projected into a lower-  dimensional space. The 
+t- SNE  embedding focuses on preserving local neighborhoods, effectively revealing clusters and 
+the dataset’s overall structure. Figure 9.9 c displays the results of applying UMAP  to the Swiss Roll 
+dataset, also reducing its dimensionality to two dimensions. UMAP  emphasizes both local and global 
+structural preservation, offering a clear representation of the Swiss Roll’s continuity and manifold 
+properties, sometimes surpassing t- SNE  in retaining the dataset’s global relationships. Figure 9.9 d 
+shows the persistence diagram of the Swiss Roll dataset, capturing its topological features across 
+various scales. The H0 features represent connected components, while the H1 features correspond  
+  
+
+--- PDF PAGE 307 ---
+294 Mathematical Foundations for Deep Learning
+FIGURE 9.9  (a) 3D visualization of the Swiss Roll dataset, (b) 2D t-  SNE embedding of the Swiss Roll dataset, (c) 2D 
+UMAP embedding of the Swiss Roll dataset, (d) persistence diagram for the Swiss Roll dataset.  newgenrtpdf
+
+--- PDF PAGE 308 ---
+295 Topology in Deep Learning
+to loops in the data. The most persistent H1 loop, highlighted in red, signifies the prominent spiral 
+structure inherent in the dataset.
+9.8  COMMON MISTAKES AND TROUBLESHOOTING TIPS
+9.8.1   m iSunder Standing  topological  concept S
+ •Mistake:  Misinterpreting fundamental topological concepts like continuous transformations, 
+homeomorphisms, and Betti numbers can lead to incorrect applications and analyses.
+ •Tip: Review foundational resources on topology and TDA . Use visual aids and interactive 
+tools to solidify your understanding of these abstract concepts.
+9.8.2   o verfitting  in deep network S
+ •Mistake:  Designing neural networks with excessive depth or width without adequate regular -
+ization, leading to overfitting.
+ •Tip: Use techniques like dropout, batch normalization, and early stopping to prevent overfitting. 
+Regularly validate your model on separate datasets to monitor for overfitting.
+9.8.3   ignoring  the impact  of network  architecture
+ •Mistake:  Neglecting the importance of network architecture and its influence on convergence 
+and performance.
+ •Tip: Experiment with different architectures and configurations. Use grid search or random 
+search to find the optimal structure for your specific problem.
+9.8.4   v iSualizing  high- dimen Sional  data
+ •Mistake:  Struggling to visualize high-  dimensional data and loss landscapes, leading to misin -
+terpretation of model behavior.
+ •Tip: Utilize dimensionality reduction techniques like t- SNE  or PCA  for visualizing high-  
+dimensional data. Understand the limitations and ensure the reduced dimensions retain critical 
+information.
+9.8.5   c omputational  coSt and efficiency
+ •Mistake:  Underestimating the computational cost of applying topological analysis to large 
+datasets and neural networks.
+ •Tip: Optimize your code and use efficient libraries for TDA  computations. Consider using 
+cloud computing resources or distributed computing to handle large-  scale analyses.
+9.8.6   integrating  tda with neural  network S
+ •Mistake:  Failing to effectively integrate TDA  insights with neural network models, resulting 
+in limited improvements.
+ •Tip: Apply TDA  techniques to extract meaningful features and incorporate them into your 
+neural network pipeline. Validate the added value through controlled experiments. 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 309 ---
+296 Mathematical Foundations for Deep Learning
+9.8.7   o verfitting  to topological  feature S
+ •Mistake:  Overfitting to topological features extracted from the data, leading to models that do 
+not generalize well.
+ •Tip: Ensure a balance between topological features and other relevant data features. Use cross-  
+validation to assess the generalization performance of your models.
+9.8.8   Bridging  theory  and practice
+ •Mistake:  Struggling to bridge the gap between theoretical insights from topology and their 
+practical application in deep learning.
+ •Tip: Focus on practical implementation and empirical validation. Collaborate with domain 
+experts to translate theoretical concepts into actionable strategies for improving neural net -
+work models.
+9.9  REVIEW QUESTIONS
+1. What is topology, and why is it important to understand the properties of space?
+2. How do continuous transformations define topological equivalence? Provide examples.
+3. How does the topology of a neural network influence its performance and convergence 
+properties?
+4. Explain the differences between network depth and width. What are the pros and cons of 
+increasing each?
+5. What are skip connections, and how do they benefit deep neural networks like ResNet?
+6. Describe the advantages and challenges of using RNNs for sequential data.
+7. What are the benefits and potential problems associated with using the ReLU  activation 
+function?
+8. What is persistent homology, and how can it be applied to analyze neural network loss 
+landscapes?
+9. How do Betti numbers help understand the topological complexity of data?
+10. How can integrating TDA  and neural networks lead to more robust and effective models?
+9.10  PROGRAMMING QUESTIONS
+9.10.1   e aSy
+Generate a 3D S-  curve dataset and visualize it.
+1. Generate the S-  curve dataset.
+2. Apply t-  SNE to the dataset and visualize the 2D embedding.
+3. Apply UMAP to the dataset and visualize the 2D embedding.
+4. Compare the embeddings from t-  SNE and UMAP. 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 310 ---
+297 Topology in Deep Learning
+9.10.2   m edium
+For a given high-  dimensional dataset, compute its persistence diagram using different metrics (e.g., 
+Euclidean, cosine) and compare the results.
+1. Select a high-  dimensional dataset (e.g., MNIST  or CIFAR-  10).
+2. Compute the pairwise distance matrices using different metrics.
+3. Generate persistence diagrams for each metric.
+4. Compare the persistence diagrams and interpret the results.
+9.10.3   h ard
+Using the MNIST  dataset, compute the persistence diagrams for each image and use the resulting 
+topological features as input to a machine learning classifier.
+1. Preprocess the MNIST  dataset to compute persistence diagrams for each image.
+2. Extract topological features (e.g., persistence pairs) from the diagrams.
+3. Train a machine learning classifier using these topological features.
+4. Evaluate the classification performance using standard metrics (accuracy, precision, recall).
+5. Compare the performance to a classifier trained on raw pixel values. 
+  
+
+--- PDF PAGE 311 ---
+298
+298 DOI: 10.1201/9781032690742-1010 Harmonic Analysis for CNNs
+10.1  INTRODUCTION
+Understanding signals in both time and frequency is important for digital signal processing. Tools 
+like Fourier (FT) and Wavelet (WT) transform help find hidden patterns in raw data, such as radio 
+waves or images used in machine learning. In deep learning, convolutional neural networks (CNNs) 
+examine images by identifying features from pixel information. This is similar to harmonic analysis, 
+where frequency methods explain how signals behave. By combining deep learning with harmonic 
+ideas, we can better understand how CNNs work and find more efficient ways to compute. In this 
+chapter, we explore these ideas.
+10.2  FOURIER ANALYSIS
+10.2.1   f undamental S of fourier  analy SiS
+The strength of Fourier analysis is that it can break any complex signal into simple sine and cosine 
+waves. This separation lets us look closely at the signal’s different frequencies. Understanding these 
+frequencies is important in many areas, from engineering to science. It helps us design filters, study 
+waveforms, and process data more effectively.
+10.2.2   f ourier  tranSform
+The Fourier transform (FT) is a mathematical operation that converts a function from its original 
+domain (typically time or space) into the frequency domain. This transformation provides a fre -
+quency spectrum that shows how much of each frequency is present in the original signal. For a 
+continuous time-  domain function f(t), the FT Fw() is defined as:
+ Ff te dtjtωω()= ()
+−∞∞
+−∫ 
+where:
+ •ft() is the function in the time domain,
+ •ω is the angular frequency, which is related to the frequency f by ω =  2πf, and
+ •ejt−w is the complex exponential function, where j is the imaginary unit (i.e., j2 =  – 1). 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 312 ---
+299 Harmonic Analysis for CNNs
+This transformation is similar to decomposing a complex musical chord into individual notes. 
+Each note corresponds to a frequency component of the chord, and the FT helps identify these 
+components. Let’s consider a time-  domain signal composed of two sine waves:
+ f tt t()=× +×3250 22 120 sin( )s in() ππ  
+Here:
+ •3 sin(2 π × 50 t) is a sine wave with an amplitude of 3 and a frequency of 50 Hz.
+ •2 sin(2 π × 120 t) is a sine wave with an amplitude of 2 and a frequency of 120 Hz.
+We plan to use the FT to identify the frequency components and their amplitudes in f(t).
+Step 1. Apply the FT:  Think of the FT as a tool that takes your complex sound and breaks it down 
+into its basic building blocks, the pure tones (sine waves). For our sound, which is:
+ Ft te dtjtωπ πω()=× +×[]
+−∞∞
+−∫3250 22 120 sin( )s in ()  
+Using the linearity property of the FT, this can be separated into:
+ Ft ed tt ed tjt jt() sin( )s in () ωπ πωω= ×+×
+−∞∞−
+−∞∞−∫∫32 50 22 120  
+We want to find out the frequencies (50 and 120 Hz) and their strengths (3 and 2).
+Step 2. Compute the Transform for Each Sine Wave:  The FT of sin(2π ft) is given by:
+ {sin() } 2222 πδ ωπ δω πftjff =− ( )−+( )  
+Applying this to each sine component:
+1. For the 50 Hz tone: 3 sin(2 π × 50 t): The math shows that there’s a spike (a sharp point) at 50 
+Hz. The strength of this spike is related to the number 3 in front of the sine wave.
+ 3225 02 503
+2100 100×− × ( )−+ ×( ) =−( )−+( ) jjδω πδ ωπ δω πδ ωπ  
+2. For the 120 Hz tone: 2 sin(2 π × 120 t): Similarly, there ’s another spike at 120 Hz, and its 
+strength comes from the number 2.
+ 222 120 2 120 240 240×− ×( )−+ ×( ) =−( )−+( ) jj δω πδ ωπ δω πδ ωπ  
+Step 3. Combine the Results:
+ Fjjjj ωδ ωπδω πδ ωπ δω π()=− ( )−+ ( )+−( )−+( )3
+21003
+2100 240 240   
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 313 ---
+300 Mathematical Foundations for Deep Learning
+The FT F(ω) reveals spikes (delta functions) at specific angular frequencies: ω =  100π rad/  s    
+(which corresponds to 50 Hz) and ω =  240π rad/  s (which corresponds to 120 Hz). The 
+coefficients in front of the delta functions indicate the amplitude and phase of each frequency 
+component. At 50 Hz the amplitude is 3
+2j and at 120 Hz the amplitude is j. As the original signal 
+ f(t) is real-  valued, the FT exhibits symmetry: Positive frequencies (e.g., 50 and 120 Hz) have 
+corresponding negative frequencies. The magnitudes of the Fourier coefficients correspond to 
+the amplitudes of the sine waves.
+Figure 10.1  illustrates three individual sine waves at 5, 50, and 120 Hz, along with their combined 
+time-  domain signal and their frequency-  domain representation. In Figure 10.1 a, the slowest oscilla -
+tion at 5 Hz is shown, displaying only a few cycles over the 1-  second interval. Figure 10.1 bintroduces 
+the 50 Hz wave, which has considerably more peaks and troughs in the same time frame. Figure 10.1 c 
+presents the highest-  frequency component at 120 Hz, where many closely spaced oscillations occur 
+within one second. These three sine waves are summed in Figure 10.1 d, producing a complex wave -
+form in the time domain whose various undulations result from the superposition of 5, 50, and 120 
+Hz components. In Figure 10.1 e, the FT of this combined signal shows three clear spectral peaks 
+corresponding to each individual sine wave, verifying that all three frequencies are indeed present. 
+Finally, Figure 10.1 f zooms in on the 0–  100 Hz region, highlighting the 5 and 50 Hz peaks more 
+clearly while the 120 Hz peak remains outside the zoomed frequency range.
+10.2.3   inver Se fourier  tranSform
+The inverse Fourier transform (IFT) reverses the FT process, converting a function from the fre -
+quency domain back to its original domain (often time or space). This operation is crucial for 
+reconstructing the original signal after analysis or manipulation in the frequency domain. The 
+inverse transform of Fω() is given by:
+ f tF edjt()= ()
+−∞∞
+∫1
+2πωωω 
+where:
+ •f(t) is the recovered time-  domain function.
+ •The factor 1
+2π ensures proper scaling during the transformation.
+Understanding the IFT is essential for practical applications where signals are analyzed in the fre -
+quency domain and then transformed back to their original form for further processing or interpret -
+ation. Suppose we plan to reconstruct the original time-  domain signal from its frequency components 
+using the IFT. Given frequency components: A sine wave with amplitude 3 at 50 Hz and a sine wave 
+with amplitude 2 at 120 Hz. These components can be represented in the frequency domain as spikes 
+at their respective frequencies.
+Step 1. Express the Frequency Components:  Each sine wave in the frequency domain can be 
+represented using delta functions (spikes):
+ Fωδ ωπ δω πδ ωπ δω π()=− ( )−+( ) +−( )−+( )  3 100 100 2 240 240   
+ 
+  
+
+--- PDF PAGE 314 ---
+301 Harmonic Analysis for CNNs
+FIGURE 10.1  (a) Sine wave 1 (5 Hz). This waveform oscillates at the slowest frequency of the three, completing 5 cycles per second. (b) Sine wave 2 (50 Hz). 
+A higher-  frequency sinusoid that completes 50 cycles per second. (c) Sine wave 3 (120 Hz). The fastest oscillation among the three waves, with 120 cycles per second. 
+(d) Combined time-  domain signal. The result of summing all three sine waves (5, 50, and 120 Hz). (e) Frequency-  domain representation. The FT of the combined signal, 
+showing distinct peaks at 5, 50, and 120 Hz. (f) Zoomed-  in frequency domain (0–  100 Hz). A closer look at the low-   and mid-  frequency peaks (5 and 50 Hz), with the 
+120 Hz peak lying outside this zoom range.  newgenrtpdf
+
+--- PDF PAGE 315 ---
+302 Mathematical Foundations for Deep Learning
+(Note: ω =  2πf, so 50 Hz becomes 100 π rad/ s and 120 Hz becomes 240 π rad/ s.)
+Step 2. Apply the IFT:  Using the IFT formula:
+ f te ee ejt jt jt jt()=− () +−() −−1
+232100 100 240 240
+πππ ππ 
+Step 3. Simplify Using Euler’s Formula:  Recall that e ejjjθθθ −=−2s in() :
+ ft jt jt
+ft()=× +×[]
+()=1
+232 100 22 240
+1
+26πππ
+πsin( )s in() andt hen
+j jt jtsin( )s in() 100 4 240 ππ+ []  
+As the original signal is real, the imaginary units cancel out:
+ft tt ft t()=+ ()=6
+21004
+22403100ππππππ sin( )s in() sin(  and then ) )s in () +2240ππt
+Simplifying further, recognizing that 100 π rad/ s is 50 Hz and 240 π rad/ s is 120 Hz:
+f tt t()=× +×3250 22 120 sin( )s in() ππ
+This matches our original time-  domain signal:
+ f tt t()=× +×3250 22 120 sin( )s in() ππ  
+Figure 10.2  depicts on the same three-  sine-  wave combination but provides additional insights 
+into reconstruction and error analysis. Figure 10.2 a again displays the time-  domain signal formed 
+by superimposing 5, 50, and 120 Hz waves, reflecting a more complex pattern compared to any 
+single wave alone. Figure 10.2 b shows the frequency-  domain representation, showing distinct peaks 
+at 5, 50, and 120 Hz that confirm the presence of all three components. Figure 10.2 c illustrates 
+how the inverse fast Fourier transform (IFFT) can recover the original time-  domain waveform 
+from its frequency-  domain data, demonstrating near-  perfect alignment with the combined signal. 
+Figure 10.2 d shows the minimal difference between the original and reconstructed signals, which 
+hovers near numerical precision and confirms the accuracy of the forward and IFT process.
+10.3  WAVELETS
+Wavelet analysis is a useful tool in signal processing, offering capabilities that extend beyond those 
+of Fourier analysis. While Fourier analysis breaks signals into sine and cosine waves, wavelet ana -
+lysis uses wavelets, functions that can capture both frequency and time (or space) information simul -
+taneously. This makes wavelets particularly effective for analyzing non-  stationary signals, where the 
+characteristics of the signal change over time or space. Wavelets are especially useful in applications 
+where localized variations in the signal must be captured and analyzed. Wavelets are oscillating 
+functions that start and end at zero, with their amplitude peaking in between. This shape gives 
+wavelets the ability to zoom in on localized signal features. Their flexibility makes them ideal for 
+multi-  resolution analysis, enabling the study of signals at different scales. By adjusting the scale of 
+the wavelet, we can analyze both the fine details and broader patterns in the signal, making wavelet 
+analysis highly effective for signals that vary over time or space. 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 316 ---
+303 Harmonic Analysis for CNNs
+FIGURE 10.2  (a) Combined time-  domain signal. This is the same three-  wave sum shown in Figure 1(d), plotted over 1 second. (b) Frequency-  domain representation. 
+The magnitude spectrum again reveals peaks at 5, 50, and 120 Hz. (c) Reconstructed signal (IFFT). The IFT of the frequency-  domain data, showing a near-  identical 
+recovery of the original time-  domain signal. (d) Difference between original and reconstructed signals. The minimal discrepancy on the order of numerical precision, 
+verifies the accuracy of the FT and IFT.  newgenrtpdf
+
+--- PDF PAGE 317 ---
+304 Mathematical Foundations for Deep Learning
+10.3.1   w avelet  tranSform
+The wavelet transform ( WT)  is an advanced analytical method that converts signals from the time 
+domain into a series of coefficients based on shifted and scaled versions of a predetermined base 
+function, known as a mother wavelet . This transformation is particularly adept at handling non-  
+stationary signals, those whose frequency content changes over time. The continuous wavelet trans -
+form ( CWT ) of a function f(t) is mathematically represented as:
+ CWTs
+sftt
+sdt τψτ,()= ()−
+
+
+−∞∞
+∫1 
+Here, τ and s are parameters that control the translation (shift) and scale (compression or stretching) 
+of the wavelet, respectively. ψ(t) is the mother wavelet, a function localized in both time and fre -
+quency. The normalization factor 1
+s ensures that the wavelet has the same energy at each scale. 
+Wavelets are unique in that they are localized in time and frequency, unlike the sinusoids used in 
+FTs, which extend infinitely. This localization allows wavelets to precisely capture and analyze 
+transient features and abrupt changes in a signal. The adaptability of wavelets in terms of scale 
+and translation makes them ideal for analyzing signals that exhibit features at multiple scales or 
+that have significant local variations in time or frequency. Consider an example where a heartbeat 
+signal is analyzed using the WT. A heartbeat signal, characterized by sharp spikes followed by slow 
+waves, presents challenges in identifying features like the QRS  complex and the T wave when 
+using Fourier analysis due to its non-  stationary nature. Using a WT, the signal is decomposed into 
+coefficients that represent different frequency components at different times. For instance, selecting 
+a wavelet such as the Daubechies wavelet, which closely resembles the sharp spikes of a QRS  com -
+plex, would allow for efficient isolation and analysis of these features without interference from 
+slower-  moving trends in the signal. This ability to customize the wavelet to match specific features 
+of the signal is a key advantage of the WT, enabling more effective signal analysis and feature detec -
+tion. Consider a simple time-  domain signal composed of two parts:
+1. A sharp spike (representing a transient event) lasting from t =  1 to t =  2 seconds.
+2. A slow sine wave with a frequency of 5 Hz active throughout the signal duration.
+The signal f(t) can be represented as:
+ f tt
+t()=≤≤
+×
+
+10 12
+525,
+sin( ),π otherwise 
+Step 1. Choose a Mother Wavelet:  Let’s use the Daubechies 4 (db4) wavelet, known for its ability 
+to handle sharp transitions effectively.
+Step 2. Apply the WT:  The CWT  will analyze the signal at different scales and positions. For sim -
+plicity, we’ll examine two scales: Scale 1 captures high-  frequency components, such as sharp 
+spikes, while Scale 8 captures low-  frequency components, like a slow sine wave.
+Step 3. Compute Wavelet Coefficients:  At scale 1, the wavelet is narrow and highly responsive 
+to rapid changes. The sharp spike occurring between t =  1and t =  2 generates significant 
+wavelet coefficients, indicating a strong transient event. In contrast, the sine wave produces 
+minimal coefficients at this scale due to its low-  frequency nature. At Scale 8, the wavelet is 
+wider, enabling it to capture slower variations. The sine wave at 5 Hz results in prominent 
+wavelet coefficients, reflecting its sustained oscillation. The sharp spike contributes less to the 
+coefficients at this scale due to the wavelet’s lower sensitivity to high-  frequency events. 
+ 
+  
+
+--- PDF PAGE 318 ---
+305 Harmonic Analysis for CNNs
+Step 4: Reconstruct the Signal Using Selected Scales:  To reconstruct the original signal, we can 
+combine the wavelet coefficients from both scales:
+ ft()≈+Reconstruction from Scale1 Reconstruction from Scale 8 8  
+This combination captures both the transient spike and the underlying sine wave.
+10.3.2   a pplication S of wt
+WTs have broad applications across various fields. In image compression, they are the backbone of 
+the JPEG 2000 standard, offering efficient, high-  quality compression. Wavelets are also key in noise 
+reduction, where they remove noise while preserving important signal features. In signal processing, 
+wavelets enable time-  frequency analysis, making them ideal for examining signals that change over 
+time. Additionally, in medical imaging, WTs help enhance image analysis by highlighting crucial 
+structures and details, improving diagnostic accuracy. Consider a signal composed of two sine 
+waves with frequencies of 5 and 20 Hz.
+Figure 10.3  illustrates the relationship between the original signal and its WT. Figure 10.3 a 
+shows the time-  domain signal, which is a combination of two sine waves. The signal’s varying 
+pattern over time is a result of these interacting frequencies. Figure 10.3 b represents the WT of the 
+signal, revealing how its frequency components change over time. The color intensity in the plot 
+corresponds to the magnitude of the wavelet coefficients, highlighting the signal’s decomposition 
+into different scales, where the red regions indicate higher magnitudes.
+10.4  CONVOLUTION IN THE FREQUENCY DOMAIN FOR CNNS
+CNNs are very important in deep learning, especially for tasks like processing images and videos. 
+The key part of CNNs is the convolution operation. In this operation, a filter (or kernel) moves over 
+an input (like an image) to calculate sums of products for each area it covers. When we look at 
+convolution in the frequency domain, it has big computational benefits, especially for large filters 
+or specific tasks. It can change the convolution process into simple multiplications, which makes 
+computations faster in some situations.
+10.4.1   c onvolution  theorem
+The convolution theorem explains how two important math operations, convolution and multiplica -
+tion, are connected using the FT. This theorem is a powerful tool for studying and changing signals 
+in both time and frequency. When you convolve two signals in the time domain, you mix them 
+together to create a new signal that combines features from both original signals. Similarly, when 
+you multiply the FTs of two signals in the frequency domain, it has the same effect as convolving 
+the two signals in time. This means that by working in the frequency domain, we can simplify the 
+convolution process by just multiplying the FTs, which can make calculations faster. The convolu -
+tion theorem can be expressed mathematically as:
+ ft gt FG ()() {} =()⋅() * ωω  
+where:
+ •ft() and g t() are signals in the time domain,
+ •Fω() and Gω() are their corresponding Fourier, 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 319 ---
+306 Mathematical Foundations for Deep Learning
+FIGURE 10.3  (a) Original signal (time domain) and (b) WT (frequency domain).
+  newgenrtpdf
+
+--- PDF PAGE 320 ---
+307 Harmonic Analysis for CNNs
+ •* denotes the convolution operation in the time domain, and
+ •⋅represents multiplication in the frequency domain.
+The applications of the convolution theorem include signal processing, where it allows for effi -
+cient computation of convolutions by transforming signals to the frequency domain, performing 
+element-  wise multiplication, and then using the IFT to return the result to the time domain. This 
+method is often faster than direct convolution, especially for large signals. In filter design, the the -
+orem is fundamental, as it enables the specification of filtering effects in the frequency domain. By 
+defining the filter’s frequency response and multiplying it with the FT of the input signal, the filtered 
+signal can be obtained efficiently. In image processing, convolutional filters like edge detectors, blur 
+filters, and sharpening filters can be applied more easily using the convolution theorem, simplifying 
+the implementation of complex filtering operations. Additionally, in system analysis, particularly for 
+linear time-  invariant ( LTI) systems, the theorem aids in understanding system responses to various 
+inputs by analyzing the system’s impulse response in the frequency domain, allowing prediction of 
+the output for any given input. Consider two time-  domain signals, f(t) and g(t). To convolve these 
+signals using the convolution theorem:
+1. Compute the FTs of f(t) and g(t):
+ Ff tG gt ωω()= (){} ()= (){}  ,  
+2. Multiply the FTs in the frequency domain:
+ HF Gωω ω()=()⋅() 
+3. Compute the IFT of the product to obtain the convolved signal in the time domain:
+ htH FG ()= () {} = ()⋅() {}−−11ωω ω  
+Consider two simple continuous-  time signals:
+1. Signal f(t):
+ f tt()=≤≤ 
+
+10 1
+0,
+,o therwise 
+A rectangular pulse of amplitude 1 lasting from t =  0 to t =  1 second.
+2. Signal g(t):
+ gtt()=≤≤ 
+
+10 1
+0,
+,o therwise 
+Another identical rectangular pulse of amplitude 1 lasting from t =  0 to t =  1 second. 
+ 
+ 
+ 
+  

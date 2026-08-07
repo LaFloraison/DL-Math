@@ -1,0 +1,1462 @@
+
+--- PDF PAGE 205 ---
+192 Mathematical Foundations for Deep Learning
+Figure 6.5  represents the relationship between SNR and the maximum achievable data rate (in  
+bps/ Hz) of a communication channel, following Shannon’s capacity formula. The blue curve shows  
+how the channel capacity increases as the SNR improves. At lower SNR values, specifically when  
+the SNR is below 0 dB (marked by the vertical dashed line), the capacity remains low, indicating  
+the region of unreliable communication, highlighted in red. This area signifies that when the noise  
+level is too high compared to the signal strength, achieving a reliable communication rate is challen -
+ging or impossible. As the SNR increases beyond the 0 dB threshold, the channel enters the reliable  
+communication region, shaded in green. In this region, the capacity of the channel improves signifi -
+cantly with higher SNR values, reflecting that a stronger signal relative to noise allows for higher  
+data transmission rates while maintaining reliability.
+6.8  KULLBACK–  LEIBLER DIVERGENCE
+The Kullback–  Leibler ( KL) divergence is used to quantify the difference between two probability 
+distributions. It is essential in statistics, information theory, and machine learning. The KL divergence 
+is a powerful tool for understanding and quantifying differences between probability distributions, 
+playing a central role in many machine learning algorithms and statistical measures. The KL diver -
+gence is defined for two discrete probability distributions, P and Q. Usually, P represents the “true” 
+distribution of data, observations, or a precisely calculated theoretical distribution. In contrast, Q 
+typically represents the approximation, hypothesis, or a model’s predictions. The KL divergence of 
+Q from P is defined as:
+ DP QP xPx
+QxxKL(| |) log= ()()
+()∑  
+The logarithm is typically taken in base two if we measure the divergence in bits or base e (natural 
+logarithm) for nats. KL divergence is asymmetric, meaning DP QKL(| |)  is not necessarily equal 
+FIGURE 6.5  Channel capacity as a function of SNR. 
+ 
+  
+
+--- PDF PAGE 206 ---
+193 Information Theory
+to DQ PKL(| |) . This is a fundamental property, implying that the “cost” of approximating P with 
+Q can differ from the “cost” of approximating Q with P. In machine learning, KL divergence 
+is commonly used in algorithms that involve probability distributions. For instance, it is used in 
+variational inference to measure the divergence between the actual posterior distribution and its 
+approximation. We are training specific generative models like variational autoencoders (V AEs). 
+Information retrieval is used to compare the distribution of terms in different documents. A KL 
+divergence of 0 indicates that the two distributions are identical. As the divergence increases, the 
+difference between the two distributions grows. However, be cautious: the KL divergence can be 
+infinite if any value for which P(x) is non-  zero and Q(x)  is zero. This is because the logarithm of 
+zero becomes undefined, highlighting a fundamental mismatch between the distributions. Consider 
+two probability distributions P and Q for a simple coin flip scenario, where the coin can land on 
+heads (H) or tails (T). Let:
+ •P(H)  =  0.6, P(T)  =  0.4 (true distribution),
+ •Q(H)  =  0.5, Q(T)  =  0.5 (model’s predicted distribution).
+The KL divergence between P and Q quantifies how much information is lost when using Q to 
+approximate P. The KL divergence between two discrete probability distributions, P and Q, is 
+defined as:
+ DP QP xPx
+QxxKL(| |) log= ()()
+()∑  
+where:
+ •DKL(P ∣∣∣∣ Q) is the KL divergence of Q from P,
+ •P(x) is the probability of event x in the true distribution P,
+ •Q(x)  is the probability of event x in the model’s approximation Q.
+For the coin flip example, the KL divergence is calculated as:
+ DP QKL(| |) .l og.
+..l og.
+.=+0606
+050404
+05 
+Calculating each term:
+ 0606
+0506 12 0 04751 0404
+0504 .l og.
+... .. log.
+..≈× ()=≈ ×loga nd  log0 08 0 03876 ..()=  
+Thus:
+ DP QKL(| |) .. .≈−=0 04751 0 03876 0 00875  
+In this case, the KL divergence (DKL(P ∥ Q)) is approximately 0.00875 , quantifying the extent to 
+which the distribution Q diverges from P. KL divergence of 0 would indicate that the two distributions 
+are identical, while any positive value reflects the difference in information content between them.
+Figure 6.6  represents these differences and quantifies them using KL divergence. Figure 6.6  
+subplot a illustrates the true distribution ( P), where probabilities are assigned to each event as 
+follows: Event 1 has a probability of 0.40, Event 2 is assigned 0.35, Event 3 is 0.20, and Event 4 is 
+0.05. This distribution serves as the baseline or observed probabilities for each event. In contrast,  
+ 
+ 
+  
+
+--- PDF PAGE 207 ---
+194 Mathematical Foundations for Deep Learning
+FIGURE 6.6  (a) True distribution P and (b) approximate distribution Q.
+  newgenrtpdf
+
+--- PDF PAGE 208 ---
+195 Information Theory
+subplot Figure 6.6 b displays the approximate distribution ( Q), where the probabilities differ: Event 
+1 is assigned a probability of 0.30, Event 2 is 0.25, Event 3 remains at 0.20, and Event 4 increases 
+significantly to 0.25. These changes indicate deviations between P and Q, suggesting that Q only 
+partially approximates the true distribution. Above the bar plots, the figure presents the calculated 
+KL divergence values. The KL( P ∥ Q) is 0.220 bits (shown in blue), quantifying the information lost 
+when Q is used to approximate P. The KL( Q ∥ P) is 0.335 bits (shown in red), measuring the diver -
+gence in the reverse direction. The asymmetry in these values highlights that KL divergence is not 
+symmetric. The difference in magnitude reflects the distinct perspectives of approximating P using 
+Q vs. Q using P. The smaller value for KL( P ∥ Q) suggests that Q provides a relatively reasonable 
+approximation of P, but some discrepancies remain.
+6.9  INFORMATION THEORY IN MACHINE LEARNING AND DEEP LEARNING
+In machine learning, information gain, a concept based on entropy, is used in decision trees to decide 
+which feature to split on at each node. Clustering algorithms utilize mutual information to measure 
+cluster similarity, enhancing the grouping of similar data points. In neural networks, especially in 
+areas like V AEs, concepts such as KL divergence are employed to measure the difference between 
+the learned representation and the actual data distribution, thereby optimizing model performance 
+and representation accuracy. As deep learning continues to evolve, the foundational principles of 
+information theory will likely remain integral in providing insights and tools for advancing the field. 
+Information theory provides a framework to quantify the maximum amount of information that a 
+network can store or process, which is intricately linked to its architecture and size. The architecture 
+of a neural network, including the number of layers and the number of neurons per layer, determines 
+its capacity to represent complex functions. Information theory helps quantify this capacity, offering 
+a precise measure of how much information the network can capture from the input data. This 
+understanding is crucial for designing networks that are neither underfitting nor overfitting the 
+data. Activation functions play a pivotal role in how information flows through a network. From 
+an information-  theoretic perspective, activation functions can be analyzed based on their ability to 
+maintain or transform information as it propagates through the layers. For instance, functions like 
+ReLU (Rectified Linear Unit) can help preserve the gradient during backpropagation, preventing 
+issues like vanishing gradients and ensuring efficient information flow. Optimizing the selection and 
+design of activation functions can significantly enhance the network’s performance and efficiency. 
+The information bottleneck principle provides another layer of understanding by examining how 
+networks compress input information into a more compact representation while retaining essen -
+tial features. This principle aids in developing models that balance complexity and generalization, 
+ensuring that the network captures the most relevant information for the task at hand. Techniques 
+such as mutual information can measure the amount of information shared between different net -
+work layers. This measurement can guide the adjustment of network parameters to maximize the 
+flow of relevant information, thereby improving the learning process and the model’s overall effect -
+iveness. Consider a neural network with three layers: an input layer with 10 neurons, a hidden layer 
+with 50 neurons, and an output layer with 5 neurons. The architecture defines the network’s capacity 
+to store and process information. Using information theory, we can analyze how much information 
+this network can theoretically capture from the input data and how efficiently it can transform that 
+information across layers. The capacity of a neural network can be related to the number of weights 
+(parameters) it has. For a simple, fully connected neural network with L layers, where each layer i 
+has ni neurons, the total number of weights is:
+ Totalw eights =×
+=−
++ ∑
+iL
+iinn
+11
+1  
+  
+
+--- PDF PAGE 209 ---
+196 Mathematical Foundations for Deep Learning
+In our example:
+ •Input layer: 10 neurons,
+ •Hidden layer: 50 neurons,
+ •Output layer: 5 neurons.
+The number of weights between layers is:
+ •From input to hidden: 10 × 50 =   500 weights,
+ •From hidden to output: 50 × 5 =   250 weights.
+Thus, the total number of weights is:
+ 500 +   250 =   750 weights  
+This means the network can store a significant amount of information across these 750 connections, 
+which directly influences its capacity to represent complex functions.
+6.9.1   r egularization  and optimization
+Regularization and optimization in neural networks often utilize concepts from information theory 
+to improve model performance and generalization. For example, V AEs  are a generative model 
+that incorporates the KL divergence as a regularization term. This information-  theoretic measure 
+ensures that the learned latent variable distribution remains close to a prior distribution, typically 
+Gaussian, thereby enhancing the generative capabilities of the model. Another method, the infor -
+mation bottleneck, aims to retain as much relevant information about the input while compressing 
+or removing irrelevant information. This method quantifies compression and retention using mutual 
+information, balancing the trade-  off between preserving essential information and reducing redun -
+dancy. By focusing on these principles, neural networks can achieve more efficient and effective 
+learning outcomes. Regularization techniques, such as dropout or weight decay, are also informed 
+by information theory, aiming to control the amount of information stored in the network weights 
+and promoting better generalization to unseen data. Consider training a VA E  on the MNIST dataset, 
+where the latent space is represented by two dimensions, and the goal is to generate digit images. 
+A KL divergence regularization term is used to ensure that the latent space z follows a Gaussian 
+distribution with a mean of 0 and variance of 1. Let’s assume the learned latent variable distribution 
+has a mean μ =  0.5 and variance σ2 =  0.25. The KL divergence between this learned distribution and 
+the prior N(0, 1) (a standard normal distribution) is calculated as:
+ Dq zx pzKL(| || )l og..( .). ( )()=++−=1
+02 502 50 5
+211 3862
+ 
+This KL divergence value of 1.386 indicates that the learned distribution deviates from the Gaussian 
+prior, and the model will be penalized accordingly.
+6.9.2   g eneralization  and overfitting
+The capacity of a model is intrinsically related to its ability to fit noise in the data. A model with 
+a higher capacity, such as a deep neural network, can fit the training data more closely but is also 
+more prone to overfitting. Overfitting occurs when the model captures not only the underlying 
+patterns but also the random noise in the data, leading to poor generalization on new, unseen data.  
+ 
+ 
+  
+
+--- PDF PAGE 210 ---
+197 Information Theory
+Information-  theoretic measures provide a quantitative framework to assess this capacity and the 
+trade-  off between fitting the data and overfitting. By using concepts such as entropy and mutual 
+information, researchers can evaluate how much information the model retains and whether this 
+information is relevant or merely noise. This approach helps in designing models that balance com -
+plexity and generalization, ultimately enhancing their performance on real-  world tasks. Consider a 
+neural network trained on a dataset of 1000 points. The model has 100,000 parameters (weights), 
+which gives it a high capacity to fit the data. During training, the model achieves near-  perfect 
+accuracy, with a training loss of 0.02. However, when tested on unseen data, the test loss is much 
+higher, at 1.5, indicating overfitting. The model has captured not only the true patterns in the training 
+data but also the noise, leading to poor generalization.
+6.9.3   m odel interpreta Bility
+Model interpretability is crucial for understanding how a deep learning model makes its predictions. 
+Using mutual information, we can quantify the importance of different features or inputs by meas -
+uring how much information each feature shares with the output. This information-  theoretic 
+approach provides a clear and quantitative method to identify which features contribute most to the 
+model’s predictions, enhancing our ability to interpret and trust the model. By analyzing mutual 
+information, researchers can gain insights into the relationships between inputs and outputs, leading 
+to more transparent and explainable models. This interpretability is essential for applications where 
+understanding the decision-  making process is as important as the predictions themselves. Suppose 
+a neural network is trained to predict housing prices using features like square footage, number 
+of rooms, and distance to the city center. Using mutual information, we can calculate that square 
+footage has a mutual information score of 0.8, while the distance to the city center has a mutual 
+information score of 0.4. This tells us that square footage contributes more to the model’s predictions 
+than the distance to the city center, helping us interpret the model.
+6.9.4   t ranSfer learning  and domain  adaptation
+Information theory offers valuable tools for measuring and managing the differences between 
+source and target domains in transfer learning and domain adaptation. A crucial aspect of this pro -
+cess is measuring domain shift, which involves quantifying the difference between source and 
+target distributions using measures like KL divergence. These information-  theoretic metrics help in 
+understanding how much the domains differ, allowing models to be adapted accordingly. Optimal 
+transport techniques, such as the Wasserstein distance, which is rooted in information geom -
+etry, provide a more nuanced approach to measuring the difference between distributions. These 
+techniques are particularly effective in guiding the alignment of source and target domains, ensuring 
+that the model can generalize well to the target domain by minimizing the discrepancies between the 
+distributions. By leveraging these information-  theoretic approaches, transfer learning, and domain 
+adaptation can be more precisely tuned, leading to better model performance in new and diverse 
+environments. Imagine a model trained on a source domain of animal images (e.g., cats and dogs) 
+and then applied to a target domain of wild animals (e.g., lions and tigers). The KL divergence 
+between the source and target distributions is calculated as 1.2, indicating a significant shift in data. 
+By minimizing this divergence, the model can be adapted to perform better on the target domain.
+6.9.5   a dver Sarial attack S and roBuStneSS
+Information theory can be a powerful tool for measuring the robustness of neural networks to 
+adversarial attacks. By quantifying how much an adversarial input perturbs the information flow 
+within the network, we can assess the network’s vulnerability. Specifically, information-  theoretic  
+ 
+  
+
+--- PDF PAGE 211 ---
+198 Mathematical Foundations for Deep Learning
+measures can help determine the extent to which an adversarial input disrupts the network’s 
+internal representations and decision-  making processes. This quantification allows for a deeper 
+understanding of the network’s resilience and provides insights into developing more robust models 
+that can withstand adversarial perturbations, ultimately leading to more secure and reliable neural 
+network applications. Suppose a neural network is trained to classify images of digits (0–  9), and an 
+adversarial attack perturbs an input image, changing the model’s classification from 3 to 7. Using 
+mutual information, we calculate that the perturbed input reduces the information shared between 
+the network’s internal layers and the true label by 0.6 bits, indicating a significant disruption in the 
+network’s decision-  making process.
+6.9.6   n eural  architecture  Search
+Information-  theoretic concepts can significantly enhance the process of Neural Architecture Search 
+(NAS) by guiding the exploration of efficient neural architectures with an optimal trade-  off between 
+accuracy and complexity. By applying measures such as entropy and mutual information, researchers 
+can evaluate and compare different architectures to identify those that capture the most relevant 
+information while maintaining a manageable level of complexity. This approach helps in designing 
+neural networks that achieve high performance without unnecessary computational overhead, 
+leading to models that are both accurate and efficient. Utilizing information theory in NAS allows 
+for a more systematic and theoretically grounded search for the best possible neural architectures. 
+Consider two neural architectures: Architecture A with 5 million parameters and Architecture B 
+with 2 million parameters. Using mutual information, we find that Architecture A captures 1.2 bits 
+of relevant information from the input, while Architecture B captures 1.1 bits. Despite the slight 
+difference in information captured, Architecture B is more efficient due to its lower parameter count, 
+making it a better choice in terms of balancing accuracy and complexity.
+6.9.7   l ayer- wiSe relevance  propagation
+Layer-  wise relevance propagation ( LRP ) is an interpretability technique that uses concepts rooted 
+in information theory to explain the decisions of deep networks. By propagating relevance scores 
+from the output back to the input, LRP  provides a measure of the contribution of each input feature 
+to the final decision. This backward propagation of relevance scores helps in understanding which 
+features are most influential in the model’s predictions, offering valuable insights into the inner 
+workings of the network. This technique enhances model transparency and trustworthiness, making 
+it easier to diagnose model behavior and improve its design based on the relevance of different 
+features. Consider a neural network that classifies images of cats and dogs. For an image of a dog, 
+LRP  assigns relevance scores to input pixels. The pixels corresponding to the dog’s ears and eyes 
+receive high relevance scores of 0.9 and 0.8, respectively, indicating that these features are the most 
+influential in the model’s decision. LRP  computes relevance scores for each neuron in the network. 
+The relevance score Rj for neuron j in layer l is propagated from the relevance scores Rk of neurons 
+in the next layer l +  1:
+ Raw
+awRj
+kjj k
+jjj kk=∑∑ 
+where:
+ •aj is the activation of neuron j,
+ •wjk is the weight between neuron j and neuron k in the next layer. 
+ 
+  
+
+--- PDF PAGE 212 ---
+199 Information Theory
+6.10  REAL-  WORLD APPLICATIONS
+6.10.1   d ata compre SSion
+One of the most direct applications of information theory is in data compression. The concept of 
+entropy, which measures the unpredictability or information content of a source, is foundational in 
+developing efficient compression algorithms. For instance, Huffman coding, a widely used method 
+for lossless data compression, leverages entropy to assign shorter codes to more frequent symbols 
+and longer codes to less frequent ones. This approach minimizes the average length of the data 
+representation, reducing storage requirements without losing any information. This principle is vital 
+in formats such as PNG  for images and FLAC  for audio, where exact reproduction of the original 
+data is crucial.
+6.10.2   c ryptography
+Information theory plays a crucial role in cryptography, ensuring secure communication by meas -
+uring the uncertainty and unpredictability of data. The entropy of a cryptographic key, for instance, 
+quantifies its strength: the higher the entropy, the more unpredictable and secure the key is. 
+Information theory also guides the design of encryption algorithms, helping to balance the trade-  offs 
+between security and performance. Mutual information, which measures the dependency between 
+variables, is used to assess the strength of encryption schemes by ensuring that encrypted data 
+reveals minimal information about the original data.
+6.10.3   t elecommunication S and error correction
+Shannon’s noisy channel coding theorem, a cornerstone of information theory, underpins the design 
+of reliable communication systems. This theorem quantifies the maximum rate at which information 
+can be transmitted over a noisy channel while still being reliably decoded. In practice, this principle 
+is applied in developing error-  correcting codes, such as Reed-  Solomon or Turbo codes, which are 
+used in CDs, DVDs , and mobile communications. These codes add redundancy to the transmitted 
+data, allowing the receiver to correct errors caused by noise, ensuring the integrity of the information 
+despite transmission errors.
+6.10.4   n etwork  Security  and anomaly  detection
+Information theory aids in detecting anomalies in network traffic, a crucial aspect of cybersecurity. 
+By analyzing the entropy of network packets, security systems can identify unusual patterns that may 
+indicate a security breach or attack. For example, a sudden decrease in entropy might suggest that 
+an attacker is using a predictable, repetitive pattern to infiltrate the network. Similarly, mutual infor -
+mation can be used to detect relationships between seemingly unrelated data streams, uncovering 
+hidden channels or covert communication attempts within the network.
+6.10.5   Biological  data analy SiS
+In bioinformatics, information theory is employed to analyze complex biological data, such as 
+gene expression patterns. Entropy measures the diversity and variability within gene expression 
+profiles, helping researchers identify genes that are most variable across conditions or diseases. 
+Mutual information is used to assess the dependency between different genes or between genes and 
+phenotypic traits, providing insights into the underlying regulatory mechanisms. This application is 
+crucial for understanding complex biological systems and for identifying potential targets for drug 
+development. 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 213 ---
+200 Mathematical Foundations for Deep Learning
+6.10.6   f inance  and riSk management
+In finance, information theory assists in portfolio optimization and risk management by analyzing 
+the dependency and information flow between different financial assets. Mutual information can be 
+used to measure the strength of the relationship between different stocks or asset classes, helping 
+investors diversify their portfolios effectively. By understanding the information shared between 
+assets, financial models can predict market movements more accurately and manage risk more 
+effectively, leading to more robust investment strategies.
+6.11  HANDS-  ON EXAMPLE
+In this section, we will explore the concept of entropy and mutual information within the context of 
+neural networks.
+6.11.1  Step 1: import  neceSSary liBrarie S
+First, we are importing essential libraries for building and evaluating machine learning models. First, 
+NumPy is imported as np for numerical operations such as array manipulation. Then, matplotlib.
+pyplot is imported as plt for plotting and visualizing data. TensorFlow (tensorflow) is imported, 
+along with Keras modules (Sequential and Dense) to define and build neural network models. 
+Additionally, we import mutual_  info_  score from the sklearn.metrics library, which is used to com -
+pute the mutual information between two variables, a measure of how much information one vari -
+able provides about another. Finally, entropy from scipy.stats is imported to compute the entropy of 
+distributions, which quantifies the uncertainty or randomness in the data.
+import numpy as np
+import matplotlib.pyplot as plt
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from sklearn.metrics import mutual_  info_ score
+from scipy.stats import entropy
+6.11.2  Step 2: generate  Sample  data
+We define a function generate_  data to create a simple synthetic dataset for binary classification. The 
+function takes n_  samples as an input, which specifies the number of data points to generate. Inside 
+the function, X is a 2D array of shape (n_  samples, 2) containing random values between 0 and 1, 
+generated using np.random.rand(). Each row of X represents a sample with two features. The target 
+labels y are then computed based on a simple rule: if the sum of the two features in a sample is 
+greater than 1, the corresponding label is set to 1; otherwise, it’s set to 0. This creates a classification 
+problem where the decision boundary is the line x0 +  x1 =  1. The dataset consists of X (features) and 
+y (labels), and after generating the data for 1000 samples, it is stored in the variables X and y for 
+further analysis or model training.
+# Generate a simple dataset
+def generate_  data(n_ samples):
+X =  np.random.rand(n_  samples, 2) 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 214 ---
+201 Information Theory
+y =  (X[:, 0] +   X[:, 1] > 1).astype(int)
+return X, y
+X, y =  generate_  data(1000)
+6.11.3  Step 3: calculate  entropy
+Here, we define a function calculate_  entropy that calculates the entropy of a given set of labels. 
+Entropy is a measure of the uncertainty or randomness in the distribution of labels. The function uses 
+np.unique() to find the unique values in the labels array and count their occurrences. The entropy 
+is then computed using the entropy() function from the scipy.stats library, which takes the counts 
+of each unique value as input. Higher entropy means the labels are more evenly distributed, while 
+lower entropy indicates that the labels are more skewed toward a particular value. After defining the 
+function, we calculate and print the entropy of the labels y, which were generated in the previous 
+dataset, with the result formatted to four decimal places. This allows us to quantify the uncertainty 
+or distribution balance of the labels in the dataset.
+def calculate_  entropy(labels):
+value, counts =   np.unique(labels, return_  counts= True)
+return entropy(counts)
+print(f ’Entropy of y: {calculate_  entropy(y):.4f} ’)
+6.11.4  Step 4: mutual  information  calculation
+Now, we define a function calculate_  mutual_  information to compute the mutual information 
+between the features X and the labels y. Mutual information is a measure of how much infor -
+mation one variable provides about another, quantifying the dependency between them. In this 
+case, we are using mutual_  info_  score from the sklearn.metrics library to calculate the mutual 
+information between X (the features) and y (the labels). The X.ravel() function flattens the 2D 
+array X into a 1D array to align with the expected input format for the mutual information calcu -
+lation. After defining the function, we compute and print the mutual information between X and 
+y, formatted to four decimal places. This measure helps us understand how much information the 
+features X contain about the target labels y, thereby indicating the strength of the relationship 
+between them.
+def calculate_  mutual_ information(X, y):
+return mutual_  info_ score(X.ravel(), y)
+print(f ’Mutual Information between X and y: {calculate_  mutual_ 
+information(X, y):.4f} ’)
+6.11.5  Step 5: B uild and train a Simple neural  network
+Finally, we are building and training a simple neural network using TensorFlow’s Keras API. The 
+network is defined using the Sequential model, which stacks layers sequentially. The first layer is a 
+Dense layer with 10 neurons, a ReLU activation function, and an input dimension of 2 (as the input  
+ 
+ 
+ 
+  
+
+--- PDF PAGE 215 ---
+202 Mathematical Foundations for Deep Learning
+data X has two features). The second layer is a Dense output layer with 1 neuron and a sigmoid acti -
+vation function, which is commonly used for binary classification problems. The model is compiled 
+with the Adam optimizer, a popular optimization algorithm for training neural networks, and the 
+binary cross-  entropy loss function, which is appropriate for binary classification tasks. The perform -
+ance is tracked using accuracy as the evaluation metric. Finally, the model is trained on the dataset 
+X and y for 100 epochs using model.fit(), with the training progress being silent (verbose =   0). This 
+neural network is designed to learn the relationship between the two input features and the binary 
+target labels in the dataset generated earlier.
+# Build a simple neural network
+model =  Sequential([
+Dense(10, input_  dim= 2, activation=  ‘relu ’),
+Dense(1, activation=  ‘sigmoid ’)
+])
+model.compile(optimizer=  ‘adam ’, loss=  ’binary_ crossentropy ’, 
+metrics=  [‘accuracy ’])
+history =   model.fit(X, y, epochs=  100, verbose=  0)
+6.12  COMMON MISTAKES AND TROUBLESHOOTING TIPS
+6.12.1   m iSinterpreting  entropy
+ •Mistake:  Confusing entropy with variance or other measures of spread.
+ •Tip: Remember that entropy measures the unpredictability or uncertainty of a random vari -
+able, not the variability of its outcomes. Entropy quantifies the average amount of information 
+produced by a stochastic data source.
+6.12.2   incorrect  calculation  of entropy
+ •Mistake:  Using incorrect probabilities or forgetting to sum over all possible outcomes.
+ •Tip: Ensure that the probability distribution sums to 1 and carefully calculate entropy by 
+summing the product of each probability and its logarithm.
+6.12.3   m iSunder Standing  Joint and conditional  entropie S
+ •Mistake:  Treating joint and conditional entropies as independent of each other.
+ •Tip: Joint entropy accounts for the combined uncertainty of two variables, while conditional 
+entropy measures the remaining uncertainty of one variable given the other. Always consider 
+their relationship and dependencies.
+6.12.4   o verlooking  the aSymmetry  of kl divergence
+ •Mistake:  Assuming KL divergence is symmetric and misinterprets the results.
+ •Tip: Remember that DP QD QPKL KL(| |) (| |)≠ . The divergence from P to Q is not the same as 
+from Q to P. Always interpret the direction correctly. 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 216 ---
+203 Information Theory
+6.12.5   c onfu Sing mutual  information  with correlation
+ •Mistake:  Equating mutual information with linear correlation.
+ •Tip: Mutual information measures any dependency between variables, not just linear 
+relationships. It captures both linear and non-  linear dependencies, unlike Pearson correlation.
+6.12.6   ignoring  the BaSiS of logarithm S in entropy  calculation S
+ •Mistake:  Using inconsistent logarithm bases when calculating entropy.
+ •Tip: Use base 2 logarithms for entropy measured in bits. Ensure consistency in the logarithm 
+base throughout your calculations.
+6.12.7   m iSapplying  Shannon ’S noiSy channel  coding  theorem
+ •Mistake:  Misinterpreting the channel capacity or ignoring noise effects.
+ •Tip: Understand that channel capacity is the maximum reliable transmission rate over a noisy 
+channel. Ensure that your encoding and decoding schemes are designed to operate below this 
+capacity to minimize errors.
+6.13  REVIEW QUESTIONS
+1. Define entropy. How does it measure the unpredictability or randomness of information?
+2. Explain the significance of entropy in the context of data transmission and compression.
+3. How is entropy mathematically defined for a discrete random variable? Provide an example 
+using a binary source.
+4. What are joint entropy and conditional entropy? How do they differ from and relate to 
+standard entropy?
+5. Provide an example where knowing one variable significantly reduces the uncertainty of 
+another variable.
+6. Define mutual information and explain its importance in feature selection and machine 
+learning models.
+7. How is mutual information used to assess the relationship between two variables?
+8. How does Shannon’s theorem guide the design of error-  correcting codes?
+9. Explain the concept of the information bottleneck method. In what ways is this method 
+utilized in deep learning?
+10. Describe the KL divergence and its significance in comparing probability distributions.
+6.14  PROGRAMMING QUESTIONS
+6.14.1  e aSy
+Calculate the entropy of a given discrete random variable and plot its probability distribution.
+1. Define a discrete random variable with given probabilities for each outcome.
+2. Calculate the entropy of the random variable using the entropy formula.
+3. Create a bar plot to visualize the probability distribution of the random variable. 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 217 ---
+204 Mathematical Foundations for Deep Learning
+6.14.2  m edium
+Calculate the mutual information between two discrete random variables and interpret the results.
+1. Define two discrete random variables with given joint probabilities.
+2. Calculate the marginal probabilities of each variable.
+3. Compute the joint entropy, marginal entropies, and conditional entropies.
+4. Calculate the mutual information using the formula: I(X; Y) =  H(X) +  H(Y) –  H(X, Y).
+5. Interpret the mutual information value and explain what it signifies about the relationship 
+between the two variables.
+6.14.3  h ard
+Implement and train a neural network on a synthetic dataset, then analyze the change in entropy and 
+mutual information of the hidden layers’ activations during training.
+1. Generate a synthetic dataset for binary classification.
+2. Build a neural network with multiple hidden layers using a deep learning framework (e.g., 
+TensorFlow or PyTorch).
+3. Train the neural network on the synthetic dataset, recording the activations of each hidden 
+layer at each epoch.
+4. Calculate the entropy of the activations for each hidden layer at different epochs.
+5. Calculate the mutual information between the input and the activations and between the 
+activations and the output at different epochs.
+6. Visualize the change in entropy and mutual information over the training epochs using line 
+plots. 
+  
+
+--- PDF PAGE 218 ---
+205
+205 DOI: 10.1201/9781032690742-77 Graph Theory
+7.1  INTRODUCTION
+In the world of deep learning, mathematical structures like graphs have emerged as an effective 
+tool to model complex relationships and patterns. Graph theory, with its ability to depict pairwise 
+relations between entities, has proven to be required, bridging gaps that traditional linear methods in 
+machine learning could not address. As our digital universe grows increasingly connected, the webs 
+of relationships, from social networks to molecular structures, demand a more subtle approach to 
+data representation and analysis. Neural networks, the backbone of many modern artificial intelli -
+gence (AI) systems, have started integrating principles from graph theory, giving birth to innovative 
+models tailored to handle this newfound complexity. The union of graph theory and neural networks 
+is not just a theoretical attraction; it carries significant practical implications. By treating data as 
+nodes and their relationships as edges, a crowd of real-  world applications, from social media ana -
+lysis to drug discovery, has been unlocked. This chapter explores the role of graph theory in deep 
+learning.
+7.2  GRAPH THEORY FOR DEEP LEARNING
+Understanding the basic types of graphs and their properties is fundamental for modeling and 
+solving problems in various domains, including computer science, biology, social sciences,   
+and more. Graphs provide a useful and powerful way to represent and analyze the relationships and 
+structures within data.
+7.2.1   g raph
+A graph is a fundamental mathematical structure consisting of a set of nodes (vertices) and edges. 
+The key components of the graph are nodes and edges.
+7.2.1.1   Nodes (Vertices)
+Nodes represent entities or objects within the graph. Each node can contain attributes or features that 
+provide additional information about the entity it represents.
+7.2.1.2   Edges (Connections)
+Edges represent the relationships or connections between nodes. Edges can be directed or undir -
+ected, weighted or unweighted, depending on the nature of the relationship they model.  
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 219 ---
+206 Mathematical Foundations for Deep Learning
+7.2.2   d irected  graph
+A directed graph is a type of graph in which the edges have a specific direction. This means each edge 
+points from one node to another, indicating a one-  way relationship. Directed graphs are represented 
+visually by arrows that show the direction of the connection between nodes. Directed graphs provide 
+a clear and effective way to model and analyze systems where directionality is a critical component 
+of the relationships between entities. They enable the study of influence, flow, and hierarchy within 
+a network. Its key characteristics are directional edges and asymmetry.
+7.2.2.1   Directional Edges
+Each edge has a direction, typically represented by an arrow pointing from the source node (start) 
+to the target node (end).
+7.2.2.2   Asymmetry
+The relationship between nodes is not necessarily equal. For instance, if there is a directed edge 
+from Node A to Node B, it does not imply there is an edge from B to A.
+7.2.2.3   Directed Graph Example
+Consider a citation network in academia. Each research paper is represented as a node, and a citation 
+from one paper to another forms a directed edge. For instance, if Paper A cites Paper B, we have a 
+directed edge from Node A to Node B. This means that the influence flows in one direction—  Paper 
+A is influenced by Paper B. However, this does not imply the reverse relationship (i.e., Paper B may 
+not cite Paper A). A directed graph is defined as G =  (V , E) , where V is a set of vertices (or nodes), 
+and E ⊆⊆ V × V  is a set of directed edges. Each edge (u, v) ∈∈ E represents a directed connection from 
+Node u to Node v. This directionality distinguishes directed graphs from undirected graphs. For 
+instance, let’s define a small citation network with three papers: Paper A cites Paper B and Paper C, 
+and Paper B cites Paper C. This directed graph can be represented as: V =  {A, B, C}  and E =  {(A, 
+B), (A, C), (B, C)} .
+7.2.3   u ndirected  graph
+An undirected graph is a type of graph in which the edges have no direction. This means that 
+each edge simply connects two nodes without implying any order or hierarchy between them. In 
+undirected graphs, the relationships represented by the edges are mutual and bidirectional. Its key 
+characteristics are bidirectional edges and symmetry.
+7.2.3.1   Bidirectional Edges
+Each edge connects two nodes without any direction, indicating that the relationship goes both ways.
+7.2.3.2   Symmetry
+If there is an edge between Node A and Node B, it implies a two-  way relationship, meaning A is 
+connected to B, and B is connected to A.
+7.2.3.3   Undirected Graph Example
+Undirected graphs are ideal for modeling scenarios where the relationships are inherently mutual. 
+Consider a social network. In this network, each person is represented by a node, and each friendship 
+is represented by an undirected edge between two nodes. For example, if Alice and Bob are friends, 
+there is an undirected edge between the nodes representing Alice and Bob. This edge implies a 
+mutual relationship, meaning Alice is connected to Bob, and Bob is equally connected to Alice. An  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 220 ---
+207 Graph Theory
+undirected graph is defined as G =  (V , E) , where V is a set of vertices (or nodes), and E ⊆⊆ {{u, v} ∣∣ 
+u, v ∈∈ V} is a set of edges, where each edge {u, v}  connects Node u and Node v, with no direction 
+implied. For example, consider a simple social network with three people: Alice (A), Bob (B), and 
+Carol (C). Suppose Alice is friends with both Bob and Carol, and Bob is friends with Carol. The 
+undirected graph representing this network can be expressed as: V =  {A, B, C}  and E =  {{A, B}, {A, 
+C}, {B, C}}.  In this graph, the edge {A, B}  means that Alice and Bob are friends, and the relation -
+ship is bidirectional.
+7.2.4   w eighted  graph
+A weighted graph is a type of graph in which each edge has an associated weight. These weights 
+typically represent some quantitative attribute of the connection between nodes, such as cost, length, 
+capacity, or strength. Weighted graphs provide a more detailed representation of relationships by 
+incorporating the magnitude of the connections. One of the key characteristics of weighted graphs is 
+the presence of edge weights. Each edge in the graph has a numerical value, or weight, that quanti -
+fies the strength, cost, or capacity of the connection between the nodes. These weights play a crucial 
+role in determining the significance of relationships within the graph. Weighted graphs are particu -
+larly useful in scenarios where the strength or cost of connections needs to be considered. Consider 
+a transportation network where cities are nodes and roads between them are edges. A weighted 
+graph is defined as G =  (V , E, w) , where V is the set of vertices (or nodes), E ⊆⊆ V × V  is the set of 
+edges, and w: E → R is a function that assigns a weight to each edge. In this case, the weight w(e) 
+represents the quantitative value associated with edge e. For example, consider a transportation net -
+work with three cities: A, B, and C. Let the distances between the cities be: A to B: 200 km, A to 
+C: 150 km, and B to C: 300 km. This weighted graph can be represented as follows: V =  {A, B, C}, 
+E =  {(A, B), (A, C), (B, C)}, w(A, B)  =  200, w(A, C)  =  150, and w(B, C)  =  300.
+Figure 7.1  illustrates the structure and transformation of graphs under different configurations. 
+In Figure 7.1 a, an undirected graph is displayed, where nodes A through E are connected by edges 
+that do not have any directional information. This layout is useful for modeling scenarios where the 
+relationship between entities is bidirectional or symmetrical, such as social connections or mutual 
+collaborations. Figure 7.1 b shows the same set of nodes in a directed graph configuration. In this 
+graph, the edges are directed, indicated by arrows pointing from one node to another, demonstrating 
+that the relationship now has directionality. This change is essential in cases where the flow of infor -
+mation or influence is one way, such as in citation networks or communication pathways. Nodes A 
+through E are connected in a manner that shows the direction of influence or dependency among 
+them, providing insights into the asymmetry of these relationships. The third Figure 7.1 c introduces 
+a weighted directed graph, where both the direction and the magnitude of influence are represented. 
+The edges not only show the direction (as indicated by arrows) but also have associated weights, 
+which are indicated by the thickness of the edges and labeled numbers along the arrows. These 
+weights quantify the strength or significance of the connections, which is crucial for understanding 
+the intensity of relationships or the capacity of flows between nodes, such as in transportation 
+networks or neural connections in brain models.
+7.3  GRAPH NEURAL NETWORKS
+Graph neural networks (GNNs) seamlessly blend classical graph algorithms with deep learning 
+techniques, showcasing neural networks’ incredible flexibility and adaptability. They represent a 
+promising future where diverse data types are naturally integrated into AI models. Unlike images or 
+sequences with structured formats, graph data is inherently irregular. GNNs rise to this challenge, 
+offering a class of neural networks designed explicitly for graph-  structured data. At the heart of 
+GNNs lies the principle of neighborhood aggregation, also known as message passing. Each node  
+  
+
+--- PDF PAGE 221 ---
+208 Mathematical Foundations for Deep Learning
+FIGURE 7.1  (a) Undirected graph, (b) directed graph, and (c) ss weighted graph.
+  newgenrtpdf
+
+--- PDF PAGE 222 ---
+209 Graph Theory
+aggregates information from its immediate neighbors to update its representation in this process. 
+This iterative approach allows information to flow through the graph, ensuring each node gains con -
+textual knowledge about its broader neighborhood. The update rule is mathematically expressed as:
+ h Wh uN vvkk
+uk () () −()=⋅ ∈ () {}() ()σ AGGREGATE1:  
+where:
+ •hvk() is the representation of Node v at the kth iteration,
+ •σ is a nonlinear activation function,
+ •W is a learnable weight matrix,
+ •N(v)  denotes the neighbors of Node v, and
+ •AGGREGATE  is an aggregation function, such as sum, mean, or max.
+Consider a simple graph with four nodes: A, B, C, and D. The connections are as follows:
+ •Node A is connected to Node B and Node C,
+ •Node B is connected to Node A and Node D,
+ •Node C is connected to Node A, and
+ •Node D is connected to Node B.
+The adjacency list representation is N(A)  =  {B, C} , N(B)  = {A, D} , N(C)  = {A}, and N(D)  =  {B}, and 
+each node has an initial feature vector (representation): hA01()=[], hB02()=[], hC03()=[], and hD04()=[]; 
+for example, the parameters are as follows:
+ •Aggregation function: Sum
+ •Activation function ( σ): ReLU (Rectified Linear Unit), defined as σ(x) =   max(0, x)
+ •Weight matrix ( W): For simplicity, use a scalar W =  [0.5].
+Here, we’ll perform one iteration ( k =  0 to k =  1).
+1. Aggregate Neighbor Features:  For each node, sum the features of its neighbors.
+ •Node  A:
+a. Neighbors: N(A)  =  {B, C}
+b. Neighbor features: h hBC0023() ()=[] =[] ,
+c. Aggregated features: AGGAB Chh=+= + ][ =][ () () 00235 .
+ •Node  B:
+a. Neighbors: N(B)  =  {A, D}
+b. Neighbor features: h hAD0014() ()=[] =[] ,
+c. Aggregated features: AGGBA Dhh=+= + ][ =][ () () 00145 .
+ •Node  C:
+a. Neighbors: N(C)  =  {A}
+b. Neighbor features: hA01()=[]
+c. Aggregated features: AGGCAh== []()01.
+ •Node  D:
+a. Neighbors: N(D)  =  {B}
+b. Neighbor features: hB02()=[]
+c. Aggregated features: AGGDBh== []()02.  
+
+--- PDF PAGE 223 ---
+210 Mathematical Foundations for Deep Learning
+2. Apply Weight Matrix and Activation Function:  Compute the new representation for each node.
+ •Node  A:
+a. Before activation: WA⋅= [] ⋅=][ AGG 05 52 5 ..
+b. After activation: hA125 02 52 5()=[]() = [] =[] σ .m ax(, .) . .
+ •Node  B:
+a. Before activation: WB⋅= ⋅ ][ =][  AGG 05 52 5 ..
+b. After activation: hB125 25()=[]() =[] σ .. .
+ •Node  C:
+a. Before activation: WC⋅= ⋅ ][=][  AGG 05 10 5 ..
+b. After activation: hC105 05()=[]() =[] σ .. .
+ •Node  D:
+a. Before activation: WD⋅= ⋅ ][ =][  AGG 05 21 0 ..
+b. After activation: ..hD110 10()=[]() =[] σ .
+Updated node features after one iteration: hA125()=[]., hB125()=[]., hC105()=[]., and hD110()=[].. Node 
+A and Node B now have the same updated feature, reflecting the influence of their neighbors. Node 
+C has a lower updated feature because it is only connected to Node A, which had an initial lower 
+feature. Finally, Node D’s updated feature reflects its connection to Node B.
+Figure 7.2  depicts a graph with 20 nodes and 40 edges. Each node is represented as a circle,  
+with its color indicating the predicted class determined by the GNN. The layout uses a spring-   
+based algorithm, ensuring an even distribution of nodes for better visualization. The dashed edges  
+FIGURE 7.2  Graph neural network (GNN).  
+
+--- PDF PAGE 224 ---
+211 Graph Theory
+connect related nodes and emphasize the graph’s topology. A color bar on the side maps the colors  
+to corresponding node classes, making each node’s class after classification clear. The node classi -
+fication relies on node features and numerical attributes specific to each node. These features are  
+processed through the GNN layers, which learn patterns based on both the node features and their  
+connections in the graph. After the second layer of the GNN, each node is assigned to one of two  
+classes (class 0 or class 1), visualized by distinct colors in the figure. The process demonstrates how  
+GNNs capture structural information and use it for classification tasks. Here are the node features  
+after GNN propagation:
+ [[– 1.2524378, –  0.33660233], [–  1.3791587, –  0.29007196], [–  1.0469463, –  0.43233487]  
+ [– 0.92821044, –  0.5029573], [–  0.73885995, –  0.6494331], [–  0.9682473, –  0.47762945]  
+ [– 2.123791, –  0.12735331], [–  1.6736698, –  0.2077101], [–  0.6209714, –  0.7709404]  
+ [– 0.5346627, –  0.88156784], [–  1.7315028, –  0.19482112], [–  0.51204944, –  0.91445786]  
+ [– 0.5225032, –  0.89902604], [–  0.90361524, –  0.5193661], [–  2.2530715, –  0.11101644]  
+ [– 2.3229516, –  0.10312293], [–  0.5895047, –  0.80878687], [–  0.6153719, –  0.77748555]  
+ [– 1.3487849, –  0.30050445], [–  0.92802536, –  0.50307834]]  
+The output numbers represent the transformed node features after passing through the GNN. Each pair 
+corresponds to a specific node, with two values indicating the log probabilities of the node belonging to 
+two different classes (class 0 and class 1). Below is an example of how nodes are classified:
+ •Example 1 (Node 0):  The output is [−1.2524378, −0.33660233]. The first value (−1.2524378) 
+corresponds to class 0, and the second value (−0.33660233) corresponds to class 1.    
+As −0.33660233 is greater (less negative) than −1.2524378, Node 0 is assigned to class 1.
+ •Example 2 (Node 4):  The output is [−0.73885995, −0.6494331]. The first value (−0.73885995) 
+corresponds to class 0, and the second value (−0.6494331) corresponds to class 1.   
+As −0.6494331 is greater (less negative) than −0.73885995, Node 4 is also assigned to class 1.
+The classification process determines the class of each node by selecting the class with the higher 
+log probability value. These assignments are visualized in Figure 7.2 , where nodes are color coded 
+according to their respective class.
+7.4  WHY GRAPHS FOR DEEP LEARNING?
+Data in many real-  world applications, such as social networks, transportation systems, and biological 
+networks, is inherently graph-  structured. Traditional neural networks aren’t designed to handle this 
+type of data effectively. Graph-  based deep learning methods, like GNNs, address this challenge by 
+modeling relationships and interactions between entities, capturing underlying structures that trad -
+itional methods cannot. Here, we discuss why graphs are crucial for deep learning in these contexts.
+7.4.1   intuitive  repre Sentation  of complex  relation ShipS
+Graphs effectively represent complex relationships and dependencies between entities. In social 
+networks, for example, users are nodes connected by edges representing friendships or follows. This  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 225 ---
+212 Mathematical Foundations for Deep Learning
+structure is fundamental for analyzing user behavior, predicting community formation, and studying 
+information propagation. By examining these connections, we gain valuable insights into individual 
+and collective behaviors, which is essential for tailoring services and targeting audiences.
+7.4.2   e ncoding  relational  information
+Graphs inherently encode relational information by directly representing connections between 
+entities. This allows models to leverage these relationships for analytical tasks. A key application 
+is link prediction, which infers missing or future connections by analyzing existing patterns. This 
+is useful for suggesting new friends in social networks, recommending products in e-  commerce, 
+or hypothesizing protein interactions in biology. Another application is node classification, where 
+nodes are labeled based on their attributes and connections, improving accuracy in tasks like classi -
+fying research papers or categorizing users into interest groups.
+7.4.3   f lexiBility and verSatility
+Graphs can represent diverse data types and relationships, making them suitable for various 
+applications. They can include weighted edges with numerical values like strength or cost, useful in 
+transportation networks (distances and travel times) and communication networks (bandwidth and 
+latency). Directed edges indicate one-  way relationships, essential for modeling web links, citation 
+networks, and social media interactions. Graphs can also represent heterogeneous relationships, 
+modeling different types of connections in complex systems like biological networks or recom -
+mendation systems. For instance, in transportation networks, cities are nodes, and roads are edges 
+with weights representing distances to calculate efficient routes; in airline networks, directed edges 
+represent one-  way flights.
+7.4.4   e fficiency  and Scala Bility with gnn S
+GNNs excel at efficiently propagating information through graphs, capturing both local and global 
+structures. They allow nodes to aggregate information from neighbors, learning features from imme -
+diate connections and distant nodes, resulting in a complete representation of the graph. Unlike 
+traditional methods that struggle with scalability due to complex connections, GNNs reduce com -
+putational complexity by focusing on neighborhood aggregation. This makes them well-  suited for 
+processing large-  scale datasets like social networks or biological networks without compromising 
+speed or accuracy. Their ability to capture intricate relationships enhances performance in tasks like 
+node classification, link prediction, and recommendation systems.
+7.4.5   u ncovering  advanced  inSight S
+Graph-  based methods enable deep learning models to uncover advanced insights that are valuable 
+for decision-  making and predictive modeling. They help identify influential nodes, those with many 
+connections or those bridging different communities. In social networks, these influential users 
+effectively spread information and are central to multiple groups; targeting them is invaluable for 
+marketing campaigns or strategic dissemination. Graph algorithms also detect communities within 
+the network by revealing clusters where nodes are densely connected. Understanding these com -
+munities provides insights into the network’s structure and behavior, aiding in discovering user 
+groups with similar interests or identifying functional modules in biological networks. Additionally, 
+analyzing how graphs evolve over time enhances understanding of network dynamics, including 
+information spread and relationship changes, which is critical for predicting future trends and    
+behaviors. 
+ 
+ 
+  
+
+--- PDF PAGE 226 ---
+213 Graph Theory
+Figure 7.3  offers an exploration of various graph configurations and processes, demonstrating how 
+different graph structures and analyses reveal distinct aspects of networked systems. In Figure 7.3 a, 
+an undirected graph is shown, where each connection between nodes is mutual, representing a 
+scenario where relationships are bidirectional, such as friendships in a social network. Figure 7.3 b 
+displays a directed graph, introducing arrows that indicate the direction of relationships between 
+nodes. This structure is essential for modeling systems where interactions are not reciprocal, such 
+as citations in academic papers or one-  way communication channels. Nodes like D and C show 
+directional influence over other nodes, highlighting how information or influence flows through 
+the network. Figure 7.3 c progresses to a weighted directed graph, where each edge not only has 
+a direction but also a weight that quantifies the strength of the relationship. The weights, labeled 
+and represented by the thickness of the edges, provide additional depth by illustrating the intensity 
+or capacity of each connection, which is crucial in contexts like transportation networks or influ -
+ence spread models. Figure 7.3 d illustrates information propagation within the graph, showing how 
+information can travel from one node to others based on their connections. Figure 7.3 e depicts com -
+munity detection within the graph, where nodes are grouped based on their connectivity patterns. 
+Nodes that are closely interconnected are grouped together, representing clusters or communities. 
+Figure 7.3 f focuses on identifying influential nodes in the graph. The nodes are colored based on 
+their influence, with red indicating the most influential Node A.
+7.5  NODE AND GRAPH CLASSIFICATION
+7.5.1   n ode claSSification
+Graph convolutional networks (GCNs) effectively predict labels for nodes within a graph by lever -
+aging both the features of each node and the attributes of its neighbors, a task known as node classi -
+fication. This application is crucial across many domains, offering valuable insights and enhancing 
+predictive capabilities. For example, in social networks, GCNs can categorize users based on 
+behavior and connections, distinguishing between influencers, regular users, or potential spammers 
+and predicting user interests for personalized recommendations and targeted advertising. The clas -
+sification process involves aggregating features from a node’s neighbors and combining them with 
+its own features to capture the local structure and context within the graph. Through multiple layers 
+of convolution, GCNs learn meaningful representations of nodes that encode both their attributes 
+and relational context. These representations are then used by a classifier to predict the label or 
+category of each node. Imagine a small social network where we want to classify users into two 
+categories: “Regular Users” or “Influencers” based on their connections and attributes. Assume, we 
+have a graph with five nodes representing users: Node A, Node B, Node C, Node D, and Node E. 
+The connections (edges) are as follows:
+ •Node A is connected to Node B and Node C.
+ •Node B is connected to Node A, Node C, and Node D.
+ •Node C is connected to Node A, Node B, and Node E.
+ •Node D is connected to Node B.
+ •Node E is connected to Node C.
+The adjacency list is as follows: N(A)  =  {B, C} , N(B)  =  {A, C, D} , N(C)  =  {A, B, E} , N(D)  =  {B}, 
+and N(E)  =  {C}. Each node has a two-  dimensional feature vector representing user attributes (e.g., 
+activity level and content quality):
+ •hA009 01()=[]., .  (high activity and low content quality)
+ •hB008 02()=[]., .   
+  
+
+--- PDF PAGE 227 ---
+214 Mathematical Foundations for Deep Learning
+FIGURE 7.3  (a) Undirected graph, (b) directed graph, (c) weighted graph, (d) information propagation, (e) community detection, and (f) influential nodes.
+  newgenrtpdf
+
+--- PDF PAGE 228 ---
+215 Graph Theory
+ •hC003 07()=[]., .  
+ •hD002 08()=[]., .  
+ •hE001 09()=[]., .  (low activity and high content quality).
+Node labels are as follows:
+ •Labeled Nodes:  Node A: Regular user (Label 0) and Node D: Influencer (Label 1)
+ •Unlabeled Nodes:  Node B:?, Node C:?, Node E:?.
+Our goal is to predict the labels for Nodes B, C, and E. GCN layer equation is as follows:
+ HD AD HWkk k+ () −− ()()=()1 12 12σ // 
+where:
+ •H(k): Node features at layer k,
+ •A AI=+ : Adjacency matrix with self-  loops ( I is the identity matrix),
+ •D: Diagonal node degree matrix of A,
+ •W(k): Weight matrix at layer k,
+ •σ: Activation function (e.g., ReLU).
+We’ll perform one GCN layer ( k =  0 to k =  1) and use ReLU as the activation function: σ(x) =  max(0,x). 
+For simplicity, we will use the mean aggregation instead of normalized adjacency and the same 
+weight matrix W for all nodes. Here are the step-  by- step computations:
+1. Build the Adjacency Matrix with Self-  Loops:  The adjacency matrix ( A) is:
+ A=
+
+
+01100
+10110110010100000100
+ 
+A is Adjacency matrix (without self-  loops) and With self-  loops added (A ̃ =  A +  I):
+ A AI=+ =
+
+11100
+11110111010101000101
+ 
+2. Compute Degree Matrix:  Calculate the degree (number of connections) for each node, 
+including self-  loops.
+ •Node A: Degree =   1 (self-  loop) +   2 (B and C) =  3,
+ •Node B: Degree =   1 (self-  loop) +   3 (A, C, D) =  4,
+ •Node C: Degree =   1 (self-  loop) +   3 (A, B, E) =  4,
+ •Node D: Degree =   1 (self-  loop) +   1 (B) =  2,
+ •Node E: Degree =   1 (self-  loop) +   1(C) =  2. 
+ 
+  
+
+--- PDF PAGE 229 ---
+216 Mathematical Foundations for Deep Learning
+Degree matrix ( D) is as follows:
+  D=
+
+
+
+30000
+04000
+00 400
+0002000002 
+(3) Compute Normalized Adjacency Matrix:  Using mean aggregation (simplified here), we’ll 
+divide each row of A by the degree of the node. The normalized adjacency matrix ˆA is:
+ ˆAA
+Dijij
+ii=
+ 
+Compute each element:
+ •For Node A (Row 1): ˆ
+,AAA=1
+3, ˆ
+,AAB=1
+3, and ˆ
+,AAC=1
+3.
+ •For Node B (Row 2): ˆ
+,ABA=1
+4, ˆ
+,ABB=1
+4, ˆ
+,ABC=1
+4, and ˆ
+,ABD=1
+4.
+Continue similarly for other nodes. For shortness, we’ll represent ˆAas a matrix:
+ ˆA=
+
+ 1
+31
+31
+300
+1
+41
+41
+41
+40
+1
+41
+41
+401
+4
+01
+20120
+001
+201
+2 
+
+ 
+4. Define Weight Matrix:  Assume a weight matrix W for transforming features:
+ W=
+
+05 01
+03 07..
+.. 
+As our initial features are two-  dimensional and we aim to obtain two-  dimensional outputs, 
+W should be a 2 × 2 matrix.
+5. Compute Updated Node Features:  Compute HA HW10() ()=()σˆ . Let’s compute this step by 
+step for each node. Compute the product HW0() for each node:
+ •For Node A: hWA009 0105 01
+03 07
+09 05 01 03 0()=[]
+
+
+=()()+()()., ...
+..
+.. .. ,. .. .. ., . 90 10 10 70 48 01 6 ()()+()()=][ . 
+ 
+ 
+  
+
+--- PDF PAGE 230 ---
+217 Graph Theory
+ •For Node B: hWWB008 02 04 40 22()== ][  ., .. ,. .
+ •For Node C: hW WC003 07 03 60 52()==[.,. ][ ., .]   .
+ •For Node D: hWWD002 08 03 40 58()== ][  ., .. ,. .
+ •For Node E: hW WE00109 03 2064()==[.,.][ ., .].
+Assemble HW0() matrix:
+ HW004 80 16
+04 40 22
+03 60 5203 40 5803 20 64 ()=
+
+
+
+..
+..
+...... 
+
+
+ 
+Compute ˆAHW0(): Compute the weighted sum of neighbor features for each node. For 
+Node A:
+ h Ah WA
+jN AAAj j10()
+∈()∪{}()=⋅
+
+ ∑ σ ˆ
+, 
+Compute the contributions:
+ •Self-  loop contribution: ˆ ., .. ,.,A hWAA A⋅= ⋅= ][ ()0 1
+304 80 16 01 60 053 .
+ •From Node B: ˆ ., .. ,.,A hWAB B⋅= ⋅= ][  ()0 1
+304 40 22 0 147 0 073 .
+ •From Node C: ˆ ., .. ,.,A hWAC C⋅= ⋅= ][  ()0 1
+303 60 52 01 20 173 .
+Sum them up:
+ hA101 60 053 0 147 0 073 01 20 173
+0 427()=+ ][ +][ ()
+=σ
+σ., .. ,. ., .
+., 0 0 299 0 427 0 299 .. ,.[]() =[]  
+For Node B, the contributions are:
+ •Self-  loop: ˆ ., .. ,.,A hWBB B⋅= ⋅= ][  ()0 1
+404 40 22 01 10055 .
+ •From Node A: ˆ ., .. ,.,A hWBA A⋅= ⋅= ][  ()0 1
+404 80 16 01 20 04 .
+ •From Node C: ˆ ., .. ,.,A hWBC C⋅= ⋅= ][  ()0 1
+403 60 52 00 90 13 .
+ •From Node D: ˆ ., .. ,.,A hWBD D⋅= ⋅= ][  ()0 1
+403 40 58 0 085 0 145 . 
+ 
+  
+
+--- PDF PAGE 231 ---
+218 Mathematical Foundations for Deep Learning
+Sum them up:
+hB101 10 055 01 20 04 00 90 13 0 085 0 145()=+ ][ +][ +][  σ .,.. ,. ., .. ,.  ()
+=[]() =[] σ0 405 03 70 405 03 7 ., .. ,.
+For Node C, the contributions are:
+ •Self-  loop: ˆ ., .. ,.,A hWCC C⋅= ⋅= ][  ()0 1
+403 60 52 00 90 13 .
+ •From Node A: ˆ ., .. ,.,A hWCA A⋅= ⋅= ][  ()0 1
+404 80 16 01 20 04 .
+ •From Node B: ˆ ., .,A hWCB B⋅= []()001 10055 .
+ •From Node E: ˆ ., .. ,.,A hWCE E⋅= ⋅= ][  ()0 1
+403 20 64 00 80 16 .
+Sum them up:
+hC100 90 13 01 20 04 01 10 055 00 80 16()=+ ][ +][ +][ (σ ., .. ,. .,.. ,. ) )
+=[]() =[] σ04 0 385 04 0 385 ., .. ,.
+For Node D, the contributions are:
+ •Self-  loop: Ah WDDD, ., .. ,.⋅=⋅= ][  ()0 1
+203 40 58 01 70 29 .
+ •From Node B: ˆ ., .. ,.,A hWDB B⋅= ⋅= ][  ()0 1
+204 40 22 02 20 11 .
+Sum them up:
+ hD101 70 29 02 20 11 03 90 40 39 04()=+ ][  () =[]() =[ σσ ., .. ,. ., .. ,. ] ] 
+For Node E, the contributions are:
+ •Self-  loop: ˆ ., .. ,.,A hWEE E⋅= ⋅= ][  ()0 1
+203 20 64 01 60 32 .
+ •From Node C: ˆ ., .. ,.,A hWEC C⋅= ⋅= ][  ()0 1
+203 60 52 01 80 26 .
+Sum them up:
+ hE101 60 32 01 80 26 03 40 58 03 4()=+ ][  () =[]() = σσ ., .. ,. ., .. ,058 .[]  
+6. Classification:  Now, we’ll use the updated node features H(1) to classify the unlabeled nodes. 
+We’ll use a simple linear classifier:
+Logitsc=()HW1, where Wc is a weight matrix mapping node features to class scores. 
+ 
+ 
+  
+
+--- PDF PAGE 232 ---
+219 Graph Theory
+Assume:
+ Wc=−
+−
+
+10 10
+10 10..
+.. 
+This is a simple weight matrix for illustrative purposes. Compute logits for each node.
+ •Node  B:LogitsBB chW== []−
+−
+
+=
+( )()10 405 03 710 10
+10 10
+0 405., ...
+..
+.1 10 03 71 00 405 10 03 71 00 035 00 .. .,.. .. ., .()+()−( )( )−( )+()()=][ −3 35 .
+ •Node  C: LogitsCC cchW W== [] =−[]()104 0 385 0 015 0 015 ., .. ,. .
+ •Node  E: LogitsEE cchW W== [] =−[]()103 40 58 02 40 24 ., .. ,. .
+Apply SoftMax to get probabilities:
+ Softmaxze
+eiz
+jzi
+j()=∑ 
+Compute for Node B:
+ •z =  [0.035, −0.035].
+ •Exponentials: e0.035 ≈ 1.0357, e−0.035 ≈ 0.9658.
+ •Sum:  1.0357 +   0.9658 =   2.0015.
+ •Probabilities:  Class 0 (regular user): 1 0357
+2 001505178.
+..≈ , Class 1 (Influencer):   
+0 9658
+2 00150 4822.
+..≈ .
+Similarly, compute for Nodes C and E. For Node C, the probabilities are similar to Node B 
+due to close logits. These probabilities will be around 0.5075 for Class 0 and 0.4925 for class 
+1. The Node E probabilities are:
+ •z =  [−0.24, 0.24]
+ •Exponentials: e−0.24 ≈ 0.7866, e0.24 ≈ 1.2712
+ •Sum: 0.7866 +   1.2712 =   2.0578
+The probability of class 0 is 0 7866
+2 057803823.
+..≈  0 and that of class 1 is 1 2712
+2 057806177.
+..≈ .
+Assign predicted labels:
+ •Node  B: Class 0 (regular user) with probability ~51.78%
+ •Node  C: Class 0 (regular user) with probability ~50.75%
+ •Node  E: Class 1 (influencer) with probability ~61.77%
+Here, Node B and Node C are predicted to be regular users, which aligns with their 
+connections to Node A, a regular user. Node E is predicted to be an influencer due 
+to its strong feature vector, which reflects high content quality, and its connection to 
+Node C. 
+  
+
+--- PDF PAGE 233 ---
+220 Mathematical Foundations for Deep Learning
+7.5.2   g raph claSSification
+GCNs can predict labels for entire graphs, a task known as graph classification. This is particu -
+larly valuable in fields where the overall graph structure determines its classification. In fraud 
+detection, for instance, financial transactions can be represented as graphs, where the nodes 
+are bank accounts or individuals, and the edges represent transactions between these accounts. 
+GCNs classify these graphs as either “Fraudulent” or “Legitimate.” The methodology involves 
+representing each graph with nodes, edges, and features. GCNs aggregate features from all nodes 
+and edges to capture the graph’s global structure. After multiple convolutional layers, a global 
+pooling operation generates a fixed-  size representation of the entire graph. This pooled represen -
+tation is then fed into a classifier to predict the graph’s label. Let’s consider an example of finan -
+cial transaction data for fraud detection. Each transaction network is represented as a graph. 
+The nodes represent bank accounts, and the edges represent the transactions between them. Our 
+goal is to classify these networks as either “Fraudulent” or “Legitimate” based on the graph 
+structure. Let us work with a small dataset consisting of three transaction networks: Network A, 
+Network B, and Network C. Network A is a legitimate transaction network (Label 0), Network 
+B is fraudulent (Label 1), and Network C is legitimate (Label 0). The graph structures for these 
+networks are as follows: In Network A, there are three nodes representing three accounts. Account 
+1 has transactions with Account 2 and Account 3. In Network B, Account 1 is linked to a poten -
+tially fraudulent account (Account 4), which in turn transacts with Account 3. Lastly, Network C 
+consists of four nodes, with Account 1 connected to Accounts 2 and 3, and Account 2 connected 
+to Account 4. The graph structure allows us to represent the relationships between accounts. We 
+begin by representing each account using a one-  hot encoding based on its type: regular accounts 
+are encoded as [1, 0], and potentially fraudulent accounts are encoded as [0, 1]. The initial node 
+features for each network are as follows:
+ •Network  A: Account 1, Account 2, and Account 3 are regular accounts, so their initial features 
+are [1, 0].
+ •Network  B: Account 1 is regular [1, 0], Account 4 is potentially fraudulent [0, 1], and Account 
+3 is regular [1, 0].
+ •Network  C: Accounts 1, 2, 3, and 4 are all regular accounts, so their initial features are [1, 0].
+Next, we define the adjacency matrices to represent the connectivity between nodes. For Network 
+A, the adjacency matrix would look like this:
+ ANetwork A=
+
+
+
+011
+100100  
+This matrix shows that Account 1 is connected to both Account 2 and Account 3, while Account 
+2 and Account 3 are not directly connected to each other. Similarly, the adjacency matrices 
+for Networks B and C would represent their respective connections. We then perform graph 
+convolutions to update the node features. A GCN layer aggregates the feature vectors of each 
+node’s neighbors. The aggregation function we use here is mean aggregation, where each node’s 
+feature is updated by averaging its own features and those of its neighboring nodes. The GCN 
+layer equation for Node v at layer k +  1 is:
+ h
+NvWhvk
+uN vk
+uk+ ()
+∈()()()=()
+
+∑1 1σ   
+ 
+  
+
+--- PDF PAGE 234 ---
+221 Graph Theory
+where:
+ •hvk() is the feature vector of Node v at layer k,
+ •W(k) is the weight matrix for layer k,
+ •N(v)  is the set of neighbors of Node v, and
+ •σ is the activation function (ReLU).
+We start with Network A, where the initial node features for all nodes are [1, 0]. We use the following 
+weight matrix for the first GCN layer:
+ W005 01
+03 07()=
+
+..
+.. 
+Step 1: Initial Node Features for Network A:  Account 1: [1, 0], Account 2: [1, 0], and Account 
+3: [1, 0].
+Step 2: Linear Transformation:  Using the weight matrix W(0), we perform the linear transform -
+ation for each node:
+Account 1:  [1, 0]⋅W(0) =  [0.5, 0.1],
+Account 2:  [1, 0]⋅W(0) =  [0.5, 0.1],
+Account 3:  [1, 0]⋅W(0) =  [0.5, 0.1].
+Step 3: Mean Aggregation:  Now, we aggregate the node features using the mean of the neighbors’ 
+features (including self-  loops). For Account 1, its neighbors are Account 2 and Account 3. The 
+aggregated feature for Account 1 is:
+ 0501 0501 0501
+30501., .. ,. ., .
+., .+][ +][ =[]  
+Similarly, for Accounts 2 and 3, the aggregation process results in the same feature: [0.5, 0.1].
+Step 4: Apply Activation Function (ReLU):  The ReLU activation function keeps the features 
+unchanged as they are all positive. The updated node features after this GCN layer remain [0.5, 
+0.1] for all nodes in Network A.
+We repeat this process for Network B and Network C by applying the same linear transformation 
+and aggregation steps and adjusting for the different adjacency structures. After updating the node 
+features, we use global pooling to generate graph-  level representations. We apply sum pooling, 
+which adds the feature vectors of all nodes in a graph. Here is the sum of the features of all three 
+nodes, known as the graph-  level representation:
+ •For Network A, the graph-  level representation is: gA =  [1.5, 0.3].
+ •For Network B, the graph-  level representation is: gB =  [1.3, 0.9].
+ •For Network C, the graph-  level representation is: gC =  [2.0, 0.4].
+Finally, we classify the graphs using a simple classification layer. We define a weight vector 
+Wc =  [−1.0, 1.0] and a bias b =  0. We compute the logits for each network:
+ •Network A: logitAc AWg b=⋅ += −12 .
+ •Network B: logitB=−04 . 
+  
+
+--- PDF PAGE 235 ---
+222 Mathematical Foundations for Deep Learning
+Applying the sigmoid function to get probabilities:
+ •Probability of Fraud for Network A: PFraude( )=+≈1
+102312.. (predicted as legitimate).
+ •Probability of Fraud for Network B: PFraude( )=+≈1
+104 004.. (predicted as legitimate).
+If these predictions don’t match the actual labels, the model needs further training to adjust the 
+weights and improve accuracy.
+Figure 7.4  illustrates different network structures, distinguishing between legitimate and fraudulent 
+patterns through node interactions and configurations. In Figure 7.4 a, the graph shows a variety of node 
+colors, each indicating different account types or groups within a network of legitimate interactions. 
+Nodes are connected in a way that suggests diverse, healthy exchanges with no apparent signs of 
+suspicious clustering. Figure 7.4 b depicts a linear, chain-  like structure where each node connects to 
+the next in a sequence. This pattern is often associated with fraudulent activity as it may signify a 
+controlled sequence of interactions or transactions, a common tactic in creating synthetic behavior 
+that mimics legitimate patterns. Figure 7.4 c shows a fully connected triangle, where each node is 
+interconnected with others in a balanced and symmetrical manner. Figure 7.4 d presents a quadrilateral 
+structure, suggesting a looped pattern where nodes engage in orchestrated interactions. The symmetry 
+and closed shape indicate a coordinated fraud ring, which could be used to manipulate interactions, 
+such as forming closed loops to hide the origin and destination of transactions. Figure 7.4 e highlights 
+a combination of legitimate and fraudulent nodes. The red nodes (A, B, C, and D) represent fraudu -
+lent entities embedded within a chain of blue nodes, which may be legitimate. This setup shows how 
+fraudulent actors could leverage legitimate accounts to facilitate fraudulent transactions or disguise 
+their activities, creating a mixed network where legitimate and fraudulent behaviors are intertwined. 
+Figure 7.4 f illustrates a scenario where a central node (B1) serves as a hub, connected to various other 
+nodes that represent legitimate accounts (green nodes). This central hub potentially manages fraudu -
+lent operations by utilizing these connections to distribute activities or transactions, making it harder 
+to trace. The presence of the central fraud node indicates a strategic attempt to leverage legitimate 
+connections for malicious purposes, a hallmark of organized fraud operations.
+7.6  CHALLENGES
+Addressing the challenges associated with GCNs is crucial for their broader adoption and effect -
+iveness in real-  world applications. Researchers are actively developing techniques to improve 
+scalability, handle dynamic graphs, and manage heterogeneous graphs more effectively. These 
+advancements aim to make GCNs more robust, efficient, and capable of dealing with the complex -
+ities of real-  world graph data. In this section, we discuss some of these challenges.
+7.6.1   Scala Bility
+One of the significant challenges with GCNs is scalability. Deep learning models, particularly 
+those involving graphs, can be computationally intensive. As the size of the graph increases, the 
+amount of data and the number of computations required also grow, leading to high memory and 
+processing demands. Large graphs, such as social networks or biological networks with millions 
+of nodes and edges, can be particularly challenging to process efficiently. To address this issue, 
+researchers are developing methods that help manage the scalability of GCNs. One such approach 
+is graph sampling, as exemplified by techniques like GraphSAGE. This method involves sampling 
+a subset of nodes and edges to create mini-  batches for training, which reduces the computational 
+burden while preserving the graph’s structural information. Another approach is mini-  batch training,  
+  
+
+--- PDF PAGE 236 ---
+223 Graph Theory
+FIGURE 7.4  These graphs represent various account interactions, including (a, c) legitimate loops, (b, d) potential fraud rings, (e) mixed 
+legitimate and fraudulent networks, (f) centralized fraud operations.  newgenrtpdf
+
+--- PDF PAGE 237 ---
+224 Mathematical Foundations for Deep Learning
+which processes the graph incrementally rather than all at once. This technique allows for incre -
+mental updates, making it possible to train on large graphs without exceeding memory limits. These 
+methods are crucial for enabling the use of GCNs on large-  scale data, ensuring that the models 
+remain efficient and effective even as the size and complexity of the graphs increase. Consider a 
+social network where millions of users (nodes) and billions of connections (edges) form a massive 
+graph. Processing this entire graph at once using traditional GCNs would require enormous compu -
+tational resources, making it difficult to scale effectively.
+7.6.2   d ynamic  graph S
+Many real-  world graphs are not static but dynamic, with nodes and edges frequently being added 
+or removed. Handling such dynamic graphs poses a significant challenge because the model must 
+continuously update its structure and parameters to accommodate these changes. This requires 
+algorithms that can adapt to changes in the graph in real time without necessitating a complete 
+retraining of the model. One key approach to addressing this challenge is incremental learning. This 
+method involves developing techniques that update the model incrementally as new data arrives, 
+allowing the GCN to adapt to changes without starting from scratch. Another approach is processing 
+graph data in a streaming fashion, known as streaming graphs. This allows for real-  time updates and 
+ensures that the model maintains its accuracy over time as the graph evolves. These approaches are 
+essential for effectively managing dynamic graphs, enabling the models to remain responsive and 
+accurate as the underlying data changes. Consider a social network where new users (nodes) are 
+constantly joining, existing users are unfollowing or following others, and posts (edges) are continu -
+ously being posted or deleted. This creates a dynamic graph that evolves over time. To ensure that 
+the GCN handling this data remains accurate and up-  to- date, it must be capable of adjusting to these 
+changes without needing to be retrained from scratch every time the graph changes.
+7.6.3   h eterogeneou S graph S
+Another challenge is dealing with heterogeneous graphs, where nodes and edges can be of different 
+types. For example, in a knowledge graph, nodes might represent various entities such as people, 
+places, and organizations, while edges might represent different types of relationships such as 
+friendships, locations, and affiliations. Heterogeneous graphs require models capable of handling 
+multiple types of nodes and edges, capturing the complex interactions between them. One solution 
+to this challenge is the use of heterogeneous GNNs (HetGNN). These specialized architectures 
+are designed to process and learn from heterogeneous graphs, effectively capturing the diverse 
+interactions and relationships within the data. Another approach is the use of metapath-  based 
+methods, which leverage metapaths to capture the relationships between different types of nodes 
+and edges, enhancing the model’s ability to learn from heterogeneous data.
+7.7  OTHER GRAPH-  BASED DEEP LEARNING MODELS
+These models represent significant advancements in graph-  based deep learning, each addressing 
+specific challenges associated with processing graph-  structured data. By incorporating techniques 
+such as neighborhood sampling, attention mechanisms, and polynomial approximations, these 
+models enhance the scalability, expressiveness, and efficiency of GNNs, making them more suitable 
+for various real-  world applications.
+7.7.1   g raphSage (graph Sample  and aggregation )
+GraphSAGE is a scalable technique designed to address the computational challenges of GCNs when 
+applied to large graphs. By sampling a fixed-  size subset of neighbors for each node, GraphSAGE  
+ 
+ 
+  
+
+--- PDF PAGE 238 ---
+225 Graph Theory
+reduces computational complexity while preserving essential structural information. This approach 
+ensures that memory and processing requirements remain manageable, even as the graph size grows, 
+making it ideal for large-  scale graphs, such as social networks or biological networks. A key feature 
+of GraphSAGE is its neighborhood sampling method. Rather than using all neighbors of a node, 
+it samples a fixed number, allowing the model to scale without sacrificing important local struc -
+ture. The model introduces several aggregation functions to combine the features of the sampled 
+neighbors. The mean aggregation function calculates the mean of the neighbors’ features, pro -
+viding a smooth representation of the local structure. The long short-  term memory network (LSTM) 
+aggregation function uses a LSTM to capture sequential information and dependencies between 
+neighbors. The pooling aggregation function, such as max pooling, highlights the most significant 
+features in the neighborhood. The GraphSAGE methodology involves several steps. First, a fixed 
+number of neighbors is sampled for each node, reducing neighborhood size while capturing repre -
+sentative structural information. Next, an aggregation function (mean, LSTM, or pooling) is applied 
+to combine the sampled neighbors’ features, which are then used to update the node’s representa -
+tion. Through multiple layers of sampling and aggregation, GraphSAGE learns meaningful node 
+representations that incorporate both node features and the structural information from their neigh -
+borhood. These learned representations are then used to perform tasks such as node classification, 
+link prediction, or graph classification. For a given Node v, GraphSAGE first samples a fixed-  size 
+set of neighbors N(v) . The feature vectors of these neighbors are then aggregated using one of the 
+aggregation functions. For example, using mean aggregation, the new representation for Node v at 
+layer l +  1 is computed as:
+ h Wh hu Nvvll
+vl
+ul+=⋅ {} ∪∀ ∈ () {} () ()1σ mean ,  
+where:
+ •hvl is the feature vector of Node v at layer l,
+ •Wl is a weight matrix,
+ •N(v)  is the set of sampled neighbors of v, and
+ •σ is a nonlinear activation function, such as ReLU.
+This process is repeated over multiple layers, enabling the model to incorporate multi-  hop neigh -
+borhood information. Consider a simple undirected graph with six nodes: A, B, C, D, E , and F. 
+Connections (edges) are as follows:
+ •Node A is connected to Nodes B and C.
+ •Node B is connected to Nodes A, D, and E.
+ •Node C is connected to Nodes A and F.
+ •Node D is connected to Node B.
+ •Node E is connected to Node B.
+ •Node F is connected to Node C.
+The adjacency list is : N(A)  =  {B,C} , N(B)  =  {A,D,E} , N(C)  =  {A,F} , N(D)  =  {B}, N(E)  =  {B}, 
+and N(F)  =  {C}. Each node has a two-  dimensional feature vector representing certain attributes 
+(e.g., properties or characteristics): hA010()=[],, hB001()=[],, hC011()=[],, hD000()=[],, hE001()=[],, 
+and hF010()=[],. The parameters, for example, are:
+ •Sampling Size (K):  At each layer, sample up to two neighbors per node
+ •Number of Layers:  Two layers (we will update node representations over two iterations)  
+
+--- PDF PAGE 239 ---
+226 Mathematical Foundations for Deep Learning
+ •Aggregation Function:  Mean aggregation
+ •Activation Function ( σ): ReLU
+ •Weight Matrices:  W105 01
+03 07()=
+
+..
+.. and W206 02
+04 08()=
+
+..
+...
+For each node and at each layer, these three steps should be done:
+Step 1: Sampling Neighbors:  Randomly sample up to K neighbors from the node’s immediate 
+neighbors.
+Step 2: Aggregate Neighbor Features:  Apply the aggregation function to the sampled neighbors’ 
+features.
+Step 3: Update Node Representation:  Combine the node’s own feature with the aggregated 
+neighbor features, apply the weight matrix, and pass it through the activation function to get 
+the new node representation.
+The step-  by- step computation is as follows. At the first layer (from h(0) to h(1)):
+Step 1. Sampling Neighbors:  For this example, we’ll fix the sampled neighbors for consistency:
+ •Node  A: Sampled Nodes B and C
+ •Node  B: Sampled Nodes A and D
+ •Node  C: Sampled Nodes A and F
+ •Node  D: Sampled Node B (only neighbor)
+ •Node  E: Sampled Node B (only neighbor)
+ •Node  F: Sampled Node C (only neighbor).
+Step 2. Aggregate Neighbor Features:  Using mean aggregation, compute the aggregated neighbor 
+features for each node.
+ •Node  A:
+a. Sampled neighbors: B and C
+b. Neighbor features: hB001()=[], and hC011()=[],
+c. Aggregated feature: agg meanAB Chh10 001 11
+205 1() ()()= {}() =+][ =[] ,,,
+., .
+ •Node  B:
+a. Sampled neighbors: A and D
+b. Neighbor features: hA010()=[], and hD000()=[],
+c. Aggregated feature: aggB110 00
+205 0()=+][ =[],,
+., .
+ •Node  C:
+a. Sampled neighbors: A and F
+b. Neighbor features: hA010()=[], and ,hF010()=[]
+c. Aggregated feature: aggC110 10
+210()=+][ =[],,
+,.
+ •Node  D:
+a. Sampled neighbor: B
+b. Aggregated feature: , aggDBh1001() ()== []. 

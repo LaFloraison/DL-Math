@@ -1,0 +1,152 @@
+
+--- PDF PAGE 1 ---
+ 
+
+--- PDF PAGE 2 ---
+i
+Mathematical Foundations for  
+Deep Learning
+Mathematical Foundations for Deep Learning  bridges the gap between theoretical mathematics and 
+practical applications in artificial intelligence (AI). This guide delves into the fundamental mathem -
+atical concepts that power modern deep learning, equipping readers with the tools and knowledge 
+needed to excel in the rapidly evolving field of artificial intelligence.
+Designed for learners at all levels, from beginners to experts, the book makes mathematical 
+ideas accessible through clear explanations, real-  world examples, and targeted exercises. Readers 
+will master core concepts in linear algebra, calculus, and optimization techniques; understand the 
+mechanics of deep learning models; and apply theory to practice using frameworks like TensorFlow 
+and PyTorch.
+By integrating theory with practical application, Mathematical Foundations for Deep Learning  
+prepares you to navigate the complexities of AI confidently. Whether you’re aiming to develop prac -
+tical skills for AI projects, advance to emerging trends in deep learning, or lay a strong foundation 
+for future studies, this book serves as an indispensable resource for achieving proficiency in the field.
+Embark on an enlightening journey that fosters critical thinking and continuous learning. Invest 
+in your future with a solid mathematical base, reinforced by case studies and applications that bring 
+theory to life, and gain insights into the future of deep learning.   
+
+--- PDF PAGE 3 ---
+ 
+
+--- PDF PAGE 4 ---
+Mathematical Foundations for 
+Deep Learning
+Mehdi Ghayoumi
+State University of New York
+  
+
+--- PDF PAGE 5 ---
+iv
+Designed cover image: Mehdi Ghayoumi
+First edition published 2026
+by CRC Press
+2385 NW Executive Center Drive, Suite 320, Boca Raton, FL 33431
+and by CRC Press
+4 Park Square, Milton Park, Abingdon, Oxon, OX14 4RN
+CRC Press is an imprint of Taylor & Francis Group, LLC
+© 2026 Mehdi Ghayoumi
+Reasonable efforts have been made to publish reliable data and information, but the author and publisher cannot assume 
+responsibility for the validity of all materials or the consequences of their use. The authors and publishers have attempted to 
+trace the copyright holders of all material reproduced in this publication and apologize to copyright holders if permission to 
+publish in this form has not been obtained. If any copyright material has not been acknowledged please write and let us know 
+so we may rectify in any future reprint.
+Except as permitted under U.S. Copyright Law, no part of this book may be reprinted, reproduced, transmitted, or utilized 
+in any form by any electronic, mechanical, or other means, now known or hereafter invented, including photocopying, 
+microfilming, and recording, or in any information storage or retrieval system, without written permission from the publishers.
+For permission to photocopy or use material electronically from this work, access www.copyri  ght.com  or contact the 
+Copyright Clearance Center, Inc. (CCC), 222 Rosewood Drive, Danvers, MA 01923, 978-  750- 8400. For works that are not 
+available on CCC please contact mpkbookspermissions@tandf.co.uk
+Trademark notice : Product or corporate names may be trademarks or registered trademarks and are used only for identification 
+and explanation without intent to infringe.
+ISBN: 978-  1- 032- 69073-  5 (hbk)
+ISBN: 978-  1- 032- 69072-  8 (pbk)
+ISBN: 978-  1- 032- 69074-  2 (ebk)
+DOI: 10.1201/  9781032690742
+Typeset in Times
+by Newgen Publishing UK  
+
+--- PDF PAGE 6 ---
+vContents
+Preface  .............................................................................................................................................. vii
+Acknowledgments  ............................................................................................................................. ix
+About the Author  ............................................................................................................................... xi
+Chapter 1  Introduction  .................................................................................................................. 1
+Chapter 2  Linear Algebra  ............................................................................................................ 11
+Chapter 3  Multivariate Calculus  ................................................................................................. 65
+Chapter 4  Probability Theory and Statistics  ............................................................................... 91
+Chapter 5  Optimization Theory  ................................................................................................ 133
+Chapter 6  Information Theory  .................................................................................................. 179
+Chapter 7  Graph Theory  ........................................................................................................... 205
+Chapter 8  Differential Geometry  .............................................................................................. 240
+Chapter 9  Topology in Deep Learning  ...................................................................................... 270
+Chapter 10  Harmonic Analysis for CNNs ................................................................................... 298
+Chapter 11  Dynamical Systems and Differential Equations for RNNs  ...................................... 321
+Chapter 12  Quantum Computing  ................................................................................................ 343
+Bibliography  ................................................................................................................................. 361
+Index  .............................................................................................................................................. 365  
+
+--- PDF PAGE 7 ---
+ 
+
+--- PDF PAGE 8 ---
+viiPreface
+Mathematical Foundations for Deep Learning  is a guide to the key mathematical principles behind 
+modern deep learning techniques. I hope this book brings clarity to these essential concepts in artifi -
+cial intelligence (AI), enhancing both your theoretical understanding and practical skills.
+In this book, we explore important mathematical areas crucial for deep learning, such as linear 
+algebra, calculus, probability theory, and more. Each chapter balances theory with practice, offering 
+examples and exercises to strengthen your grasp of the material. We delve into the mathematics that 
+power neural networks, optimization algorithms, and various deep learning architectures, aiming to 
+connect complex theory with real-  world applications.
+The book is organized into 12 chapters, each focusing on a specific area of mathematics as it 
+relates to deep learning. We start with foundational concepts to ensure that all readers, regardless of 
+their background, have the tools needed to tackle more advanced topics.
+Our journey begins with linear algebra and multivariate calculus, the building blocks of deep 
+learning models. These chapters lay the groundwork for understanding how data is represented and 
+manipulated in neural networks. We then move on to probability theory and optimization, exploring 
+how models learn from data and how their performance can be improved.
+In later chapters, we introduce subjects like information theory, graph theory, and differential 
+geometry, which play important roles in designing and operating deep learning systems. We also 
+cover advanced topics like topology, harmonic analysis for convolutional neural networks, and 
+dynamical systems for recurrent neural networks, showing how these areas contribute to the latest 
+research and applications in AI. Finally, we discuss quantum computing and its potential impact on 
+the future of deep learning.
+At the core of this book is a detailed look at how these mathematical foundations come together 
+in the practical building of deep learning models. By understanding the underlying math, you’ll be 
+better equipped to solve complex problems and innovate in the field.
+I wrote this book for a wide audience, from students new to deep learning to experienced 
+professionals wanting to deepen their understanding of the math behind the models they use. My 
+goal is to make the content accessible to everyone, with clear explanations, practical examples, and 
+exercises to help you learn and apply what you’ve read.
+Thank you for joining me on this journey into the mathematical heart of deep learning. I hope 
+this book not only expands your knowledge but also inspires you to push the boundaries of what’s 
+possible in AI.
+Happy reading!
+Mehdi Ghayoumi
+Beverly Hills, CA, USA
+August 2024  
+
+--- PDF PAGE 9 ---
+ 
+
+--- PDF PAGE 10 ---
+ixAcknowledgments
+The creation of this book has been deeply influenced by the extraordinary individuals in my life. 
+While many have contributed, none have been more significant than my beloved parents, to whom 
+I offer my deepest gratitude.
+First and foremost, I dedicate this book to my dear mother, Khadijeh Ghayoumi . Your 
+unwavering belief in me, endless love, and constant support have been the foundation of my strength 
+throughout this journey. This book is a humble tribute to the profound impact you’ve had on my 
+life. The valuable lessons you’ve taught me continue to guide my path, and your inspiring resilience 
+reminds me daily to persevere, no matter the challenges that arise.
+In loving memory of my father, Aliasghar Ghayoumi , I also dedicate this work. Though you are 
+no longer with us, your spirit continues to light my way. Your legacy of integrity, perseverance, and 
+wisdom remains a guiding force in my life. This book honors the values you embodied, and I hope 
+it stands as a testament to your lasting influence.
+To both of you, my parents, I owe the principles that have shaped my academic journey: the 
+relentless pursuit of knowledge, the importance of perseverance, and the virtue of humility. This 
+book reflects those values and the love and guidance you’ve given me. I hope it makes you proud.
+To my extended family, I express my heartfelt thanks. Your unwavering belief in me and your 
+constant encouragement have been crucial in achieving this goal.
+I also wish to sincerely thank my colleagues, mentors, and collaborators. Your wisdom, expertise, 
+and guidance have been invaluable as I navigated the complexities of academia. The intellectual 
+camaraderie we’ve shared has played a pivotal role in bringing this work to completion.
+From the bottom of my heart, thank you.  

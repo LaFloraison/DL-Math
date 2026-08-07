@@ -1,0 +1,1618 @@
+
+--- PDF PAGE 91 ---
+78 Mathematical Foundations for Deep Learning
+Figure 3.5  shows the visualization of the Jacobian vectors of a vector-  valued function F(x, y) .  
+The function ,,Fx y xcosy ysin x()= () () T is depicted along with its Jacobian matrix, which is  
+calculated as ,Jx yF(). The figure is divided into two main components: a contour plot and Jacobian  
+vectors. The background contour plot displays a quadratic function Zx y=+22, providing a visual  
+reference for the domain over which the Jacobian vectors are computed, with filled contours using  
+the colormap and an accompanying color bar indicating the function levels. Superimposed on  
+the contour plot are red and blue arrows representing the Jacobian vectors corresponding to the  
+components of F. The red arrows depict the partial derivatives associated with them, while the blue  
+arrows depict those associated with them.
+3.7  JACOBIANS IN DEEP LEARNING
+In the context of deep learning, Jacobians play a crucial role in understanding how small changes 
+in input can affect the output of a neural network model. This is especially important in scenarios 
+where the sensitivity and responsiveness of a model to inputs are critical. In deep learning, a neural 
+network functions as a mapping between input vectors and output vectors. The Jacobian matrix 
+FIGURE 3.5  Visualization of Jacobian vectors for the function Fx y xcosy ysin x,,() = () () . 
+  
+
+--- PDF PAGE 92 ---
+79 Multivariate Calculus
+details the rate at which each output changes in response to variations in each input. Specifically, 
+for a network that has m outputs and n inputs, the Jacobian is a matrix. Formally, if yx=F () where 
+x∈n and y∈m, the Jacobian matrix J is given by
+ Jfy
+xy
+xy
+x
+y
+xy
+xy
+x
+y
+xy
+xn
+n
+mm()=∂
+∂∂
+∂∂
+∂
+∂
+∂∂
+∂∂
+∂
+∂
+∂∂
+∂1
+11
+21
+2
+12
+22
+1…
+…
+⋮⋮ ⋱⋮
+2 2…∂
+∂
+
+
+y
+x
+m
+n 
+The Jacobian matrix is a valuable tool for analyzing the sensitivity of a neural network’s outputs to 
+input variations. This sensitivity analysis is crucial in adversarial attacks, where minor input alter -
+ations can cause substantial output changes. By understanding this sensitivity, we can enhance the 
+robustness and reliability of the model. While the Jacobian is not directly used in backpropagation, 
+the concept is closely related. Backpropagation relies on the gradient to adjust weights and biases in 
+a network. This gradient quantifies how the loss function changes as you adjust the input or weights, 
+like how the Jacobian quantifies the output change concerning inputs.
+In adversarial machine learning, attackers often use the Jacobian matrix to generate adversarial 
+examples. By understanding how changes in input affect output, attackers can make slight modifications 
+to an input sample to fool a neural network into misclassifying it. This understanding is crucial for 
+developing defenses against such attacks. The Jacobian can be useful for visualizing how changes in 
+specific inputs affect outputs. This visualization aids in interpreting how a deep learning model functions 
+and helps debug or improve model behavior. By examining the Jacobian, researchers can gain insights 
+into the model’s internal workings and response to varying inputs. Recent research in deep learning 
+involves regularizing the Jacobian to ensure that the model is not overly sensitive to input perturbations. 
+Regularizing the Jacobian can help make the model more robust, improving its performance on real-  
+world data where slight variations are common. The Jacobian matrix can be massive for large neural 
+networks, making computation and storage computationally challenging. In many practical scenarios, 
+approximations or sampling methods might be used to manage these challenges effectively. Despite these 
+limitations, understanding and utilizing the Jacobian remains a critical aspect of advanced neural network 
+training and analysis. Consider a simple neural network with two inputs x1, x2 and two outputs y1, y2, 
+where the output is calculated as follows:
+ yx xyxx11 22 12
+223 4=+ =+,  
+The Jacobian matrix for this network is:
+ J=∂
+∂∂
+∂
+∂
+∂∂
+∂
+
+
+
+
+=
+
+y
+xy
+x
+y
+xy
+xx1
+11
+2
+2
+12
+2123
+24 
+At the point ( x1, x2) =  (1, 2), the Jacobian becomes:
+ J1223
+21423
+24,()=×
+
+=
+
+  
+ 
+ 
+  
+
+--- PDF PAGE 93 ---
+80 Mathematical Foundations for Deep Learning
+This matrix shows how small changes in x1 and x2 affect y1 and y2. For instance, increasing x1 by 1  
+unit increases y1 by 2 units and y2 by 2 units, while increasing x2 by 1 unit increases y1 by 3 units  
+and y2 by 4 units.
+Figure 3.6  presents a visualization of the Jacobian matrix of a simple neural network. The 
+Jacobian matrix, in this context, represents the partial derivatives of the network’s outputs with 
+respect to its inputs. Each cell in the matrix indicates the sensitivity of an output to a change in a 
+specific input. The color gradient in the matrix helps to visually differentiate the magnitude and 
+direction of the sensitivities. Warmer colors (reds) indicate higher positive values, while cooler 
+colors (blues) represent higher negative values. Neutral values are closer to white. Each cell is 
+annotated with the exact value of the partial derivative it represents. The x- axis is labeled with 
+the inputs (Input 1 and Input 2), and the y- axis is labeled with the outputs (Output 1 and Output 
+2). By examining the Jacobian matrix, you can understand how changes in each input variable 
+will affect each output variable. For example, a high positive value in a cell indicates that a small 
+increase in the corresponding input will result in a significant increase in the corresponding 
+output.
+3.8  HESSIAN MATRICES
+While the Hessian matrix provides valuable insights into the curvature of a function and can influ -
+ence optimization strategies, its direct application in deep learning is limited by practical computa -
+tional challenges. However, methods that leverage Hessian information, either directly or indirectly, 
+can be crucial in specific deep learning scenarios. The Hessian matrix, a square matrix, showcases 
+the second-  order partial derivatives of a scalar function. For a function n→ , the Hessian H(f) is 
+given by:
+FIGURE 3.6  Visualization of the Jacobian matrix for a simple neural network. 
+  
+
+--- PDF PAGE 94 ---
+81 Multivariate Calculus
+ Hff
+xf
+xxf
+xx
+f
+xxf
+xf
+xxn
+n ()=∂
+∂∂
+∂∂∂
+∂∂
+∂
+∂∂∂
+∂∂
+∂∂2
+122
+122
+1
+2
+212
+222
+2…
+…
+⋮ ⋮ ⋮⋱⋮
+…∂
+∂∂∂
+∂∂∂
+∂
+
+
+
+
+
+2
+12
+22
+2f
+xxf
+xxf
+xnn n 
+The importance of Hessian matrices include:
+(a) Convexity and Concavity:  A function is locally convex if the Hessian is positive definite at a 
+point. If the Hessian is negative definite, the function is locally concave. This property is crit -
+ical in optimization, as it helps identify the nature of critical points, distinguishing between 
+local minima, maxima, or saddle points.
+(b) Second-  order Optimization Methods:  The Hessian is used in second-  order optimization 
+methods, such as Newton’s Method, which can achieve faster convergence than first-  order 
+methods like gradient descent under certain conditions. However, in deep learning, com -
+puting the Hessian is often computationally expensive due to the large number of parameters.
+(c) Approximations:  Quasi-  Newton methods approximate the Hessian. These methods are used 
+in optimization scenarios where computing the actual Hessian might be too costly.
+Consider a simple function f xy xy, ()=+22. The Hessian matrix of this function, representing the 
+second-  order partial derivatives, is:
+ Hf
+xf
+xy
+f
+yxf
+y=∂
+∂∂
+∂∂
+∂
+∂∂∂
+∂
+
+
+
+
+
+=
+
+2
+22
+22
+220
+02 
+As the Hessian matrix is positive definite (both eigenvalues are positive), the function is locally 
+convex, and any critical point is a local minimum. The Hessian helps determine the curvature of 
+the function, which influences the optimization strategy by providing insights into local minima, 
+maxima, and saddle points.
+Figure 3.7  shows the behavior of the function f xy xy xy,()=++222 and its Hessian matrix. The 
+left subplot features a 3D surface plot of the function, displaying its values over a grid of x and y 
+ranging from –  2 to 2. The axes are labeled x, y, and f(x, y ), and a color bar accompanies the plot 
+to show the corresponding function values. The right subplot presents the Hessian matrix of the 
+function at the specific point (x, y)  =  (1, 1). For f xy xy xy,()=++222, the Hessian matrix at this 
+point is22
+22
+
+ . The heatmap visualizes this matrix using the “Blues” colormap, with each cell’s 
+color reflecting the value of the corresponding second-  order partial derivative.
+3.9  HESSIAN IN DEEP LEARNING
+While direct computation and use of the Hessian in deep learning training are rare due to its high 
+computational and storage costs, its properties and associated concepts are precious. They provide  
+ 
+  
+
+--- PDF PAGE 95 ---
+82 Mathematical Foundations for Deep Learning
+FIGURE 3.7  Visualization of the Hessian matrix for the function f xy xy xy,() =++222.
+  newgenrtpdf
+
+--- PDF PAGE 96 ---
+83 Multivariate Calculus
+insights into model optimization, robustness, and generalization and influence the development of 
+advanced optimization algorithms tailored for deep learning. Research suggests that the eigenvalues 
+of the Hessian can provide insights into model generalization. Flatter minima (where the Hessian 
+has smaller eigenvalues) might correspond to better generalization, as they indicate less sensitivity 
+to small perturbations in the input data. Regularizing the Hessian can help prevent overfitting, 
+leading to models that better generalize unseen data. The Hessian’s properties can be leveraged 
+to understand model robustness, especially in adversarial attacks. The curvature information can 
+provide insights into the model’s susceptibility to perturbations in the input space. By studying the 
+Hessian, researchers can develop better defense mechanisms against adversarial attacks, enhan -
+cing the robustness and reliability of deep learning models. Given the high computational cost of 
+the Hessian in deep networks, Hessian-  free methods aim to leverage its second-  order information 
+without explicitly computing it. Here are some of its features:
+(a) High-  Dimensional, Non-  Convex Landscapes:  Deep learning involves training models on 
+high-  dimensional, non-  convex optimization landscapes. This makes the training process sus -
+ceptible to challenges like getting stuck in saddle points.
+(b) Curvature Information:  The Hessian matrix provides second-  order information about the 
+curvature of the loss surface. The eigenvalues of the Hessian can indicate whether a point 
+is a minimum, maximum, or saddle point. Specifically, if all eigenvalues are positive, it 
+is a local minimum; if all are negative, it is a local maximum; and if there is a mix, it is a 
+saddle point.
+(c) Saddle Points:  In deep learning, saddle points are more common than local minima, making 
+it crucial to understand the role of the Hessian in navigating such points. Understanding 
+the Hessian can help develop strategies to escape saddle points and improve training 
+efficiency.
+For example, consider that we are training a neural network with a loss function L(w) , where w 
+represents the weight parameters of the network. Suppose at a certain point in the weight space, the 
+Hessian matrix has the following eigenvalues:
+ λλ λλ12 3400 10 10 50 2== == −., ., ., .  
+The negative eigenvalue λ4 =  – 0.2 indicates the presence of a saddle point, meaning the training pro -
+cess might slow down or get stuck at this point. The small positive eigenvalues λ1 =  0.01, λ2 =  0.1 
+suggest a flat region in the loss surface, meaning progress may be slow along these directions. The 
+larger positive eigenvalue λ3 =  0.5 indicates that in this direction, the curvature is steeper, meaning 
+changes in this direction will more rapidly impact the loss.
+In Figure 3.8 , the Hessian matrix of a simple neural network is visualized to provide insights 
+into the second-  order derivatives of the network’s loss function with respect to its inputs. The neural 
+network consists of a single fully connected layer that maps a two-  dimensional input to a two-  
+dimensional output using ReLU activation. The sample input tensor [1.0, 2.0] is used for this visu -
+alization, and the forward pass through the network produces an output. The loss, defined as the 
+sum of the outputs, is computed, and the gradients are calculated. The Hessian matrix, representing 
+the second-  order partial derivatives, is then computed using these gradients. The Hessian matrix is 
+visualized as a heatmap using the colormap, which provides a clear distinction between positive and 
+negative values. The x and y axes of the heatmap are labeled with x1 and x2, representing the inputs 
+to the neural network.  
+
+--- PDF PAGE 97 ---
+84 Mathematical Foundations for Deep Learning
+The challenges in using the Hessian in deep learning include the following:
+(a) Computational Complexity:  The Hessian is a square matrix of size n × n, where n is the 
+number of parameters in the model. In modern deep networks, which can have millions or 
+even billions of parameters, computing the full Hessian becomes computationally prohibi -
+tive. The time and resources required to calculate second-  order derivatives for such high-  
+dimensional models are often beyond the capabilities of standard hardware.
+(b) Storage Costs:  Storing the full Hessian matrix for large-  scale models is impractical, as 
+its memory requirements scale quadratically with the number of parameters. Even using 
+techniques like sparse or low-  rank approximations, the storage costs remain substantial, cre -
+ating a bottleneck for efficient computation and optimization.
+(c) Non-  convexity:  The loss surfaces in deep learning models are highly non-  convex, meaning 
+they contain numerous saddle points and local minima. While the Hessian provides informa -
+tion about the curvature of the loss surface, the presence of these saddle points complicates 
+the optimization process. At these points, the Hessian can have both positive and negative 
+eigenvalues, making it difficult to determine a clear direction for convergence and potentially 
+leading to slow or unstable training.
+FIGURE 3.8  Visualization of the Hessian matrix for a neural network at (x1,x2) =  (1,2).  
+
+--- PDF PAGE 98 ---
+85 Multivariate Calculus
+3.10  REAL-  WORLD APPLICATIONS
+3.10.1   a utonomou S vehicle S
+Calculus, particularly gradient descent, is pivotal in training the deep learning models that power 
+autonomous vehicles. These models rely on calculus to optimize their decision-  making processes in 
+real time. For instance, during navigation, the vehicle must continually adjust its steering and speed 
+based on the environment, which is captured and processed by sensors. The optimization process 
+involves minimizing a loss function that represents the difference between the predicted path and 
+the ideal path. By using gradients, the model updates its parameters to improve accuracy and safety, 
+ensuring that the vehicle can adapt to changing road conditions and unexpected obstacles.
+3.10.2   h ealthcare  and medical  imaging
+In healthcare, calculus plays a critical role in enhancing the accuracy of diagnostic tools, particularly 
+in medical imaging. Techniques like backpropagation, which relies on the chain rule of calculus, 
+are used to train deep learning models for tasks such as detecting tumors in radiographic images. 
+By optimizing the loss function, which quantifies the discrepancy between the predicted diagnosis 
+and the actual condition, these models can learn to identify subtle patterns in the images that may be 
+indicative of early-  stage diseases. This application not only improves diagnostic accuracy but also 
+facilitates earlier detection and treatment, ultimately saving lives.
+3.10.3   r oBotic S and control  SyStemS
+In robotics, calculus is integral to designing control systems that allow robots to interact with their 
+environment in real time. Calculus-  based algorithms help optimize the robot’s movements and 
+actions to perform tasks with precision. For instance, in robotic surgery, the robot’s movements 
+must be incredibly accurate to perform delicate procedures. The optimization of these movements 
+relies on minimizing a loss function that measures the deviation from the desired motion. By cal -
+culating gradients, the control system can continuously adjust the robot’s actions, ensuring safe and 
+effective operation.
+3.10.4   n atural  language  proce SSing (nlp)
+In NLP, calculus underlies the training of models that understand and generate human language. 
+These models, such as transformers used in machine translation or sentiment analysis, require 
+extensive optimization during training. The gradients of the loss function guide the updates to 
+the model’s parameters, improving its ability to understand context, syntax, and semantics. For 
+example, in machine translation, the model must minimize the error between the translated output 
+and the correct translation, which is achieved through calculus-  driven optimization techniques like 
+backpropagation.
+3.10.5   image and video proce SSing
+Calculus is fundamental in processing and enhancing images and videos through deep learning 
+models. These models are trained to perform tasks such as image recognition, video analysis, and 
+facial recognition by optimizing a loss function that measures how well the model’s predictions 
+match the actual content. For instance, in facial recognition, the model learns to distinguish between 
+different faces by minimizing the difference between the predicted identity and the true identity. 
+This process relies on gradient calculations to adjust the model parameters, improving accuracy and 
+reliability in real-  world applications. 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 99 ---
+86 Mathematical Foundations for Deep Learning
+3.11  HANDS-  ON EXAMPLE
+This section will walk through a programming example to demonstrate how multivariate calculus is 
+used in deep learning, specifically focusing on gradient descent optimization.
+Step 1: Import necessary libraries
+In this step, we import essential libraries that will help with data manipulation and visualization. The 
+NumPy library is imported as np, which is widely used for numerical computations and handling 
+arrays or matrices. The matplotlib.pyplot module, imported as plt, is used for creating static, inter -
+active, and animated visualizations in Python. Additionally, Axes3D from mpl_  toolkits.mplot3d is 
+imported to enable the creation of 3D plots, which will allow us to visualize data in three dimensions, 
+providing deeper insight into relationships between variables.
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_  toolkits.mplot3d import Axes3D
+Step 2: Define the multivariate function
+We’ll use a simple quadratic function of two variables: f xy xy,()=+22
+def f(x, y):
+ return x**2 +   y**2
+Step 3: Compute the gradient
+The gradient of the function is given by the partial derivatives with respect to each 
+variable: ∇=∂
+∂∂
+∂
+
+ff
+xf
+y,
+def gradient(x, y):
+df_ dx =  2 * x
+df_ dy =  2 * y
+return np.array([df_  dx, df_ dy])
+Step 4: Implement gradient descent
+In this function, we are implementing a basic version of the gradient descent optimization algorithm. The 
+gradient_  descent function takes in three parameters: starting_  point, which is the initial point where the 
+optimization process begins; learning_  rate, which controls the size of the steps taken in the direction of 
+the gradient; and iterations, which specifies how many times the process should update the point. The 
+function starts at the given starting_  point and iteratively updates the position based on the negative of the 
+gradient (calculated using the gradient function). The learning rate controls how much the point moves in 
+the direction of the negative gradient. The new positions (points) are stored in a list and returned, giving 
+a trace of the steps taken during the optimization process. 
+ 
+ 
+  
+
+--- PDF PAGE 100 ---
+87 Multivariate Calculus
+def gradient_  descent(starting_  point, learning_  rate, iterations):
+points =   [starting_  point]
+point =  starting_  point
+for _  in range(iterations):
+grad =  gradient(point[0]  , point[1])
+point =  point -   learning_  rate * grad
+points.append(point)
+return points
+Step 5: Run gradient descent
+In this part of the code, we are setting up the initial parameters to run the gradient descent algorithm. 
+The starting_  point is initialized as a NumPy array [5.0, 5.0], which represents the initial point in a 
+2D space where the optimization begins. The learning_  rate is set to 0.1, which defines the step size 
+in the direction of the gradient at each iteration, controlling how quickly the algorithm converges. 
+The iterations parameter is set to 50, meaning that the gradient descent will run for 50 steps. The 
+gradient_  descent function is then called with these parameters, and the points generated throughout 
+the optimization process are stored in the points variable. Finally, the list of points is converted into 
+a NumPy array for easier manipulation or visualization in the following steps. This setup is crucial 
+for tracking how the algorithm converges towards the minimum of the function being optimized.
+starting_  point =  np.array([5.0, 5.0])
+learning_  rate =  0.1
+iterations =   50
+points =   gradient_  descent(starting_  point, learning_  rate, 
+iterations)
+points =   np.array(points)
+Step 6: Visualize the function and Gradient Descent Path
+We will create a 3D plot of the function and the path taken by gradient descent.
+x =  np.linspace(-  6, 6, 400)
+y =  np.linspace(-  6, 6, 400)
+X, Y =  np.meshgrid(x, y)
+Z =  f(X, Y)
+fig =  plt.figure(figsize=  (12, 8))
+ax =  fig.add_  subplot(111, projection=  ‘3d’)
+ax.plot_  surface(X, Y, Z, cmap=  ‘viridis ’, alpha=  0.6)
+ax.plot(points[:, 0], points[:, 1], f(points[:, 0], points[:, 1]), 
+color= ‘r’, marker=  ’o’)
+ax.set_ xlabel( ‘X’)
+ax.set_ ylabel( ‘Y’)
+ax.set_ zlabel( ‘f(X, Y) ’)
+ax.set_ title( ‘Gradient Descent on f(X, Y) =   X^2 +  Y^2 ’)
+plt.show() 
+ 
+  
+
+--- PDF PAGE 101 ---
+88 Mathematical Foundations for Deep Learning
+Figure 3.9  is the output of the program, which is a 3D plot that shows the surface of the function and  
+the path taken by gradient descent.
+3.12  COMMON MISTAKES AND TROUBLESHOOTING TIPS
+3.12.1   u nder Standing  partial  derivative S
+ •Mistake:  Confusing partial derivatives with total derivatives.
+ •Tip: Remember that partial derivatives measure how a function changes with respect to one 
+variable while keeping other variables constant. In contrast, total derivatives consider the 
+change with respect to all variables simultaneously.
+ •Mistake:  Incorrectly treating constants while taking partial derivatives.
+ •Tip: Always treat other variables as constants when computing the partial derivative with 
+respect to a specific variable. For example, when finding ∂
+∂f
+x for f xy,(), treat it as a constant.
+3.12.2   h igher - order partial  derivative S
+ •Mistake:  Misinterpreting mixed partial derivatives.
+ •Tip: Understand that mixed partial derivatives involve taking the derivative with respect to 
+different variables in succession. For example, it means taking the partial derivative of f with 
+respect to y first, then with respect to x .
+ •Mistake:  Assuming mixed partial derivatives are always equal.
+ •Tip: Clairaut’s theorem states that mixed partial derivatives are equal if the function and its 
+partial derivatives are continuous. Verify continuity before assuming equality.
+FIGURE 3.9  Gradient descent on f xy xy,() =+22. 
+ 
+ 
+  
+
+--- PDF PAGE 102 ---
+89 Multivariate Calculus
+3.12.3   g radient S
+ •Mistake:  Misunderstanding the direction of the gradient vector.
+ •Tip: Remember that the gradient vector points in the direction of the steepest ascent. For mini -
+mization problems, move in the opposite direction of the gradient (steepest descent).
+ •Mistake:  Incorrectly computing the gradient for functions with multiple variables.
+ •Tip: The gradient is a vector of partial derivatives. For a function f xy,(), the gradient is 
+, ∇=∂
+∂∂
+∂
+
+ff
+xf
+y.
+3.12.4   o ptimization  and gradient  deScent
+ •Mistake:  Using a fixed learning rate that is too high or too low.
+ •Tip: Adjust the learning rate dynamically or use adaptive learning rate algorithms like Adam 
+or RMSprop to improve convergence.
+ •Mistake:  Ignoring the potential for vanishing or exploding gradients.
+ •Tip: To mitigate vanishing gradients, use techniques like gradient clipping to handle exploding 
+gradients and appropriate activation functions (e.g., ReLU).
+3.12.5   Jaco BianS
+ •Mistake:  Confusing the Jacobian matrix with the Hessian matrix.
+ •Tip: The Jacobian matrix is used for vector-  valued functions and contains first-  order partial 
+derivatives. The Hessian matrix is used for scalar-  valued functions and contains second-  order 
+partial derivatives.
+ •Mistake:  Misinterpreting the role of the Jacobian in transformations.
+ •Tip: Understand that the Jacobian matrix represents the rate of change of each output with 
+respect to each input. It is crucial for sensitivity analysis and understanding how input changes 
+affect outputs.
+3.12.6   h eSSian matrice S
+ •Mistake:  Overlooking the computational complexity of the Hessian.
+ •Tip: Be aware that the Hessian matrix can be computationally expensive for large models. Use 
+approximations or Hessian-  free optimization methods when necessary.
+ •Mistake:  Misinterpreting the eigenvalues of the Hessian.
+ •Tip: Positive eigenvalues indicate a local minimum, negative eigenvalues indicate a local max -
+imum, and mixed eigenvalues indicate a saddle point.
+3.13  REVIEW QUESTIONS
+1. How is matrix multiplication used during the forward propagation of a neural network?
+2. What roles do vectors and matrices play in representing data and weights within the network?
+3. Define a partial derivative and discuss its importance in the context of multivariate functions 
+in deep learning.
+4. How does a partial derivative differ when calculated with respect to different variables?
+5. What is a gradient in multivariable calculus? Explain its significance in optimizing neural 
+network parameters during training.
+6. Compare and contrast stochastic, mini-  batch, and batch gradient descent. Under what 
+circumstances might each be preferred? 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 103 ---
+90 Mathematical Foundations for Deep Learning
+7. How do Jacobians and Hessians contribute to deep learning? Provide examples of how these 
+higher-  order derivatives can be applied in model optimization and analysis.
+8. How does the learning rate influence the convergence of neural network training? What 
+potential issues can arise if the learning rate is set too high or too low?
+9. Explain the backpropagation algorithm.
+10. How does backpropagation use the chain rule of calculus to update the weights and biases 
+in a neural network?
+3.14  PROGRAMMING QUESTIONS
+3.14.1   e aSy
+Implement gradient descent to find the minimum of the function gxyx y,()=+223.
+1. Define the function g(x, y).
+2. Compute the gradient of the function.
+3. Implement the gradient descent algorithm.
+4. Choose a starting point, learning rate, and number of iterations.
+3.14.2   m edium
+Implement gradient descent with momentum to minimize the function hxy xy ,()=−( )++( ) 2322.
+1. Define the function h (x, y).
+2. Compute the gradient of the function.
+3. Implement the gradient descent algorithm with momentum.
+4. Choose a starting point, learning rate, momentum factor, and number of iterations.
+5. Visualize the function and the path taken by gradient descent with momentum.
+3.14.3   h ard
+Implement gradient descent to minimize the function k xy xy,s in cos()=()+().
+1. Define the function k(x, y).
+2. Compute the gradient of the function.
+3. Implement the gradient descent algorithm.
+4. Choose a starting point, learning rate, and number of iterations.
+5. Visualize the function and the path taken by gradient descent. 
+ 
+ 
+  
+
+--- PDF PAGE 104 ---
+91 DOI: 10.1201/9781032690742-44 Probability Theory and 
+Statistics
+4.1  INTRODUCTION
+In this chapter, we begin by exploring the fundamental role of probability distributions in 
+understanding and modeling the randomness inherent in real-  world data. From the discrete sim -
+plicity of a dice roll to the continuous variations in financial markets, probability distributions help 
+us frame our predictive models in terms that align closely with observed phenomena. As we navi -
+gate this chapter, we introduce you to various probability distributions tailored to specific data and 
+analysis requirements. We also discuss how these distributions interact with neural network (NN) 
+architectures, particularly Bayesian Neural Networks (BNNs), to provide a robust framework for 
+handling uncertainty and making informed predictions.
+4.2  PROBABILITY DISTRIBUTIONS
+Probability distributions are fundamental statistical tools, offering mathematical models that predict 
+the likelihood of various outcomes. These outcomes could be as simple as a dice roll or as complex 
+as forecasting investment returns. Each type of probability distribution is tailored to specific kinds 
+of data and assumptions, making them necessary for analyzing patterns, making predictions, and 
+drawing meaningful conclusions about data.
+4.2.1   d iScrete proBaBility diStriBution S
+These types of distributions apply discrete random variables with many possible outcomes. For 
+example, when you roll a dice, the outcomes are discrete numbers ranging from 1 to 6. Another 
+instance is counting the number of heads when you flip three coins. Here are a few widely used dis -
+crete probability distributions.
+1. Binomial Distribution:  It measures the number of successes in a fixed set of independent yes/  
+no trials, each with the same probability of success. For instance, it can predict the likelihood 
+of flipping heads 10 times out of 20 coins’ tosses. Here is the mathematical representation 
+for binomial distribution:
+ PX kn
+kppkn k=( )=
+
+−−()1     
+ 
+ 
+ 
+  
+
+--- PDF PAGE 105 ---
+92 Mathematical Foundations for Deep Learning
+where:
+ •n is the number of trials,
+ •p is the probability of success, and
+ •k is the number of successes.
+For binomial distribution, suppose you flip a coin 20 times, and the probability of heads 
+is 0.5. The binomial distribution can predict the likelihood of getting exactly 10 heads. 
+Using the binomial formula:
+ PX =( )=
+
+=1020
+1005 05 0 17610 10(.)( .) .
+2. Poisson Distribution:  It is ideal for estimating the probability of a particular number of 
+events occurring within a fixed interval; this distribution is often used for rare events, such 
+as the frequency of earthquakes in a specific area over a year. Here is the mathematical 
+representation for Poisson distribution:
+PX ke
+kk
+=( )=−λλ
+!
+where:
+ •λ is the average rate of occurrence,
+ •k is the number of events.
+For the Poisson distribution, if, on average, two earthquakes occur per year in a region, 
+the Poisson distribution can estimate the probability of having exactly three earthquakes 
+in a year, with λ =  2:
+PXe=( )==−
+32
+301832
+!.
+3. Geometric Distribution:  It shows the probability of achieving the first success on the nth trial.
+Here is the general formula for geometric distribution:
+PX kp pk=( )=− ⋅−() 11  
+where:
+ •X is the random variable representing the number of trials until the first success,
+ •p is the probability of success on any given trial,
+ •k is the trial number where the first success occurs, and
+ •(1 − p)  is the probability of failure on a given trial.
+The formula calculates the probability that the first success happens on the kth trial. The 
+term () 11−−pk represents the probability of failing k –  1 times before achieving success 
+on the kth trial. Suppose you are flipping a coin, and the probability of getting heads 
+(success) is 0.5. You want to calculate the probability that the first heads appear on the 
+fifth flip. Using the formula: 
+ 
+ 
+  
+
+--- PDF PAGE 106 ---
+93 Probability Theory and Statistics
+PX=( )=− ⋅= ⋅=−51 05 05 05 05 0 0312551 4(. ). (.). .   
+  The probability of getting the first heads on the fifth flip is 0.03125, or 3.125%.
+4. Uniform Distribution:  In uniform distribution (discrete), all outcomes have an equal prob -
+ability of occurring, such as rolling any number from 1 to 6 on a fair die. Here is the general 
+formula for discrete uniform distribution:
+ PX kn=( )=1 
+where:
+ •X is the random variable representing the outcome,
+ •k is a specific outcome, and
+ •n is the number of equally likely outcomes.
+  The formula is used to calculate the probability of any specific outcome k when all outcomes 
+are equally probable. For example, rolling any number on a fair six-  sided die would have the 
+same probability because the die is fair, and each face is equally likely. Suppose you roll a fair 
+six- sided die. The probability of rolling any specific number (like rolling a 3) is equal for all 
+outcomes. As there are six possible outcomes, the probability is:
+ PX =( )=≈31
+601667.  
+The probability of rolling a 3, or any other specific number, is 0.1667, or 16.67%.
+4.2.2   c ontinuou S proBaBility diStriBution S
+They are used for continuous random variables, assuming any value within a specified range. A typ -
+ical example is the height of individuals in a population, which can vary continuously. Some of the 
+standard continuous probability distributions are as follows.
+4.2.2.1   Uniform Distribution (Continuous)
+It is applied when any value within a specified range is equally likely. This distribution is typically 
+used to model situations where every outcome in an interval is equally probable, such as randomly 
+selecting a number between two values. Here is its general formula:
+ f xbaax b ()=−≤≤1,f or  
+where:
+ •a is the lower bound of the interval,
+ •b is the upper bound of the interval,
+ •f(x) is the probability density function (PDF).
+This distribution is “flat,” meaning every outcome between a and b has the same probability density. 
+The total area under the PDF equals 1, ensuring it is a valid distribution. Suppose you want to model 
+the probability of selecting a random number between 0 and 1. The PDF would be:
+ fxx()=−=≤ ≤1
+1010 1 ,f or   
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 107 ---
+94 Mathematical Foundations for Deep Learning
+Thus, the probability of any specific range (e.g., between 0.2 and 0.8) can be calculated as:
+ PX02 08 08 02 10 6 .. .. .≤≤( )=−( )⋅=  
+This means the probability of selecting a number between 0.2 and 0.8 is 60%.
+4.2.2.2   Normal (Gaussian) Distribution
+The normal distribution is one of the most widely used continuous distributions, known for its bell-  
+shaped curve. It is determined by two parameters: the mean ( μ) and the standard deviation ( σ). Here 
+is its general formula:
+ fxex
+()=−−1
+22
+22
+σπµ
+σ()
+ 
+where:
+ •μ is the mean,
+ •σ is the standard deviation,
+ •f(x) is the PDF.
+The mean μ represents the center of the distribution, while the standard deviation σ determines the 
+spread of the data. The total area under the curve equals 1. The further a value is from the mean, 
+the lower the probability density. Suppose the height of individuals in a population is normally 
+distributed with a mean of 170 cm and a standard deviation of 10 cm. The probability of an indi -
+vidual being between 160 and 180 cm can be found using the cumulative distribution function 
+(CDF). Approximately 68% of individuals fall within 1 standard deviation of the mean:
+ PX160 180 06 8≤≤( )≈.  
+This means there is a 68% probability that an individual’s height will be between 160 and 180 cm.
+4.2.2.3   Exponential Distribution
+It is used to model the time between continuous, independent events that occur at a constant average 
+rate. It is frequently used in scenarios like waiting times, such as the time between incoming calls at 
+a call center. Here is its general formula:
+ f xe xx()=≥−λλ,0  
+where:
+ •λ is the rate parameter (the inverse of the mean time between events), and f(x) is the PDF.
+The rate parameter λ describes how frequently events occur. The exponential distribution has the 
+“memoryless” property, meaning the probability of an event occurring in the future is independent 
+of how much time has already passed. If the average time between incoming calls at a call center is 
+2 minutes, the rate parameter is λ .==1
+205 pe r minute. The probability of waiting less than 1 minute 
+for the next call is: 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 108 ---
+95 Probability Theory and Statistics
+ PX ee() ..<= −= −≈−⋅ −11 10 393510 5λ 
+Thus, there is a 39.35% probability of receiving the next call within 1 minute.
+4.2.2.4   Beta and Gamma Distributions
+The beta distribution is useful for modeling probabilities and proportions for values bounded 
+between 0 and 1, while the gamma distribution is often used for modeling waiting times or life 
+durations and can be seen as a generalization of the exponential distribution. The general formula 
+for beta distribution is:
+ f xxx
+Bx ()=−
+()≤≤−−αβ
+αβ11101()
+,,  
+where:
+ •α and β are shape parameters,
+ •B(α, β) is the beta function.
+The beta distribution is highly flexible and can take on various shapes depending on α and β. It is 
+particularly useful when modeling events that have an inherent probability or proportion. Suppose 
+you want to model the distribution of success probabilities in a series of experiments with α =  2 and 
+β =  3, the beta distribution models the probabilities, for example, by getting a success rate between 
+0.2 and 0.8, using the CDF. The general formula for gamma distribution is:
+ f xxexx
+()=()≥−−λ
+ααα λ 1
+0Γ,  
+where:
+α is the shape parameter,
+λ is the rate parameter,
+Γ(α) is the Gamma function.
+The gamma distribution is a generalization of the exponential distribution (when α =  1) and is used 
+for modeling waiting times when there is more than one event occurring. If the average lifespan of 
+a device is modeled by a Gamma distribution with shape parameter α =  2 and rate parameter λ =  1/ 
+3 (representing 3 units of time on average), you can calculate the probability of a device lasting less 
+than 5 units of time.
+4.2.3   c haracteri SticS of proBaBility diStriBution S
+4.2.3.1   Mean (Expected Value)
+The mean (or expected value) represents the average or central value of the distribution. It is 
+calculated as the weighted average of all possible values, with the weights being the probabilities 
+associated with those values. The mathematical representation is as follows:
+ µ=()=⋅ () ∑ EX xP x
+iii  
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 109 ---
+96 Mathematical Foundations for Deep Learning
+For a continuous distribution:
+ µ=()=⋅ ()
+−∞∞
+∫EX xfxd x 
+where:
+μ is the mean,
+xi represents the possible values,
+f(x) is the PDF (for continuous distributions).
+For a normal distribution with a mean of μ =  50, the mean represents the center of the distribution. 
+Most of the data will be centered around 50, with equal probabilities on either side of the mean.
+4.2.3.2   Variance and Standard Deviation
+Variance and standard deviation measure how much the values of the distribution deviate from 
+the mean. Variance is the average of the squared differences from the mean, while the standard 
+deviation is the square root of the variance. The mathematical representation of variance is as 
+follows:
+ σ µ22= ()=− ⋅ () ∑ VarXx Px
+iii()  
+For a continuous distribution:
+ σ µ22=− ⋅ ()
+−∞∞
+∫()xf xdx 
+The mathematical representation of standard deviation is as follows:
+ σ= () VarX  
+For a normal distribution with μ =  50 and a standard deviation σ =  5, the variance is σ225=. This 
+means that most values fall within 1 standard deviation of the mean, that is, between 45 and 55.
+4.2.3.3   Skewness
+Skewness measures the asymmetry of the distribution. A skewness value of zero indicates a sym -
+metric distribution. Positive skewness means the distribution has a longer tail on the right, and 
+negative skewness means it has a longer tail on the left. The mathematical representation is as 
+follows:
+ Skewness=−( ]=−⋅ () ∑ EX xP xiii [) () µ
+σµ
+σ3
+33
+3 
+For a right-  skewed distribution with a mean of μ =  40, if the skewness is positive, it indicates that 
+there are more extreme values on the right side of the distribution. This often happens in income 
+distributions where there are a few very high values. 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 110 ---
+97 Probability Theory and Statistics
+4.2.3.4   Kurtosis
+Kurtosis measures the heaviness of the tails of the distribution relative to a normal distribution. 
+A higher kurtosis value indicates heavier tails, meaning more outliers. A kurtosis value of 3 is typ -
+ical for a normal distribution (this is referred to as mesokurtic). The mathematical representation is 
+as follows:
+ Kurtosis =−( ]−EX[) µ
+σ4
+43 
+Subtracting 3 from the formula centers the kurtosis at zero for a normal distribution (called excess 
+kurtosis). Positive excess kurtosis indicates a heavy-  tailed distribution (leptokurtic), while negative 
+kurtosis suggests a light-  tailed distribution (platykurtic). If a distribution has a kurtosis value greater 
+than 3, it indicates that it has heavy tails and is prone to producing extreme values or outliers.
+4.2.3.5   Mode
+The mode is the value that appears most frequently in the distribution. In a unimodal distribu -
+tion (like the normal distribution), the mode coincides with the mean. However, for multimodal 
+distributions, there may be more than one mode. The mode is useful for understanding the most fre -
+quent outcomes in a distribution, particularly for discrete data or skewed distributions. In a normal 
+distribution, the mode is equal to the mean ( μ =  50), and the most frequent value is 50. In a right-  
+skewed distribution, the mode would be less than the mean and closer to the peak of the distribution.
+4.2.4   f unction  repre Sentation S
+4.2.4.1   Probability Mass Function
+The probability mass function (PMF) represents the probability that a discrete random variable is 
+exactly equal to a specific value. It is used for discrete distributions, where the random variable takes 
+on a finite or countably infinite number of values. Its general formula is as follows:
+ P(X =  x) =  p(x) 
+where:
+ •P(X =   x) is the probability that the random variable X takes on the value x,
+ •p(x) represents the PMF for the discrete variable X.
+Consider a discrete random variable representing the number of heads when flipping two coins. 
+The possible outcomes for the number of heads are 0, 1, or 2. The PMF would give the following 
+probabilities:
+ PX PX PX= ( )== ( )== ( )=01
+412
+421
+4,,  
+This shows that there is a 25% probability of getting 0 heads, a 50% probability of getting 1 head, 
+and a 25% probability of getting 2 heads.
+4.2.4.2   Probability Density Function
+It is used for continuous random variables and describes the relative likelihood of the random vari -
+able taking on a particular value. Unlike the PMF, the PDF does not give the probability of the  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 111 ---
+98 Mathematical Foundations for Deep Learning
+random variable being exactly equal to a value (because for continuous variables, that probability 
+is zero), but rather the likelihood of it falling within a small interval around that value. The general 
+formula is as follows:
+ f xPx Xx x
+x x()=≤≤ +( )
+→lim
+∆∆
+∆ 0 
+where:
+f(x) is the PDF for the continuous variable X,
+X is the continuous random variable.
+For a normal distribution with a mean μ =  0 and standard deviation σ =  1, the PDF is given by:
+ fxex
+()=−1
+22
+2
+π 
+This PDF describes the likelihood of values around the mean μ =  0. The value of f(x) is highest at 
+the mean and decreases symmetrically as x moves away from the mean. For instance, around x =  0, 
+the PDF will have its peak, and as you move toward x =  ±1, the likelihood of these values decreases.
+4.2.4.3   Cumulative Distribution Function
+It gives the probability that a random variable X is less than or equal to a specific value x. The CDF 
+is used for both discrete and continuous random variables and is defined as the integral (for con -
+tinuous) or sum (for discrete) of the PMF or PDF. The general formula for discrete random variables 
+is as follows:
+ Fx PX xP Xt
+tx()=≤( )== ( )
+≤∑  
+The general formula for continuous random variables is as follows:
+ Fx PX xf td tx
+()=≤( )= ()
+−∞∫ 
+where:
+ •F(x) is the CDF,
+ •f(x) is the PDF for continuous variables, or P(X =   t) for discrete variables.
+For a normal distribution with μ =  0 and σ =  1, the CDF gives the probability that the random vari -
+able is less than or equal to a particular value. For example:
+ PX≤( )≈19 60 975 ..  
+This means that approximately 97.5% of the values in this distribution are less than or equal to 1.96.
+Figure 4.1  shows four common probability distributions: binomial, Poisson, normal, and uni -
+form. In subplot Figure 4.1 a (binomial distribution), represented by blue bars, the probability of 
+achieving a specific number of successes in a fixed number of trials is clearly illustrated. An anno -
+tation labeled “Peak at n*p” points to the most probable number of successes, emphasizing the  
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 112 ---
+99 Probability Theory and Statistics
+distribution’s central tendency around the expected value n × p. Adjacent to it, Figure 4.1 b (Poisson 
+distribution) showcases orange bars depicting the probability of a given number of events occurring 
+within a fixed interval. The annotation “Peak at λ” highlights the mode of the distribution, where 
+the expected number of events λ occurs with the highest probability. Moving to Figure 4.1 c (normal 
+distribution), a smooth green curve with a shaded area beneath it represents the continuous PDF. An 
+annotation labeled “Mean (μ)” points to the center of the distribution, underscoring the concept of 
+the mean as the peak of the bell curve. Finally, Figure 4.1 d (uniform distribution) is depicted with a 
+solid purple line and a filled area, illustrating a constant probability density across the interval from 
+0 to 1. The x- axis covers the range of possible values, and the y- axis shows the uniform probability 
+density. The annotation “Constant Probability” succinctly conveys the essence of the uniform distri -
+bution, where every outcome within the specified interval is equally likely.
+4.2.5   c onnection  Between  overfitting  and underfitting  to proBaBility   
+diStriBution S
+From a probabilistic standpoint, overfitting can be seen as maximizing the likelihood of the 
+parameters given the training data excessively to the point where the model is improbable to 
+perform well on new data. This is similar to tuning a musical instrument so precisely to a spe -
+cific environment that it sounds out of tune in any other setting. Regularization techniques, such 
+as L1 and L2, address these issues by adding a penalty term to the complexity of the model. This 
+approach can be conceptualized through Bayesian statistics: the penalty term acts as a prior distri -
+bution that inherently favors simpler models, reducing the likelihood of overfitting by penalizing 
+complexity.
+Figure 4.2  demonstrates the concepts of underfitting, good fit, and overfitting using polyno -
+mial regression models of varying complexity. The dataset consists of 30 data points generated 
+using the function yx x=sin( )  with some added Gaussian noise. These data points are represented 
+as black dots on the plot in Figure 4.2 , providing a visual reference for the underlying pattern in 
+the data. Three models with varying degrees of complexity are fitted to the data. The first model, 
+represented by the blue dashed line, uses simple linear regression. This model fails to capture the 
+underlying pattern of the data, resulting in a poor fit. This underfitting is characterized by a high 
+bias and low variance, indicating that the model is too simple to represent the data accurately. The 
+second model, represented by the green solid line, uses a cubic polynomial (degree 3). This model 
+accurately captures the underlying pattern of the data, providing a good balance between bias and 
+variance. This good fit is characterized by an appropriate level of complexity that models the data 
+well without overfitting. The third model, represented by the red dash-  dot line, uses a polynomial 
+of degree 10. This high-  degree polynomial model fits the training data almost perfectly, capturing 
+both the underlying pattern and the noise in the data. This overfitting is characterized by a low bias 
+and high variance, indicating that the model is too complex and is likely to perform poorly on new, 
+unseen data.
+4.2.6   c onnecting  Bnn S to proBaBility diStriBution S
+BNNs incorporate principles of Bayesian probability into traditional neural network (NN)  
+architectures. This integration allows BNNs to provide a measure of uncertainty in their predictions,  
+enhancing decision-  making processes in scenarios where certainty is crucial. Unlike traditional NNs  
+that use fixed weights, BNNs treat weights as probability distributions. This approach means that  
+a single fixed number does not represent each weight but a distribution that reflects our beliefs or  
+uncertainties about the values of these weights. This probabilistic treatment allows BNNs to express  
+and manage uncertainty more effectively. In Bayesian statistics, prior distributions represent our  
+initial beliefs about the parameters before observing any data. As data is observed and processed   
+  
+
+--- PDF PAGE 113 ---
+100 Mathematical Foundations for Deep Learning
+FIGURE 4.1  Common probability distributions.
+  newgenrtpdf
+
+--- PDF PAGE 114 ---
+101 Probability Theory and Statistics
+by a BNN, these prior beliefs are updated to form posterior distributions, which reflect new  
+understandings gained from the data. This dynamic updating mechanism, absent in traditional NNs,  
+allows BNNs to adapt their beliefs based on incoming information continuously. BNNs generate  
+a distribution over possible outcomes when making predictions rather than producing a single-   
+point estimate. This output provides a detailed spectrum of potential results and their associated  
+probabilities. In Bayesian frameworks like BNNs, regularization is naturally incorporated through  
+prior distributions. These priors can act as constraints or regularizes, penalizing deviations from  
+established beliefs or biases. This regularization helps prevent overfitting by smoothing the learning  
+process, ensuring that the model adheres to the training data at the expense of its generalization  
+ability. The mathematical representations for the distributions are as follows.
+4.2.6.1   Prior Distribution
+It represents the distribution of the model’s parameters (e.g., weights) before any data is observed. 
+In Bayesian inference, this reflects our initial belief or assumptions about the model’s parameters. 
+The distribution of weights before observing the data:
+ Pw() () ~,02σ 
+where:
+w represents the weights of the NN,
+P(w)  is the prior distribution of the weights, which could follow a certain distribution (e.g., 
+normal distribution).
+Suppose you are using a BNN to predict house prices, and you initially believe the weight (or 
+impact) of the number of rooms on house price follows a normal distribution N05 012., .() . This 
+means that before seeing any data, you assume the effect of the number of rooms on house price is 
+centered around 0.5, but with some uncertainty (variance of 0.01).
+FIGURE 4.2  Demonstration of underfitting, good fit, and overfitting. 
+ 
+  
+
+--- PDF PAGE 115 ---
+102 Mathematical Foundations for Deep Learning
+4.2.6.2   Posterior Distribution
+It represents the updated distribution of the model’s parameters after observing the data. The pos -
+terior distribution combines the prior beliefs with the likelihood of the observed data to give an 
+updated belief about the parameters. After observing the data, the posterior distribution of weights is:
+ PwPw Pw
+P|d atadata|
+data( )=( )()
+() 
+where:
+w are the weights,
+data  is the observed data,
+P(data | w)  is the likelihood of the data  the weights,
+P(w)  is the prior distribution,
+P(data)  is the evidence (normalizing constant).
+The posterior distribution adjusts the prior belief based on the data observed. The more data you 
+have, the more the posterior distribution reflects the influence of the data rather than the prior. After 
+observing data (e.g., historical house prices and the number of rooms), the BNN updates its belief 
+about the weight of the number of rooms. Now, instead of assuming a fixed value for this weight 
+(e.g., 0.5), the posterior distribution could be refined to something like N05 50 052., .() , which means 
+the model now believes the number of rooms has a slightly higher impact on price, but with reduced 
+uncertainty (variance of 0.0025).
+4.2.6.3   Prediction
+In BNNs, predictions are made by integrating the possible weights. This means the model considers 
+the uncertainty in the weights rather than using a single fixed value. The model predicts a distribu -
+tion over possible outcomes rather than a single-  point estimate. The general formula for prediction 
+is as follows:
+ Py xD PyxwPwDd w ,, )) |( |( |( )=∫  
+where:
+ •y is the predicted output,
+ •x is the input (e.g., features like the number of rooms),
+ •P(w | D)  is the posterior distribution of weights,
+ •P(y | x, w)  is the likelihood of predicting y given input x and weights w.
+The prediction integrates all possible weight values based on the posterior distribution, resulting in 
+a prediction that captures the uncertainty in the model’s parameters. This is a key feature of BNNs 
+compared to traditional NNs, which make predictions based on fixed weight values. For predicting 
+the price of a house, the BNN does not output a single price. Instead, it provides a range of possible 
+prices, say from $300,000 to $350,000, with different probabilities assigned to each outcome. This 
+prediction reflects the model’s uncertainty about how strongly the number of rooms influences the 
+price, as the weight for that feature is not fixed but distributed.
+Figure 4.3  presents a visualization of Bayesian ridge regression applied to a synthetic dataset.  
+Figure 4. 3 illustrates several important elements of this regression technique. The data points (in  
+blue) represent the observed values from the dataset. The predictive mean line (in dark green)   
+ 
+ 
+  
+
+--- PDF PAGE 116 ---
+103 Probability Theory and Statistics
+indicates the model’s prediction for the mean outcome as a function of the input variable X. The  
+shaded region around the predictive mean represents the 95% confidence interval (in light green),  
+which provides a measure of uncertainty in the model’s predictions. This interval shows where we  
+expect the true values to lie with 95% confidence, allowing us to assess the model’s reliability.
+4.3  SAMPLING METHODS
+Sampling methods are essential in statistics, especially in fields like Bayesian statistics, where 
+they approximate distributions that are otherwise too complex or costly to compute directly. These 
+methods are vital in various applications, including surveys and statistical model fitting, particularly 
+in scenarios involving large or inaccessible full datasets due to constraints such as time, cost, or 
+accessibility.
+4.3.1   Simple random  Sampling
+Simple random sampling (SRS) is a sampling method where each member of the population has 
+an equal chance of being selected, ensuring no selection bias. This method is straightforward and 
+easy to implement, making it a popular choice for many studies. However, its simplicity can be a 
+drawback when dealing with heterogeneous populations, as it may not be efficient in such cases 
+and could lead to the underrepresentation of certain subgroups. Suppose you have a population of 
+1,000 people, and you want to select a sample of 100 individuals. Using SRS, each person has a 
+1 in 10 chance of being selected, ensuring that everyone has an equal probability of inclusion in 
+the sample. The probability of selecting any individual in SRS from a population N with a sample 
+size n is:
+ Pn
+Nselection( )= 
+FIGURE 4.3  Bayesian ridge regression with uncertainty. 
+ 
+ 
+  
+
+--- PDF PAGE 117 ---
+104 Mathematical Foundations for Deep Learning
+If N =  1000 and n =  100, the probability of selecting any individual is:
+ Pselection( )==100
+1 00001,. 
+4.3.2   Stratified  random  Sampling
+Stratified random sampling involves dividing the population into homogeneous subgroups (strata) 
+and then applying SRS within each section. This method can provide more precise estimates, par -
+ticularly if the differences between divisions are significant. However, it is more complex to imple -
+ment compared to SRS, requiring careful identification and separation of strata before sampling can 
+proceed. Suppose a population consists of 1,000 students, and you want to divide them into strata 
+based on grade level: 200 freshmen, 300 sophomores, 250 juniors, and 250 seniors. If you want to 
+sample 10% of the population, you apply SRS by selecting 20 freshmen, 30 sophomores, 25 juniors, 
+and 25 seniors. This ensures that each grade level is proportionally represented in the sample. For a 
+population divided into k strata, the sample size for each stratum h is calculated as:
+ nN
+Nnhh=×  
+where:
+ •Nh is the population size of stratum h,
+ •N is the total population size,
+ •n is the total sample size.
+If N =  1000, Nh =  300 (sophomores), and n =  100, the sample size for sophomores would be:
+ nsophomores=× =300
+1000100 30 
+4.3.3   c luSter Sampling
+Cluster sampling divides the population into clusters, randomly selects certain clusters, and studies 
+all members within these chosen clusters. This method is particularly efficient for geographically 
+dispersed populations, reducing the costs and logistical challenges of data collection. However, it 
+can be potentially less precise than SRS of an equivalent size, as the variability within clusters might 
+not fully represent the entire population. Suppose a city has 50 schools, and you want to sample 
+students. Using cluster sampling, you divide the population by schools (each school is a cluster). 
+You randomly select 10 schools and study all the students in these selected schools. If each school 
+has 200 students, you end up with a sample size of 2,000 students from the selected clusters. The 
+probability of selecting a cluster is:
+ Pclusters electedNumber of clusters selected
+Total numbero fc l( )=u usters 
+If 10 clusters are selected from 50 schools, the probability of selecting any specific school is:
+ Pclusters elected( )==10
+5002.  
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 118 ---
+105 Probability Theory and Statistics
+4.3.4   SyStematic  Sampling
+Systematic sampling selects a random starting point, and then every kth member of the population 
+is chosen. This method is more convenient than SRS due to its straightforward approach and ease 
+of implementation. However, there is a risk of bias if the population has a periodic pattern, as this 
+could result in a non-  representative sample. Suppose you have a population of 1,000 people, and you 
+want to sample 100 individuals. You randomly select a starting point, say 5, and then select every 
+10th person after that (e.g., 5th, 15th, 25th, and so on) until you have your sample of 100 people. If 
+N is the population size, and n is the desired sample size, the sampling interval k is calculated as:
+ kN
+n= 
+If N =  1000 and n =  100, the interval k is:
+ k==1 000
+10010, 
+4.3.5   Quota Sampling  (non- proBaBility method )
+Quota sampling is a non-  probability method that divides the population into subgroups and selects 
+individuals non-  randomly. This approach is simple and cost-  effective, making it attractive for 
+studies with limited resources. However, the absence of random selection makes it less reliable, as 
+it may introduce bias and limit the generalizability of the results. Suppose you want to survey 500 
+people about their favorite type of transportation. You decide to divide the population into subgroups 
+by age: 200 people aged 18–  29, 150 people aged 30–  49, and 150 people aged 50+  . Instead of ran -
+domly selecting individuals from each group, you select people conveniently or based on certain 
+characteristics until you meet the quota for each age group. In quota sampling, the sample size for 
+each subgroup is predefined based on the desired proportions. If the total sample is 500 and 40% of 
+the population is aged 18-  29, you need to select:
+n=× =04 0 500 200 .  individuals from the 18 to 29 group.
+4.3.6   m onte carlo Sampling
+Monte Carlo sampling employs repeated random sampling to compute numerical results based on 
+the law of large numbers. This method is widely used in numerical integration and probability 
+computations, providing robust estimates for complex mathematical problems by simulating random 
+variables and averaging the results. The Monte Carlo estimate of an integral I over a domain D is 
+computed as:
+ INfx
+iN
+i≈ ()
+=∑1
+1 
+where:
+ •N is the number of random samples,
+ •f(xi) is the function value at random points xi drawn from a uniform distribution over D.
+Suppose you want to estimate the value of π by using the Monte Carlo method. You randomly gen -
+erate 100,000 points in a square with side length 2 and count how many fall inside a circle with 
+radius 1 centered at the origin. If 78,539 points fall inside the circle, the estimate for π is: 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 119 ---
+106 Mathematical Foundations for Deep Learning
+ π≈× =478 539
+100 0003 14156,
+,..  
+4.3.7   importance  Sampling
+Importance sampling focuses on sampling more frequently from important but rare regions of the 
+sample space. This method is particularly effective in scenarios where certain outcomes are rare, as 
+it allows for more efficient and accurate estimation of probabilities and expectations by emphasizing 
+the critical regions of the distribution. The expected value fX()  is estimated as:
+ fXNfX pX
+qX iN
+ii
+i() ≈() ()
+() =∑1
+1 
+where:
+ •p(X)  is the original probability distribution,
+ •q(X)  is the importance sampling distribution, and
+ •N is the number of samples.
+Suppose you want to estimate the probability of an event that occurs rarely, like a tail risk in finance. 
+Instead of uniformly sampling from the entire space, you sample more frequently from the tail of 
+the distribution. If you perform 10,000 simulations with a focus on the tail, and 200 events fall in the 
+rare region, you can adjust the estimates based on the importance of this region, improving accuracy 
+over random sampling.
+4.3.8   r eJection  Sampling
+Rejection sampling involves sampling from a simple distribution and then accepting or rejecting 
+each sample based on a predefined criterion. This method is particularly useful for sampling from 
+complex distributions, as it allows for the generation of samples that meet specific criteria even 
+when direct sampling from the desired distribution is challenging. Given a target distribution p(x) 
+and a simpler proposal distribution q(x), you accept a sample x if:
+ upx
+Mxq≤()
+() 
+where:
+ •u is a random uniform number between 0 and 1,
+ •M is a constant such that Mq(x) ≥ p(x)  for all x.
+Suppose you want to sample from a distribution with a complex shape, like a Gaussian distribution, 
+but instead, you sample from a uniform distribution between 0 and 1. You generate 10,000 points 
+uniformly, and for each point, you compute its likelihood under the target distribution. If the ratio 
+of the likelihood to the maximum is greater than a random number, you accept the point; otherwise, 
+you reject it. After performing this process, you are left with 2,500 valid samples.
+4.3.9   m arkov  chain monte carlo
+Markov Chain Monte Carlo (MCMC) constructs a Markov chain that reaches the desired distribution 
+as its balance. This approach is widely used for sampling from complex probability distributions.  
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 120 ---
+107 Probability Theory and Statistics
+Key algorithms within MCMC include Metropolis–  Hastings, Gibbs sampling, and Hamiltonian 
+Monte Carlo, each offering different strategies for constructing and navigating the Markov chain 
+to efficiently explore the sample space and achieve accurate results. In Metropolis–  Hastings, the 
+acceptance probability for moving from the current state x to a proposed state x′ is:
+ αxxpx qx x
+pxqx x→( )=()( )
+()()
+
+′′′
+′min,|1| 
+where:
+ •p(x) is the target distribution,
+ •q(x′ | x) is the proposal distribution for transitioning between states.
+Suppose you want to estimate the posterior distribution of a parameter in a Bayesian model. Using 
+MCMC, specifically the Metropolis–  Hastings algorithm, you generate a Markov chain of 100,000 
+samples. The first 10,000 samples are discarded as burn-  in to ensure the chain has reached equilib -
+rium, and the remaining 90,000 samples represent the parameter’s posterior distribution.
+Figure 4.4  demonstrates the results of a Metropolis–  Hastings MCMC simulation targeting a 
+standard normal distribution. It illustrates the dynamics of the MCMC algorithm and its ability to 
+sample from complex probability distributions. Here, the trace plot illustrates the progression of 
+sampled values over 1,000 iterations. The blue line represents the MCMC chain, showing how the 
+sampled values evolve as the algorithm explores the distribution. A vertical red dashed line marks 
+the end of the burn-  in period at iteration 200, after which the samples are considered to have reached 
+a stable distribution. An annotation highlights the burn-  in period, emphasizing its importance in 
+allowing the chain to converge toward the target distribution before collecting samples for analysis.
+Figure 4.5  displays the posterior distribution of the samples collected after the burn-  in period.  
+The green histogram depicts the density of the sampled values, providing a visual approximation of  
+the target distribution based on the MCMC samples. Overlaid on the histogram is a black dashed line  
+representing the true standard normal distribution. The close alignment between the histogram and  
+the target distribution indicates that the MCMC sampler has effectively approximated the standard  
+normal distribution through the sampling process.
+FIGURE 4.4  MCMC trace plot: convergence to target distribution. 
+  
+
+--- PDF PAGE 121 ---
+108 Mathematical Foundations for Deep Learning
+4.3.10   g iBBS Sampling
+Gibbs sampling is a specific type of MCMC method that is particularly suitable for multivariate 
+distributions. It is often used when the components of the distribution are conditionally independent. 
+By iteratively sampling each variable conditional on the current values of the other variables, 
+Gibbs sampling efficiently explores the sample space and can handle complex, high-  dimensional 
+distributions. For a joint distribution p(X, Y) , Gibbs sampling iteratively updates the variables by 
+sampling from the conditional distributions:
+ Xp XYtt+() ()()1~|  
+ Yp YXtt+() +()()11~|  
+Suppose you want to sample from a bivariate distribution with variables X and Y. Using Gibbs sam -
+pling, you iteratively sample X conditional on Y, and Y conditional on X. After 10,000 iterations, 
+the algorithm generates a sample that approximates the joint distribution of X and Y.
+4.3.11   l atin hypercu Be Sampling
+Latin hypercube sampling (LHS) is a stratified sampling method that divides the sample space into equally 
+probable subdivisions. This approach is particularly efficient for multi-  dimensional sampling, ensuring 
+that each variable is sampled across its entire range, which leads to more representative and coverage of 
+the sample space compared to SRS. In LHS, for each variable Xi (where i indexes the dimensions), the 
+range is divided into N equally probable intervals. Each sample is then selected such that:
+ xj
+Nj
+NjNij()∈−
+
+=…112 ,, ,, . for  
+Suppose you need to sample from a three-  dimensional (3D) parameter space, with each dimension 
+divided into 10 intervals. Using LHS, you randomly select one point from each interval for all three 
+FIGURE 4.5  MCMC sample distribution after burn-  in. 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 122 ---
+109 Probability Theory and Statistics
+dimensions, ensuring that every part of the parameter space is represented. This results in 10 points 
+per dimension, and the total sample size is 10 rather than the 1,000 points needed for full factorial 
+sampling.
+4.3.12   r eSampling  method S
+Techniques like bootstrapping estimate properties of estimators by sampling from an approximating 
+distribution. These methods are commonly used to assess the variability or stability of statistical 
+models, providing insights into the accuracy and reliability of the model’s predictions by repeatedly 
+sampling with replacement from the dataset to create numerous simulated samples. For each boot -
+strap sample B, drawn with replacement from the original dataset D:
+ ˆ*θB= ( ) statistic resample  
+The empirical distribution of ˆ*θ (e.g., the sample mean) across many resamples provides an esti -
+mate of the variability and confidence intervals for θ, the population parameter. Suppose you have a 
+dataset with 500 observations and want to estimate the mean of the population. Using bootstrapping, 
+you generate 1,000 resampled datasets by randomly selecting 500 observations with replacements 
+from the original dataset. For each of the 1,000 resamples, you calculate the mean, and the distri -
+bution of these means provides an estimate of the variability and confidence intervals for the popu -
+lation mean.
+Figure 4.6  illustrates three distinct sampling methods, SRS, stratified random sampling, and 
+cluster sampling, through a series of subplots, each providing a visual representation of how samples 
+are drawn from a population. In subplot Figure 4.6 a, the SRS method is depicted, where 15 samples 
+are randomly selected from the entire population without replacement. The population data is 
+represented by light gray dots spread uniformly along the index axis, while the SRS samples are 
+highlighted with red dots edged in black, scattered randomly across the index range. Figure 4.6 b 
+showcases stratified random sampling, where the population is divided into three distinct strata. 
+Each stratum is sampled separately, with five samples drawn randomly from each. The sampled data 
+points are colored differently, green, blue, and purple, to represent each stratum, and are also edged 
+in black for emphasis. In Figure 4.6 c, cluster sampling is presented, where the population is divided 
+into five clusters, and two clusters (specifically clusters 2 and 5) are entirely selected for sampling. 
+The sampled clusters are depicted with orange and purple dots, again edged in black, and an anno -
+tation points to one of the sampled clusters to illustrate that entire groups, rather than individual 
+random samples, are included.
+4.3.13   Sampling  method S and overfitting / underfitting
+Sampling methods are pivotal in how well a statistical model can learn and generalize from data. 
+Improper sampling can lead to overfitting and underfitting, each affecting model performance 
+significantly.
+4.3.13.1   Overfitting
+Overfitting occurs when a model learns the specific details and noise within the training data, which 
+can ultimately reduce its performance on new, unseen data. One contributing factor to overfitting 
+is biased sampling, where non-  representative sampling techniques lead to training on a skewed 
+subset of the population. For example, if a model is trained primarily on data from a particular 
+demographic due to sampling biases, it may struggle to generalize to data from other demographics. 
+Another factor is the overuse of resampling techniques. While bootstrapping can be useful for esti -
+mating model accuracy, excessive use without proper cross-  validation can result in overly optimistic  
+ 
+ 
+  
+
+--- PDF PAGE 123 ---
+110 Mathematical Foundations for Deep Learning
+FIGURE 4.6  Comparison of sampling methods. (a) Simple random, (b) stratified random, (c) cluster sampling.
+  newgenrtpdf
+
+--- PDF PAGE 124 ---
+111 Probability Theory and Statistics
+performance evaluations. This can create a false impression of a model’s effectiveness, leading to 
+overly complex models that are prone to overfitting the training data.
+4.3.13.2   Underfitting
+Underfitting occurs when a model is too simple to capture the underlying patterns in the data effect -
+ively or when it has not been exposed to a sufficient amount of data. One cause of underfitting is 
+insufficient sampling, where the sampling method fails to gather enough data or fails to capture the 
+complexity of the underlying population. For instance, in a large and diverse dataset, sparse sam -
+pling may result in a model that struggles to generalize beyond the limited training examples it has 
+seen. Another issue that can lead to underfitting is the use of sparse sampling methods, which may 
+provide too few data points or systematically overlook key aspects of the data distribution. This risk 
+is common with systematic sampling techniques, where an overly large step size may skip important 
+variations in the data, preventing the model from learning the full range of patterns needed for 
+accurate predictions.
+Figure 4.7  demonstrates the concepts of overfitting and underfitting through two illustrative plots. 
+In subplot Figure 4.7 a, the overfitting example showcases how an overly complex model, a high-  
+degree polynomial, fits the sampled data perfectly within a limited range but fails to generalize to 
+the broader dataset. The sampled data, represented by red dots, are collected from a biased portion 
+of the dataset (specifically where x < 4), and the overfitted model is depicted by a dark red curve 
+closely following these points. However, this model diverges significantly from the true underlying 
+function, indicated by the green dashed line, when extended beyond the sampled region, highlighting 
+the model’s inability to generalize. In subplot Figure 4.7 b, the underfitting example illustrates how a 
+simplistic linear model fails to capture the complexity of the data due to insufficient model capacity 
+and sparse sampling. The sampled data here are blue dots sparsely scattered across the entire range 
+of x, and the underfit model is represented by a dark blue straight line that does not align well with 
+the true function’s quadratic and sinusoidal patterns.
+4.4  BAYESIAN STATISTICS
+Bayesian statistics is a branch of statistics that employs probability to represent all forms of uncer -
+tainty. After Thomas Bayes formulated the fundamental theorem underpinning this method, Bayesian 
+statistics offered a robust framework for making inferences. At the core of Bayesian statistics lies 
+Bayes’ theorem, which provides a method for updating probabilities as new evidence is introduced. 
+The theorem is expressed as:
+ PA BPBAP A
+PB(|(|))=()
+() 
+where:
+ •P(A | B)  is the posterior probability,
+ •P(B | A)  is the likelihood,
+ •P(A)  is the prior probability, and
+ •P(B)  is the evidence (the marginal likelihood).
+The prior represents initial beliefs about an event or model parameters before any new evidence 
+is considered. It sets the baseline from which Bayesian inference starts. Likelihood measures how 
+probable the observed data are, given the model parameters. It plays a crucial role in updating the 
+prior into the posterior. The posterior is the result of combining the prior and the likelihood of 
+the observed data. It represents updated beliefs after considering new evidence. Often acting as a  
+ 
+  
+
+--- PDF PAGE 125 ---
+112 Mathematical Foundations for Deep Learning
+FIGURE 4.7  Impact of sampling methods on model. (a) Overfitting scenario and (b) underfitting.
+  newgenrtpdf
+
+--- PDF PAGE 126 ---
+113 Probability Theory and Statistics
+normalization constant, the evidence ensures that the posterior probabilities sum to one. It integrates 
+the likelihood over all possible values of the unknown parameters. The advantages of Bayesian 
+statistics are:
+1. Flexibility:  Incorporates both new data and prior knowledge.
+2. Interpretability:  Results are expressed as probabilities, making them intuitively 
+understandable.
+3. Full Distribution:  Provides a complete probabilistic description of model parameters, not 
+just point estimates.
+Given the complexity of deriving posterior distributions analytically, computational methods 
+like MCMC and variational inference are crucial for approximating these distributions. Bayesian 
+methods are employed across various fields, including machine learning, genetics, medicine, eco -
+nomics, and astronomy. There are still some challenges like:
+1. Choice of Prior:  The subjective nature of selecting a prior can lead to biases.
+2. Computational Intensity:  Bayesian methods can require significant computational resources, 
+particularly for complex models.
+Unlike frequentist statistics, which often focuses on likelihoods and provides point estimates and 
+confidence intervals without incorporating prior beliefs, Bayesian statistics integrate prior know -
+ledge with observed data to offer a probabilistic view of model parameters.
+Figure 4.8  illustrates the Bayesian updating of beliefs regarding the probability of heads in a 
+coin flip. It compares the prior belief with the posterior belief after observing the outcome of 50 
+coin’s flips. Initially, the prior belief is represented by a beta distribution with parameters α =  2 and 
+β =  2, reflecting an assumption that the coin is fair. The blue dashed line shows this prior distribu -
+tion, which is symmetric around 0.5. The prior mean, indicated by a vertical blue dashed line, is 
+0.5. After conducting 50 coin’s flips with an observed true probability of heads being 0.7, the data 
+yields 35 heads and 15 tails. This observed data updates the prior distribution to form the posterior 
+distribution, depicted by the red solid line. The updated posterior parameters are α =  37 and β =  17. 
+The posterior mean, shown by a vertical red dashed line, shifts towards the observed probability of 
+heads and is approximately 0.69, reflecting the new belief after incorporating the evidence from the 
+coin flips.
+4.4.1   o verfitting  and BayeSian StatiSticS
+Overfitting occurs when a statistical model captures noise or random fluctuations in the data instead 
+of the true underlying patterns. This is often a result of model complexity exceeding what the data 
+can support. Bayesian statistics offer several tools and concepts to mitigate this common problem. In 
+Bayesian modeling, priors serve as a form of regularization. By incorporating prior beliefs about the 
+parameters, Bayesian methods can constrain parameter estimates, pulling them toward more plaus -
+ible values despite what the raw data might suggest. This is particularly useful when the likelihood 
+derived from a small or noisy dataset might lead the model to overfit. A well-  chosen strong prior can 
+effectively shrink estimates, thus preventing the model from fitting too closely to the noise. Bayesian 
+model comparison inherently includes a penalty for complexity. Tools like the Bayesian Information 
+Criterion (BIC) or the Deviance Information Criterion (DIC) balance model fit with complexity, dis -
+couraging unnecessary complexity in model structure. This approach helps select complex models 
+to capture essential data characteristics that are simple enough that they overfit the noise. The pen -
+alties ensure that a simpler, more generalizable model may be chosen over a more complex one that 
+fits the training data slightly better. Unlike frequentist approaches that often yield point estimates,   
+
+--- PDF PAGE 127 ---
+114 Mathematical Foundations for Deep Learning
+FIGURE 4.8  Bayesian updating of beliefs in coin toss.
+  newgenrtpdf
+
+--- PDF PAGE 128 ---
+115 Probability Theory and Statistics
+Bayesian methods provide complete probability distributions over model parameters, offering a 
+deeper insight into the uncertainty associated with each parameter. This feature of Bayesian analysis 
+is particularly beneficial for identifying overfitting; an overfitted model may display implausibly 
+narrow confidence intervals around predictions, indicating excessive confidence. In contrast, a well-  
+fitted Bayesian model will show wider uncertainty intervals in areas where the data does not provide 
+strong evidence, thereby reflecting a more realistic level of confidence.
+Figure 4.9  compares two approaches to modeling noisy data: an overfitted model and a Bayesian 
+model with a strong prior. The synthetic data is generated by adding Gaussian noise to a sine wave, 
+creating a realistic scenario where noise is present. In Figure 4.9 , the data points are shown as gray 
+dots, representing the noisy observations of the sine function. The overfitted model, represented 
+by the red line, is fitted using a high-  degree polynomial (degree 15). This model captures the noise 
+along with the underlying trend, resulting in a wavy and complex fit that closely follows the data 
+points but is likely to generalize poorly to new data. The Bayesian model with a strong prior is 
+depicted by the blue line. This model uses a simple linear fit with added Gaussian noise to simulate 
+uncertainty. The simplicity of the model, enforced by the strong prior, prevents it from overfitting 
+the noise in the data. The shaded blue region around the Bayesian model line represents the uncer -
+tainty interval, illustrating the confidence range of the predictions.
+4.4.2   u nderfitting  and BayeSian StatiSticS
+Underfitting in statistical modeling occurs when a model is too simplistic, failing to capture the data’s 
+complexities or underlying distribution. Bayesian statistics offer robust tools to tackle underfitting, 
+enhancing model complexity appropriately without overcomplicating the model. Bayesian statistics 
+allow for constructing hierarchical models, which is particularly useful for managing model 
+complexity. One model’s parameters can be modeled in hierarchical models, creating layers of 
+parameters, each with its priors. By allowing parameters to vary across groups or contexts within a 
+structured framework, hierarchical models can introduce complexity dynamically, adapting to the 
+data’s structure. This helps capture underlying patterns without needing an overly complex global 
+model that could lead to overfitting. Hierarchical modeling facilitates borrowing strength across 
+groups, improving estimation accuracy, especially in cases where data for certain groups might be 
+sparse. One common reason for underfitting is overly restrictive priors that must adequately reflect 
+the data’s reality or variability. Bayesian statistics provide:
+1. Adaptability:  The flexibility to adjust and choose priors based on updated knowledge or new 
+data. If initial assumptions lead to underfitting, priors can be revised to be less informative 
+or adjusted to capture the data’s distribution better.
+2. Incorporation of Expert Knowledge:  Bayesian methods allow the integration of expert 
+knowledge through the selection of priors, which can be particularly beneficial in fields 
+where prior research or domain expertise can inform model parameters.
+Figure 4.10  illustrates the differences between an underfitted model, and a Bayesian model 
+applied to a synthetic dataset. The orange line represents the underfitted model, a low-  degree poly -
+nomial that is too simplistic to capture the true underlying function of the data (dashed green line). 
+This model fails to represent the complexity of the data, leading to poor performance. In contrast, 
+the blue lines represent samples from a Bayesian model, which introduces uncertainty around the 
+mean prediction (solid blue line) by incorporating priors. This allows the model to balance com -
+plexity and uncertainty, improving its ability to generalize to new data. The true underlying function 
+is shown by the dashed green line, and the observed noisy data points are plotted in gray. Figure 4.10  
+demonstrates how Bayesian regularization can avoid the issues of underfitting by dynamically 
+adjusting model complexity to better capture the underlying patterns in the data.  
+
+--- PDF PAGE 129 ---
+116 Mathematical Foundations for Deep Learning
+FIGURE 4.9  Comparison of overfitting vs. Bayesian regularization.
+  newgenrtpdf
+
+--- PDF PAGE 130 ---
+117 Probability Theory and Statistics
+FIGURE 4.10  Comparison of underfitting and Bayesian regularization.
+  newgenrtpdf
+
+--- PDF PAGE 131 ---
+118 Mathematical Foundations for Deep Learning
+4.4.3   BayeSian neural  network S
+BNNs extend traditional NN architectures by incorporating probabilistic inference into their frame -
+work. This involves placing a prior distribution on the network weights, fundamentally changing 
+how learning and prediction are approached. In BNNs, the use of priors acts as a natural form of 
+regularization. By imposing prior beliefs about the distribution of weights, BNNs inherently reduce 
+the risk of overfitting. These priors can penalize weights that stray too far from zero (or some other 
+prior assumption), much like L1 or L2 regularization in traditional networks. Unlike traditional NNs 
+that output single-  point estimates, BNNs distribute possible outputs for each input. This probabilistic 
+output is crucial for applications where understanding the uncertainty of predictions is important, such 
+as in medical diagnosis, where it is essential to quantify confidence in diagnostic decisions. The prob -
+abilistic nature of BNNs contributes to their robustness, particularly in handling adversarial attacks 
+or responding to shifts in data distribution. BNNs can maintain performance even when conditions 
+change or when faced with deliberately misleading input data by considering a range of possible 
+weight configurations rather than a single fixed set. Bayesian methods are known for their data effi -
+ciency. In the context of NNs, BNNs can often achieve comparable or superior performance to trad -
+itional NNs with less data. This is because they effectively leverage prior knowledge and the inherent 
+uncertainty in their parameters to make more informed predictions. The major drawback of BNNs is 
+their computational cost. The process of maintaining and updating distributions over weights is com -
+putationally intensive.
+Figure 4.11  compares a traditional NN prediction and a BNN prediction for a synthetic dataset.  
+The gray dots represent the original data points generated using a polynomial function with added  
+noise. These points are the actual observations from which predictions are made. The red dashed  
+line, marked with circles, represents the prediction made by a traditional NN. This line is fitted  
+to the data using a polynomial regression as a proxy for the traditional NN. The red circles indi -
+cate specific prediction points along the red dashed line, making it easier to see the line’s trajec -
+tory. The solid blue line represents the mean prediction made by the BNN. This line is also fitted  
+using the same polynomial regression but incorporates Bayesian inference to estimate the mean  
+FIGURE 4.11  Comparison of traditional NN and BNN predictions. 
+  
+
+--- PDF PAGE 132 ---
+119 Probability Theory and Statistics
+prediction. The light blue shaded area around the blue line represents the uncertainty in the BNN  
+predictions. This region is defined by an upper and lower bound, calculated as the mean prediction  
+plus or minus a constant uncertainty value. The shaded area highlights the range within which  
+the true values are expected to fall with a certain confidence level, reflecting the model’s uncer -
+tainty in its predictions. The red arrow points to the red dashed line, representing the traditional  
+NN prediction.
+4.5  MOMENTS IN STATISTICS AND PROBABILITY THEORY
+In statistics and probability theory, moments are fundamental metrics that describe the shape and 
+characteristics of probability distributions. The nth moment of a random variable X about a value c 
+is the expected value ()Xcn−. If this expectation exists and is finite, the nth moment of X is said to 
+exist. The types of moments are as follows.
+1. Raw Moments (Crude Moments):  The raw moments of a distribution describe the expected 
+values of powers of the random variable. When c =  0, these moments are referred to as raw 
+or crude moments. They provide insights into the overall shape of the distribution. The gen -
+eral formula is as follows:
+ ′=() µnnEX 
+where:
+ • ′µn is the nth raw moment,
+ •E Xn()  is the expected value of the nth power of the random variable X.
+The raw moments capture the distribution’s shape relative to the origin (0). The first 
+raw moment is the mean, which provides the central tendency of the distribution. For a 
+normal distribution with a mean of 0 and a standard deviation of 1, the first raw moment 
+E(X)  is 0, and the second raw moment E X2()  is 1, representing the variance.
+2. Central Moments:  The central moments are the expected values of powers of deviations 
+from the mean. The nth central moment measures the variability of the random variable 
+around the mean. The general formula is as follows:
+µnnEX EX=− () ( [)
+where:
+ •μn is the nth central moment,
+ •E(X)  is the mean of the random variable X.
+The first central moment is always zero because it represents the deviation of the data 
+from the mean, and the second central moment is the variance, which quantifies the dis -
+persion or spread of the distribution. Higher-  order central moments help describe the 
+shape of the distribution. For a normal distribution with a mean of 50 and standard devi -
+ation of 5, the first central moment (deviation from the mean) is zero, and the second 
+central moment (variance) is 52 =  25. 
+ 
+  
