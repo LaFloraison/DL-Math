@@ -1,0 +1,39 @@
+12.2  INTRODUCTION TO QUANTUM COMPUTING
+Quantum computing has grown from just an idea into a fast-  developing technology. It is based on 
+quantum mechanics, a branch of science that started in the early 1900s when scientists studied how 
+tiny particles behave in strange ways. It wasn’t until the 1980s that people began to understand 
+what quantum computing could be. Early researchers saw that regular computers had a hard time 
+simulating quantum systems efficiently. They suggested that a computer using quantum ideas could 
+do these tasks better by using quantum superposition, which allows for natural parallel processing 
+and could make quantum computers much faster. In the 1990s, important discoveries in quantum 
+algorithms showed that quantum computing could change areas like encryption and searching 
+through large databases. Even with these theoretical successes, creating real quantum computers 
+was difficult because of problems like keeping quantum states stable and reducing mistakes. Since 
+the 2000s, big companies have invested a lot in quantum research, and there has been significant 
+progress. A major achievement happened in 2019 when a quantum processor was shown to be 
+faster than classical supercomputers for certain tasks. Today, quantum computing keeps advancing 
+quickly, with ongoing improvements in qubit stability, error correction methods, and algorithms, all 
+building on the basic work from earlier years. Quantum computing is an exciting mix of quantum 
+mechanics and computer science, using ideas that seem almost magical compared to regular physics. 
+Three main ideas drive quantum computing: qubits, superposition, and entanglement.
+12.2.1   QuBitS
+Think of qubits as the quantum version of regular bits. While regular bits can only be a 0 or a 1, 
+qubits can be both at the same time because of something called superposition. This ability allows  
+ 
+ 
+  
+
+--- PDF PAGE 357 ---
+344 Mathematical Foundations for Deep Learning
+quantum computers look at many possibilities all at once, making them potentially much faster than 
+regular computers for certain tasks.
+12.2.2   Superpo Sition
+Imagine a spinning coin that’s both heads and tails at the same time, only deciding which side it 
+is when you stop it. Superposition works like that; it lets a qubit be in multiple states at once. This 
+ability to hold and consider many possibilities all at once gives quantum computers incredible power 
+for certain calculations.
+12.2.3   e ntanglement
+One of the strangest parts of quantum mechanics is entanglement. When two qubits become 
+entangled, the state of one instantly affects the state of the other, regardless of how far apart they are. 
+This “spooky action at a distance” means that if you change one qubit, it immediately influences its 
+entangled partner. This allows for fast and coordinated calculations across many qubits.

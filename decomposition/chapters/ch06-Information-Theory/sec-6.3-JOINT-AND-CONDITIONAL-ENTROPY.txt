@@ -1,0 +1,137 @@
+6.3  JOINT AND CONDITIONAL ENTROPY
+Joint and conditional entropies offer richer insights into systems with multiple interacting variables. 
+They provide a deeper understanding beyond individual uncertainties, offering a clearer picture of 
+the system’s dynamics and the relationships between its components.
+6.3.1   Joint entropy
+When we talk about two random variables, let us say X and Y, their combined uncertainty can be 
+represented by what we term “Joint Entropy.” The joint entropy of X and Y measures the uncer -
+tainty (or unpredictability) associated with the pair ( X, Y) when they are considered together. 
+FIGURE 6.1  Probability distributions of a fair coin and a biased coin. 
+ 
+  
+
+--- PDF PAGE 194 ---
+181 Information Theory
+Mathematically, for discrete random variables X and Y with joint probability distribution P(x, y) , 
+the joint entropy H(X, Y)  is defined as:
+ HX YP xy Px y
+xX yY,, log, ()=− () ()
+∈∈∑∑  
+where:
+ •H(X, Y) is the joint entropy of the random variables X and Y,
+ •P(x, y) is the joint probability of the outcomes x and y,
+Here, the sum runs over all possible combinations of outcomes x from X and y from Y. Joint entropy 
+provides a more general view of the system’s unpredictability when both random variables are 
+considered together. For instance, if we have two correlated variables, knowing the outcome of one 
+might reduce the unpredictability of the other, leading to a joint entropy that is less than the sum of 
+their entropies. Suppose we have two random variables, X and Y, where X represents the outcome of 
+a coin toss (Heads or Tails), and Y represents the outcome of rolling a six-  sided die (numbers 1–  6). 
+Let’s assume that X has two possible outcomes: Heads ( H) and Tails ( T), each with a probability of 
+P(X =   H) =  0.5 and P(X =   T) =  0.5. Y has six possible outcomes: Y =  {1, 2, 3, 4, 5, 6}, with each 
+outcome having a probability PY y=( )=1
+6 (fair die). The joint probability distribution P(X, Y)  
+would give the probability of each combination of X and Y. As X and Y are independent, the joint 
+probability P(X =   x, Y =   y) =   P(X =   x) ⋅⋅ P(Y =   y). For example:
+ PX HY PX TY== ( )=× == = ( )=× =,. ,, . 10 51
+61
+1220 51
+61
+12and  
+and so on for all other combinations. Let’s compute joint entropy H(X, Y)  for this example:
+ HX YP xy Px y
+xH y,, , ()=− () ()
+∈=∑∑
+16
+2log  
+As Px y,()=1
+12 for each combination, the joint entropy will be:
+ HX Y(,)l og (. ).=− ×
+
+=− ×× −
+
+=121
+121
+12121
+123 585 3 5852 biits 
+This value, 3.585 bits, represents the total uncertainty in the system when considering both the coin 
+toss and die roll together. The joint entropy is smaller than the sum of the individual entropies of X 
+and Y, reflecting the combined unpredictability of both variables.
+6.3.2   c onditional  entropy
+Conditional entropy, denoted as HY X(), represents the average uncertainty remaining in Y once 
+the value of X is known. In other words, it quantifies how much we still do not know about Y even 
+after observing X. The conditional entropy HY X() can be defined as:
+ HYXP xH YX x
+xX(| (| ))= () =
+∈∑   
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 195 ---
+182 Mathematical Foundations for Deep Learning
+where HYXx=( ) is the entropy of Y given a particular value x for X. Alternatively, it can be 
+expressed in terms of joint and marginal probabilities:
+ HY XP xy Pyx
+xX yY(| (| ), log)=− ()
+∈∈∑∑  
+It is a powerful metric to determine how much one variable informs about another, providing 
+insights into the interdependencies and relationships between variables. This measure is central to 
+information theory and has significant implications in various domains, including data analysis and 
+machine learning. Imagine we have two random variables: X represents the weather, with possible 
+outcomes: Sunny (S) or Rainy (R). Y represents whether a person will carry an umbrella, with pos -
+sible outcomes: Yes (Y) or No (N). Let’s say the following probabilities are given based on past data:
+ •P(X =   S) =  0.7, P(X =   R) =  0.3 (the weather is sunny 70% of the time and rainy 30% of the 
+time).
+ •P(Y =   Y ∣∣ X =  S) =  0.2, P(Y =   N ∣∣ X =  S) =  0.8 (if it’s sunny, the person carries an umbrella 
+20% of the time).
+ •P(Y =   Y ∣∣ X =  R) =  0.9, P(Y =   N ∣∣ X =  R) =  0.1 (if it’s rainy, the person carries an umbrella 
+90% of the time).
+The conditional entropy H(Y ∣∣ X) measures the uncertainty in Y (whether the person carries an 
+umbrella) given that we already know X (the weather). We can calculate it using the formula:
+ HY XP Xx PY yX xP Yy Xx
+xy)) |( |l og (|()=− = ( ) == == ∑∑ 2 
+Now, let’s compute it:
+1. For X =  S (Sunny): P(Y =  Y ∣ X =  S) =   0.2, P(Y =  N ∣ X =  S) =  0.8
+ HY XS(| ). log(.) .l og (.). (. ).(== −+ () =− ×− +× − 02 02 08 08 02 2 322 08220 0 322
+02 2 322 08 0 322 0 4644 0 2576 0 722.)
+.. .. .. .( )
+= ×+ ×= += bits 
+2. For X =  R (Rainy): P(Y =  Y ∣ X =  R) =  0.9, P(Y =  N ∣ X =  R) =  0.1
+ HY XR(| ). log(.) .l og (.). (. ).(== −+ () =− ×− +× − 09 09 01 01 09 0 152 01223 3 322
+09 0 152 01 3 322 0 1368 0 3322 0 469.)
+.. .. .. .( )
+= ×+ ×= += bits 
+Now, using the total probability P(X) , we can compute the overall conditional entropy:
+ HYXP XS HYXS PX RH YX R) || (|()==( )⋅=( )+=( )⋅=  
+ HYX(| bits )... .. ..=⋅ +⋅ =+=07 0 722 03 0 469 0 5054 0 1407 0 646  
+Thus, the conditional entropy H(Y ∣∣ X) =  0.646 bits tells us the remaining uncertainty about whether 
+the person will carry an umbrella after knowing the weather. As this value is less than the entropy of 
+Y alone, it indicates that knowing the weather reduces our uncertainty about Y.
+Figure 6.2  illustrates two key concepts in information theory: joint probability distribution and 
+conditional entropy. The left part of Figure 6.2a  displays the joint probability distribution P(X, Y),  
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 196 ---
+183 Information Theory
+FIGURE 6.2  (a) Joint probability distribution P(X, Y), and (b) conditional entropy H(Y | X).
+  newgenrtpdf
+
+--- PDF PAGE 197 ---
+184 Mathematical Foundations for Deep Learning
+showing how two random variables, X and Y, are related. Each cell in the matrix represents the 
+probability of a particular combination of values of X (X1, X2, X3) and Y (Y1, Y2, Y3). For instance, 
+the probability of X2 occurring with Y1 is 0.20, indicating that this combination is more likely 
+compared to others, such as X1 and Y3, which have a lower probability of 0.05. The color scale on 
+the right provides a visual guide, with higher probabilities represented by yellow and lower prob -
+abilities by darker shades. The right part of Figure 6.2b  shows the conditional entropy H(Y ∣ X) 
+for each value of X. This measure quantifies the uncertainty or unpredictability of Y given that X 
+has already occurred. For example, when X =  X1, the conditional entropy is approximately 1.522, 
+indicating a moderate level of uncertainty about Y. In contrast, when X =  X2, the entropy value is 
+lower at around 1.379, suggesting that knowing X2 provides more information about Y compared 
+to other cases.

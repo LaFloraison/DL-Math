@@ -1,0 +1,499 @@
+4.2  PROBABILITY DISTRIBUTIONS
+Probability distributions are fundamental statistical tools, offering mathematical models that predict 
+the likelihood of various outcomes. These outcomes could be as simple as a dice roll or as complex 
+as forecasting investment returns. Each type of probability distribution is tailored to specific kinds 
+of data and assumptions, making them necessary for analyzing patterns, making predictions, and 
+drawing meaningful conclusions about data.
+4.2.1   d iScrete proBaBility diStriBution S
+These types of distributions apply discrete random variables with many possible outcomes. For 
+example, when you roll a dice, the outcomes are discrete numbers ranging from 1 to 6. Another 
+instance is counting the number of heads when you flip three coins. Here are a few widely used dis -
+crete probability distributions.
+1. Binomial Distribution:  It measures the number of successes in a fixed set of independent yes/  
+no trials, each with the same probability of success. For instance, it can predict the likelihood 
+of flipping heads 10 times out of 20 coins’ tosses. Here is the mathematical representation 
+for binomial distribution:
+ PX kn
+kppkn k=( )=
+
+−−()1     
+ 
+ 
+ 
+  
+
+--- PDF PAGE 105 ---
+92 Mathematical Foundations for Deep Learning
+where:
+ •n is the number of trials,
+ •p is the probability of success, and
+ •k is the number of successes.
+For binomial distribution, suppose you flip a coin 20 times, and the probability of heads 
+is 0.5. The binomial distribution can predict the likelihood of getting exactly 10 heads. 
+Using the binomial formula:
+ PX =( )=
+
+=1020
+1005 05 0 17610 10(.)( .) .
+2. Poisson Distribution:  It is ideal for estimating the probability of a particular number of 
+events occurring within a fixed interval; this distribution is often used for rare events, such 
+as the frequency of earthquakes in a specific area over a year. Here is the mathematical 
+representation for Poisson distribution:
+PX ke
+kk
+=( )=−λλ
+!
+where:
+ •λ is the average rate of occurrence,
+ •k is the number of events.
+For the Poisson distribution, if, on average, two earthquakes occur per year in a region, 
+the Poisson distribution can estimate the probability of having exactly three earthquakes 
+in a year, with λ =  2:
+PXe=( )==−
+32
+301832
+!.
+3. Geometric Distribution:  It shows the probability of achieving the first success on the nth trial.
+Here is the general formula for geometric distribution:
+PX kp pk=( )=− ⋅−() 11  
+where:
+ •X is the random variable representing the number of trials until the first success,
+ •p is the probability of success on any given trial,
+ •k is the trial number where the first success occurs, and
+ •(1 − p)  is the probability of failure on a given trial.
+The formula calculates the probability that the first success happens on the kth trial. The 
+term () 11−−pk represents the probability of failing k –  1 times before achieving success 
+on the kth trial. Suppose you are flipping a coin, and the probability of getting heads 
+(success) is 0.5. You want to calculate the probability that the first heads appear on the 
+fifth flip. Using the formula: 
+ 
+ 
+  
+
+--- PDF PAGE 106 ---
+93 Probability Theory and Statistics
+PX=( )=− ⋅= ⋅=−51 05 05 05 05 0 0312551 4(. ). (.). .   
+  The probability of getting the first heads on the fifth flip is 0.03125, or 3.125%.
+4. Uniform Distribution:  In uniform distribution (discrete), all outcomes have an equal prob -
+ability of occurring, such as rolling any number from 1 to 6 on a fair die. Here is the general 
+formula for discrete uniform distribution:
+ PX kn=( )=1 
+where:
+ •X is the random variable representing the outcome,
+ •k is a specific outcome, and
+ •n is the number of equally likely outcomes.
+  The formula is used to calculate the probability of any specific outcome k when all outcomes 
+are equally probable. For example, rolling any number on a fair six-  sided die would have the 
+same probability because the die is fair, and each face is equally likely. Suppose you roll a fair 
+six- sided die. The probability of rolling any specific number (like rolling a 3) is equal for all 
+outcomes. As there are six possible outcomes, the probability is:
+ PX =( )=≈31
+601667.  
+The probability of rolling a 3, or any other specific number, is 0.1667, or 16.67%.
+4.2.2   c ontinuou S proBaBility diStriBution S
+They are used for continuous random variables, assuming any value within a specified range. A typ -
+ical example is the height of individuals in a population, which can vary continuously. Some of the 
+standard continuous probability distributions are as follows.
+4.2.2.1   Uniform Distribution (Continuous)
+It is applied when any value within a specified range is equally likely. This distribution is typically 
+used to model situations where every outcome in an interval is equally probable, such as randomly 
+selecting a number between two values. Here is its general formula:
+ f xbaax b ()=−≤≤1,f or  
+where:
+ •a is the lower bound of the interval,
+ •b is the upper bound of the interval,
+ •f(x) is the probability density function (PDF).
+This distribution is “flat,” meaning every outcome between a and b has the same probability density. 
+The total area under the PDF equals 1, ensuring it is a valid distribution. Suppose you want to model 
+the probability of selecting a random number between 0 and 1. The PDF would be:
+ fxx()=−=≤ ≤1
+1010 1 ,f or   
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 107 ---
+94 Mathematical Foundations for Deep Learning
+Thus, the probability of any specific range (e.g., between 0.2 and 0.8) can be calculated as:
+ PX02 08 08 02 10 6 .. .. .≤≤( )=−( )⋅=  
+This means the probability of selecting a number between 0.2 and 0.8 is 60%.
+4.2.2.2   Normal (Gaussian) Distribution
+The normal distribution is one of the most widely used continuous distributions, known for its bell-  
+shaped curve. It is determined by two parameters: the mean ( μ) and the standard deviation ( σ). Here 
+is its general formula:
+ fxex
+()=−−1
+22
+22
+σπµ
+σ()
+ 
+where:
+ •μ is the mean,
+ •σ is the standard deviation,
+ •f(x) is the PDF.
+The mean μ represents the center of the distribution, while the standard deviation σ determines the 
+spread of the data. The total area under the curve equals 1. The further a value is from the mean, 
+the lower the probability density. Suppose the height of individuals in a population is normally 
+distributed with a mean of 170 cm and a standard deviation of 10 cm. The probability of an indi -
+vidual being between 160 and 180 cm can be found using the cumulative distribution function 
+(CDF). Approximately 68% of individuals fall within 1 standard deviation of the mean:
+ PX160 180 06 8≤≤( )≈.  
+This means there is a 68% probability that an individual’s height will be between 160 and 180 cm.
+4.2.2.3   Exponential Distribution
+It is used to model the time between continuous, independent events that occur at a constant average 
+rate. It is frequently used in scenarios like waiting times, such as the time between incoming calls at 
+a call center. Here is its general formula:
+ f xe xx()=≥−λλ,0  
+where:
+ •λ is the rate parameter (the inverse of the mean time between events), and f(x) is the PDF.
+The rate parameter λ describes how frequently events occur. The exponential distribution has the 
+“memoryless” property, meaning the probability of an event occurring in the future is independent 
+of how much time has already passed. If the average time between incoming calls at a call center is 
+2 minutes, the rate parameter is λ .==1
+205 pe r minute. The probability of waiting less than 1 minute 
+for the next call is: 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 108 ---
+95 Probability Theory and Statistics
+ PX ee() ..<= −= −≈−⋅ −11 10 393510 5λ 
+Thus, there is a 39.35% probability of receiving the next call within 1 minute.
+4.2.2.4   Beta and Gamma Distributions
+The beta distribution is useful for modeling probabilities and proportions for values bounded 
+between 0 and 1, while the gamma distribution is often used for modeling waiting times or life 
+durations and can be seen as a generalization of the exponential distribution. The general formula 
+for beta distribution is:
+ f xxx
+Bx ()=−
+()≤≤−−αβ
+αβ11101()
+,,  
+where:
+ •α and β are shape parameters,
+ •B(α, β) is the beta function.
+The beta distribution is highly flexible and can take on various shapes depending on α and β. It is 
+particularly useful when modeling events that have an inherent probability or proportion. Suppose 
+you want to model the distribution of success probabilities in a series of experiments with α =  2 and 
+β =  3, the beta distribution models the probabilities, for example, by getting a success rate between 
+0.2 and 0.8, using the CDF. The general formula for gamma distribution is:
+ f xxexx
+()=()≥−−λ
+ααα λ 1
+0Γ,  
+where:
+α is the shape parameter,
+λ is the rate parameter,
+Γ(α) is the Gamma function.
+The gamma distribution is a generalization of the exponential distribution (when α =  1) and is used 
+for modeling waiting times when there is more than one event occurring. If the average lifespan of 
+a device is modeled by a Gamma distribution with shape parameter α =  2 and rate parameter λ =  1/ 
+3 (representing 3 units of time on average), you can calculate the probability of a device lasting less 
+than 5 units of time.
+4.2.3   c haracteri SticS of proBaBility diStriBution S
+4.2.3.1   Mean (Expected Value)
+The mean (or expected value) represents the average or central value of the distribution. It is 
+calculated as the weighted average of all possible values, with the weights being the probabilities 
+associated with those values. The mathematical representation is as follows:
+ µ=()=⋅ () ∑ EX xP x
+iii  
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 109 ---
+96 Mathematical Foundations for Deep Learning
+For a continuous distribution:
+ µ=()=⋅ ()
+−∞∞
+∫EX xfxd x 
+where:
+μ is the mean,
+xi represents the possible values,
+f(x) is the PDF (for continuous distributions).
+For a normal distribution with a mean of μ =  50, the mean represents the center of the distribution. 
+Most of the data will be centered around 50, with equal probabilities on either side of the mean.
+4.2.3.2   Variance and Standard Deviation
+Variance and standard deviation measure how much the values of the distribution deviate from 
+the mean. Variance is the average of the squared differences from the mean, while the standard 
+deviation is the square root of the variance. The mathematical representation of variance is as 
+follows:
+ σ µ22= ()=− ⋅ () ∑ VarXx Px
+iii()  
+For a continuous distribution:
+ σ µ22=− ⋅ ()
+−∞∞
+∫()xf xdx 
+The mathematical representation of standard deviation is as follows:
+ σ= () VarX  
+For a normal distribution with μ =  50 and a standard deviation σ =  5, the variance is σ225=. This 
+means that most values fall within 1 standard deviation of the mean, that is, between 45 and 55.
+4.2.3.3   Skewness
+Skewness measures the asymmetry of the distribution. A skewness value of zero indicates a sym -
+metric distribution. Positive skewness means the distribution has a longer tail on the right, and 
+negative skewness means it has a longer tail on the left. The mathematical representation is as 
+follows:
+ Skewness=−( ]=−⋅ () ∑ EX xP xiii [) () µ
+σµ
+σ3
+33
+3 
+For a right-  skewed distribution with a mean of μ =  40, if the skewness is positive, it indicates that 
+there are more extreme values on the right side of the distribution. This often happens in income 
+distributions where there are a few very high values. 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 110 ---
+97 Probability Theory and Statistics
+4.2.3.4   Kurtosis
+Kurtosis measures the heaviness of the tails of the distribution relative to a normal distribution. 
+A higher kurtosis value indicates heavier tails, meaning more outliers. A kurtosis value of 3 is typ -
+ical for a normal distribution (this is referred to as mesokurtic). The mathematical representation is 
+as follows:
+ Kurtosis =−( ]−EX[) µ
+σ4
+43 
+Subtracting 3 from the formula centers the kurtosis at zero for a normal distribution (called excess 
+kurtosis). Positive excess kurtosis indicates a heavy-  tailed distribution (leptokurtic), while negative 
+kurtosis suggests a light-  tailed distribution (platykurtic). If a distribution has a kurtosis value greater 
+than 3, it indicates that it has heavy tails and is prone to producing extreme values or outliers.
+4.2.3.5   Mode
+The mode is the value that appears most frequently in the distribution. In a unimodal distribu -
+tion (like the normal distribution), the mode coincides with the mean. However, for multimodal 
+distributions, there may be more than one mode. The mode is useful for understanding the most fre -
+quent outcomes in a distribution, particularly for discrete data or skewed distributions. In a normal 
+distribution, the mode is equal to the mean ( μ =  50), and the most frequent value is 50. In a right-  
+skewed distribution, the mode would be less than the mean and closer to the peak of the distribution.
+4.2.4   f unction  repre Sentation S
+4.2.4.1   Probability Mass Function
+The probability mass function (PMF) represents the probability that a discrete random variable is 
+exactly equal to a specific value. It is used for discrete distributions, where the random variable takes 
+on a finite or countably infinite number of values. Its general formula is as follows:
+ P(X =  x) =  p(x) 
+where:
+ •P(X =   x) is the probability that the random variable X takes on the value x,
+ •p(x) represents the PMF for the discrete variable X.
+Consider a discrete random variable representing the number of heads when flipping two coins. 
+The possible outcomes for the number of heads are 0, 1, or 2. The PMF would give the following 
+probabilities:
+ PX PX PX= ( )== ( )== ( )=01
+412
+421
+4,,  
+This shows that there is a 25% probability of getting 0 heads, a 50% probability of getting 1 head, 
+and a 25% probability of getting 2 heads.
+4.2.4.2   Probability Density Function
+It is used for continuous random variables and describes the relative likelihood of the random vari -
+able taking on a particular value. Unlike the PMF, the PDF does not give the probability of the  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 111 ---
+98 Mathematical Foundations for Deep Learning
+random variable being exactly equal to a value (because for continuous variables, that probability 
+is zero), but rather the likelihood of it falling within a small interval around that value. The general 
+formula is as follows:
+ f xPx Xx x
+x x()=≤≤ +( )
+→lim
+∆∆
+∆ 0 
+where:
+f(x) is the PDF for the continuous variable X,
+X is the continuous random variable.
+For a normal distribution with a mean μ =  0 and standard deviation σ =  1, the PDF is given by:
+ fxex
+()=−1
+22
+2
+π 
+This PDF describes the likelihood of values around the mean μ =  0. The value of f(x) is highest at 
+the mean and decreases symmetrically as x moves away from the mean. For instance, around x =  0, 
+the PDF will have its peak, and as you move toward x =  ±1, the likelihood of these values decreases.
+4.2.4.3   Cumulative Distribution Function
+It gives the probability that a random variable X is less than or equal to a specific value x. The CDF 
+is used for both discrete and continuous random variables and is defined as the integral (for con -
+tinuous) or sum (for discrete) of the PMF or PDF. The general formula for discrete random variables 
+is as follows:
+ Fx PX xP Xt
+tx()=≤( )== ( )
+≤∑  
+The general formula for continuous random variables is as follows:
+ Fx PX xf td tx
+()=≤( )= ()
+−∞∫ 
+where:
+ •F(x) is the CDF,
+ •f(x) is the PDF for continuous variables, or P(X =   t) for discrete variables.
+For a normal distribution with μ =  0 and σ =  1, the CDF gives the probability that the random vari -
+able is less than or equal to a particular value. For example:
+ PX≤( )≈19 60 975 ..  
+This means that approximately 97.5% of the values in this distribution are less than or equal to 1.96.
+Figure 4.1  shows four common probability distributions: binomial, Poisson, normal, and uni -
+form. In subplot Figure 4.1 a (binomial distribution), represented by blue bars, the probability of 
+achieving a specific number of successes in a fixed number of trials is clearly illustrated. An anno -
+tation labeled “Peak at n*p” points to the most probable number of successes, emphasizing the  
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 112 ---
+99 Probability Theory and Statistics
+distribution’s central tendency around the expected value n × p. Adjacent to it, Figure 4.1 b (Poisson 
+distribution) showcases orange bars depicting the probability of a given number of events occurring 
+within a fixed interval. The annotation “Peak at λ” highlights the mode of the distribution, where 
+the expected number of events λ occurs with the highest probability. Moving to Figure 4.1 c (normal 
+distribution), a smooth green curve with a shaded area beneath it represents the continuous PDF. An 
+annotation labeled “Mean (μ)” points to the center of the distribution, underscoring the concept of 
+the mean as the peak of the bell curve. Finally, Figure 4.1 d (uniform distribution) is depicted with a 
+solid purple line and a filled area, illustrating a constant probability density across the interval from 
+0 to 1. The x- axis covers the range of possible values, and the y- axis shows the uniform probability 
+density. The annotation “Constant Probability” succinctly conveys the essence of the uniform distri -
+bution, where every outcome within the specified interval is equally likely.
+4.2.5   c onnection  Between  overfitting  and underfitting  to proBaBility   
+diStriBution S
+From a probabilistic standpoint, overfitting can be seen as maximizing the likelihood of the 
+parameters given the training data excessively to the point where the model is improbable to 
+perform well on new data. This is similar to tuning a musical instrument so precisely to a spe -
+cific environment that it sounds out of tune in any other setting. Regularization techniques, such 
+as L1 and L2, address these issues by adding a penalty term to the complexity of the model. This 
+approach can be conceptualized through Bayesian statistics: the penalty term acts as a prior distri -
+bution that inherently favors simpler models, reducing the likelihood of overfitting by penalizing 
+complexity.
+Figure 4.2  demonstrates the concepts of underfitting, good fit, and overfitting using polyno -
+mial regression models of varying complexity. The dataset consists of 30 data points generated 
+using the function yx x=sin( )  with some added Gaussian noise. These data points are represented 
+as black dots on the plot in Figure 4.2 , providing a visual reference for the underlying pattern in 
+the data. Three models with varying degrees of complexity are fitted to the data. The first model, 
+represented by the blue dashed line, uses simple linear regression. This model fails to capture the 
+underlying pattern of the data, resulting in a poor fit. This underfitting is characterized by a high 
+bias and low variance, indicating that the model is too simple to represent the data accurately. The 
+second model, represented by the green solid line, uses a cubic polynomial (degree 3). This model 
+accurately captures the underlying pattern of the data, providing a good balance between bias and 
+variance. This good fit is characterized by an appropriate level of complexity that models the data 
+well without overfitting. The third model, represented by the red dash-  dot line, uses a polynomial 
+of degree 10. This high-  degree polynomial model fits the training data almost perfectly, capturing 
+both the underlying pattern and the noise in the data. This overfitting is characterized by a low bias 
+and high variance, indicating that the model is too complex and is likely to perform poorly on new, 
+unseen data.
+4.2.6   c onnecting  Bnn S to proBaBility diStriBution S
+BNNs incorporate principles of Bayesian probability into traditional neural network (NN)  
+architectures. This integration allows BNNs to provide a measure of uncertainty in their predictions,  
+enhancing decision-  making processes in scenarios where certainty is crucial. Unlike traditional NNs  
+that use fixed weights, BNNs treat weights as probability distributions. This approach means that  
+a single fixed number does not represent each weight but a distribution that reflects our beliefs or  
+uncertainties about the values of these weights. This probabilistic treatment allows BNNs to express  
+and manage uncertainty more effectively. In Bayesian statistics, prior distributions represent our  
+initial beliefs about the parameters before observing any data. As data is observed and processed   
+  
+
+--- PDF PAGE 113 ---
+100 Mathematical Foundations for Deep Learning
+FIGURE 4.1  Common probability distributions.
+  newgenrtpdf
+
+--- PDF PAGE 114 ---
+101 Probability Theory and Statistics
+by a BNN, these prior beliefs are updated to form posterior distributions, which reflect new  
+understandings gained from the data. This dynamic updating mechanism, absent in traditional NNs,  
+allows BNNs to adapt their beliefs based on incoming information continuously. BNNs generate  
+a distribution over possible outcomes when making predictions rather than producing a single-   
+point estimate. This output provides a detailed spectrum of potential results and their associated  
+probabilities. In Bayesian frameworks like BNNs, regularization is naturally incorporated through  
+prior distributions. These priors can act as constraints or regularizes, penalizing deviations from  
+established beliefs or biases. This regularization helps prevent overfitting by smoothing the learning  
+process, ensuring that the model adheres to the training data at the expense of its generalization  
+ability. The mathematical representations for the distributions are as follows.
+4.2.6.1   Prior Distribution
+It represents the distribution of the model’s parameters (e.g., weights) before any data is observed. 
+In Bayesian inference, this reflects our initial belief or assumptions about the model’s parameters. 
+The distribution of weights before observing the data:
+ Pw() () ~,02σ 
+where:
+w represents the weights of the NN,
+P(w)  is the prior distribution of the weights, which could follow a certain distribution (e.g., 
+normal distribution).
+Suppose you are using a BNN to predict house prices, and you initially believe the weight (or 
+impact) of the number of rooms on house price follows a normal distribution N05 012., .() . This 
+means that before seeing any data, you assume the effect of the number of rooms on house price is 
+centered around 0.5, but with some uncertainty (variance of 0.01).
+FIGURE 4.2  Demonstration of underfitting, good fit, and overfitting. 
+ 
+  
+
+--- PDF PAGE 115 ---
+102 Mathematical Foundations for Deep Learning
+4.2.6.2   Posterior Distribution
+It represents the updated distribution of the model’s parameters after observing the data. The pos -
+terior distribution combines the prior beliefs with the likelihood of the observed data to give an 
+updated belief about the parameters. After observing the data, the posterior distribution of weights is:
+ PwPw Pw
+P|d atadata|
+data( )=( )()
+() 
+where:
+w are the weights,
+data  is the observed data,
+P(data | w)  is the likelihood of the data  the weights,
+P(w)  is the prior distribution,
+P(data)  is the evidence (normalizing constant).
+The posterior distribution adjusts the prior belief based on the data observed. The more data you 
+have, the more the posterior distribution reflects the influence of the data rather than the prior. After 
+observing data (e.g., historical house prices and the number of rooms), the BNN updates its belief 
+about the weight of the number of rooms. Now, instead of assuming a fixed value for this weight 
+(e.g., 0.5), the posterior distribution could be refined to something like N05 50 052., .() , which means 
+the model now believes the number of rooms has a slightly higher impact on price, but with reduced 
+uncertainty (variance of 0.0025).
+4.2.6.3   Prediction
+In BNNs, predictions are made by integrating the possible weights. This means the model considers 
+the uncertainty in the weights rather than using a single fixed value. The model predicts a distribu -
+tion over possible outcomes rather than a single-  point estimate. The general formula for prediction 
+is as follows:
+ Py xD PyxwPwDd w ,, )) |( |( |( )=∫  
+where:
+ •y is the predicted output,
+ •x is the input (e.g., features like the number of rooms),
+ •P(w | D)  is the posterior distribution of weights,
+ •P(y | x, w)  is the likelihood of predicting y given input x and weights w.
+The prediction integrates all possible weight values based on the posterior distribution, resulting in 
+a prediction that captures the uncertainty in the model’s parameters. This is a key feature of BNNs 
+compared to traditional NNs, which make predictions based on fixed weight values. For predicting 
+the price of a house, the BNN does not output a single price. Instead, it provides a range of possible 
+prices, say from $300,000 to $350,000, with different probabilities assigned to each outcome. This 
+prediction reflects the model’s uncertainty about how strongly the number of rooms influences the 
+price, as the weight for that feature is not fixed but distributed.
+Figure 4.3  presents a visualization of Bayesian ridge regression applied to a synthetic dataset.  
+Figure 4. 3 illustrates several important elements of this regression technique. The data points (in  
+blue) represent the observed values from the dataset. The predictive mean line (in dark green)   
+ 
+ 
+  
+
+--- PDF PAGE 116 ---
+103 Probability Theory and Statistics
+indicates the model’s prediction for the mean outcome as a function of the input variable X. The  
+shaded region around the predictive mean represents the 95% confidence interval (in light green),  
+which provides a measure of uncertainty in the model’s predictions. This interval shows where we  
+expect the true values to lie with 95% confidence, allowing us to assess the model’s reliability.

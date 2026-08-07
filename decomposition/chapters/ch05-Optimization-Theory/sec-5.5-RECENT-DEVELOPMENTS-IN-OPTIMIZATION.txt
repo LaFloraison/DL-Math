@@ -1,0 +1,67 @@
+5.5  RECENT DEVELOPMENTS IN OPTIMIZATION
+The rise of big data and more powerful computers has greatly changed the field of optimization. New 
+developments such as distributed and real-  time optimization, quantum computing, and advances in 
+machine learning are key areas of current research. These advancements are driven by the need 
+to solve large problems efficiently and make quick decisions. As data grows rapidly, optimiza -
+tion algorithms need to process huge amounts of information effectively. Big data often involves 
+FIGURE 5.14  Global versus local optima. 
+  
+
+--- PDF PAGE 170 ---
+157 Optimization Theory
+complex, high-  dimensional spaces where traditional methods may not work well, so new strategies 
+are needed to handle these challenges. Optimization tasks are now often spread out and run across 
+multiple computers or nodes, which helps in dealing with large-  scale problems. However, this brings 
+challenges like ensuring data security, keeping everything synchronized, and managing communica -
+tion between nodes. Optimization is also very important in situations that need immediate solutions 
+or decisions in a short time, often as data is being created. Examples include self-  driving cars and 
+high-  speed trading systems. These applications must balance speed and accuracy to compute quickly 
+without losing solution quality. Quantum computers, which use principles from quantum mechanics, 
+offer incredible computing power. Algorithms like the quantum approximate optimization algorithm 
+(QAOA) are being developed to tap into this potential, possibly bringing big changes to fields like 
+cryptography, materials science, and machine learning. Machine learning, especially deep learning, 
+relies a lot on optimization to train models. At the same time, machine learning techniques are 
+improving optimization algorithms. Automated systems help in choosing the best machine learning 
+models and fine-  tuning their settings. In real-  world situations that often have uncertain or noisy data, 
+robust optimization finds solutions that work well under different scenarios, while stochastic opti -
+mization deals with uncertainties in constraints and objectives. Moreover, real-  world problems often 
+have conflicting goals, leading to new methods that aim to find the best possible solutions where 
+improving one goal doesn’t make another worse. Optimization is going through a major change, 
+driven by new technologies and the complexities of modern problems. As we move further into the 
+digital age, optimization remains essential for finding efficient and effective solutions in a rapidly 
+changing world. In distributed optimization, we often solve a problem by spreading it across mul -
+tiple computers or nodes. This can be represented as:
+ Minimiz ex Xfx fx
+in
+i ()= ()∈
+=∑
+1 
+where:
+ •fi(x) is the local objective function on the ith node,
+ •X is the shared feasible set across nodes.
+Techniques such as distributed gradient descent are used to optimize functions across mul -
+tiple machines, significantly speeding up the process for large-  scale data. Consider an optimiza -
+tion problem in high-  frequency trading that requires decision-  making in less than a millisecond. 
+Using real-  time optimization, an algorithm balances speed and accuracy by processing 1 million 
+transactions per second across 100 nodes, reducing latency from 5 milliseconds to 1 millisecond.
+Figure 5.15  demonstrates the process of distributed optimization applied to the objective 
+function f xx x()=+210sin( ) . The function’s behavior, represented by the blue curve, displays 
+the combined effects of a quadratic term and a sinusoidal component, resulting in multiple local 
+minima and maxima across the domain. The function’s domain is divided into different regions, 
+each assigned to a separate node, indicated by distinct shaded areas. Node 1, represented in dark 
+gray, Node 2 in green, Node 3 in tan, Node 4 in pink, and Node 5 in light blue, each handle a specific 
+segment of the function. The results from each node are marked with dots, showing where each node 
+has found significant points such as local minima or maxima. For example, Node 1 identifies a point 
+at (−6.00, 38.79), while Node 3 finds a local minimum at (−2.00, −5.09). The figure illustrates how 
+distributed optimization techniques divide the problem into smaller, manageable parts, allowing 
+each node to optimize the function locally within its region. This approach not only enhances com -
+putational efficiency but also allows for parallel processing, which is especially advantageous for 
+large-  scale or complex optimization problems.  
+
+--- PDF PAGE 171 ---
+158 Mathematical Foundations for Deep Learning
+FIGURE 5.15  Distributed optimization.
+  newgenrtpdf
+
+--- PDF PAGE 172 ---
+159 Optimization Theory

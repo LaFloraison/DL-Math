@@ -1,0 +1,111 @@
+7.2  GRAPH THEORY FOR DEEP LEARNING
+Understanding the basic types of graphs and their properties is fundamental for modeling and 
+solving problems in various domains, including computer science, biology, social sciences,   
+and more. Graphs provide a useful and powerful way to represent and analyze the relationships and 
+structures within data.
+7.2.1   g raph
+A graph is a fundamental mathematical structure consisting of a set of nodes (vertices) and edges. 
+The key components of the graph are nodes and edges.
+7.2.1.1   Nodes (Vertices)
+Nodes represent entities or objects within the graph. Each node can contain attributes or features that 
+provide additional information about the entity it represents.
+7.2.1.2   Edges (Connections)
+Edges represent the relationships or connections between nodes. Edges can be directed or undir -
+ected, weighted or unweighted, depending on the nature of the relationship they model.  
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 219 ---
+206 Mathematical Foundations for Deep Learning
+7.2.2   d irected  graph
+A directed graph is a type of graph in which the edges have a specific direction. This means each edge 
+points from one node to another, indicating a one-  way relationship. Directed graphs are represented 
+visually by arrows that show the direction of the connection between nodes. Directed graphs provide 
+a clear and effective way to model and analyze systems where directionality is a critical component 
+of the relationships between entities. They enable the study of influence, flow, and hierarchy within 
+a network. Its key characteristics are directional edges and asymmetry.
+7.2.2.1   Directional Edges
+Each edge has a direction, typically represented by an arrow pointing from the source node (start) 
+to the target node (end).
+7.2.2.2   Asymmetry
+The relationship between nodes is not necessarily equal. For instance, if there is a directed edge 
+from Node A to Node B, it does not imply there is an edge from B to A.
+7.2.2.3   Directed Graph Example
+Consider a citation network in academia. Each research paper is represented as a node, and a citation 
+from one paper to another forms a directed edge. For instance, if Paper A cites Paper B, we have a 
+directed edge from Node A to Node B. This means that the influence flows in one direction—  Paper 
+A is influenced by Paper B. However, this does not imply the reverse relationship (i.e., Paper B may 
+not cite Paper A). A directed graph is defined as G =  (V , E) , where V is a set of vertices (or nodes), 
+and E ⊆⊆ V × V  is a set of directed edges. Each edge (u, v) ∈∈ E represents a directed connection from 
+Node u to Node v. This directionality distinguishes directed graphs from undirected graphs. For 
+instance, let’s define a small citation network with three papers: Paper A cites Paper B and Paper C, 
+and Paper B cites Paper C. This directed graph can be represented as: V =  {A, B, C}  and E =  {(A, 
+B), (A, C), (B, C)} .
+7.2.3   u ndirected  graph
+An undirected graph is a type of graph in which the edges have no direction. This means that 
+each edge simply connects two nodes without implying any order or hierarchy between them. In 
+undirected graphs, the relationships represented by the edges are mutual and bidirectional. Its key 
+characteristics are bidirectional edges and symmetry.
+7.2.3.1   Bidirectional Edges
+Each edge connects two nodes without any direction, indicating that the relationship goes both ways.
+7.2.3.2   Symmetry
+If there is an edge between Node A and Node B, it implies a two-  way relationship, meaning A is 
+connected to B, and B is connected to A.
+7.2.3.3   Undirected Graph Example
+Undirected graphs are ideal for modeling scenarios where the relationships are inherently mutual. 
+Consider a social network. In this network, each person is represented by a node, and each friendship 
+is represented by an undirected edge between two nodes. For example, if Alice and Bob are friends, 
+there is an undirected edge between the nodes representing Alice and Bob. This edge implies a 
+mutual relationship, meaning Alice is connected to Bob, and Bob is equally connected to Alice. An  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 220 ---
+207 Graph Theory
+undirected graph is defined as G =  (V , E) , where V is a set of vertices (or nodes), and E ⊆⊆ {{u, v} ∣∣ 
+u, v ∈∈ V} is a set of edges, where each edge {u, v}  connects Node u and Node v, with no direction 
+implied. For example, consider a simple social network with three people: Alice (A), Bob (B), and 
+Carol (C). Suppose Alice is friends with both Bob and Carol, and Bob is friends with Carol. The 
+undirected graph representing this network can be expressed as: V =  {A, B, C}  and E =  {{A, B}, {A, 
+C}, {B, C}}.  In this graph, the edge {A, B}  means that Alice and Bob are friends, and the relation -
+ship is bidirectional.
+7.2.4   w eighted  graph
+A weighted graph is a type of graph in which each edge has an associated weight. These weights 
+typically represent some quantitative attribute of the connection between nodes, such as cost, length, 
+capacity, or strength. Weighted graphs provide a more detailed representation of relationships by 
+incorporating the magnitude of the connections. One of the key characteristics of weighted graphs is 
+the presence of edge weights. Each edge in the graph has a numerical value, or weight, that quanti -
+fies the strength, cost, or capacity of the connection between the nodes. These weights play a crucial 
+role in determining the significance of relationships within the graph. Weighted graphs are particu -
+larly useful in scenarios where the strength or cost of connections needs to be considered. Consider 
+a transportation network where cities are nodes and roads between them are edges. A weighted 
+graph is defined as G =  (V , E, w) , where V is the set of vertices (or nodes), E ⊆⊆ V × V  is the set of 
+edges, and w: E → R is a function that assigns a weight to each edge. In this case, the weight w(e) 
+represents the quantitative value associated with edge e. For example, consider a transportation net -
+work with three cities: A, B, and C. Let the distances between the cities be: A to B: 200 km, A to 
+C: 150 km, and B to C: 300 km. This weighted graph can be represented as follows: V =  {A, B, C}, 
+E =  {(A, B), (A, C), (B, C)}, w(A, B)  =  200, w(A, C)  =  150, and w(B, C)  =  300.
+Figure 7.1  illustrates the structure and transformation of graphs under different configurations. 
+In Figure 7.1 a, an undirected graph is displayed, where nodes A through E are connected by edges 
+that do not have any directional information. This layout is useful for modeling scenarios where the 
+relationship between entities is bidirectional or symmetrical, such as social connections or mutual 
+collaborations. Figure 7.1 b shows the same set of nodes in a directed graph configuration. In this 
+graph, the edges are directed, indicated by arrows pointing from one node to another, demonstrating 
+that the relationship now has directionality. This change is essential in cases where the flow of infor -
+mation or influence is one way, such as in citation networks or communication pathways. Nodes A 
+through E are connected in a manner that shows the direction of influence or dependency among 
+them, providing insights into the asymmetry of these relationships. The third Figure 7.1 c introduces 
+a weighted directed graph, where both the direction and the magnitude of influence are represented. 
+The edges not only show the direction (as indicated by arrows) but also have associated weights, 
+which are indicated by the thickness of the edges and labeled numbers along the arrows. These 
+weights quantify the strength or significance of the connections, which is crucial for understanding 
+the intensity of relationships or the capacity of flows between nodes, such as in transportation 
+networks or neural connections in brain models.

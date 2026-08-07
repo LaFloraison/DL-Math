@@ -1,0 +1,122 @@
+6.6  DATA COMPRESSION
+Data compression is a method to reduce the quantity of data used to represent information. 
+Understanding the statistical properties of data makes it possible to represent it more compactly 
+without losing essential information. With concepts like entropy, information theory offers a math -
+ematical foundation to understand the limits and potential of data compression. The tools and 
+principles derived from this theory have driven the development of many efficient algorithms and 
+standards in digital communication and storage. In simple terms, entropy quantifies the amount 
+of uncertainty or randomness in a source of information. It measures the “surprisal,” how unex -
+pected or uncertain a message is. When considering data compression, a high-  entropy source means 
+that the data is complex to predict and, hence, more challenging to compress, while a low-  entropy 
+source indicates the opposite. For a given source of data or a message, the entropy provides a the -
+oretical lower bound on the average number of bits needed to encode symbols from that source. In 
+other words, it gives the minimum bits required to represent the information without any loss. This 
+understanding is pivotal in designing efficient encoding schemes. If an encoding scheme achieves 
+this bound, it is considered optimal. There are several applications for it in encoding. For instance, 
+if you are trying to encode a text written in English, not all letters or combinations of letters occur 
+with equal frequency. Spaces, vowels like “ e” and “ a,” are more frequent than letters like “ z” or “ q.” 
+One can achieve compression by using fewer bits to represent frequently occurring letters and more 
+bits for less frequent ones. This is the basic idea behind Huffman coding, a popular lossless data  
+ 
+  
+
+--- PDF PAGE 201 ---
+188 Mathematical Foundations for Deep Learning
+FIGURE 6.3  (a) Joint probability distribution P(X, Y), (b) conditional entropy H(Y | X), and (c) mutual information I(X; Y).
+  newgenrtpdf
+
+--- PDF PAGE 202 ---
+189 Information Theory
+compression algorithm. Let us have a review on lossless vs. lossy compression. It is essential to dif -
+ferentiate between two primary types of data compression: lossless and lossy.
+1. Lossless Compression:  This method ensures that the original data can be perfectly 
+reconstructed from the compressed data. It is used in applications where the preservation of 
+original data is crucial, like text files or certain types of image and audio files (e.g., PNG, 
+FLAC).
+2. Lossy Compression:  This method sacrifices some data for higher compression rates, meaning 
+the original data cannot be perfectly reconstructed. It is often acceptable for multimedia 
+applications like audio, images, and videos where some loss of detail might not be percep -
+tible to human senses (e.g., MP3, JPEG).
+Consider a text written in English where each letter has a different frequency of occurrence. The 
+letter “ e” appears frequently, while the letter “ z” appears much less often. Using Huffman coding, a 
+lossless data compression technique, we can assign shorter codes to more frequent letters and longer 
+codes to less frequent ones. Suppose the probabilities of four letters are as follows:
+ “e”: 0.3; “ a”: 0.25; “ t”: 0.2; and “ z”: 0.05  
+Using Huffman coding, we can assign binary codes like this:
+ “e” → 1 (1 bit), “ a” → 01 (2 bits), “ t” → 001 (3 bits) and “ z” → 000 (3 bits)  
+The most frequent letter, “ e,” gets the shortest code (1 bit), while the least frequent letter, “ z,” gets 
+a longer code (3 bits), making the overall encoding more efficient. The entropy of a source, denoted 
+as H(X) , quantifies the uncertainty or “randomness” in the source and provides a lower bound on the 
+average number of bits required to encode the data. For a source X with probabilities p(xi) for each 
+symbol xi, the entropy is defined as:
+ HX px px
+in
+ii ()=− () ()
+=∑
+12log  
+For the example above with letters “ e,” “a,” “t,” and “ z,” the entropy calculation would be:
+ HX() (.log. .l og .. log. .l og .) .=− ++ +≈03 03 02 50 25 02 02 00 50 05 12 2229 9 bits  
+This means, on average, 1.9 bits are required to represent a letter from this source, and Huffman 
+coding brings us close to this limit.
+Figure 6.4  explores the frequency distribution of letters in English text and their corresponding 
+encoding lengths using Huffman Encoding. In subplot Figure 6.4 a, the letter probabilities are shown 
+as a bar chart, representing the relative frequencies of each letter in English text. The chart reveals 
+that some letters, like “ e” (with a probability of 0.112) and “ t” (with a probability of 0.080), occur 
+more frequently than others, such as “ q” and “ z,” which have much lower probabilities (0.001). This 
+variation in frequencies reflects the nature of English, where certain letters are used far more often. 
+Understanding these probabilities is fundamental for efficient data encoding, as frequent letters 
+can be assigned shorter codes to reduce overall message length. Subplot Figure 6.4 b illustrates 
+the Huffman Encoding Lengths assigned to each letter based on the probabilities shown in subplot 
+Figure 6.4 a. In Huffman encoding, letters that appear more frequently are assigned shorter binary 
+codes, while those that occur less frequently are given longer codes. For instance, the letter “ e” with  
+ 
+ 
+  
+
+--- PDF PAGE 203 ---
+190 Mathematical Foundations for Deep Learning
+FIGURE 6.4  (a) Letter probabilities in English text, and (b) Huffman encoding lengths for letters.
+  newgenrtpdf
+
+--- PDF PAGE 204 ---
+191 Information Theory
+the highest probability, has an encoding length of 4 bits, while infrequent letters like “ q” and “ z” 
+require 11 bits.
+6.7  CHANNEL CAPACITY AND SHANNON’S THEOREM
+In practical terms, Shannon’s theorem laid the theoretical foundation for modern digital communi -
+cation systems. Many communication systems today, like those used in cellular networks or satel -
+lite communication, employ error-  correcting codes to approach the channel capacity as closely as 
+possible and ensure reliable data transfer. Channel capacity is a fundamental concept in information 
+theory. It represents the highest rate at which information can be reliably transmitted over a given 
+communication channel. Expressed in bits per second (bps), the maximum number of bits that can 
+be sent over the channel per unit of time with an arbitrarily low error rate. Importantly, capacity is 
+not about the speed of data transfer but how much information can be reliably conveyed. This means 
+that even if a channel can transfer large amounts of data quickly, it might still have a low capacity 
+if much of that data is redundant or corrupted. Factors that can impact the channel capacity include 
+the channel’s bandwidth, the signal’s power, the environment’s noise, and the channel’s inherent 
+characteristics. The Shannon theorem is a profound insight into the nature of communication over 
+noisy channels. In essence, it states that reliable communication over a noisy channel is possible 
+up to a specific maximum rate, known as the channel capacity. It is possible to encode messages 
+below this rate so that the probability of error in decoding the message can be made arbitrarily small. 
+However, above this rate, no encoding method will avoid a high probability of error. Given a noisy 
+channel with a known capacity, it suggests that one can design encoding and decoding schemes (or 
+error-  correcting codes) to ensure almost error-  free communication as long as the communication 
+rate stays below the channel capacity. However, errors will become unavoidable once you try to 
+transmit information at a rate higher than the channel capacity. Consider a cellular network where 
+the channel has a bandwidth of 1 MHz (1,000,000 Hz), and the signal-  to- noise ratio ( SNR ) is 10 (in 
+linear scale, equivalent to 10 dB). Using Shannon’s theorem, we can calculate the maximum channel 
+capacity, which gives the upper limit on how much information can be transmitted reliably over 
+this channel. Shannon’s channel capacity theorem defines the maximum rate C (in bps) at which 
+information can be transmitted over a noisy channel without error as long as the transmission rate is 
+below this capacity. The formula for the channel capacity C is given by:
+ CB=+ ( ) logS NR21  
+where:
+ •C is the channel capacity in bps,
+ •B is the bandwidth of the channel in hertz (Hz),
+ •SNR  is the signal-  to- noise ratio (in linear form, not dB).
+For the cellular network example, bandwidth B =  1,000,000 Hz, and SNR  =  10 (in linear scale).
+Using the formula:
+ C=× + ( )≈× ≈ 1 000 000 11 01 000 000 3 459 3 4592,, ,, .. lo gM bps  
+This means the maximum channel capacity for this network is approximately 3.459 Mbps. As long 
+as the transmission rate remains below this limit, reliable communication with very low error rates 
+is possible.

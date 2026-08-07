@@ -1,0 +1,40 @@
+6.2  ENTROPY
+Entropy, in the context of information theory, can be considered a measure of unpredictability or 
+uncertainty. Regarding data or messages, entropy scales the average level of “surprise” contained 
+in the potential outcomes. This might seem abstract but consider the flip of a fair coin. As it has an 
+equal probability of landing heads or tails, the result is very uncertain, leading to higher entropy. 
+In contrast, if you had a biased coin that almost always landed heads, its outcome’s entropy (or 
+uncertainty) would be much lower. For a discrete random variable x with a given probability distri -
+bution P(x), where x is an outcome and P(x) is the probability of that outcome, the entropy H(x)  is 
+calculated as:
+ HX Px Px
+xX()=− () ()
+∈∑ log  
+where:
+ •H(X) is the entropy of the discrete random variable X,
+ •P(x) is the probability of outcome x,
+ •The summation runs over all possible outcomes x in the set X.
+Here, the sum spans over all possible outcomes of x. The logarithm base often used in information  
+theory is base 2, which means the entropy is measured in bits. However, natural or logarithms to the  
+base 10 can also be used, resulting in entropy being measured in nats (when the logarithm base is  
+e (natural logarithm)) or dits (or Hartleys (when the logarithm base is 10)), respectively. The main  
+question is: Why does entropy matter? When considering transmitting messages or data, we want   
+ 
+ 
+  
+
+--- PDF PAGE 193 ---
+180 Mathematical Foundations for Deep Learning
+to use as few bits as possible. Entropy gives us a lower bound on the average number of bits needed  
+to represent symbols from x. If symbols are encoded optimally, a more frequent symbol should  
+be assigned a shorter code, while a rare symbol might get a more extended code. This principle is  
+leveraged in data compression techniques like Huffman coding. Entropy H(x)  tells us the minimum  
+average number of bits we would need per symbol if we could design our encoding most efficiently.  
+Entropy quantifies the uncertainty or unpredictability in a set of outcomes, guiding efficient data  
+encoding and offering insights into data’s inherent structure and randomness.
+Figure 6.1  illustrates the probability distributions of a fair coin and a biased coin. The bar 
+plot shows the probability of obtaining “Heads” and “Tails” for each type of coin. The fair coin, 
+represented in blue with a striped pattern, has equal probabilities of 0.5 for both outcomes, resulting 
+in higher entropy, indicating maximum uncertainty. In contrast, the biased coin, shown in orange 
+with a slanted hatch, has a much higher probability for “Heads” (0.9) and a lower probability for 
+“Tails” (0.1), leading to lower entropy and reduced uncertainty.

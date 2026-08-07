@@ -1,0 +1,16 @@
+8.4  PRACTICAL IMPLICATIONS
+8.4.1   r egularization
+Building on our earlier example of Model A, which converges to a flat minimum, and Model B, 
+which settles into a sharp minimum, regularization techniques play a crucial role in guiding the opti -
+mization process toward flatter regions of the loss landscape. To explore these concepts, we begin 
+by creating a simple graph with three nodes arranged in a chain structure. The adjacency matrix is 
+normalized and converted into a sparse tensor format suitable for processing by a Graph Neural 
+Network (GCN). Each node’s features are represented by an identity matrix, and the labels are 
+encoded using one-  hot vectors for two distinct classes. After training the GCN, we predict the node  
+ 
+  
+
+--- PDF PAGE 269 ---
+256 Mathematical Foundations for Deep Learning
+FIGURE 8.5  (a) Loss landscape, and (b) feature space clusters.
+  newgenrtpdf

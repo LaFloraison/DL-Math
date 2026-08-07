@@ -1,0 +1,65 @@
+12.3  QUANTUM ALGORITHMS
+12.3.1   k ey Quantum  algorithm S
+Quantum algorithms leverage the unique properties of quantum mechanics to solve problems more 
+efficiently than classical algorithms. Two key algorithms have had a major impact and have broad 
+applications.
+(a) Factoring Algorithm:  This algorithm revolutionized cryptography by making it possible 
+to factor large numbers exponentially faster than classical methods. While traditional 
+algorithms take significantly more time as the numbers grow larger, this quantum algorithm 
+uses superposition and entanglement, along with a quantum Fourier transform, to factor 
+numbers quickly. This poses a serious threat to widely used encryption systems like RSA, 
+pushing the need for quantum-  safe cryptography.
+(b) Search Algorithm:  This algorithm dramatically speeds up the process of unstructured 
+searching. In a database of N entries, the quantum algorithm can find the target in about 
+√N steps, while classical methods would require N steps. By amplifying the probability of 
+finding the correct answer, this algorithm is especially useful for tasks like database searches 
+and optimization problems.
+In Figure 12.1 , the Bloch sphere provides a three-  dimensional visualization of a qubit’s state space. 
+The sphere represents all possible states a qubit can take, with different arrows showing specific 
+states. The dark red arrow indicates the ∣0⟩ state, which points along the positive z- axis. This corres -
+ponds to the qubit being in a pure state of 0, as seen at the top of the sphere. On the other hand, the 
+dark green arrow points in the opposite direction, along the negative z- axis, representing the qubit 
+in the ∣1⟩ state. This highlights the qubit being in the pure 1 state. These two states, ∣0⟩ and ∣1⟩, are 
+analogous to the binary states in classical computing. The dark blue arrow, located on the equator of 
+the sphere, represents the ∣+ ⟩ state. This state is a superposition of both ∣0⟩ and ∣1⟩, where the qubit 
+is not purely in one state but exists in a blend of both. The positioning of the ∣+ ⟩ state on the equator 
+emphasizes the fact that it is a balanced superposition, equidistant from ∣0⟩ and ∣1⟩, thereby demon -
+strating the core idea of quantum superposition. 
+ 
+ 
+  
+
+--- PDF PAGE 358 ---
+345 Quantum Computing
+12.3.2   Quantum  machine  learning  algorithm S
+Quantum machine learning combines quantum computing with regular machine learning, opening 
+up new possibilities for tasks like grouping data (clustering), sorting it into categories (classifica -
+tion), and making predictions (regression). Quantum clustering methods, like the Quantum k-  means 
+algorithm, improve how we group items by using quantum properties like superposition to calculate 
+distances between data points all at once. For example, imagine you have 10 apples and want to 
+group them by weight. With quantum clustering, the computer can compare all the apples simul -
+taneously, making the process much faster than traditional methods that handle comparisons one at 
+a time. Quantum classification algorithms, such as Quantum Support Vector Machines (QSVM), 
+enhance how we classify data by mapping features into a higher-  dimensional quantum space. Think 
+of it like sorting animals based on size, habitat, and diet. A QSVM  can make it easier to find clear 
+differences, even between animals with similar traits, uncovering patterns that regular methods 
+might miss. Quantum regression algorithms, like quantum linear regression, offer faster predictions 
+by solving complex equations more efficiently. For instance, when predicting future temperatures 
+from past data, quantum regression can quickly spot trends and create accurate forecasts, saving 
+time compared to classical methods.
+While quantum machine learning holds great promise, it is still in its early stages. One major 
+challenge is converting regular data into quantum states, a process that can be complicated and 
+time-  consuming, sometimes canceling out the speed advantages. Additionally, current quantum 
+computers are prone to errors and can only hold quantum states for a limited time, which can affect 
+the accuracy of calculations. For example, suppose you’re using a quantum machine learning algo -
+rithm to predict stock prices based on the last 10 days’ closing prices: $150, $152, $148, $155, 
+$160, $158, $162, $165, $167, and $170. First, you need to convert these numbers into quantum 
+states, which is tricky. Even if the data is successfully encoded, errors might occur because the 
+quantum computer may struggle to maintain its state, potentially leading to incorrect predictions. 
+Instead of forecasting a rise to $175, the computer might mistakenly predict a drop to $140 due to 
+the instability of the quantum system.
+FIGURE 12.1  Qubit states on the Bloch sphere. 
+  
+
+--- PDF PAGE 359 ---
+346 Mathematical Foundations for Deep Learning

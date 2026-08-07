@@ -1,0 +1,245 @@
+11.2  THEORY OF DYNAMICAL SYSTEMS AND DIFFERENTIAL EQUATIONS
+Dynamical systems and differential equations help us understand how things change, grow, or 
+decrease over time, both in nature and in human-  made systems. These math ideas let us study and 
+predict how complex systems behave as they develop. By learning about them, we can see the 
+patterns that shape the world around us and use these principles in different areas, including tech -
+nology and neural networks.
+11.2.1   d ynamical  SyStemS
+A dynamical system is a way to describe how something changes over time using a set of rules. 
+These systems are used in many areas of science and engineering to track things like how planets 
+move or how populations grow. The strength of dynamical systems is their ability to show how 
+different states change, making them useful for understanding and predicting behavior over time. In 
+math, they are shown by maps that illustrate how one state changes to another, allowing us to follow 
+paths and predict future states in a certain space.
+11.2.1.1   Discrete Dynamical Systems
+Not all changes occur continuously; some happen in a distinct, step-  wise fashion. In discrete dynam -
+ical systems, state changes are quantized and occur in well-  defined steps. A function, commonly 
+denoted as f, governs these steps. If we know the system’s state at a particular step n, we can apply f 
+to determine the state at the next step, n +  1. This type of system is particularly useful for modeling 
+processes that evolve in stages, such as population growth in generations or iterative algorithms in 
+computer science. Consider the discrete dynamical system represented by:
+ xf xnn+=()1  
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 335 ---
+322 Mathematical Foundations for Deep Learning
+where xnis the state at step n, and f is the function defining the rule of evolution. This framework 
+allows for the analysis and prediction of future states based on the initial condition. Let us con -
+sider a simple population growth model with an initial population of 100 individuals. The growth 
+function, given as f(x) =  1.2x, indicates a 20% growth per generation. The population size in the next 
+generation can be calculated using this growth function. For example, starting with 100 individuals, 
+the population after the first generation would be 100 × 1.2 =   120. After the second generation, the 
+population would be 120 × 1.2 =   144, and so on, increasing by 20% with each generation. Let’s con -
+sider a simple population growth model. Here are the steps:
+1. Generation 0: x0 =  100
+2. Generation 1: x1 =  1.2 × 100 =   120
+3. Generation 2: x2 =  1.2 × 120 =   144
+4. Generation 3: x3 =  1.2 × 144 =   172.8
+5. Generation 4: x4 =  1.2 × 172.8 =   207.36
+6. Generation 5: x5 =  1.2 × 207.36 =   248.83
+After five generations, the population grows from 100 to approximately 249 individuals. This 
+example shows how discrete dynamical systems predict fut ure states through repeated application 
+of a growth function.
+11.2.1.2   Continuous Dynamical Systems
+Unlike discrete systems, continuous dynamical systems change smoothly over time, with each tiny 
+moment affecting the system’s state. These systems are usually modeled with differential equations, 
+which explain how the system changes continuously. Continuous dynamical systems are important 
+in areas like physics and engineering, where processes such as fluid flow, electrical circuits, and 
+mechanical motion change smoothly over time. A continuous dynamical system is represented by a 
+differential equation:
+ dx t
+dtfx t()= ()() 
+where:
+ •x(t) is the system’s state at time t,
+ •f describes how the state changes over time.
+Let’s model a simple exponential growth system:
+ dxt
+dtxt()= () 05 .  
+This equation describes a system where the growth rate is proportional to the current state, with a 
+growth rate of 0.5. Initial Condition: x0 100()= . In this equation:
+ xt xet()=()⋅005 . 
+Substitute the initial condition x0 100()= :
+ xt et()=⋅10005 .  
+ 
+ 
+ 
+  
+
+--- PDF PAGE 336 ---
+323 Dynamical Systems and Differential Equations for RNNs
+For different time values, we can calculate various states of the system:
+ •At tx e= ()=⋅≈11 100 164 8705:..,
+ •At tx e= ()=⋅ ≈22 100 271 831:. ,
+ •At tx e= ()=⋅ ≈33 100 448 1715:...
+The system grows continuously, with the population increasing exponentially over time.
+Figure 11.1  presents a comparison between continuous and discrete dynamical systems, illus -
+trating their behavior over a specified time interval. The x- axis denotes time, while the y- axis 
+represents the state of the system. The continuous system is depicted by a smooth blue curve, thus 
+highlighting the uninterrupted, smooth evolution of the state as time progresses. This smooth curve 
+signifies that in continuous systems, changes occur gradually and are tracked at every infinitesimal 
+point in time, providing a view of the state dynamics. On the other hand, the discrete system is 
+shown as a red line connecting markers at specific time intervals. The markers represent the state 
+values captured at each discrete time step, reflecting how the system’s state is updated only at these 
+discrete points. This piecewise linear representation indicates that in discrete systems, time and 
+state changes are not continuously tracked but rather approximated at selected intervals. In sections 
+where the state changes gradually (e.g., between time steps 0 to 2 and 6 to 8), both the continuous 
+and discrete trajectories closely align. However, at regions where the state exhibits rapid changes 
+(e.g., around time steps 3 and 9), slight discrepancies emerge. These differences illustrate how dis -
+crete systems might approximate the continuous system’s behavior but may miss finer details or 
+introduce minor deviations when the state changes abruptly.
+11.2.2   d ifferential  eQuation S
+Differential equations, often called the language of change, let us model how systems behave. These 
+equations describe the state of a system and tell how it changes by using derivatives, which measure 
+how quickly things are changing.
+FIGURE 11.1  Comparison of continuous and discrete dynamical systems. 
+  
+
+--- PDF PAGE 337 ---
+324 Mathematical Foundations for Deep Learning
+11.2.2.1   Ordinary Differential Equations
+Ordinary differential equations ( ODEs ) describe how a function and its rates of change are related 
+using one variable, usually time. These equations are often used to model natural things, like how a 
+pendulum swings or how diseases spread. ODEs help us explain how a system’s state changes over 
+time based on its current state. An ODE is typically expressed in the form:
+ dy
+dtft y=(), 
+where y represents the dependent variable (the state of the system), t is the independent variable 
+(often representing time), and f(t,y)  is a function that describes the rate of change of y with respect to 
+t. A classic example of an ODE  is the simple harmonic oscillator, which models the motion of systems 
+such as a pendulum or a mass-  spring system. The equation for a harmonic oscillator is given by:
+ dy
+dty2
+220+= ω  
+where y(t) represents the position of the object over time, and ω is the angular frequency of the 
+oscillation. This second-  order ODE describes how the position of the object changes as it oscillates 
+back and forth under the influence of a restoring force proportional to its displacement. The general 
+solution to this equation is:
+ yt At Bt()=+cos( )s in() ωω  
+where A and B are constants determined by the initial conditions of the system, such as the initial 
+position and velocity of the object. For instance, if the system begins at y(0) =   1 with an initial vel -
+ocity of zero, the solution simplifies to y(t) =  cos(2t) , assuming an angular frequency ω =  2 rad/  s. 
+This equation describes an object oscillating with a frequency of 2 rad/  s, moving smoothly between 
+its maximum and minimum positions over time. In this way, ODEs  serve as a powerful tool for mod -
+eling dynamic behaviors in various fields, providing insights into how systems evolve continuously 
+over time based on their initial conditions and the laws that govern them.
+Figure 11.2  depicts the displacement of a simple harmonic oscillator, modeled as a mass-  spring 
+system, over time. The x- axis represents time in seconds, while the y- axis indicates the displacement 
+in meters from the equilibrium position. The blue curve follows the equation x(t) =  Acos(ωt +  θ), 
+where A is the amplitude, ω is the angular frequency, and θ is the phase angle. The graph highlights 
+several key aspects of the oscillator’s behavior. The maximum displacement, marked by a green 
+dot, shows the furthest point the mass reaches above the equilibrium. At this point, the energy in the 
+system is entirely potential, with zero velocity. The minimum displacement, marked by a red dot, 
+indicates the lowest point the mass reaches, showing a similar state where the velocity is zero and 
+the potential energy is maximized. The purple dot represents the phase angle, illustrating how the 
+initial position and timing of the oscillator’s motion are influenced, shifting the curve horizontally. 
+The differential equation dxt
+dtxt2
+220()+ ()= ω , displayed at the bottom left, governs this harmonic 
+motion. It indicates that the acceleration of the system is directly proportional and opposite to the 
+displacement, a characteristic of simple harmonic oscillators.
+11.2.2.2   Partial Differential Equations
+Partial differential equations ( PDEs ) are more complicated than ODEs  because they involve  
+functions with several variables and their partial derivatives. These equations are fundamental in   
+ 
+ 
+ 
+  
+
+--- PDF PAGE 338 ---
+325 Dynamical Systems and Differential Equations for RNNs
+many areas of physics and engineering, like modeling how heat spreads, how fluids flow, and elec -
+tromagnetic fields. PDEs  let us describe systems where changes happen in multiple directions, such  
+as time and space. A PDE  is typically written in the form :
+ ∂
+∂=∂
+∂∂
+∂…
+
+u
+tFt xuu
+xu
+x,,,, ,2
+2 
+where u is the dependent variable representing the state of the system, t, and x are independent 
+variables (often representing time and space), and F is a function that describes how u changes over 
+time and space. A well-  known example of a PDE  is the heat equation, which describes how heat 
+diffuses through a material. It is expressed as:
+ ∂
+∂=∂
+∂u
+tu
+xα2
+2 
+where u(t, x)  represents the temperature of the material as a function of time t and position x, and α 
+is the thermal diffusivity, a constant that quantifies how quickly heat spreads through the material. 
+Consider a metal rod of length 10 units. The ends of the rod are maintained at a constant tempera -
+ture of 0°C, while the initial temperature at the center of the rod is 100°C, with the rest of the rod at 
+0°C. The goal is to determine how the temperature changes over time. At time t =  0, the temperature 
+distribution along the rod can be described as:
+FIGURE 11.2  Simple harmonic oscillator: mass-  spring system. 
+ 
+  
+
+--- PDF PAGE 339 ---
+326 Mathematical Foundations for Deep Learning
+ uxx0100 5
+0,,
+,()== 
+
+if 
+otherwise 
+With the given boundary conditions, u(t, 0) =   u(t, 10) =   0 for all values of t. Assuming the thermal 
+diffusivity α is 0.01, the heat equation governs how the temperature evolves over time. After a short 
+time, say at t =  1, the temperature at the center of the rod would decrease as heat begins to diffuse 
+toward the ends of the rod. The approximate temperature distribution at this point might be:
+ uxx
+xx160 5
+00 10,,
+,()==
+==
+if 
+if  or  
+As time progresses, the temperature continues to even out along the rod. By t =  5, the temperature 
+at the center might decrease further to 20°C, while the ends of the rod remain at 0°C. The tempera -
+ture distribution over time can be obtained by solving the heat equation numerically or analytically, 
+depending on the specific boundary and initial conditions.
+Figure 11.3  displays the temperature distribution along a rod over time, as governed by the heat 
+equation. The x- axis represents the position along the rod in meters, while the y- axis indicates time in 
+seconds. The color gradient in the figure reflects temperature values, ranging from low (dark colors) 
+to high (light colors). The heat distribution evolves as time progresses, showing how heat diffuses 
+from the center toward the ends of the rod. At the initial moment, the temperature is concentrated at 
+the center, indicated by the bright yellow region. As time advances, the heat spreads outward, grad -
+ually decreasing in intensity as it moves toward the boundaries of the rod. The equation displayed at 
+the lower left corner, ∂
+∂=∂
+∂u
+tu
+xα2
+2, represents the heat equation, where u denotes the temperature, t is 
+time, x is the spatial position along the rod, and α is the thermal diffusivity constant. This equation 
+FIGURE 11.3  Heat equation: temperature distribution over time.
+ 
+   
+
+--- PDF PAGE 340 ---
+327 Dynamical Systems and Differential Equations for RNNs
+describes the rate of change in temperature over time and position, indicating that the temperature 
+change depends on the second spatial derivative of the temperature, which signifies the flow of heat. 
+The temperature color map on the right further provides a scale, showing the range of temperatures 
+from 0°C (dark) to 96°C (light yellow), allowing for a clear visualization of how the temperature 
+changes over both space and time.
+Figure 11.4 a illustrates a discrete dynamical system modeled using the logistic map equation 
+xn +  1 =  rxn (1 − xn). The x- axis represents iterations, while the y- axis shows the population value 
+normalized between 0 and 1. The blue line, with points marking each iteration, demonstrates the 
+population’s evolution over time, revealing oscillatory and chaotic behavior typical of discrete 
+non- linear systems. The red dot marks the final population state at the end of the 100 iterations, 
+highlighting how such systems can vary and exhibit complex, unpredictable behavior despite being 
+governed by a simple equation. Figure 11.4 b displays a continuous dynamical system in the form 
+of a simple harmonic oscillator. The x- axis shows time in seconds, while the y- axis indicates the 
+position of the oscillating mass. The green curve follows the equation xt Atvt ()= ()+ () coss in ωωω0,  
+representing a combination of cosine and sine components where A is the amplitude, ω is the 
+angular frequency, and v0 is the initial velocity.

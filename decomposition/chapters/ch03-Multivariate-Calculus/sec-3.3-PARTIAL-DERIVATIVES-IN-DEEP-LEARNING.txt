@@ -1,0 +1,44 @@
+3.3  PARTIAL DERIVATIVES IN DEEP LEARNING
+In deep learning, we typically work with deep neural networks comprising multiple layers, each 
+containing numerous weights and biases. The primary goal during training is to adjust these weights 
+and biases to optimize the network’s performance on a given task. Partial derivatives guide this 
+optimization process. Every deep learning model utilizes a loss function (or cost function) that 
+measures the discrepancy between the model’s predictions and the targets. The objective of training 
+is to minimize this loss. We need to understand how the loss changes with tiny adjustments to 
+these parameters to adjust each weight and bias effectively to reduce the loss. This is where partial  
+ 
+ 
+  
+
+--- PDF PAGE 80 ---
+67 Multivariate Calculus
+FIGURE 3.1  (a) Surface plot of f xy xy xy,() =+22 and (b) contours of partial derivatives.
+  newgenrtpdf
+
+--- PDF PAGE 81 ---
+68 Mathematical Foundations for Deep Learning
+derivatives come into play. It has two features of changes: direction and magnitude. In gradient des -
+cent, the weight update rule is as follows:
+ wwdL
+dwtt+() ()=−1η  
+where:
+ •w(t) is the weight at iteration t,
+ •η is the learning rate,
+ •dL
+dw is the partial derivative of the loss with respect to w.
+Consider a quadratic loss function L ww()=−() 32, where w represents a weight in the model. This 
+loss function reaches its minimum when w =  3. After computing the partial derivative dL
+dww=−( ) 23  
+the sign of this derivative tells us whether to increase or decrease w. If w =  4, the derivative 
+dL
+dw=−( ) 24 3 , which is positive, indicating we should reduce w to minimize the loss.
+Figure 3.2  illustrates the behavior of the loss function and how its derivative indicates the direc -
+tion of the steepest descent toward the optimal weight. The first subplot on the left displays the quad -
+ratic loss function L ww()=−+() 322, which measures the error or “loss” associated with different 
+values of the weight w. This plot shows a U-  shaped curve where the minimum point represents the 
+optimal weight. A vertical dashed gray line at w =  3 indicates the optimal weight, where the loss 
+function reaches its minimum value. The second subplot on the right displays the derivative of the 
+loss function, which is given by indicating the slope of the loss function. This derivative is crucial 
+for optimization algorithms like gradient descent. It shows a straight line that crosses the x- axis at 
+w =  3, where the derivative is zero, corresponding to the optimal weight. A horizontal dashed gray 
+line at y =  0 indicates where the derivative is zero.

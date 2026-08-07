@@ -1,0 +1,103 @@
+10.3  WAVELETS
+Wavelet analysis is a useful tool in signal processing, offering capabilities that extend beyond those 
+of Fourier analysis. While Fourier analysis breaks signals into sine and cosine waves, wavelet ana -
+lysis uses wavelets, functions that can capture both frequency and time (or space) information simul -
+taneously. This makes wavelets particularly effective for analyzing non-  stationary signals, where the 
+characteristics of the signal change over time or space. Wavelets are especially useful in applications 
+where localized variations in the signal must be captured and analyzed. Wavelets are oscillating 
+functions that start and end at zero, with their amplitude peaking in between. This shape gives 
+wavelets the ability to zoom in on localized signal features. Their flexibility makes them ideal for 
+multi-  resolution analysis, enabling the study of signals at different scales. By adjusting the scale of 
+the wavelet, we can analyze both the fine details and broader patterns in the signal, making wavelet 
+analysis highly effective for signals that vary over time or space. 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 316 ---
+303 Harmonic Analysis for CNNs
+FIGURE 10.2  (a) Combined time-  domain signal. This is the same three-  wave sum shown in Figure 1(d), plotted over 1 second. (b) Frequency-  domain representation. 
+The magnitude spectrum again reveals peaks at 5, 50, and 120 Hz. (c) Reconstructed signal (IFFT). The IFT of the frequency-  domain data, showing a near-  identical 
+recovery of the original time-  domain signal. (d) Difference between original and reconstructed signals. The minimal discrepancy on the order of numerical precision, 
+verifies the accuracy of the FT and IFT.  newgenrtpdf
+
+--- PDF PAGE 317 ---
+304 Mathematical Foundations for Deep Learning
+10.3.1   w avelet  tranSform
+The wavelet transform ( WT)  is an advanced analytical method that converts signals from the time 
+domain into a series of coefficients based on shifted and scaled versions of a predetermined base 
+function, known as a mother wavelet . This transformation is particularly adept at handling non-  
+stationary signals, those whose frequency content changes over time. The continuous wavelet trans -
+form ( CWT ) of a function f(t) is mathematically represented as:
+ CWTs
+sftt
+sdt τψτ,()= ()−
+
+
+−∞∞
+∫1 
+Here, τ and s are parameters that control the translation (shift) and scale (compression or stretching) 
+of the wavelet, respectively. ψ(t) is the mother wavelet, a function localized in both time and fre -
+quency. The normalization factor 1
+s ensures that the wavelet has the same energy at each scale. 
+Wavelets are unique in that they are localized in time and frequency, unlike the sinusoids used in 
+FTs, which extend infinitely. This localization allows wavelets to precisely capture and analyze 
+transient features and abrupt changes in a signal. The adaptability of wavelets in terms of scale 
+and translation makes them ideal for analyzing signals that exhibit features at multiple scales or 
+that have significant local variations in time or frequency. Consider an example where a heartbeat 
+signal is analyzed using the WT. A heartbeat signal, characterized by sharp spikes followed by slow 
+waves, presents challenges in identifying features like the QRS  complex and the T wave when 
+using Fourier analysis due to its non-  stationary nature. Using a WT, the signal is decomposed into 
+coefficients that represent different frequency components at different times. For instance, selecting 
+a wavelet such as the Daubechies wavelet, which closely resembles the sharp spikes of a QRS  com -
+plex, would allow for efficient isolation and analysis of these features without interference from 
+slower-  moving trends in the signal. This ability to customize the wavelet to match specific features 
+of the signal is a key advantage of the WT, enabling more effective signal analysis and feature detec -
+tion. Consider a simple time-  domain signal composed of two parts:
+1. A sharp spike (representing a transient event) lasting from t =  1 to t =  2 seconds.
+2. A slow sine wave with a frequency of 5 Hz active throughout the signal duration.
+The signal f(t) can be represented as:
+ f tt
+t()=≤≤
+×
+
+10 12
+525,
+sin( ),π otherwise 
+Step 1. Choose a Mother Wavelet:  Let’s use the Daubechies 4 (db4) wavelet, known for its ability 
+to handle sharp transitions effectively.
+Step 2. Apply the WT:  The CWT  will analyze the signal at different scales and positions. For sim -
+plicity, we’ll examine two scales: Scale 1 captures high-  frequency components, such as sharp 
+spikes, while Scale 8 captures low-  frequency components, like a slow sine wave.
+Step 3. Compute Wavelet Coefficients:  At scale 1, the wavelet is narrow and highly responsive 
+to rapid changes. The sharp spike occurring between t =  1and t =  2 generates significant 
+wavelet coefficients, indicating a strong transient event. In contrast, the sine wave produces 
+minimal coefficients at this scale due to its low-  frequency nature. At Scale 8, the wavelet is 
+wider, enabling it to capture slower variations. The sine wave at 5 Hz results in prominent 
+wavelet coefficients, reflecting its sustained oscillation. The sharp spike contributes less to the 
+coefficients at this scale due to the wavelet’s lower sensitivity to high-  frequency events. 
+ 
+  
+
+--- PDF PAGE 318 ---
+305 Harmonic Analysis for CNNs
+Step 4: Reconstruct the Signal Using Selected Scales:  To reconstruct the original signal, we can 
+combine the wavelet coefficients from both scales:
+ ft()≈+Reconstruction from Scale1 Reconstruction from Scale 8 8  
+This combination captures both the transient spike and the underlying sine wave.
+10.3.2   a pplication S of wt
+WTs have broad applications across various fields. In image compression, they are the backbone of 
+the JPEG 2000 standard, offering efficient, high-  quality compression. Wavelets are also key in noise 
+reduction, where they remove noise while preserving important signal features. In signal processing, 
+wavelets enable time-  frequency analysis, making them ideal for examining signals that change over 
+time. Additionally, in medical imaging, WTs help enhance image analysis by highlighting crucial 
+structures and details, improving diagnostic accuracy. Consider a signal composed of two sine 
+waves with frequencies of 5 and 20 Hz.
+Figure 10.3  illustrates the relationship between the original signal and its WT. Figure 10.3 a 
+shows the time-  domain signal, which is a combination of two sine waves. The signal’s varying 
+pattern over time is a result of these interacting frequencies. Figure 10.3 b represents the WT of the 
+signal, revealing how its frequency components change over time. The color intensity in the plot 
+corresponds to the magnitude of the wavelet coefficients, highlighting the signal’s decomposition 
+into different scales, where the red regions indicate higher magnitudes.

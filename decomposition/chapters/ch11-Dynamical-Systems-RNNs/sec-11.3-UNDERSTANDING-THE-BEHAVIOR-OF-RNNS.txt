@@ -1,0 +1,77 @@
+11.3  UNDERSTANDING THE BEHAVIOR OF RNNS
+11.3.1   m emory  and dynamic S
+Recurrent neural networks (RNNs) can remember past information because of their repeating struc -
+ture. This means that at any time, an RNN’s state shows not only the current input but also infor -
+mation from earlier inputs, similar to how a dynamical system changes over time with its current 
+state affected by previous states. This “memory” makes RNNs very powerful for tasks that involve 
+sequences of data. For example, in time series prediction, consider predicting stock prices over a few 
+days. If the stock prices over five days are:
+ Prices =   [100, 102, 101, 105, 107]  
+An RNN can be trained to predict the price for the next day (day 6) based on these previous values. 
+After training, the RNN might predict:
+ Predicted Price on Day 6 =   109 
+In this case, the RNN learns the trend from the data; the general upward movement in prices 
+suggests that the next value will likely be higher. By remembering the prices from the previous 
+days, the model can make a more informed prediction about the future. In natural language pro -
+cessing (NLP), RNNs also excel. For instance, consider sentence generation. Given the starting 
+phrase:
+“The stock market”
+The RNN uses its memory of the earlier words to predict the next word. If the RNN has been trained 
+on financial articles, it might generate the sentence:
+“is expected to rise.”
+Here, the prediction of each word is influenced by the previous words, allowing the RNN to create 
+a coherent sentence by remembering the context. Similarly, in speech recognition, the input to an 
+RNN might be a sequence of sounds, such as: 
+ 
+ 
+  
+
+--- PDF PAGE 341 ---
+328 Mathematical Foundations for Deep Learning
+FIGURE 11.4  (a) Discrete dynamical system: logistic map, (b) continuous dynamical system: harmonic oscillator.
+  newgenrtpdf
+
+--- PDF PAGE 342 ---
+329 Dynamical Systems and Differential Equations for RNNs
+Sounds =   [“s,” “o,” “f,” “t”].
+Using the memory of the earlier sounds, the RNN can predict that the word is “soft.” If the input 
+sounds were:
+Sounds =   [“h,” “a,” “r,” “d”].
+The RNN might predict the word “hard.” In both cases, the ability to maintain context across the 
+sequence of sounds allows the RNN to recognize entire words. This memory of past inputs is crit -
+ical to understanding the current input and making accurate predictions, whether it’s a word in a 
+sentence or a value in a time series.
+Figure 11.5  illustrates the memory dynamics of a RNN over time, showing both a broad over -
+view and a detailed zoomed-  in view of the input and output sequences. Figure 11.5 a displays the 
+overall behavior of the RNN across 4000 time steps. The blue line represents the input sequence, 
+demonstrating its repetitive and periodic pattern, which spans the entire range. The green line cor -
+responds to the true output sequence generated based on the input, while the orange dashed line 
+shows the RNN’s predicted output sequence. Despite the periodicity and repetition in the input 
+sequence, the predicted output remains close to the true output sequence, indicating the RNN’s 
+capability to learn and generalize the pattern over a long duration. Figure 11.5 b zooms into the 
+first 100 time steps to provide a detailed view of the RNN’s behavior. The blue line continues to 
+represent the input sequence, showing sharp spikes at regular intervals. The green line captures 
+the true output sequence, which responds more gradually and sinusoidally to changes in the input, 
+demonstrating how the system processes and smooths the input signals. The orange dashed line is 
+the predicted output sequence by the RNN, closely following the pattern of the true output but with 
+slight deviations. A red dot marks the maximum prediction value in this window, highlighting a spe -
+cific point where the RNN reaches its highest output, with the annotation indicating the maximum 
+value observed.
+11.3.2   e xplaining  via ode S
+RNNs, especially those built with continuous changes, can be easily understood using ODEs. Using 
+ODEs  helps us model how the system changes over time, giving us a better understanding of how 
+the network behaves. One important idea in this approach is stationary states, or fixed points, which 
+are states where the system stays the same and does not change over time. A fixed point x* occurs 
+when the ODE  governing the system reaches a state where:
+ dxt
+dtfx t()= ()()=0 
+In the context of RNNs, these fixed points represent the long-  term behavior of the network, where 
+the internal state stays the same over time. For example, if an RNN reaches a stable fixed point, it 
+will give consistent outputs for sequences, making its performance reliable. Another important idea 
+is stability analysis, which looks at whether the fixed points of the system are stable or unstable. 
+A stable fixed point means that if the system’s state is slightly changed, it will eventually go back to 
+the fixed point. On the other hand, an unstable fixed point means that any small change will make 
+the system move away from that point. This analysis helps us understand if the RNN  will settle into 
+a stable state, show repeating patterns, or even behave unpredictably over time. To explain this with 
+a numerical example, consider a simple ODE  describing the continuous evolution of a state x(t) 
+over time:

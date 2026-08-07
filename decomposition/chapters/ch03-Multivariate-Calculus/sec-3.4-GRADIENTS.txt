@@ -1,0 +1,97 @@
+3.4  GRADIENTS
+In multivariable calculus, the gradient is a central concept, especially when dealing with functions 
+of several variables. The gradient provides a way to encapsulate the rates of change of a function in 
+every direction in a single vector. By pointing in the direction of the steepest ascent and having a 
+magnitude representing the maximum increase rate, the gradient offers an understanding of how a 
+function changes in different directions. Given a scalar-  valued function f of several variables, such 
+as f(x, y)  or f(x, y, z) , the gradient of f, denoted by ∇f or “grad f,” is a vector whose components 
+are the partial derivatives of f concerning each of its variables. For a function f(x, y) , the gradient   
+is ,∇=∂
+∂∂
+∂
+
+ff
+xf
+y. For a function f(x, y, z) , the gradient is ,,∇=∂
+∂∂∂∂
+∂
+
+
+ff
+xfyf
+z, and so on for functions 
+with more variables. Its geometric interpretation includes the following:
+(a) Direction:  The gradient of a function indicates the direction of the steepest ascent. If you 
+imagine standing on a hill represented by the function f and walking toward the gradient, you 
+will climb the mountain as steeply as possible.
+(b) Magnitude:  The gradient vector’s magnitude (or length) represents the function’s maximum 
+increase rate. If the gradient is zero at a point, then that point is a local maximum, local min -
+imum, or a saddle point. 
+  
+
+--- PDF PAGE 82 ---
+69 Multivariate Calculus
+FIGURE 3.2  (a) Loss function and (b) derivative of the loss function.
+  newgenrtpdf
+
+--- PDF PAGE 83 ---
+70 Mathematical Foundations for Deep Learning
+Gradient has two main properties:
+1. Linearity:  For scalar constants a and b and functions F and G: ∇+( )=∇ +∇af bg af bg
+2. Dot Product with Directional Derivative:  The dot product of the gradient of f at a point and 
+a unit vector u gives the rate of change of f in your direction. This is also known as the dir -
+ectional derivative of F in the direction Df fuu=∇ ⋅  .
+Gradients can be computed analytically using differentiation rules for each partial derivative. 
+However, analytical computations can be challenging for complicated functions, especially in high-  
+dimensional spaces. In such cases, numerical methods or automatic differentiation tools (standard 
+in machine learning frameworks) might be employed. In gradient descent, the weights are updated 
+iteratively in the opposite direction of the gradient of the loss function. The update rule for a weight 
+w at iteration t can be expressed as follows:
+ wwL
+wtt+=−∂
+∂1η  
+where η is the learning rate and ∂
+∂L
+w is the gradient of the loss L with respect to w. Additionally, 
+backpropagation is an algorithm designed to compute gradients efficiently in neural networks. It 
+propagates the error backward through the network, layer by layer, to determine the gradient of the 
+loss with respect to each weight. This process relies heavily on the chain rule of calculus to decom -
+pose the gradient calculation into manageable steps. Consider a function f xy xy,()=+22, the gra -
+dient of f is:
+ ∇()=∂
+∂∂
+∂
+
+=( ) fx yf
+xf
+yxy ,, , 22  
+At the point (x, y)  =  (1, 2), the gradient is:
+ ∇()=× ×( )=() f12 21 22 24 ,, ,  
+This tells us that at the point (1, 2), the function increases most rapidly in the direction (2, 4), and the 
+steepness of the increase is proportional to the length of the gradient, which is:
+  ∇()=+ =≈ f12 24 20 44 722,.  
+Figure 3.3  illustrates the shape of the function’s surface alongside the direction and magnitude of 
+its gradient at various points. The contour plot depicts the function f xy xy ,()=+22, representing 
+a symmetrical paraboloid surface characterized by lines of constant function value. These contour 
+lines indicate the function’s elevation as one moves outward from the origin, with labels speci -
+fying their corresponding values for enhanced clarity. The gradient vectors are visualized as red 
+arrows, which embody the direction and magnitude of the function’s gradient ∇f(x, y) =   (2x, 2y). 
+The length and orientation of each arrow accurately represent the gradient’s strength and direction, 
+effectively demonstrating the steepest ascent paths of the function at those locations. Key points 
+such as (1, 1), (–  1, – 1), (1, –  1), and (–  1, 1) are distinctly marked on the plot with blue annotations 
+and corresponding arrows. These annotations are strategically positioned to prevent overlap with 
+other plot elements, ensuring that each key point is easily identifiable and their associated gradient 
+vectors are clearly understood. Additionally, black lines are drawn along the y =  0 and x =  0 axes to  
+ 
+ 
+  
+
+--- PDF PAGE 84 ---
+71 Multivariate Calculus
+FIGURE 3.3  Contour plot f xy xy,() =+22 with gradient vectors.
+  newgenrtpdf
+
+--- PDF PAGE 85 ---
+72 Mathematical Foundations for Deep Learning
+denote the origin, aiding in spatial orientation and providing a reference framework for interpreting 
+the plot’s elements.

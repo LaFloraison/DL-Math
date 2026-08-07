@@ -1,0 +1,8 @@
+10.1  INTRODUCTION
+Understanding signals in both time and frequency is important for digital signal processing. Tools 
+like Fourier (FT) and Wavelet (WT) transform help find hidden patterns in raw data, such as radio 
+waves or images used in machine learning. In deep learning, convolutional neural networks (CNNs) 
+examine images by identifying features from pixel information. This is similar to harmonic analysis, 
+where frequency methods explain how signals behave. By combining deep learning with harmonic 
+ideas, we can better understand how CNNs work and find more efficient ways to compute. In this 
+chapter, we explore these ideas.

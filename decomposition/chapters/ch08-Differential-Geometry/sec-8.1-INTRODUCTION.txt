@@ -1,0 +1,7 @@
+8.1  INTRODUCTION
+As we move into the digital age, with rapid advances in technology, differential geometry is finding 
+new importance in deep learning. As deep learning becomes more complex, the need to under -
+stand its inner workings grows. This is where differential geometry becomes crucial. By interpreting 
+neural networks using concepts like manifolds and curvature, we can gain valuable insights into how 
+these networks train, optimize, and represent information. This chapter reviews these concepts in 
+more detail.

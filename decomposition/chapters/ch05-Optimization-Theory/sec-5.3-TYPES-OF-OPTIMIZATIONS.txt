@@ -1,0 +1,632 @@
+5.3  TYPES OF OPTIMIZATIONS
+5.3.1   l inear optimization
+Linear optimization, also known as linear programming, focuses on finding the best outcome, like 
+maximizing profit or minimizing cost, in models where all relationships are linear. The main com -
+ponent is the objective function that you want to optimize. For example, if you’re trying to maximize 
+profit from selling two products, A and B, the objective function could be written as Pa Ab B=+ , 
+where a and b represent the profit per unit of products A and B, respectively. In linear optimization, 
+FIGURE 5.1  Feasible region and constraints in linear programming. 
+ 
+  
+
+--- PDF PAGE 148 ---
+135 Optimization Theory
+you have limits called constraints, which are expressed as linear equations or inequalities. Using 
+the example above, constraints might include limitations on available resources like raw materials 
+or labor, represented in linear terms. These constraints define the set of all feasible solutions that 
+meet the requirements. The optimal solution is the one that maximizes or minimizes the objective 
+function within this feasible set. In two-  dimensional cases, this optimal point is often found at a 
+vertex of the feasible polygon, the corner points of the area defined by the constraints. The sim -
+plex method is the most recognized technique for solving linear optimization problems, but other 
+methods, like interior point methods, are also effective, especially in specific situations. However, 
+linear optimization assumes that both the objective function and the constraints are linear, which 
+might not be true in more complex, real-  world scenarios. Nonetheless, some non-  linear problems 
+can be approximated as linear to make use of linear optimization methods, broadening their applic -
+ability. The general form of a linear optimization problem is:
+ Maximizeo r minimizeZc xc xc xnn=++…+11 22 
+Subject to:
+ ax ax ax bnn11 11 22 11++ …+ ≤  
+ ax ax ax bnn21 12 22 22++ …+ ≤  
+ xx xn120 ,,,…≥ 
+Suppose a company produces two products, A and B, with profit margins of $3 per unit for product 
+A and $4 per unit for product B. The objective function for maximizing profit is:
+ MaximizePA B=+34  
+Subject to the following constraints: A +  2B ≤ 14 (raw material constraint), 3A +  B ≤ 18 (labor con -
+straint), and A, B  ≥ 0.
+Figure 5.2  features two primary constraint lines: the light blue line represents the inequality 
+A B+≤21 4 , while the blue line corresponds to A B+≤18 . These lines present the boundaries within 
+which the variables A and B must reside to satisfy both constraints simultaneously. The intersection 
+of these constraints forms the vertices of the feasible region, which is shaded to visually demarcate 
+the area where potential solutions lie. At the core of this feasible region is the optimal solution, 
+marked prominently with a large green point. This point, situated at approximately (4, 3), represents 
+the values of A and B which maximize the objective function P =  3A +  4B while adhering to the 
+defined constraints. Additionally, the red dashed line represents the objective function at its optimal 
+value, P =  24, illustrating the level curve of the objective function that intersects the feasible region 
+at the optimal point. This line serves as a visual cue, demonstrating how the objective function 
+interacts with the constraints to determine the optimal solution.
+5.3.2   n on- linear  optimization
+Non-  linear optimization deals with situations where the objective function, the constraints, or both  
+involve non-  linear relationships. Unlike linear relationships, which are represented by straight lines  
+or flat surfaces, non-  linear interactions add complexity, making these problems more challenging  
+and more reflective of real-  world dynamics. This flexibility is crucial in many scientific and indus -
+trial applications because it models complex relationships. In non-  linear optimization, the objective  
+function includes non-  linear expressions of the decision variables. For example, consider the   
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 149 ---
+136 Mathematical Foundations for Deep Learning
+function PA BA B=+ −2334 , where the goal is to maximize or minimize P. This creates a dynamic  
+landscape of possible solutions, making the optimization process more complicated. Constraints can  
+also be non-  linear, such as A B229+≤, which represents a circular boundary in a two-  dimensional  
+space for variables A and B. This geometric constraint shapes the feasible solution space into forms  
+that are not just flat or polyhedral. The solution techniques include:
+(a) Gradient-  Based Methods:  These include gradient descent, Newton’s method, and quasi-  
+Newton methods, which utilize derivatives to guide the optimization process.
+(b) Direct Search Methods:  For instance, the Nelder–  Mead method operates without derivative 
+information and is suitable for problems where derivatives are infeasible to calculate.
+(c) Evolutionary and Genetic Algorithms:  Inspired by natural selection, these methods use 
+heuristic approaches to explore the solution space, which is especially useful in complex 
+landscapes.
+A general non-  linear optimization problem can be formulated as:
+ Maximizeo r minimizefx xxn12,,,… ()  
+Subject to:
+ gx xx bg xx xb gx xx bnn mn m 11 21 21 22 12,,, , ,,, ,, ,,,… () ≤… () ≤… … () ≤ 
+FIGURE 5.2  Linear optimization: feasible region and objective function. 
+ 
+  
+
+--- PDF PAGE 150 ---
+137 Optimization Theory
+In this case, f(x1, x2) represents the non-  linear objective function, and g(x1, x2) represents the non-  
+linear constraints, shaping the feasible region. Techniques like gradient descent would be used to find 
+optimal solutions. Suppose you aim to maximize the non-  linear objective function PA BAB,()=+22,   
+subject to the non-  linear constraint A B229+≤, which represents a circular boundary with a radius 
+of 3. The feasible solution space is the interior of this circle, and the maximum value of P occurs at 
+the boundary where PA BA B=+ −2334 , producing a maximum value of P(3, 0)=  9.
+Figure 5.3  features a vibrant contour map of the objective function PA BA B=+ −2334 , rendered 
+using the perceptually uniform colormap. Central to the visualization is the constraint A B229+≤
+, depicted as a prominent dashed black circle with a radius of 3. This boundary defines the feasible 
+region in which optimization must occur. The area inside the circle, where both constraints are sat -
+isfied, is subtly highlighted with a semitransparent overlay of the same colormap, reinforcing the 
+feasible region’s significance without overwhelming the objective function’s contours. Additionally, 
+a specific point within the feasible region, such as (1, 1), is marked with a large red scatter point.
+5.3.3   integer  optimization
+Integer optimization (IO), or integer programming (IP), focuses on optimization problems where  
+some or all decision variables must assume integer values. This requirement arises when fractional  
+solutions are impractical, such as determining the number of items to produce, personnel assignments,  
+or scheduling tasks. IO is critical for problems demanding discrete solutions, presenting unique  
+challenges distinct from those of continuous optimization. The types of IO are:
+FIGURE 5.3  Non-  linear optimization with constraints.   
+
+--- PDF PAGE 151 ---
+138 Mathematical Foundations for Deep Learning
+(a) Pure Integer Programming (PIP):  All decision variables are integers.
+(b) Mixed Integer Programming (MIP):  Combines integer and continuous variables, addressing 
+a more complete range of practical scenarios.
+(c) Binary Integer Programming (BIP):  Decision variables are binary (0 or 1), ideal for problems 
+involving binary decisions like turning a process on or off.
+In some optimization problems, the variables are required to be whole numbers (integers). The 
+objective function, which we aim to maximize or minimize, can be linear or non-  linear, leading to 
+situations known as linear IP or non-  linear IP. Similarly, the constraints in these problems can be linear 
+or non-  linear and may also demand that the variables be integers. Several techniques are employed to 
+solve these IP problems. One method is branch and bound (B&B), which involves branching on the 
+fractional parts of variables. This technique systematically explores different possible solutions and 
+uses upper and lower bounds to reduce the search space, making it easier to find the optimal integer 
+solution. Another approach is cutting plane method, which add extra constraints called cutting planes 
+to the problem. These methods derive valid inequalities to eliminate fractional solutions, guiding the 
+search toward integer solutions. Additionally, heuristic methods like rounding or diving provide quick 
+ways to find feasible integer solutions. While these methods are faster, they may not always find the 
+best possible solution but offer an acceptable one. A general IO problem can be formulated as:
+ Maximizeo r minimizeZc xc xc xnn=++…+11 22 
+Subject to:
+ ax ax ax bx xxnn n11 11 22 11 12++ …+ ≤… ∈, ,,,  
+This formulation captures the requirement that decision variables must be integers, and methods 
+like B&B or cutting plane methods are used to solve these problems. Suppose a company needs 
+to produce tables and chairs. The decision variables are the number of tables T and chairs C to 
+produce. The profit is given by the linear objective function Z TC=+20 15 , and the constraint is 
+that the total production cannot exceed 100 units T C+≤100 . As fractional tables or chairs cannot 
+be produced, T and C must be integers. The IO problems are classified as NP-  hard, meaning the 
+computational difficulty can scale exponentially with problem size. The discrete nature of the solu -
+tion space restricts the use of gradient-  based optimization methods that are effective in continuous 
+scenarios. Due to their complexity, IO problems often necessitate specialized computational tools.
+Figure 5.4  illustrates the feasible region defined by the constraint A +  B ≤ 12 and highlights the 
+optimal solution that maximizes the objective function P =  3A +  2B. The plot features a grid of 
+discrete points where both A and B range from 0 to 12, representing all possible combinations of 
+these variables. The feasible solutions are depicted using a scatter plot with square markers, colored 
+according to their corresponding objective function values P. The semitransparent light gray shading 
+delineates the feasible region where the constraint A +  B ≤ 12 is satisfied, providing a boundary 
+that confines the optimization problem’s solution space. At the heart of the feasible region lies the 
+optimal solution, marked prominently with a large golden-  yellow scatter point. This point represents 
+the values of A and B that maximize the objective function P while adhering to the constraint.
+5.3.4   c onvex  optimization
+Convex optimization is a specialized area within optimization where both the objective function and 
+the constraints are convex. This property greatly simplifies the optimization process because any 
+local minimum is also a global minimum, eliminating the uncertainty often found in non-  convex 
+optimization. A function f is considered convex over an interval I if, for any two points x1 and x2 in 
+I and any λ in the interval [0, 1], the following inequality holds: 
+ 
+  
+
+--- PDF PAGE 152 ---
+139 Optimization Theory
+ f xx fx fxλλ λλ12 1211+−( ) () ≤()+−( )() 
+Graphically, this means that the line segment between any two points on the graph of the function 
+lies above or on the graph itself. A set S is convex if, for every pair of points x1 and x2 in S and 
+any λ in the interval [0, 1], the point λλxx121+−( ) also belongs to S. This ensures that the 
+entire line segment between any two points in S is contained within S. Convex optimization 
+problems have several key features. First, if a solution exists, it is unique and globally optimal. 
+Unlike non-  convex problems, convex optimization does not have local optima that are not global. 
+Additionally, the intersection of all constraints forms a convex feasible set, which simplifies 
+the search for the optimal solution. Various techniques are used to solve convex optimization 
+problems. Gradient descent is an iterative method that moves in the direction of the steepest 
+decrease of the function. Interior point methods explore the inside of the feasible set to find the 
+optimal solution. Subgradient and proximal methods are particularly useful for convex optimiza -
+tion problems that are not smooth. Despite their advantages, convex optimization problems can 
+present challenges. Finding the global optimum might be computationally demanding, especially 
+in high-  dimensional spaces. Moreover, not all real-  world problems are convex, and transforming 
+non- convex problems into convex ones can be limiting and impractical. A general convex opti -
+mization problem can be formulated as:
+ Minimizefx () 
+FIGURE 5.4  Integer optimization. 
+ 
+  
+
+--- PDF PAGE 153 ---
+140 Mathematical Foundations for Deep Learning
+Subject to:
+ gx ixi()≤∀ ∈0,  
+where:
+ •f(x) is a convex function,
+ •gi(x) represents convex constraints, and
+ •C is a convex set.
+This ensures that any local minimum is also a global minimum, and techniques like gradient descent 
+or interior point can efficiently solve such problems. Consider the convex function f(x) =  x2 +  4x +  
+4, which has a global minimum at x =  −2. The objective is to minimize this function, subject to the 
+constraint x ≥ −3. As f(x) is convex and the constraint forms a convex set, the optimal solution is 
+x =  −2, where the function achieves its minimum value of 0.
+In Figure 5.5 , the function f xx()=2 is plotted as a smooth curve. This quadratic function 
+represents a simple convex shape, making it suitable for demonstrating the gradient descent method. 
+The gradient descent process begins at the starting point, marked by the green dot, located on the 
+right side of the function. From here, gradient descent iteratively updates the value of x to minimize 
+f(x). At each step, the algorithm moves in the direction of the negative gradient (the slope of the 
+function at the current point), adjusting x to decrease the function value. These steps are represented 
+by the blue dots along the curve. Each dot shows a position where the algorithm evaluates and 
+updates the function value, gradually moving toward the minimum. As the algorithm approaches 
+FIGURE 5.5  Convex optimization using gradient descent on f xx()=2.
+   
+
+--- PDF PAGE 154 ---
+141 Optimization Theory
+the minimum point, highlighted in yellow, the steps become smaller. This behavior illustrates that 
+as the gradient (slope) decreases near the minimum, the updates become less significant, allowing 
+the algorithm to converge precisely at the minimum. The minimum of f xx()=2 occurs at x =  0, 
+where the function value is also zero. The shaded area under the curve provides visual emphasis on 
+the function’s domain, while the red dashed line shows the trajectory of the algorithm’s updates, 
+highlighting how it progressively converges toward the minimum.
+5.3.5   c omBinatorial  optimization
+Combinatorial optimization is an important field within optimization that deals with problems 
+in discrete and combinatorial settings, such as finding the shortest path in a network or graph. It 
+addresses optimization challenges where the solution space consists of distinct, countable options, 
+and the number of possible solutions can be immense, often increasing exponentially as the problem 
+grows larger. A key feature of combinatorial optimization is the discrete nature of its solution space, 
+meaning solutions are separate and countable. As the size of the problem increases, the complexity 
+and the number of potential solutions expand dramatically. These problems often involve selecting 
+the best combination or sequence of elements from a set, which is a defining characteristic of this 
+type of optimization. Common examples of combinatorial optimization problems include the trav -
+eling salesman problem (TSP), where the objective is to find the shortest possible route that visits 
+each city exactly once and returns to the starting point. Another example is graph coloring, where 
+colors are assigned to the vertices of a graph so that no two adjacent vertices share the same color, 
+aiming to use the fewest colors possible. Bin packing involves efficiently packing objects of different 
+sizes into the smallest number of bins. Various techniques are used to solve combinatorial optimiza -
+tion problems. Exact algorithms, such as B&B or the Hungarian algorithm, guarantee an optimal 
+solution but are often very computationally intensive. Heuristic algorithms, like the greedy method 
+or hill climbing, aim to find a good solution quickly, though they do not guarantee the best pos -
+sible solution. Metaheuristic algorithms, such as genetic algorithms or ant colony optimization, are 
+higher-  level strategies that guide simpler heuristics toward better solutions. The main challenges in 
+combinatorial optimization include the NP-  hard nature of many of these problems, meaning there is 
+no known efficient (polynomial-  time) solution, and it is uncertain if one exists. Additionally, the vast 
+size of the solution space makes exhaustive searches impractical except for the smallest problems.
+Figure 5.6  showcases an example of the TSP, which is a classic optimization problem where the 
+objective is to determine the shortest possible route that visits each city exactly once and returns to 
+the starting point. The figure illustrates five cities, labeled A, B, C, D, and E, positioned on a 2D 
+coordinate plane. Each city is marked with a distinct shape and color to enhance clarity. The optimal 
+path connecting these cities is shown by the dark line traversing from one city to the next. The total 
+length of this optimal route is indicated in the legend as 20.06 units, representing the shortest path 
+that satisfies the TSP criteria for these specific cities. The path begins at city A (blue circle), moves 
+through city B (orange star), then continues to city E (purple plus), city C (green triangle), and 
+finally reaches city D (red diamond) before looping back to city A.
+The objective function for the TSP is:
+ Minimize
+in
+iidxx
+=+ ∑()
+11,  
+where:
+ •xi is the ith city in the tour,
+ •d(xi, xi+ 1) represents the distance between cities xi and xi+ 1, and
+ •the solution space consists of all possible permutations of city visits, making the problem 
+combinatorial. 
+  
+
+--- PDF PAGE 155 ---
+142 Mathematical Foundations for Deep Learning
+This formulation represents the challenge of finding the optimal sequence of cities with an enormous  
+solution space, often tackled using exact or heuristic methods. Consider the TSP with five cities.  
+The goal is to find the shortest route that visits each city exactly once and returns to the starting city.  
+If there are five cities, there are 120 possible routes (since 5! =   120). Using an exact algorithm like  
+B&B, the shortest route can be found by systematically evaluating and pruning possible routes.
+5.3.6  g radient  deScent
+Gradient descent is a foundational optimization technique in machine learning, essential for solving 
+complex problems where analytical solutions are either unavailable or computationally prohibitive. 
+This iterative method is adept at navigating multi-  dimensional data landscapes to find the local min -
+imum of a function, typically a loss function in machine learning contexts. The primary objective 
+of gradient descent is to minimize the loss function, which measures the discrepancy between the 
+predicted outputs of a model and the actual outcomes. The principle behind gradient descent is 
+analogous to descending a hill. Mathematically, this is achieved by moving in the direction opposite 
+to the function’s gradient at the current point, which points toward the steepest ascent. Let us go to 
+the detailed mechanics of it:
+ •Gradient:  For a function f x(), where x is a vector of parameters, the gradient ∇()fx is a 
+vector of partial derivatives. It indicates the direction and rate of the steepest increase.
+FIGURE 5.6  Traveling salesman problem. 
+  
+
+--- PDF PAGE 156 ---
+143 Optimization Theory
+ •Update Rule:  The parameter vector x is updated iteratively using the rule: xx fxxnewo ld old=− ∇ () α  
+where α is the learning rate.
+ •Convergence:  Properly tuning the learning rate, and under certain conditions (e.g., con -
+vexity of the function), gradient descent can converge to the global minimum. In non-  convex 
+scenarios, it may settle at a local minimum or a saddle point.
+Gradient descent comes in several variations, each designed to enhance efficiency, stability, or con -
+vergence when solving optimization problems. Stochastic gradient descent (SGD) uses a single 
+randomly selected data point to estimate the gradient, which speeds up each iteration and can help 
+avoid getting stuck in local minima. Mini-  batch gradient descent uses a small subset of data to com -
+pute the gradient, offering a middle ground between the speed of SGD and the stability of using 
+the full dataset. The momentum method adds a portion of the previous update to the current step. 
+This approach aims to accelerate convergence and reduce oscillations, especially in areas where the 
+loss function changes sharply. Adaptive learning rate methods, like Adagrad, RMSprop, and Adam, 
+adjust the learning rate based on previous gradients. This allows for more precise convergence and 
+improved stability during training. Setting the learning rate too high can cause the algorithm to 
+diverge, while setting it too low might lead to slow convergence or getting stuck in suboptimal points. 
+With non-  convex functions, there’s a risk of converging to local minima or saddle points instead of 
+the global minimum. As gradient descent is sensitive to the scale of the features, normalizing or 
+standardizing them is often necessary for effective optimization. Despite these challenges, gradient 
+descent remains a fundamental tool in optimization, especially in machine learning. It supports a 
+wide range of applications, from simple regression tasks to complex deep learning algorithms. Its 
+flexibility and efficiency make it indispensable for researchers and practitioners.
+The updated rule for gradient descent is given by:
+ θ θα θnewo ld=− ∇ ()J 
+where:
+ •θ is the parameter vector,
+ •α is the learning rate, and
+ •∇∇J(θ) is the gradient of the cost function with respect to θ.
+This iterative process continues until the gradient converges, minimizing the loss function and 
+finding the optimal parameters for the model. Suppose you are training a linear regression model 
+to predict house prices. The cost function Jmhx yiiθθ ()=∑ ()−1
+22()  needs to be minimized, where 
+θ represents the model parameters. Let the initial value of θ =  0.5, and the gradient at this point be 
+calculated as ∇∇J(θ) =  1.2. Using a learning rate α =  0.01, the update rule would adjust θ as follows:
+ θ θα θnew=− ∇ ()=− ×= J 05 00 11 20 488 .. ..  
+Figure 5.7  shows the trajectory of gradient descent on the quadratic function f(x) =   x2. The plot starts 
+with a high initial value (the “Starting Point”) and iteratively updates based on the gradient, moving 
+toward the function’s minimum. The objective is to reach the lowest point of the function, which is 
+at x =  0, also marked as the “Final Point.” Each red dashed line and crimson scatter point represents 
+a step in the gradient descent process, with every fifth step labeled for clarity. The goal is to illus -
+trate how the gradient descent algorithm takes steps proportional to the negative of the gradient to 
+minimize the function. The plot helps visualize the optimization process, showing how the gradient 
+descent path narrows down towards the optimal solution. 
+  
+
+--- PDF PAGE 157 ---
+144 Mathematical Foundations for Deep Learning
+FIGURE 5.7  Gradient descent on a quadratic function.
+  newgenrtpdf
+
+--- PDF PAGE 158 ---
+145 Optimization Theory
+5.3.7   Stocha Stic optimization
+Stochastic optimization is a field that deals with problems under uncertainty. In these cases, some 
+parts of the model, such as parameters, constraints, or the objective function, include random 
+variables. This uncertainty makes the optimization process more complex but also more reflective 
+of real-  world situations. The goal in stochastic optimization is often to find a feasible and optimal 
+solution on average or with a high probability rather than one that is deterministically optimal. This 
+approach is crucial for handling scenarios where exact information about the model is unavailable 
+or when the system is subject to random fluctuations and noise. Several techniques are used in sto -
+chastic optimization. One method is sample average approximation (SAA), which involves solving 
+the problem multiple times using different samples from the probability distributions of the uncer -
+tain parameters and then averaging the results. Another technique is SGD, an extension of the trad -
+itional gradient descent method that uses a randomly selected subset of data, called a mini-  batch, 
+to perform each update. This method is commonly used in machine learning for training models on 
+large datasets. Monte Carlo simulation is also employed to assess the impact of risk and uncertainty 
+in prediction and forecasting models by simulating a wide range of possible outcomes. Stochastic 
+optimization faces several challenges. The inherent uncertainty in these problems makes solutions 
+computationally complex and difficult to obtain. The quality of the solutions heavily depends on the 
+quality and quantity of the data available about the uncertainties involved, leading to data depend -
+ency issues. Scalability becomes a concern as the size of the data and the number of uncertain 
+parameters increase, requiring significantly more computational resources to find a solution effi -
+ciently. Despite these challenges, stochastic optimization is increasingly important in industries 
+and sectors where uncertainty is a significant factor. By incorporating randomness directly into 
+the decision-  making process, organizations can develop strategies that are not only theoretically 
+optimal but also practical and robust against real-  world variability and unpredictability. This opti -
+mization approach improves decision-  making by providing frameworks that anticipate and effect -
+ively manage the inherent uncertainties of various operational environments. The general form of a 
+stochastic optimization problem is:
+ Minimizefx,ξ()  
+where:
+ •f(x, ξ) is the objective function,
+ •ξ represents random variables (uncertainties), and
+ • is the expectation over the random variables.
+Techniques such as SAA estimate the objective by averaging over several samples of ξ, helping 
+optimize decisions under uncertainty. Suppose a company wants to optimize its inventory man -
+agement under uncertain demand. Using SGD, they aim to minimize the cost function J(θ), where 
+θ represents the reorder point. With demand data subject to randomness, they update the reorder 
+point iteratively using small mini-  batches of demand data. If the gradient estimate at iteration 1 is 
+∇∇J(θ) =  0.6 and the learning rate is α =  0.05, the updated reorder point would be:
+ θ θα θθnewo ld=− ∇ ()=− ×J00 50 6 ..  
+Figure 5.8 , illustrates the process of SGD for optimizing the objective function f xx()=+2noise .   
+The blue line represents the noisy objective function, f xx()=+2noise , which includes random -
+ness, making the curve less smooth. The path of SGD is traced with red dashed lines, highlighting 
+the steps taken from the starting point to the final point. The green dot marks the starting point of  
+ 
+  
+
+--- PDF PAGE 159 ---
+146 Mathematical Foundations for Deep Learning
+FIGURE 5.8  Stochastic gradient descent.
+  newgenrtpdf
+
+--- PDF PAGE 160 ---
+147 Optimization Theory
+x =  10, where the optimization process begins. The orange dot indicates the final point after 30 
+iterations, showing where the algorithm has converged. Red dots along the dashed line indicate the 
+positions visited by SGD at each iteration. To avoid clutter, every fifth step is annotated with “Step 
+X”, where X is the iteration number, showing the algorithm’s progression.
+5.3.8   Simplex  method
+The Simplex method is a fundamental algorithm in linear optimization, widely used to solve linear 
+programming problems. In linear programming, the primary objective is to maximize or minimize 
+a linear function while satisfying a set of linear equality or inequality constraints. These constraints 
+define the feasible region, which is typically a polyhedron or polytope where the solution must lie. 
+If an optimal solution exists, it will be found at one of the vertices (corner points) of this feasible 
+region. The algorithm starts at a vertex of the feasible region and moves from one vertex to another, 
+checking at each step whether the move improves the value of the objective function. This process 
+continues until it reaches a vertex where no adjacent vertex offers a better value, indicating that the 
+optimal solution has been found. The Simplex method is generally very efficient in practice, even 
+though its worst-  case time complexity can be exponential. This means that while it could theoretic -
+ally take a very long time for some problems, it usually performs exceptionally well in real-  world 
+scenarios. Sometimes, the method might cycle between the same vertices without making progress. 
+To prevent this, strategies like Bland’s Rule are used to ensure that the algorithm moves toward a 
+solution without getting stuck in a loop. Every linear programming problem has a corresponding 
+dual problem. Understanding the relationship between the original (primal) problem and its dual can 
+provide deeper insights and can sometimes simplify finding the solution. The Simplex method has 
+been adapted into various forms to handle more complex situations, such as the Two-  Phase Simplex 
+method and the Revised Simplex method. While the Simplex method remains a dominant technique 
+in linear programming, it faces competition from interior-  point methods, which can be more suit -
+able for solving very large-  scale linear programming problems. The linear programming problem 
+in standard form is:
+ MaximizeZc xc xc xnn=++…+11 22 
+Subject to:
+ Axb x≤≥,0  
+where:
+ •c ccn12,,,…  are the coefficients of the objective function,
+ •A is the matrix of constraint coefficients,
+ •x is the vector of decision variables, and
+ •b is the vector of constraint bounds.
+This formulation represents the optimization problem, where the Simplex method navigates the 
+feasible region defined by the constraints to find the optimal solution. Consider a linear program -
+ming problem to maximize the objective function Z =  3x1 +  2x2, subject to the constraints:
+ xx xx xx12 12 1242 60+≤ +≤ ≥,, ,  
+The Simplex method starts at one vertex of the feasible region, say (0, 0), and iteratively moves 
+to adjacent vertices, checking for improvement in the objective function. The method eventually 
+reaches the optimal solution at x1 =  2, where Z =  10. 
+ 
+ 
+  
+
+--- PDF PAGE 161 ---
+148 Mathematical Foundations for Deep Learning
+Figure 5.9  demonstrates the application of the Simplex method in solving a linear programming 
+problem. The objective is to find the optimal solution that maximizes or minimizes a linear  
+objective function subject to constraints. In this illustration, the constraints are represented by the  
+lines: xx124+≤ (blue line) and 2612xx+≤  (green line). These constraints define the feasible  
+region, shaded in light gray. The feasible region is the set of all points that satisfy both inequalities  
+simultaneously, and it represents all possible solutions to the linear programming problem. The  
+Simplex path is marked in brown and shows the sequence of steps taken by the Simplex algorithm  
+as it moves from one vertex of the feasible region to another, improving the objective function  
+value at each step. The path culminates at the optimal point (2, 2), highlighted in yellow, which  
+represents the optimal solution that maximizes (or minimizes) the objective function under the  
+given constraints.
+5.3.9   l agrangian  multiplier S
+Lagrange multipliers are a robust optimization method used to find a function’s local maxima 
+and minima subject to equality constraints. Named after Joseph-  Louis Lagrange, this technique 
+transforms constrained optimization problems into unconstrained ones, facilitating their solu -
+tion. Consider the problem of finding the extremum (maximum or minimum) of a function/  
+subject to a constraint gx xxn120 ,,,… () =. The method introduces an auxiliary variable, λ (the 
+Lagrange multiplier), to incorporate the constraint into the objective function. The Lagrangian, 
+L, is formulated as:
+ xx xf xx xg xx xnn n12 12 12,,,, ,,, ,,,… () =…() +…() λλ  
+FIGURE 5.9  Simplex method. 
+ 
+  
+
+--- PDF PAGE 162 ---
+149 Optimization Theory
+To find the extremum of f subject to g, we solve for the points where the gradient of the Lagrangian 
+is zero:
+ ∇= ∇+∇=Lf g λ 0 
+This results in a system of equations that, when solved, provide the values of the variables and 
+the Lagrange multiplier. The Lagrange multiplier, has a meaningful interpretation. Generally, it 
+measures the rate of change in the maximum or minimum value of the objective function as the 
+constraint varies. Lagrange multipliers are applied across various fields. In economics, they are 
+used for utility maximization and cost minimization problems. In machine learning, algorithms 
+like support vector machines use Lagrange multipliers for optimization with constraints. While 
+robust, Lagrange multipliers are primarily suited for equality constraints. For problems involving 
+inequality constraints, methods like the Karush–  Kuhn–  Tucker (KKT) conditions are more appro -
+priate. Consider maximizing the function f(x, y) =   xy, subject to the constraint x +  y =  10. Using the 
+Lagrange multiplier λ, we form the Lagrangian:
+ xy xy xy,, λλ( )=+ −− ( ) 10  
+To find the extremum, we take the partial derivatives with respect to x, y, and λ and set them equal 
+to zero:
+ ∂
+∂=−=∂
+∂=−=∂
+∂=− −=
+xyyxx y λλλ00 10 0 ,,  
+Solving this system yields x =  y =  5, giving the maximum value of f(x, y)  =  25. The Lagrange multi -
+plier method transforms a constrained optimization problem into an unconstrained one by introdu -
+cing a new variable λ. The Lagrangian is defined as:
+ xf xg xc ,λλ()=()+ ()−  
+where:
+ •f(x) is the objective function,
+ •g(x) =  c is the constraint,
+ •λ is the Lagrange multiplier.
+The solution is found by solving the system of equations obtained from setting the gradients of the 
+Lagrangian to zero:
+ ∇()=x,λ 0 
+Figure 5.10  displays a contour plot of the function f(x, y)=   xy, with contour lines representing levels 
+of constant function values. The color gradient indicates the objective function’s values, transitioning 
+from blue (lower values) to red (higher values), giving a visual sense of how f(x, y)  changes across 
+the plane. The dashed blue circle represents the constraint xy221+=, which defines the feasible 
+region for this optimization problem. This constraint forms a circle of radius 1 centered at the origin, 
+encompassing all points that satisfy the equation. The red dots marked as optimal points (0.71, 0.71 
+and −0.71, −0.71) indicate where the function reaches its maximum and minimum values within the 
+constrained region. These points are located on the circle where the product xy is maximized and 
+minimized, showing how the constraint influences the objective function’s optimization. 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 163 ---
+150 Mathematical Foundations for Deep Learning
+5.3.10  Branch  and Bound  and cutting  plane method S
+B&B and cutting plane methods are crucial algorithms for solving optimization problems, particu -
+larly combinatorial and IP challenges. B&B is a systematic method for exploring possible solutions 
+within a tree structure. The process begins with branching, where the main problem is divided 
+into smaller subproblems, creating branches in a solution tree. In bounding, each subproblem is 
+evaluated by calculating a bound, and if this bound is better than the current best solution, the 
+subproblem is explored further; otherwise, it is discarded. Pruning occurs when subproblems that 
+cannot improve upon the best-  known solution are eliminated, enhancing efficiency by reducing 
+unnecessary calculations. The cutting plane methods iteratively solve IP problems by refining the 
+feasible region. Here are its general steps:
+(a) Starting Solution:  Start by solving the problem’s linear programming relaxation, ignoring 
+integer constraints.
+FIGURE 5.10  Optimization with constraints. 
+  
+
+--- PDF PAGE 164 ---
+151 Optimization Theory
+(b) Check & Cut:  Verify if the solution meets integer constraints. If not, a cut (linear inequality) 
+is added to exclude the current fractional solution while retaining feasible integer points.
+(c) Iterate:  Repeat until an acceptable integer solution is found or proven that none exists.
+The B&B method explores a solution tree, where each subproblem is a branch, and solutions are 
+bounded. The cutting plane method iterates by adding constraints to refine the feasible region. For 
+the cutting plane method, starting from a linear relaxation:
+MaximizeZc xc x=+11 22 Subject to: Axb x≤≥,0
+If the solution is not integer, add a cut (a linear inequality) to exclude fractional solutions while 
+retaining feasible integer points. These methods iteratively refine and solve the problem, improving 
+computational efficiency by avoiding exhaustive searches. Consider an IP problem where we aim to 
+maximize Z =  3x1 +  4x2, subject to the constraints x1 +  2x2 ≤ 8 and x1, x2 ≥ 0, with x1 and x2 required 
+to be integers. Using B&B, we solve the linear relaxation (ignoring integer constraints), yielding 
+a solution of x1 =  4, x2 =  2. We then branch by creating subproblems where x1 ≤ 3 and x1 ≥ 4, con -
+tinuing to solve and prune subproblems until the optimal integer solution is found.
+Figure 5.11  illustrates the B&B tree used to solve a knapsack problem, a combinatorial optimiza -
+tion challenge where the goal is to maximize the value of items placed in a knapsack without exceeding 
+its weight capacity. The tree starts with the initial node labeled “Start” (value =   0, weight =   0), where 
+no items have been considered yet. From this node, the algorithm branches out, evaluating two 
+choices: Include item 1 (value =   40, weight =   2) or exclude item 1 (value =   0, weight =   0). Each 
+choice generates a new branch, exploring the impact of either including or excluding the item. As 
+the tree progresses, it evaluates further branches for item 2, following the same process of including 
+or excluding the item. Nodes that exceed the weight capacity are marked as pruned/  infeasible, indi -
+cating that these paths do not satisfy the problem’s constraints and are thus discarded from fur -
+ther consideration. The algorithm eventually reaches the optimal node (value =   190, weight =   10), 
+representing the best possible solution that maximizes the value while staying within the weight 
+limit. This node is highlighted to signify that the optimal solution has been found.
+Figure 5.12  illustrates the cutting plane method for solving an integer linear programming (ILP) 
+problem. This approach refines the feasible region of a linear programming problem to efficiently iden -
+tify integer solutions. The plot presents a system of constraints, each represented as a line: −x − 2y ≤ 
+−3 (blue line), x +   2y ≤ 8 (green line), and 2x +   y ≤ 10 (purple line). These constraints collectively form 
+the feasible region, shaded in light gray, where all points satisfy the inequalities simultaneously. The 
+objective is to find an integer solution within this region that optimizes the objective function. To achieve 
+this, the figure shows two cutting planes represented by dashed lines. Cutting plane 1, marked as a red 
+dashed line, adds an additional constraint to exclude non-  integer solutions from the feasible region. 
+Cutting plane 2, shown as an orange dashed line, further refines the solution space, ensuring that only 
+integer solutions remain. The optimal solution, indicated by a yellow dot within the feasible region, 
+represents the best integer solution that meets all constraints while optimizing the objective function.
+5.3.11   e volutionary  algorithm S
+Evolutionary algorithms (EAs) are optimization techniques inspired by natural selection. They 
+simulate the biological principles of evolution, including survival of the fittest, to solve complex 
+problems in various fields such as computer science and engineering. These are the basic concepts:
+ •Population:  A group of potential solutions.
+ •Chromosomes:  Each potential solution.
+ •Genes:  Elements of a solution.
+ •Fitness:  The quality or suitability of a solution.  
+
+--- PDF PAGE 165 ---
+152 Mathematical Foundations for Deep Learning
+FIGURE 5.11  Branch and Bound tree for knapsack problem.
+  newgenrtpdf
+
+--- PDF PAGE 166 ---
+153 Optimization Theory
+The major steps in EAs are:
+ •Initialization:  Generate an initial population of possible solutions randomly.
+ •Selection:  Choose solutions based on fitness to contribute to the next generation. Higher 
+fitness increases the likelihood of selection.
+ •Crossover (Recombination):  Combine selected solutions to create new ones, mimicking 
+reproduction.
+ •Mutation:  Introduce small changes to new solutions with a certain probability to ensure gen -
+etic diversity.
+ •Replacement:  Replace the old population with the new one.
+ •Termination:  Repeat the process until a stopping criterion is met, such as a maximum number 
+of generations or a satisfactory fitness level.
+The types of EAs include genetic algorithms (GAs), which are the most popular type and use muta -
+tion, crossover, and selection to evolve potential solutions. Genetic programming evolves computer 
+programs as solutions, while differential evolution is used for real-  valued function optimization. 
+Evolution strategies focus on strategy parameters such as mutation strength, and evolutionary pro -
+gramming focuses on the mutation of finite-  state machines. The main applications of EAs include 
+function optimization, where they are used to find the maximum or minimum of functions. In machine 
+learning, they are used for feature selection, hyperparameter tuning, and neural network training. 
+The advantages of EAs include flexibility, as they can be applied to a wide range of problems, and 
+global search capabilities, as they have a higher likelihood of finding global optima than many trad -
+itional methods. They also support parallelism, allowing for the simultaneous evaluation of many 
+FIGURE 5.12  Cutting plane method.  
+
+--- PDF PAGE 167 ---
+154 Mathematical Foundations for Deep Learning
+solutions, which can be done in parallel with modern hardware. However, the limitations include 
+being computationally intensive, as the required computational resources can grow significantly 
+with problem size and complexity. Additionally, they do not provide certainty, often offering rea -
+sonable solutions without guaranteeing the global optimum. In GAs, the fitness function evaluates 
+each solution x:
+ Fitnessxf x ()=() 
+The process involves applying selection, where individuals are chosen based on fitness scores. This 
+is followed by crossover, which generates new offspring by combining traits from selected individ -
+uals. Finally, mutation is applied by randomly altering some genes to maintain diversity within the 
+population and prevent premature convergence. This iterative process continues until the stopping 
+criteria are met, typically optimizing the objective function. Suppose you are optimizing a function 
+f(x) =  −x2 +  4x. You initialize a population of 10 potential solutions (chromosomes) for the variable 
+x, each with random values between 0 and 5. The fitness of each solution is calculated using the 
+objective function f(x), and after selection, crossover, and mutation steps, the best solution x =  2, 
+with a fitness value of f(2) =   4, is found after 100 generations.
+Figure 5.13 , demonstrates the application of a GA to optimize the Rastrigin function, a common 
+benchmark problem in evolutionary computation. The Rastrigin function, known for its large search 
+space and many local minima, is defined as f dx x
+id
+iix()=⋅ +− ()
+=∑ 10 10 2
+12cos( ) π , where d is the 
+FIGURE 5.13  Genetic algorithm optimization of Rastrigin function. 
+  
+
+--- PDF PAGE 168 ---
+155 Optimization Theory
+number of dimensions. This example plots the function in two dimensions over the range [−5.12, 
+5.12] for x and y. The contours are filled using the colormap, visually representing the function’s 
+values across the grid. A color bar on the side indicates the corresponding function values. The GA 
+is executed to find the minimum value of the Rastrigin function over 50 generations with a popula -
+tion size of 100, selecting 20 parents in each generation and applying a mutation rate of 0.1. The best 
+solution the GA finds is highlighted with a red dot on the contour map, indicating the optimal point.

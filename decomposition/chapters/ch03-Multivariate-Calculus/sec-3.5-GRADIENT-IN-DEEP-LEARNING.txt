@@ -1,0 +1,128 @@
+3.5  GRADIENT IN DEEP LEARNING
+In deep learning, neural networks are trained for classification and regression by fine-  tuning their 
+weights and biases to minimize a specified loss (or cost) function. Gradients are the driving force 
+behind the training of deep neural networks. By understanding how the loss changes concerning 
+model parameters, we can iteratively adjust these parameters to improve the model’s performance. 
+Despite the challenges associated with gradient calculations, the proper techniques and tools make 
+it possible to harness the power of gradients effectively, maintaining their status as a cornerstone 
+concept in deep learning. The gradient plays several critical roles in deep learning. One key role is in 
+training a neural network, where the goal is to minimize the loss function by updating the network’s 
+weights and biases to reduce the loss. The gradient of the loss function with respect to each weight 
+and bias indicates both the direction and magnitude of the adjustments needed to decrease the loss. 
+Before delving into gradients, it is crucial to understand the role of the loss function in neural 
+networks. The loss function quantifies how well the neural network’s predictions align with the 
+data. The objective of training a neural network is to minimize this loss function. To achieve this, 
+we must understand how the loss changes for the model’s parameters (weights and biases). This 
+is where the gradient comes into play. The gradient of the loss function concerning the model’s 
+parameters shows how the loss function changes in direction and magnitude when these parameters 
+are adjusted. Specifically, for a neural network with thousands (or even millions) of parameters, the 
+gradient is a high-  dimensional vector where each component represents the partial derivative of    
+the loss function with respect to one of these parameters. Each partial derivative indicates how much 
+the loss will increase or decrease if the corresponding parameter is adjusted by a small amount. 
+There are several challenges for gradient in deep learning, here we review some of the most common 
+and their possible solution.
+(a) Vanishing Gradients:  In deep networks, gradients can become very small as they propa -
+gate through the layers, leading to slow learning. Techniques like normalization, appropriate 
+activation functions, and advanced architectures like long short-  term memory networks 
+help mitigate this issue. Using ReLU (Rectified Linear Unit) or its variants can mitigate the 
+vanishing gradient problem.
+(b) Exploding Gradients : Conversely, gradients can become excessively large, causing unstable 
+updates. Gradient clipping is widely used to tackle this issue by limiting the gradients to 
+a maximum value. Gradient clipping involves setting a threshold value and scaling down 
+gradients that exceed this threshold, preventing the exploding gradient problem.
+(c) Saddle Points : Points where the gradient is zero but is neither a minimum nor a maximum of 
+the loss function can cause neural networks to get stuck, slowing down the training process. 
+Algorithms like Adam, RMSprop, and Adagrad adjust the learning rate dynamically and 
+consider past gradients to provide more stable and faster convergence than vanilla gradient 
+descent.
+3.5.1   g radient  deScent
+Gradient descent is an optimization algorithm that minimizes the loss function in neural networks. 
+The idea is simple, iteratively adjust each parameter in the opposite direction of its corresponding 
+gradient component, aiming to reduce the loss function. The update rule for gradient descent is:
+ θ θη θθtt tJ+() () ()=− ∇ ()1  
+ 
+  
+
+--- PDF PAGE 86 ---
+73 Multivariate Calculus
+where
+ •θ is the parameter vector,
+ •η is the learning rate,
+ •∇()()
+θθJt is the gradient of the loss function with respect to θ at iteration t.
+The variations differ in how much data is used to compute the gradient, affecting the speed and 
+efficiency of the optimization process. Suppose you are training a neural network with 100,000 
+parameters, and the goal is to minimize the loss function. The dataset contains 1,000 training 
+samples. Variations of gradient descent include:
+(a) Stochastic Gradient Descent (SGD) : In this case, after processing each individual data 
+sample, the network updates its parameters. So, if you process the first sample, calculate the 
+loss, and compute the gradient, the parameters are updated immediately, and then you pro -
+ceed to the next sample. For example, if the current parameter value is θ(t) =  0.5, the learning 
+rate is η =  0.01, and the gradient for a particular parameter is ∇∇θ =  0.2, the update would be: 
+.. .. θt+()=− ×=105 00 10 20 498 .
+(b) Mini-  Batch Gradient Descent : In mini-  batch gradient descent, the model updates its 
+parameters after processing small, manageable batches of data. For example, if the batch 
+size is 32 samples, the model processes these 32 samples, computes the average gradient 
+for the batch, and updates the parameters accordingly. This approach balances the trade-  off 
+between the efficiency of SGD and the stability of batch gradient descent, leading to faster 
+convergence and smoother updates.
+(c) Batch Gradient Descent:  In batch gradient descent, the model processes the entire dataset 
+(e.g., all 1,000 samples) before updating the parameters. After computing the gradient for 
+the entire dataset, the parameters are updated in one large step. This method provides a more 
+stable gradient estimate, but it is computationally expensive, especially for large datasets, as 
+it requires going through all data points before making an update.
+3.5.2   Backpropagation
+The backpropagation algorithm is essential for determining the gradient of the loss function relative 
+to each network parameter. It operates through two primary phases:
+1. Forward Propagation:  Input data is processed layer by layer to produce the network’s output.
+2. Reverse Propagation:  By applying the chain rule, the gradient of the loss function concerning 
+each parameter is calculated, starting from the output layer and working backward to the 
+input layer.
+The gradient of the loss function L with respect to a weight w in layer l is computed using the 
+chain rule:
+ ∂
+∂=∂
+∂⋅∂
+∂⋅∂
+∂L
+wL
+aa
+zz
+wlll
+ll
+l 
+where:
+ •al is the activation at layer l,
+ •zl is the pre-  activation (linear combination of weights and inputs) at layer l. 
+  
+
+--- PDF PAGE 87 ---
+74 Mathematical Foundations for Deep Learning
+Backpropagation efficiently computes gradients for all parameters in the network, making it funda -
+mental for training deep neural networks. Suppose you’re training a neural network with three layers 
+to classify images. During forward propagation, a sample image passes through the network, and 
+the model predicts a class based on its current parameters. For example, if the true class label is 2 
+and the network predicts class 3, a loss function (such as cross-  entropy) is used to measure the error 
+between the predicted class and the true class. During reverse (backward) propagation, the algo -
+rithm calculates the gradient of the loss with respect to the parameters (weights and biases), starting 
+from the output layer and propagating back through the three layers to the input. Using the chain 
+rule of calculus, backpropagation computes how each weight and bias contributes to the loss. These 
+gradients are then used to update the parameters in the opposite direction of the gradient (through 
+gradient descent), reducing the loss and improving the model’s predictions. This process is repeated 
+for multiple samples in the training set, gradually fine-  tuning the network’s parameters.
+Figure 3.4  illustrates the behavior of a quadratic loss function and the corresponding gradient 
+descent optimization process used to minimize it. In the subplot (a), the loss function L(w) =   (w 
+− 3)2 +  2 is displayed as a smooth blue curve. This parabolic curve depicts how the loss varies with 
+different weight values w, reaching its minimum at the optimal weight w =  3. The Gradient Descent 
+Path is illustrated with a dashed orange line and highlighted with large red markers, tracing the itera -
+tive steps taken from an initial weight of w =  0 toward the minimum. Each red marker represents 
+an updated weight after applying the gradient descent update rule with a learning rate of 0.1, show -
+casing the step-  by- step approach toward minimizing the loss. A vertical dashed green line marks 
+the optimal weight ( w =  3), providing a clear reference point for the goal of the optimization. The 
+subplot (b) focuses on the gradient of the loss function ∇L(w) =   2(w − 3) depicted as a robust orange 
+line. This linear function illustrates how the gradient changes with different values of w, crossing 
+zero precisely at the optimal weight of 3. The gradient steps are marked with purple scatter points, 
+corresponding to the gradient values at each step of the gradient descent process. These points visu -
+ally demonstrate how the gradient diminishes as the weight approaches the optimal value, guiding 
+the descent toward the minimum loss. A horizontal dashed gray line indicates the zero gradient level, 
+providing a reference for where the gradient equals zero, signifying the optimal point.

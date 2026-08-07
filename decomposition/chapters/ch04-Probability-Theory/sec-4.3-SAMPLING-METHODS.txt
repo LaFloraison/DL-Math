@@ -1,0 +1,321 @@
+4.3  SAMPLING METHODS
+Sampling methods are essential in statistics, especially in fields like Bayesian statistics, where 
+they approximate distributions that are otherwise too complex or costly to compute directly. These 
+methods are vital in various applications, including surveys and statistical model fitting, particularly 
+in scenarios involving large or inaccessible full datasets due to constraints such as time, cost, or 
+accessibility.
+4.3.1   Simple random  Sampling
+Simple random sampling (SRS) is a sampling method where each member of the population has 
+an equal chance of being selected, ensuring no selection bias. This method is straightforward and 
+easy to implement, making it a popular choice for many studies. However, its simplicity can be a 
+drawback when dealing with heterogeneous populations, as it may not be efficient in such cases 
+and could lead to the underrepresentation of certain subgroups. Suppose you have a population of 
+1,000 people, and you want to select a sample of 100 individuals. Using SRS, each person has a 
+1 in 10 chance of being selected, ensuring that everyone has an equal probability of inclusion in 
+the sample. The probability of selecting any individual in SRS from a population N with a sample 
+size n is:
+ Pn
+Nselection( )= 
+FIGURE 4.3  Bayesian ridge regression with uncertainty. 
+ 
+ 
+  
+
+--- PDF PAGE 117 ---
+104 Mathematical Foundations for Deep Learning
+If N =  1000 and n =  100, the probability of selecting any individual is:
+ Pselection( )==100
+1 00001,. 
+4.3.2   Stratified  random  Sampling
+Stratified random sampling involves dividing the population into homogeneous subgroups (strata) 
+and then applying SRS within each section. This method can provide more precise estimates, par -
+ticularly if the differences between divisions are significant. However, it is more complex to imple -
+ment compared to SRS, requiring careful identification and separation of strata before sampling can 
+proceed. Suppose a population consists of 1,000 students, and you want to divide them into strata 
+based on grade level: 200 freshmen, 300 sophomores, 250 juniors, and 250 seniors. If you want to 
+sample 10% of the population, you apply SRS by selecting 20 freshmen, 30 sophomores, 25 juniors, 
+and 25 seniors. This ensures that each grade level is proportionally represented in the sample. For a 
+population divided into k strata, the sample size for each stratum h is calculated as:
+ nN
+Nnhh=×  
+where:
+ •Nh is the population size of stratum h,
+ •N is the total population size,
+ •n is the total sample size.
+If N =  1000, Nh =  300 (sophomores), and n =  100, the sample size for sophomores would be:
+ nsophomores=× =300
+1000100 30 
+4.3.3   c luSter Sampling
+Cluster sampling divides the population into clusters, randomly selects certain clusters, and studies 
+all members within these chosen clusters. This method is particularly efficient for geographically 
+dispersed populations, reducing the costs and logistical challenges of data collection. However, it 
+can be potentially less precise than SRS of an equivalent size, as the variability within clusters might 
+not fully represent the entire population. Suppose a city has 50 schools, and you want to sample 
+students. Using cluster sampling, you divide the population by schools (each school is a cluster). 
+You randomly select 10 schools and study all the students in these selected schools. If each school 
+has 200 students, you end up with a sample size of 2,000 students from the selected clusters. The 
+probability of selecting a cluster is:
+ Pclusters electedNumber of clusters selected
+Total numbero fc l( )=u usters 
+If 10 clusters are selected from 50 schools, the probability of selecting any specific school is:
+ Pclusters elected( )==10
+5002.  
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 118 ---
+105 Probability Theory and Statistics
+4.3.4   SyStematic  Sampling
+Systematic sampling selects a random starting point, and then every kth member of the population 
+is chosen. This method is more convenient than SRS due to its straightforward approach and ease 
+of implementation. However, there is a risk of bias if the population has a periodic pattern, as this 
+could result in a non-  representative sample. Suppose you have a population of 1,000 people, and you 
+want to sample 100 individuals. You randomly select a starting point, say 5, and then select every 
+10th person after that (e.g., 5th, 15th, 25th, and so on) until you have your sample of 100 people. If 
+N is the population size, and n is the desired sample size, the sampling interval k is calculated as:
+ kN
+n= 
+If N =  1000 and n =  100, the interval k is:
+ k==1 000
+10010, 
+4.3.5   Quota Sampling  (non- proBaBility method )
+Quota sampling is a non-  probability method that divides the population into subgroups and selects 
+individuals non-  randomly. This approach is simple and cost-  effective, making it attractive for 
+studies with limited resources. However, the absence of random selection makes it less reliable, as 
+it may introduce bias and limit the generalizability of the results. Suppose you want to survey 500 
+people about their favorite type of transportation. You decide to divide the population into subgroups 
+by age: 200 people aged 18–  29, 150 people aged 30–  49, and 150 people aged 50+  . Instead of ran -
+domly selecting individuals from each group, you select people conveniently or based on certain 
+characteristics until you meet the quota for each age group. In quota sampling, the sample size for 
+each subgroup is predefined based on the desired proportions. If the total sample is 500 and 40% of 
+the population is aged 18-  29, you need to select:
+n=× =04 0 500 200 .  individuals from the 18 to 29 group.
+4.3.6   m onte carlo Sampling
+Monte Carlo sampling employs repeated random sampling to compute numerical results based on 
+the law of large numbers. This method is widely used in numerical integration and probability 
+computations, providing robust estimates for complex mathematical problems by simulating random 
+variables and averaging the results. The Monte Carlo estimate of an integral I over a domain D is 
+computed as:
+ INfx
+iN
+i≈ ()
+=∑1
+1 
+where:
+ •N is the number of random samples,
+ •f(xi) is the function value at random points xi drawn from a uniform distribution over D.
+Suppose you want to estimate the value of π by using the Monte Carlo method. You randomly gen -
+erate 100,000 points in a square with side length 2 and count how many fall inside a circle with 
+radius 1 centered at the origin. If 78,539 points fall inside the circle, the estimate for π is: 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 119 ---
+106 Mathematical Foundations for Deep Learning
+ π≈× =478 539
+100 0003 14156,
+,..  
+4.3.7   importance  Sampling
+Importance sampling focuses on sampling more frequently from important but rare regions of the 
+sample space. This method is particularly effective in scenarios where certain outcomes are rare, as 
+it allows for more efficient and accurate estimation of probabilities and expectations by emphasizing 
+the critical regions of the distribution. The expected value fX()  is estimated as:
+ fXNfX pX
+qX iN
+ii
+i() ≈() ()
+() =∑1
+1 
+where:
+ •p(X)  is the original probability distribution,
+ •q(X)  is the importance sampling distribution, and
+ •N is the number of samples.
+Suppose you want to estimate the probability of an event that occurs rarely, like a tail risk in finance. 
+Instead of uniformly sampling from the entire space, you sample more frequently from the tail of 
+the distribution. If you perform 10,000 simulations with a focus on the tail, and 200 events fall in the 
+rare region, you can adjust the estimates based on the importance of this region, improving accuracy 
+over random sampling.
+4.3.8   r eJection  Sampling
+Rejection sampling involves sampling from a simple distribution and then accepting or rejecting 
+each sample based on a predefined criterion. This method is particularly useful for sampling from 
+complex distributions, as it allows for the generation of samples that meet specific criteria even 
+when direct sampling from the desired distribution is challenging. Given a target distribution p(x) 
+and a simpler proposal distribution q(x), you accept a sample x if:
+ upx
+Mxq≤()
+() 
+where:
+ •u is a random uniform number between 0 and 1,
+ •M is a constant such that Mq(x) ≥ p(x)  for all x.
+Suppose you want to sample from a distribution with a complex shape, like a Gaussian distribution, 
+but instead, you sample from a uniform distribution between 0 and 1. You generate 10,000 points 
+uniformly, and for each point, you compute its likelihood under the target distribution. If the ratio 
+of the likelihood to the maximum is greater than a random number, you accept the point; otherwise, 
+you reject it. After performing this process, you are left with 2,500 valid samples.
+4.3.9   m arkov  chain monte carlo
+Markov Chain Monte Carlo (MCMC) constructs a Markov chain that reaches the desired distribution 
+as its balance. This approach is widely used for sampling from complex probability distributions.  
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 120 ---
+107 Probability Theory and Statistics
+Key algorithms within MCMC include Metropolis–  Hastings, Gibbs sampling, and Hamiltonian 
+Monte Carlo, each offering different strategies for constructing and navigating the Markov chain 
+to efficiently explore the sample space and achieve accurate results. In Metropolis–  Hastings, the 
+acceptance probability for moving from the current state x to a proposed state x′ is:
+ αxxpx qx x
+pxqx x→( )=()( )
+()()
+
+′′′
+′min,|1| 
+where:
+ •p(x) is the target distribution,
+ •q(x′ | x) is the proposal distribution for transitioning between states.
+Suppose you want to estimate the posterior distribution of a parameter in a Bayesian model. Using 
+MCMC, specifically the Metropolis–  Hastings algorithm, you generate a Markov chain of 100,000 
+samples. The first 10,000 samples are discarded as burn-  in to ensure the chain has reached equilib -
+rium, and the remaining 90,000 samples represent the parameter’s posterior distribution.
+Figure 4.4  demonstrates the results of a Metropolis–  Hastings MCMC simulation targeting a 
+standard normal distribution. It illustrates the dynamics of the MCMC algorithm and its ability to 
+sample from complex probability distributions. Here, the trace plot illustrates the progression of 
+sampled values over 1,000 iterations. The blue line represents the MCMC chain, showing how the 
+sampled values evolve as the algorithm explores the distribution. A vertical red dashed line marks 
+the end of the burn-  in period at iteration 200, after which the samples are considered to have reached 
+a stable distribution. An annotation highlights the burn-  in period, emphasizing its importance in 
+allowing the chain to converge toward the target distribution before collecting samples for analysis.
+Figure 4.5  displays the posterior distribution of the samples collected after the burn-  in period.  
+The green histogram depicts the density of the sampled values, providing a visual approximation of  
+the target distribution based on the MCMC samples. Overlaid on the histogram is a black dashed line  
+representing the true standard normal distribution. The close alignment between the histogram and  
+the target distribution indicates that the MCMC sampler has effectively approximated the standard  
+normal distribution through the sampling process.
+FIGURE 4.4  MCMC trace plot: convergence to target distribution. 
+  
+
+--- PDF PAGE 121 ---
+108 Mathematical Foundations for Deep Learning
+4.3.10   g iBBS Sampling
+Gibbs sampling is a specific type of MCMC method that is particularly suitable for multivariate 
+distributions. It is often used when the components of the distribution are conditionally independent. 
+By iteratively sampling each variable conditional on the current values of the other variables, 
+Gibbs sampling efficiently explores the sample space and can handle complex, high-  dimensional 
+distributions. For a joint distribution p(X, Y) , Gibbs sampling iteratively updates the variables by 
+sampling from the conditional distributions:
+ Xp XYtt+() ()()1~|  
+ Yp YXtt+() +()()11~|  
+Suppose you want to sample from a bivariate distribution with variables X and Y. Using Gibbs sam -
+pling, you iteratively sample X conditional on Y, and Y conditional on X. After 10,000 iterations, 
+the algorithm generates a sample that approximates the joint distribution of X and Y.
+4.3.11   l atin hypercu Be Sampling
+Latin hypercube sampling (LHS) is a stratified sampling method that divides the sample space into equally 
+probable subdivisions. This approach is particularly efficient for multi-  dimensional sampling, ensuring 
+that each variable is sampled across its entire range, which leads to more representative and coverage of 
+the sample space compared to SRS. In LHS, for each variable Xi (where i indexes the dimensions), the 
+range is divided into N equally probable intervals. Each sample is then selected such that:
+ xj
+Nj
+NjNij()∈−
+
+=…112 ,, ,, . for  
+Suppose you need to sample from a three-  dimensional (3D) parameter space, with each dimension 
+divided into 10 intervals. Using LHS, you randomly select one point from each interval for all three 
+FIGURE 4.5  MCMC sample distribution after burn-  in. 
+ 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 122 ---
+109 Probability Theory and Statistics
+dimensions, ensuring that every part of the parameter space is represented. This results in 10 points 
+per dimension, and the total sample size is 10 rather than the 1,000 points needed for full factorial 
+sampling.
+4.3.12   r eSampling  method S
+Techniques like bootstrapping estimate properties of estimators by sampling from an approximating 
+distribution. These methods are commonly used to assess the variability or stability of statistical 
+models, providing insights into the accuracy and reliability of the model’s predictions by repeatedly 
+sampling with replacement from the dataset to create numerous simulated samples. For each boot -
+strap sample B, drawn with replacement from the original dataset D:
+ ˆ*θB= ( ) statistic resample  
+The empirical distribution of ˆ*θ (e.g., the sample mean) across many resamples provides an esti -
+mate of the variability and confidence intervals for θ, the population parameter. Suppose you have a 
+dataset with 500 observations and want to estimate the mean of the population. Using bootstrapping, 
+you generate 1,000 resampled datasets by randomly selecting 500 observations with replacements 
+from the original dataset. For each of the 1,000 resamples, you calculate the mean, and the distri -
+bution of these means provides an estimate of the variability and confidence intervals for the popu -
+lation mean.
+Figure 4.6  illustrates three distinct sampling methods, SRS, stratified random sampling, and 
+cluster sampling, through a series of subplots, each providing a visual representation of how samples 
+are drawn from a population. In subplot Figure 4.6 a, the SRS method is depicted, where 15 samples 
+are randomly selected from the entire population without replacement. The population data is 
+represented by light gray dots spread uniformly along the index axis, while the SRS samples are 
+highlighted with red dots edged in black, scattered randomly across the index range. Figure 4.6 b 
+showcases stratified random sampling, where the population is divided into three distinct strata. 
+Each stratum is sampled separately, with five samples drawn randomly from each. The sampled data 
+points are colored differently, green, blue, and purple, to represent each stratum, and are also edged 
+in black for emphasis. In Figure 4.6 c, cluster sampling is presented, where the population is divided 
+into five clusters, and two clusters (specifically clusters 2 and 5) are entirely selected for sampling. 
+The sampled clusters are depicted with orange and purple dots, again edged in black, and an anno -
+tation points to one of the sampled clusters to illustrate that entire groups, rather than individual 
+random samples, are included.
+4.3.13   Sampling  method S and overfitting / underfitting
+Sampling methods are pivotal in how well a statistical model can learn and generalize from data. 
+Improper sampling can lead to overfitting and underfitting, each affecting model performance 
+significantly.
+4.3.13.1   Overfitting
+Overfitting occurs when a model learns the specific details and noise within the training data, which 
+can ultimately reduce its performance on new, unseen data. One contributing factor to overfitting 
+is biased sampling, where non-  representative sampling techniques lead to training on a skewed 
+subset of the population. For example, if a model is trained primarily on data from a particular 
+demographic due to sampling biases, it may struggle to generalize to data from other demographics. 
+Another factor is the overuse of resampling techniques. While bootstrapping can be useful for esti -
+mating model accuracy, excessive use without proper cross-  validation can result in overly optimistic  
+ 
+ 
+  
+
+--- PDF PAGE 123 ---
+110 Mathematical Foundations for Deep Learning
+FIGURE 4.6  Comparison of sampling methods. (a) Simple random, (b) stratified random, (c) cluster sampling.
+  newgenrtpdf
+
+--- PDF PAGE 124 ---
+111 Probability Theory and Statistics
+performance evaluations. This can create a false impression of a model’s effectiveness, leading to 
+overly complex models that are prone to overfitting the training data.
+4.3.13.2   Underfitting
+Underfitting occurs when a model is too simple to capture the underlying patterns in the data effect -
+ively or when it has not been exposed to a sufficient amount of data. One cause of underfitting is 
+insufficient sampling, where the sampling method fails to gather enough data or fails to capture the 
+complexity of the underlying population. For instance, in a large and diverse dataset, sparse sam -
+pling may result in a model that struggles to generalize beyond the limited training examples it has 
+seen. Another issue that can lead to underfitting is the use of sparse sampling methods, which may 
+provide too few data points or systematically overlook key aspects of the data distribution. This risk 
+is common with systematic sampling techniques, where an overly large step size may skip important 
+variations in the data, preventing the model from learning the full range of patterns needed for 
+accurate predictions.
+Figure 4.7  demonstrates the concepts of overfitting and underfitting through two illustrative plots. 
+In subplot Figure 4.7 a, the overfitting example showcases how an overly complex model, a high-  
+degree polynomial, fits the sampled data perfectly within a limited range but fails to generalize to 
+the broader dataset. The sampled data, represented by red dots, are collected from a biased portion 
+of the dataset (specifically where x < 4), and the overfitted model is depicted by a dark red curve 
+closely following these points. However, this model diverges significantly from the true underlying 
+function, indicated by the green dashed line, when extended beyond the sampled region, highlighting 
+the model’s inability to generalize. In subplot Figure 4.7 b, the underfitting example illustrates how a 
+simplistic linear model fails to capture the complexity of the data due to insufficient model capacity 
+and sparse sampling. The sampled data here are blue dots sparsely scattered across the entire range 
+of x, and the underfit model is represented by a dark blue straight line that does not align well with 
+the true function’s quadratic and sinusoidal patterns.

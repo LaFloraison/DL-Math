@@ -1,0 +1,30 @@
+4.5  MOMENTS IN STATISTICS AND PROBABILITY THEORY
+In statistics and probability theory, moments are fundamental metrics that describe the shape and 
+characteristics of probability distributions. The nth moment of a random variable X about a value c 
+is the expected value ()Xcn−. If this expectation exists and is finite, the nth moment of X is said to 
+exist. The types of moments are as follows.
+1. Raw Moments (Crude Moments):  The raw moments of a distribution describe the expected 
+values of powers of the random variable. When c =  0, these moments are referred to as raw 
+or crude moments. They provide insights into the overall shape of the distribution. The gen -
+eral formula is as follows:
+ ′=() µnnEX 
+where:
+ • ′µn is the nth raw moment,
+ •E Xn()  is the expected value of the nth power of the random variable X.
+The raw moments capture the distribution’s shape relative to the origin (0). The first 
+raw moment is the mean, which provides the central tendency of the distribution. For a 
+normal distribution with a mean of 0 and a standard deviation of 1, the first raw moment 
+E(X)  is 0, and the second raw moment E X2()  is 1, representing the variance.
+2. Central Moments:  The central moments are the expected values of powers of deviations 
+from the mean. The nth central moment measures the variability of the random variable 
+around the mean. The general formula is as follows:
+µnnEX EX=− () ( [)
+where:
+ •μn is the nth central moment,
+ •E(X)  is the mean of the random variable X.
+The first central moment is always zero because it represents the deviation of the data 
+from the mean, and the second central moment is the variance, which quantifies the dis -
+persion or spread of the distribution. Higher-  order central moments help describe the 
+shape of the distribution. For a normal distribution with a mean of 50 and standard devi -
+ation of 5, the first central moment (deviation from the mean) is zero, and the second 
+central moment (variance) is 52 =  25.
