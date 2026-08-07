@@ -1,0 +1,10 @@
+2.5.3.2  Convolutional Neural Networks
+In CNNs, the convolution operation can be viewed as a series of small, local linear transformations. 
+A convolutional filter (or kernel) slides over different local regions of the input image, applying a 
+linear transformation to produce a feature map. By stacking multiple convolution layers, CNNs 
+detect complex patterns such as edges, textures, and shapes.
+FIGURE 2.12  Visual representation of linear transformations.
+
+--- PDF PAGE 59 ---
+46
+Mathematical Foundations for Deep Learning

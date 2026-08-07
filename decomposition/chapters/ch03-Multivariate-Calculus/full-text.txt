@@ -1,159 +1,204 @@
 
 --- PDF PAGE 65 ---
-52 Mathematical Foundations for Deep Learning
-In Figure 2.17 , the SVD of a matrix M is visualized by transforming a grid of points. The first  
-subplot, titled “Original Grid,” shows the original grid in blue. This grid represents the initial  
-arrangement of points before any transformation, forming a regular grid centered around the origin.  
-The second subplot, titled “Left Singular Vectors ( U),” illustrates the effect of the U matrix on the  
-grid. The U matrix primarily represents a rotation. The green lines and points show how the left sin -
-gular vectors of M rotate the grid. The third subplot, titled “Singular Values (Sigma),” visualizes the  
-effect of the Sigma matrix on the grid. The Sigma matrix scales the grid. The red lines and points  
-depict the grid after being scaled by the diagonal matrix Σ, which adjusts the lengths of the vectors  
-while maintaining their directions. The fourth subplot, titled “Right Singular Vectors ( VT),” shows  
-the effect of the VT matrix on the grid. The VT matrix typically involves another rotation. The orange  
-lines and points illustrate the transformed grid, highlighting the rotation applied by the right singular  
+52
+Mathematical Foundations for Deep Learning
+In Figure 2.17, the SVD of a matrix M is visualized by transforming a grid of points. The first 
+subplot, titled “Original Grid,” shows the original grid in blue. This grid represents the initial 
+arrangement of points before any transformation, forming a regular grid centered around the origin. 
+The second subplot, titled “Left Singular Vectors (U),” illustrates the effect of the U matrix on the 
+grid. The U matrix primarily represents a rotation. The green lines and points show how the left sin-
+gular vectors of M rotate the grid. The third subplot, titled “Singular Values (Sigma),” visualizes the 
+effect of the Sigma matrix on the grid. The Sigma matrix scales the grid. The red lines and points 
+depict the grid after being scaled by the diagonal matrix Σ, which adjusts the lengths of the vectors 
+while maintaining their directions. The fourth subplot, titled “Right Singular Vectors (VT),” shows 
+the effect of the VT matrix on the grid. The VT matrix typically involves another rotation. The orange 
+lines and points illustrate the transformed grid, highlighting the rotation applied by the right singular 
 vectors.
-2.6.5   e igenvalue S and eigenvector S in deep learning
-The eigenvalues of the Hessian matrix (a matrix of second-  order partial derivatives) can indicate  
-the curvature of the loss landscape around a point. A large eigenvalue indicates a steep curvature  
-FIGURE 2.15  Visual representation of eigenvalues and eigenvector. 
-  
+2.6.5  Eigenvalues and Eigenvectors in Deep Learning
+The eigenvalues of the Hessian matrix (a matrix of second-​order partial derivatives) can indicate 
+the curvature of the loss landscape around a point. A large eigenvalue indicates a steep curvature 
+FIGURE 2.15  Visual representation of eigenvalues and eigenvector.
 
 --- PDF PAGE 66 ---
-53 Linear Algebra
-(possibly a sharp minimum or a narrow ravine), making optimization challenging. If the largest  
-eigenvalue of the weight matrices in recurrent neural networks (RNNs) is much larger or much  
-smaller than 1, it can lead to exploding or vanishing gradients, respectively. A fundamental property  
-in deep learning optimization is the curvature of the loss landscape, which can influence training  
+53
+Linear Algebra
+(possibly a sharp minimum or a narrow ravine), making optimization challenging. If the largest 
+eigenvalue of the weight matrices in recurrent neural networks (RNNs) is much larger or much 
+smaller than 1, it can lead to exploding or vanishing gradients, respectively. A fundamental property 
+in deep learning optimization is the curvature of the loss landscape, which can influence training 
 dynamics.
-In Figure 2.18 , the contours of a quadratic function f xy ax by,()=+22 are visualized along with 
-the eigenvectors of its Hessian matrix. The function parameters are defined as a =  2 and b =  5, 
+In Figure 2.18, the contours of a quadratic function f x y
+ax
+by
+,
+(
+) =
++
+2
+2 are visualized along with 
+the eigenvectors of its Hessian matrix. The function parameters are defined as a =​ 2 and b =​ 5, 
 resulting in the quadratic function:
- f xy xy,.()=+2522 
+	
+f x y
+x
+y
+,
+.
+(
+) =
++
+2
+5
+2
+2 	
 The Hessian matrix H of this function is calculated as:
- H=
-
-40
-01 0. 
-FIGURE 2.16  Visual representation of singular value decomposition. 
- 
-  
+	
+H = 
+
+
+
+4
+0
+0
+10 .	
+FIGURE 2.16  Visual representation of singular value decomposition.
 
 --- PDF PAGE 67 ---
-54 Mathematical Foundations for Deep Learning
-The eigenvalues represent the principal curvatures, while the eigenvectors indicate the directions of  
-these curvatures. The plot includes several key elements. First, it features the contours of the quadratic  
-function, where the contour lines represent the levels of the function f(x, y). These lines help visualize  
-how the function values change across the x and y planes and are plotted using a color gradient from  
-the colormap with 50 contour levels. Additionally, the plot displays the eigenvectors of the Hessian  
-matrix, represented as arrows originating from the origin (0, 0). The first eigenvector is shown in  
-red, and the second in blue, indicating the principal directions of the quadratic function’s curvature.  
-Each eigenvector is labeled with its corresponding eigenvalue, and the labels are positioned near the  
-tips of the arrows, with a semi-  transparent white background to enhance readability. Using the top  
-eigenvectors (principal components) corresponding to the largest eigenvalues of the data’s covariance  
-matrix, we can project data into a lower-  dimensional space while retaining most of the variance.
-Figure 2.19  consists of two subplots: one showing the original 3D data and the other displaying  
-the data projected onto the first two principal components. The original 3D data is generated using  
-a multivariate normal distribution with a specified mean and covariance matrix. This data is then  
-reduced to 2D using PCA, a technique that identifies the directions (principal components) along  
-FIGURE 2.17  Visual representation of singular value decomposition.  
+54
+Mathematical Foundations for Deep Learning
+The eigenvalues represent the principal curvatures, while the eigenvectors indicate the directions of 
+these curvatures. The plot includes several key elements. First, it features the contours of the quadratic 
+function, where the contour lines represent the levels of the function f(x, y). These lines help visualize 
+how the function values change across the x and y planes and are plotted using a color gradient from 
+the colormap with 50 contour levels. Additionally, the plot displays the eigenvectors of the Hessian 
+matrix, represented as arrows originating from the origin (0, 0). The first eigenvector is shown in 
+red, and the second in blue, indicating the principal directions of the quadratic function’s curvature. 
+Each eigenvector is labeled with its corresponding eigenvalue, and the labels are positioned near the 
+tips of the arrows, with a semi-​transparent white background to enhance readability. Using the top 
+eigenvectors (principal components) corresponding to the largest eigenvalues of the data’s covariance 
+matrix, we can project data into a lower-​dimensional space while retaining most of the variance.
+Figure 2.19 consists of two subplots: one showing the original 3D data and the other displaying 
+the data projected onto the first two principal components. The original 3D data is generated using 
+a multivariate normal distribution with a specified mean and covariance matrix. This data is then 
+reduced to 2D using PCA, a technique that identifies the directions (principal components) along 
+FIGURE 2.17  Visual representation of singular value decomposition.
 
 --- PDF PAGE 68 ---
-55 Linear Algebra
-which the variance in the data is maximized. The left subplot, titled “Original 3D Data,” presents a  
-scatter plot of the original data points in three-  dimensional space. Each data point is represented by  
-a dot, with its coordinates corresponding to the values in the X, Y, and Z dimensions. The right sub -
-plot, titled “Data Projected onto the First Two Principal Components,” shows the result of projecting  
-the 3D data onto the first two principal components identified by PCA. The scatter plot in this sub -
-plot displays the data points in the reduced 2D space, with the X- axis representing the first principal  
-component and the Y- axis representing the second principal component. The axes are labeled with  
-the percentage of variance explained by each principal component, indicating their significance. The  
-points are colored based on their values along the second principal component, and a colorbar is  
+55
+Linear Algebra
+which the variance in the data is maximized. The left subplot, titled “Original 3D Data,” presents a 
+scatter plot of the original data points in three-​dimensional space. Each data point is represented by 
+a dot, with its coordinates corresponding to the values in the X, Y, and Z dimensions. The right sub-
+plot, titled “Data Projected onto the First Two Principal Components,” shows the result of projecting 
+the 3D data onto the first two principal components identified by PCA. The scatter plot in this sub-
+plot displays the data points in the reduced 2D space, with the X-​axis representing the first principal 
+component and the Y-​axis representing the second principal component. The axes are labeled with 
+the percentage of variance explained by each principal component, indicating their significance. The 
+points are colored based on their values along the second principal component, and a colorbar is 
 added to provide a reference for the color scale.
 L2 regularization adds a penalty to the loss function proportional to the sum of the squares of the 
 model’s weights. This encourages the model to have smaller weights, leading to a smoother model. 
-FIGURE 2.18  Contours of the quadratic function with eigenvalues of the Hessian matrix.  
+FIGURE 2.18  Contours of the quadratic function with eigenvalues of the Hessian matrix.
 
 --- PDF PAGE 69 ---
-56 Mathematical Foundations for Deep Learning
-FIGURE 2.19  Visualization of PCA—  original 3D data and projected 2D Data. 2D, two-  dimensional; 3D, three-  dimensional; PCA, principal component 
-analysis.  newgenrtpdf
+56
+Mathematical Foundations for Deep Learning
+FIGURE 2.19  Visualization of PCA—​original 3D data and projected 2D Data. 2D, two-​dimensional; 3D, three-​dimensional; PCA, principal component 
+analysis.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 70 ---
-57 Linear Algebra
-In Figure 2.20 , the impact of L2 regularization on polynomial regression is illustrated using a set of 
+57
+Linear Algebra
+In Figure 2.20, the impact of L2 regularization on polynomial regression is illustrated using a set of 
 sample data points generated from a noisy cubic function. The figure contrasts the fitting results of 
 polynomial regression with and without L2 regularization. The sample data consists of 10 random 
-points in the interval [−5, 5], with the corresponding y- values generated from a cubic function with 
+points in the interval [−5, 5], with the corresponding y-​values generated from a cubic function with 
 added Gaussian noise:
- yxx=− ++05 20 903. noise.  
+	
+y
+x
+x
+=
+−
++
++
+0 5
+20
+90
+3
+.
+noise.	
 Two polynomial regression models of degree 9 are fitted to the data. The first model is trained 
-without regularization, whereas the polynomial regression model has no penalty applied (alpha =   0). 
-The second model incorporates L2 regularization, specifically Ridge regression, where the regular -
-ization strength is set to alpha =   10. Both models are trained on the same dataset, allowing a com -
+without regularization, whereas the polynomial regression model has no penalty applied (alpha =​ 0). 
+The second model incorporates L2 regularization, specifically Ridge regression, where the regular-
+ization strength is set to alpha =​ 10. Both models are trained on the same dataset, allowing a com-
 parison between the effects of no regularization and L2 regularization on the polynomial fit.
-2.6.6   Singular  value decompo Sition in deep learning
-One of the uses of SVD  in deep learning is in model compression. It can be used to compress fully 
+2.6.6  Singular Value Decomposition in Deep Learning
+One of the uses of SVD in deep learning is in model compression. It can be used to compress fully 
 connected layers in NNs. We can reduce the number of parameters by approximating the weight 
-matrix using a low-  rank approximation (using the top k singular values and the corresponding 
+matrix using a low-​rank approximation (using the top k singular values and the corresponding 
 singular vectors), leading to a more compact model with faster inference times and potentially 
-reduced overfitting. It also can be used in visualization and analysis. SVD , mainly in techniques like 
+reduced overfitting. It also can be used in visualization and analysis. SVD, mainly in techniques like 
 LSA (Latent Semantic Analysis), can help visualize word embeddings or document embeddings 
-in a lower-  dimensional space. Another application is noise reduction in data. By keeping only 
-the top k singular values (and discarding smaller ones), SVD  can filter out noise from data. This 
+in a lower-​dimensional space. Another application is noise reduction in data. By keeping only 
+the top k singular values (and discarding smaller ones), SVD can filter out noise from data. This 
 is commonly used in image processing but can be extended to any data preprocessing in deep 
 learning tasks.
-In Figure 2.21 , the effect of SVD  on denoising an image is demonstrated through a step-  by- step 
+In Figure 2.21, the effect of SVD on denoising an image is demonstrated through a step-​by-​step 
 process involving the addition of noise and subsequent reconstruction. The original image of an 
-astronaut, converted to grayscale format, is shown in the first subplot. This image serves as the ref -
-erence for comparison and is displayed without any modifications to highlight its clarity and base -
-line quality. The second subplot presents the image after introducing salt-  and- pepper noise, which 
+astronaut, converted to grayscale format, is shown in the first subplot. This image serves as the ref-
+erence for comparison and is displayed without any modifications to highlight its clarity and base-
+line quality. The second subplot presents the image after introducing salt-​and-​pepper noise, which 
 randomly replaces some pixels with either black or white. The noise amount is set to 10% of the 
 total pixels, significantly degrading the image quality and making the random black and white pixels 
-visibly scattered throughout. The third subplot illustrates the reconstructed image using SVD , where 
+visibly scattered throughout. The third subplot illustrates the reconstructed image using SVD, where 
 the image is decomposed into three matrices: U, S, and VT. The reconstruction leverages only the 
 top 50 singular values, effectively reducing the noise while retaining essential features of the image. 
 This selective reconstruction results in a smoother image with more defined features compared to 
 the noisy version.
-2.7  REAL-  WORLD APPLICATIONS AND EXAMPLES
-2.7.1   image proce SSing and computer  viSion
+2.7  REAL-​WORLD APPLICATIONS AND EXAMPLES
+2.7.1  Image Processing and Computer Vision
 In computer vision, linear algebra is fundamental to the processing and analysis of images. Images 
 are often represented as matrices where each element corresponds to a pixel’s intensity. Operations 
 such as image rotation, scaling, and translation can be performed using matrix transformations. 
-For example, a rotation matrix can be applied to an image matrix to rotate the image around a spe -
-cific point. CNNs , which are widely used in tasks like facial recognition and object detection, rely 
+For example, a rotation matrix can be applied to an image matrix to rotate the image around a spe-
+cific point. CNNs, which are widely used in tasks like facial recognition and object detection, rely 
 heavily on matrix operations to filter and process images, enabling the network to learn features 
-such as edges, textures, and shapes. 
- 
- 
-  
+such as edges, textures, and shapes.
 
 --- PDF PAGE 71 ---
-58 Mathematical Foundations for Deep Learning
-FIGURE 2.20  Effect of L2 regularization on polynomial regression.
-  newgenrtpdf
+58
+Mathematical Foundations for Deep Learning
+FIGURE 2.20  Effect of L2 regularization on polynomial regression.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 72 ---
-59 Linear Algebra
-2.7.2   n atural  language  proce SSing
-In NLP , vectors and matrices are used to represent words and sentences in a way that machines 
-can understand. Word embeddings, such as Word2Vec, map words to vectors in a high-  dimensional 
+59
+Linear Algebra
+2.7.2  Natural Language Processing
+In NLP, vectors and matrices are used to represent words and sentences in a way that machines 
+can understand. Word embeddings, such as Word2Vec, map words to vectors in a high-​dimensional 
 space where semantically similar words are positioned closely together. These embeddings are 
 created using matrix operations and linear transformations. Additionally, RNNs and transformers 
 utilize tensor operations to handle text sequences, allowing for the efficient processing of sentences 
 and paragraphs in tasks like translation, summarization, and sentiment analysis.
-2.7.3   r oBotic S and autonomou S SyStemS
+2.7.3  Robotics and Autonomous Systems
 In robotics, linear algebra is critical for modeling the motion and control of robots. The position and 
 orientation of a robot in space can be represented using vectors and matrices, and transformations 
 between different coordinate systems are performed using matrix operations. For example, a robot’s arm 
 movement is often modeled as a series of matrix multiplications that describe the rotation and translation 
-of each joint. Autonomous systems, such as self-  driving cars, use these principles to navigate and interact 
-with their environment, calculating paths and making real-  time adjustments based on sensor data.
-2.8  HANDS-  ON EXAMPLE
+of each joint. Autonomous systems, such as self-​driving cars, use these principles to navigate and interact 
+with their environment, calculating paths and making real-​time adjustments based on sensor data.
+2.8  HANDS-​ON EXAMPLE
 In this example, we will generate random input data, define an NN layer with weight and bias 
 matrices, and perform the forward pass using matrix multiplications and transformations.
 Step 1: Setting Up the Environment
-In this step, we are generating random input data that will serve as a small dataset for demonstra -
+In this step, we are generating random input data that will serve as a small dataset for demonstra-
 tion purposes. By using np.random.seed(0), we ensure that the random values generated will be the 
 same every time we run the code, which is important for reproducibility. The function np.random.
 randn(10, 3) generates a 10 × 3 matrix filled with random numbers sampled from a standard normal 
@@ -163,46 +208,43 @@ or visualizations.
 import numpy as np
 import matplotlib.pyplot as plt
 # Seed for reproducibility
-FIGURE 2.21  SVD-  based noise reduction in images. SVD, singular value decomposition. 
- 
- 
- 
-  
+FIGURE 2.21  SVD-​based noise reduction in images. SVD, singular value decomposition.
 
 --- PDF PAGE 73 ---
-60 Mathematical Foundations for Deep Learning
+60
+Mathematical Foundations for Deep Learning
 np.random.seed(0)
 # Generate some random input data (10 samples, 3 features)
-input_ data =  np.random.randn(10, 3)
-print( “Input Data: ”)
-print(input_  data)
+input_​data =​ np.random.randn(10, 3)
+print(“Input Data:”)
+print(input_​data)
 Step 2: Define the NN Layer
-In this step, we are defining a weight matrix and a bias vector that will be used for a simple transform -
+In this step, we are defining a weight matrix and a bias vector that will be used for a simple transform-
 ation of the input data, simulating a linear layer of an NN. The weight matrix, weights, is initialized with 
 random values using np.random.randn (3, 2), which means it has 3 rows (corresponding to the 3 features 
 of the input data) and 2 columns (corresponding to the 2 output units). The bias vector is also initialized 
 randomly with 2 values, representing the biases for each of the 2 output units. By printing both the 
 weights and biases, we can examine the initialized values before applying them to the input data.
 # Define weight matrix (3 features to 2 outputs)
-weights =   np.random.randn(3, 2)
+weights =​ np.random.randn(3, 2)
 # Define bias vector (2 outputs)
-biases =   np.random.randn(2)
-print( “\nWeights: ”)
+biases =​ np.random.randn(2)
+print(“\nWeights:”)
 print(weights)
-print( “\nBiases: ”)
+print(“\nBiases:”)
 print(biases)
 Step 3: Perform the Forward Pass
 In this step, we are performing a forward pass through a simple linear layer, which is a fundamental 
-operation in NNs. The formula Z =   WX +  B represents the transformation of the input data X using 
-the weight matrix W and the bias vector B. The operation np.dot(input_  data, weights) computes the 
+operation in NNs. The formula Z =​ WX +​ B represents the transformation of the input data X using 
+the weight matrix W and the bias vector B. The operation np.dot(input_​data, weights) computes the 
 dot product between the input data and the weight matrix, effectively combining the features and 
 transforming them to match the 2 output units. We then add the vector biases to adjust the output 
-values. The result, stored in output_  data, represents the output of the linear transformation, which 
+values. The result, stored in output_​data, represents the output of the linear transformation, which 
 we print to inspect the result of this forward pass.
-# Perform the forward pass Z =   W * X +   B
-output_ data =  np.dot(input_  data, weights) +   biases
-print( “\nOutput Data: ”)
-print(output_  data)
+# Perform the forward pass Z =​ W * X +​ B
+output_​data =​ np.dot(input_​data, weights) +​ biases
+print(“\nOutput Data:”)
+print(output_​data)
 Step 4: Visualize the Transformations
 In this final step, we are visualizing the transformation of the data through a plot that compares the 
 input data and output data. The code uses matplotlib to create a figure with two subplots: one for the 
@@ -210,387 +252,805 @@ input data and another for the output data. In the input data plot, the first tw
 matrix are visualized as a scatter plot with blue points and labeled as “Feature 1” and “Feature 2.” 
 Similarly, in the output data plot, the transformed output from the forward pass is visualized with 
 red points, representing “Output 1” and “Output 2.” This comparison helps in understanding how the 
-linear transformation affects the original data. 
-  
+linear transformation affects the original data.
 
 --- PDF PAGE 74 ---
-61 Linear Algebra
+61
+Linear Algebra
 # Visualize the input data and output data
-fig, ax =   plt.subplots(1, 2, figsize=  (14, 7))
+fig, ax =​ plt.subplots(1, 2, figsize=​(14, 7))
 # Plot input data
-ax[0] .scatter(input_  data[:, 0], input_  data[:, 1], c=  ‘blue ’,   
-s= 50, edgecolors=  ’w’, label=  ’Input Data ’)
-ax[0] .set_ title( ‘Input Data ’)
-ax[0] .set_ xlabel( ‘Feature 1 ’)
-ax[0] .set_ ylabel( ‘Feature 2 ’)
-ax[0] .legend()
-ax[0] .grid(True)
+ax[0]‌.scatter(input_​data[:, 0], input_​data[:, 1], c=​‘blue’,   
+s=​50, edgecolors=​’w’, label=​’Input Data’)
+ax[0]‌.set_​title(‘Input Data’)
+ax[0]‌.set_​xlabel(‘Feature 1’)
+ax[0]‌.set_​ylabel(‘Feature 2’)
+ax[0]‌.legend()
+ax[0]‌.grid(True)
 # Plot output data
-ax[1] .scatter(output_  data[:, 0], output_  data[:, 1], c=  ‘red’,   
-s= 50, edgecolors=  ’w’, label=  ’Output Data ’)
-ax[1] .set_ title( ‘Output Data ’)
-ax[1] .set_ xlabel( ‘Output 1 ’)
-ax[1] .set_ ylabel( ‘Output 2 ’)
-ax[1] .legend()
-ax[1] .grid(True)
-plt.tight_  layout()
+ax[1]‌.scatter(output_​data[:, 0], output_​data[:, 1], c=​‘red’,   
+s=​50, edgecolors=​’w’, label=​’Output Data’)
+ax[1]‌.set_​title(‘Output Data’)
+ax[1]‌.set_​xlabel(‘Output 1’)
+ax[1]‌.set_​ylabel(‘Output 2’)
+ax[1]‌.legend()
+ax[1]‌.grid(True)
+plt.tight_​layout()
 plt.show()
-Figure 2.22  displays the original randomly generated data points in a 2D feature space. Each point 
-represents a sample with two features plotted on the x- axis (Feature 1) and y- axis (Feature 2). The 
+Figure 2.22 displays the original randomly generated data points in a 2D feature space. Each point 
+represents a sample with two features plotted on the x-​axis (Feature 1) and y-​axis (Feature 2). The 
 points are colored blue and labeled as “Input Data.” The right plot illustrates the “Output Data” after 
 an NN layer has transformed it.
-2.9  COMMON MISTAKES AND TROUBLESHOOTING TIPS
-2.9.1   u nder Standing  vector S
- •Mistake:  Confusing vectors and scalars.
- •Tip: Remember that vectors have both magnitude and direction, whereas scalars only have 
+2.9  COMMON MISTAKES AND TROUBLESHOOTING TIPS
+2.9.1  Understanding Vectors
+	•
+Mistake: Confusing vectors and scalars.
+	•
+Tip: Remember that vectors have both magnitude and direction, whereas scalars only have 
 magnitude.
- •Mistake:  Incorrect calculation of vector magnitude.
- •Tip: Use the Pythagorean theorem: for a vector v =  (x, y), the magnitude is. xy22+.
-2.9.2   v ector  operation S
- •Mistake:  Adding vectors incorrectly by not matching corresponding components.
- •Tip: Ensure you add vectors component-  wise. For u v==(, )( ,)uu and vv12 12, the sum is 
-u v+= ++(, )uv uv11 22.
- •Mistake:  Misunderstanding the dot product operation.
- •Tip: The dot product of u and v is calculated as u · v = u₁v₁  + u₂v₂ . It results in a scalar, not a 
-vector .
- •Mistake:  Incorrectly calculating the cross-  product.
- •Tip: For u=++uuu123 and v=++vvv123, the cross-  product is a × v = ( u2 v3 –   
-uv uv uv uv uv32 31 13 12 21,,) −− . Ensure the resulting vector is perpendicular to both u and v. 
- 
- 
-  
+	•
+Mistake: Incorrect calculation of vector magnitude.
+	•
+Tip: Use the Pythagorean theorem: for a vector v =​ (x, y), the magnitude is. x
+y
+2
+2
++
+.
+2.9.2  Vector Operations
+	•
+Mistake: Adding vectors incorrectly by not matching corresponding components.
+	•
+Tip: Ensure you add vectors component-​wise. For u
+v
+=
+=
+( ,
+)
+( ,
+)
+u u
+and
+v v
+1
+2
+1
+2 , the sum is 
+u
+v
++
+=
++
++
+(
+,
+)
+u
+v u
+v
+1
+1
+2
+2 .
+	•
+Mistake: Misunderstanding the dot product operation.
+	•
+Tip: The dot product of u and v is calculated as u · v = u₁v₁ + u₂v₂. It results in a scalar, not a 
+vector.
+	•
+Mistake: Incorrectly calculating the cross-​product.
+	•
+Tip: For u =
++
++
+u
+u
+u
+1
+2
+3 and v =
++
++
+v
+v
+v
+1
+2
+3, the cross-​product is a × v = (u2 v3 – 
+u v u v
+u v u v
+u v
+3
+2
+3 1
+1 3
+1 2
+2 1
+,
+,
+)
+−
+−
+. Ensure the resulting vector is perpendicular to both u and v.
 
 --- PDF PAGE 75 ---
-62 Mathematical Foundations for Deep Learning
-FIGURE 2.22  Comparison of input and output data in neural network transformations.
-  newgenrtpdf
+62
+Mathematical Foundations for Deep Learning
+FIGURE 2.22  Comparison of input and output data in neural network transformations.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 76 ---
-63 Linear Algebra
-2.9.3   m atrix operation S
- •Mistake:  Mismatching matrix dimensions for multiplication.
- •Tip: Ensure the number of columns in the first matrix matches the number of rows in the 
-second matrix. For matrices A of size n p× , the product is defined and results in a matrix of 
-size m p×  .
- •Mistake:  Forgetting the properties of matrix addition and multiplication.
- •Tip: Remember that matrix multiplication is not commutative AB BA+≠+ ( ). However, 
-matrix addition is commutative AB BA+=+ ( ).
- •Mistake:  Incorrectly computing the determinant.
- •Tip: For a matrix ab
-cd
-
-, the determinant is ad bc− . Practice finding determinants for larger 
+63
+Linear Algebra
+2.9.3  Matrix Operations
+	•
+Mistake: Mismatching matrix dimensions for multiplication.
+	•
+Tip: Ensure the number of columns in the first matrix matches the number of rows in the 
+second matrix. For matrices A of size n
+p
+× , the product is defined and results in a matrix of 
+size m
+p
+× .
+	•
+Mistake: Forgetting the properties of matrix addition and multiplication.
+	•
+Tip: Remember that matrix multiplication is not commutative A
+B
+B
+A
++
+≠
++
+(
+). However, 
+matrix addition is commutative A
+B
+B
+A
++
+=
++
+(
+).
+	•
+Mistake: Incorrectly computing the determinant.
+	•
+Tip: For a matrix a
+b
+c
+d
+
+
+
+, the determinant is ad
+bc
+−
+. Practice finding determinants for larger 
 matrices using cofactor expansion.
-2.9.4   e igenvalue S and eigenvector S
- •Mistake:  Misidentifying eigenvectors and eigenvalues.
- •Tip: For a matrix A, an eigenvector and eigenvalue satisfy Avv= λ. Ensure it is non-  zero and 
+2.9.4  Eigenvalues and Eigenvectors
+	•
+Mistake: Misidentifying eigenvectors and eigenvalues.
+	•
+Tip: For a matrix A, an eigenvector and eigenvalue satisfy Av
+v
+= λ . Ensure it is non-​zero and 
 is a scalar.
- •Mistake:  Overlooking the geometric interpretation of eigenvalues and eigenvectors.
- •Tip: Understand that eigenvectors indicate directions that remain invariant under the trans -
+	•
+Mistake: Overlooking the geometric interpretation of eigenvalues and eigenvectors.
+	•
+Tip: Understand that eigenvectors indicate directions that remain invariant under the trans-
 formation represented by the matrix, while eigenvalues indicate the scaling factor along those 
 directions.
-2.9.5   Singular  value decompo Sition
- •Mistake:  Confusing SVD  with eigenvalue decomposition.
- •Tip: SVD applies to any m × n  matrix, decomposing it into A =  UΣVᵀ, where U and V are 
+2.9.5  Singular Value Decomposition
+	•
+Mistake: Confusing SVD with eigenvalue decomposition.
+	•
+Tip: SVD applies to any m × n matrix, decomposing it into A =​ UΣVᵀ, where U and V are 
 orthogonal matrices, and Σ is a diagonal matrix of singular values. Eigenvalue decomposition 
 applies only to square matrices.
-2.9.6   p ractical  application S and trou BleShooting
- •Mistake:  Neglecting the importance of normalization in deep learning.
- •Tip: Normalize vectors and matrices to improve numerical stability and convergence during 
+2.9.6  Practical Applications and Troubleshooting
+	•
+Mistake: Neglecting the importance of normalization in deep learning.
+	•
+Tip: Normalize vectors and matrices to improve numerical stability and convergence during 
 training. This can prevent issues like vanishing or exploding gradients.
- •Mistake:  Misapplying regularization techniques.
- •Tip: Use techniques like L2 regularization (adding a penalty proportional to the square of the 
+	•
+Mistake: Misapplying regularization techniques.
+	•
+Tip: Use techniques like L2 regularization (adding a penalty proportional to the square of the 
 magnitude of coefficients) to prevent overfitting. Ensure you understand the implications of 
 each regularization method on your model.
-2.10  REVIEW QUESTIONS
-1. Describe the various roles that vectors play in NNs. How do they contribute to data represen -
+2.10  REVIEW QUESTIONS
+1.	 Describe the various roles that vectors play in NNs. How do they contribute to data represen-
 tation, weight storage, and activation functions?
-2. Explain how matrices are utilized within deep learning models. Provide an example of how 
+2.	 Explain how matrices are utilized within deep learning models. Provide an example of how 
 matrix operations are critical in the functioning of dense layers or convolutional layers.
-3. Discuss why tensors are essential in deep learning. What advantages do they offer over 
-vectors and matrices, particularly in handling multi-  dimensional data?
-4. How do tensor operations, such as reshaping and broadcasting, benefit deep learning 
-computations? 
- 
- 
- 
-  
+3.	 Discuss why tensors are essential in deep learning. What advantages do they offer over 
+vectors and matrices, particularly in handling multi-​dimensional data?
+4.	 How do tensor operations, such as reshaping and broadcasting, benefit deep learning 
+computations?
 
 --- PDF PAGE 77 ---
-64 Mathematical Foundations for Deep Learning
-5. Why are linear transformations fundamental in NNs? Discuss how these transformations are 
+64
+Mathematical Foundations for Deep Learning
+5.	 Why are linear transformations fundamental in NNs? Discuss how these transformations are 
 applied in different layers of an NN.
-6. How do eigenvalues and eigenvectors influence model analysis and training? Consider their 
-role in understanding the curvature of the loss landscape and the impact on gradient-  based 
+6.	 How do eigenvalues and eigenvectors influence model analysis and training? Consider their 
+role in understanding the curvature of the loss landscape and the impact on gradient-​based 
 optimization.
-7. How does PCA, based on eigen-  decomposition, assist in deep learning? Provide an example 
+7.	 How does PCA, based on eigen-​decomposition, assist in deep learning? Provide an example 
 of its application in reducing dimensionality while preserving data variance.
-8. Discuss the significance of SVD  in deep learning. How does it enhance the efficiency and 
+8.	 Discuss the significance of SVD in deep learning. How does it enhance the efficiency and 
 performance of NNs?
-9. Why are tensors preferred over matrices for handling image data in deep learning? Explore 
+9.	 Why are tensors preferred over matrices for handling image data in deep learning? Explore 
 the advantages of using tensors in CNNs.
-10. How does SVD  support orthogonal initialization in deep NNs? Explain why this is important 
+10.	 How does SVD support orthogonal initialization in deep NNs? Explain why this is important 
 for maintaining numerical stability during training.
-2.11  PROGRAMMING QUESTIONS
-2.11.1   e aSy
+2.11  PROGRAMMING QUESTIONS
+2.11.1  Easy
 In this exercise, you will generate random input data and apply a transformation using a weight 
 matrix and a bias vector, mimicking the forward pass of a single layer in an NN.
-1. Generate random input data
-2. Define weights and biases
-3. Forward pass with linear transformation
-2.11.2   m edium
+1.	 Generate random input data
+2.	 Define weights and biases
+3.	 Forward pass with linear transformation
+2.11.2  Medium
 In this exercise, you will compare the effects of different weight matrices on the same input data.
-1. Generate random input data
-2. Define two different weight matrices
-3. Forward pass with first weight matrix
-4. Forward pass with a second weight matrix
-2.11.3   h ard
+1.	 Generate random input data
+2.	 Define two different weight matrices
+3.	 Forward pass with first weight matrix
+4.	 Forward pass with a second weight matrix
+2.11.3  Hard
 In this exercise, you will generate random input data, apply a linear transformation using a weight 
-matrix and bias vector, and then apply the ReLU  activation function.
-1. Generate random input data
-2. Define weights and biases
-3. Forward pass with linear transformation
-4. Apply ReLU activation 
- 
- 
-  
+matrix and bias vector, and then apply the ReLU activation function.
+1.	 Generate random input data
+2.	 Define weights and biases
+3.	 Forward pass with linear transformation
+4.	 Apply ReLU activation
 
 --- PDF PAGE 78 ---
-65 DOI: 10.1201/9781032690742-33 Multivariate Calculus
-3.1  INTRODUCTION
+65
+DOI: 10.1201/9781032690742-3
+3	 Multivariate Calculus
+3.1  INTRODUCTION
 In this chapter, we delve into the calculus that underpins key processes such as backpropagation and 
 optimization. We begin by introducing derivatives and gradients, which are crucial for optimizing 
 neural networks through methods like gradient descent. Each mathematical concept discussed here 
 directly impacts how models are built, trained, and optimized, making this chapter an important step 
 in your journey through deep learning.
-3.2  PARTIAL DERIVATIVES
+3.2  PARTIAL DERIVATIVES
 Partial derivatives help us understand how a multivariable function changes to each independent 
 variable, assuming all other variables remain constant. This concept is fundamental in multivariable 
 calculus and finds applications across various fields. When dealing with functions of multiple 
 variables, the rate at which the function changes concerning one variable while keeping other 
-variables constant is known as the partial derivative. Consider the function f xy,(), when taking 
+variables constant is known as the partial derivative. Consider the function f x y
+,
+(
+), when taking 
 the partial derivative of f to x, treat y as a constant and usually differentiate it to x. The same logic 
-applies when taking the partial derivative to y. Let: f xy xy xy,()=+22, the partial derivative of f to 
+applies when taking the partial derivative to y. Let: f x y
+x y
+xy
+,
+(
+) =
++
+2
+2, the partial derivative of f to 
 x is ∂
-∂=+f
-xxy y22, here, treat y as a constant and differentiate to x. The partial derivative of f for y is 
 ∂
-∂=+f
-yxx y22 here, treat x as a constant and differentiate concerning y.
-3.2.1   g eometric  interpretation
-Imagine a three-  dimensional surface described by z fx y= (),. The partial derivative ∂
-∂f
+=
++
+f
+x
+xy
+y
+2
+2, here, treat y as a constant and differentiate to x. The partial derivative of f for y is 
+∂
+∂=
++
+f
+y
+x
+xy
+2
+2
+ here, treat x as a constant and differentiate concerning y.
+3.2.1  Geometric Interpretation
+Imagine a three-​dimensional surface described by z
+f x y
+=
+(
+)
+,
+. The partial derivative ∂
+∂
+f
 x represents 
 the slope of the tangent line to the curve obtained by slicing the surface along the plane where y 
 is constant. Similarly, ∂
-∂f
-y provides the slope of the tangent line to the slice given by x =  constant. 
-Consider the surface z xy=+22, which represents a paraboloid. At the point (x, y)  =  (1, 2), the par -
+∂
+f
+y provides the slope of the tangent line to the slice given by x =​ constant. 
+Consider the surface z
+x
+y
+=
++
+2
+2, which represents a paraboloid. At the point (x, y) =​ (1, 2), the par-
 tial derivatives are as follows:
- ∂
-∂== ()=∂
-∂== ()=z
-xxz
-yy22 12 22 24 ,   
- 
- 
- 
-  
+	
+∂
+∂
+=
+= ( ) =
+∂
+∂=
+= ( ) =
+z
+x
+x
+z
+y
+y
+2
+2 1
+2
+2
+2 2
+4
+,
 
 --- PDF PAGE 79 ---
-66 Mathematical Foundations for Deep Learning
-This means that at point (1, 2), the slope of the tangent line in the x- direction is 2, and in the y- 
+66
+Mathematical Foundations for Deep Learning
+This means that at point (1, 2), the slope of the tangent line in the x-​direction is 2, and in the y-​
 direction, it is 4.
-3.2.2   h igher - order partial  derivative S
-Like single-  variable functions, we can have higher-  order partial derivatives for multivariable 
+3.2.2  Higher-​Order Partial Derivatives
+Like single-​variable functions, we can have higher-​order partial derivatives for multivariable 
 functions. For example, the second partial derivative of f concerning x is denoted ∂
-∂2
-2f
+∂
+2
+2
+f
 x and represents 
 the rate of change ∂
-∂f
+∂
+f
 x about x. We can also have mixed partial derivatives, denoting the change rate 
-relating to y. Consider the function f xy xy xy,()=+223. The first partial derivatives are as follows:
- ∂
-∂=+∂
-∂=+f
-xxy yf
-yxx y 23 622,  
-The second-  order partial derivatives are as follows:
- ∂
-∂=∂
-∂=∂
-∂∂=+2
-22
-22
-26 26f
-xyf
-yxf
-xyxy ,,  
+relating to y. Consider the function f x y
+x y
+xy
+,
+(
+) =
++
+2
+2
+3
+. The first partial derivatives are as follows:
+	
+∂
+∂
+=
++
+∂
+∂=
++
+f
+x
+xy
+y
+f
+y
+x
+xy
+2
+3
+6
+2
+2
+,
+	
+The second-​order partial derivatives are as follows:
+	
+∂
+∂
+=
+∂
+∂
+=
+∂
+∂∂=
++
+2
+2
+2
+2
+2
+2
+6
+2
+6
+f
+x
+y
+f
+y
+x
+f
+x y
+x
+y
+,
+,
+	
 The mixed partial derivative ∂
-∂∂=+2
-26f
-xyxy  tells us how the change in f with respect to x is affected 
+∂∂=
++
+2
+2
+6
+f
+x y
+x
+y tells us how the change in f with respect to x is affected 
 by changes in y.
-Figure 3.1  shows the visualization of the mathematical function and its partial derivatives through 
+Figure 3.1 shows the visualization of the mathematical function and its partial derivatives through 
 a combination of 3D surface and 2D contour plots. The left subplot features a 3D surface plot, illus-
 trating how the function ∂
-∂=+f
-xxy y22 values change over a grid of x and y values ranging from –  2 
+∂
+=
++
+f
+x
+xy
+y
+2
+2 values change over a grid of x and y values ranging from –​2 
 to 2. The surface, colored using the colormap, transitions from blue to yellow to represent different 
 function values, with black edges highlighting the surface ∂
-∂=+f
-yxx y22 for better visual distinction. 
+∂=
++
+f
+y
+x
+xy
+2
+2
+ for better visual distinction. 
 The right subplot is a 2D contour plot showing the partial derivatives of the function concerning 
 x and y. The filled contours represent the partial derivative with respect to x, using the colormap, 
 which spans from cool (blue) to warm (red) colors, indicating the magnitude of the derivative. The 
 black contour lines represent the partial derivative with respect to y. The color bar beside the filled 
 contours provides a reference for the values of the partial derivative with respect to x. The plot 
-includes three sample points marked in red with their coordinates labeled for additional reference:   
-(– 1, 1), (1, –  1), and (1, 1).
-3.3  PARTIAL DERIVATIVES IN DEEP LEARNING
+includes three sample points marked in red with their coordinates labeled for additional reference: 
+(–​1, 1), (1, –​1), and (1, 1).
+3.3  PARTIAL DERIVATIVES IN DEEP LEARNING
 In deep learning, we typically work with deep neural networks comprising multiple layers, each 
 containing numerous weights and biases. The primary goal during training is to adjust these weights 
 and biases to optimize the network’s performance on a given task. Partial derivatives guide this 
 optimization process. Every deep learning model utilizes a loss function (or cost function) that 
 measures the discrepancy between the model’s predictions and the targets. The objective of training 
 is to minimize this loss. We need to understand how the loss changes with tiny adjustments to 
-these parameters to adjust each weight and bias effectively to reduce the loss. This is where partial  
- 
- 
-  
+these parameters to adjust each weight and bias effectively to reduce the loss. This is where partial
 
 --- PDF PAGE 80 ---
-67 Multivariate Calculus
-FIGURE 3.1  (a) Surface plot of f xy xy xy,() =+22 and (b) contours of partial derivatives.
-  newgenrtpdf
+67
+Multivariate Calculus
+FIGURE 3.1  (a) Surface plot of f x y
+x y
+xy
+,
+(
+) =
++
+2
+2 and (b) contours of partial derivatives.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 81 ---
-68 Mathematical Foundations for Deep Learning
-derivatives come into play. It has two features of changes: direction and magnitude. In gradient des -
+68
+Mathematical Foundations for Deep Learning
+derivatives come into play. It has two features of changes: direction and magnitude. In gradient des-
 cent, the weight update rule is as follows:
- wwdL
-dwtt+() ()=−1η  
-where:
- •w(t) is the weight at iteration t,
- •η is the learning rate,
- •dL
-dw is the partial derivative of the loss with respect to w.
-Consider a quadratic loss function L ww()=−() 32, where w represents a weight in the model. This 
-loss function reaches its minimum when w =  3. After computing the partial derivative dL
-dww=−( ) 23  
-the sign of this derivative tells us whether to increase or decrease w. If w =  4, the derivative 
+	
+w
+w
 dL
-dw=−( ) 24 3 , which is positive, indicating we should reduce w to minimize the loss.
-Figure 3.2  illustrates the behavior of the loss function and how its derivative indicates the direc -
-tion of the steepest descent toward the optimal weight. The first subplot on the left displays the quad -
-ratic loss function L ww()=−+() 322, which measures the error or “loss” associated with different 
-values of the weight w. This plot shows a U-  shaped curve where the minimum point represents the 
-optimal weight. A vertical dashed gray line at w =  3 indicates the optimal weight, where the loss 
+dw
+t
+t
++
+(
+)
+( )
+=
+−
+1
+η
+	
+where:
+	•
+w(t) is the weight at iteration t,
+	•
+η is the learning rate,
+	•
+dL
+dw is the partial derivative of the loss with respect to w.
+Consider a quadratic loss function L w
+w
+( ) =
+−
+(
+)
+3 2, where w represents a weight in the model. This 
+loss function reaches its minimum when w =​ 3. After computing the partial derivative dL
+dw
+w
+=
+−
+(
+)
+2
+3  
+the sign of this derivative tells us whether to increase or decrease w. If w =​ 4, the derivative 
+dL
+dw =
+−
+(
+)
+2 4
+3 , which is positive, indicating we should reduce w to minimize the loss.
+Figure 3.2 illustrates the behavior of the loss function and how its derivative indicates the direc­
+tion of the steepest descent toward the optimal weight. The first subplot on the left displays the quad-
+ratic loss function L w
+w
+( ) =
+−
++
+(
+)
+3
+2
+2
+, which measures the error or “loss” associated with different 
+values of the weight w. This plot shows a U-​shaped curve where the minimum point represents the 
+optimal weight. A vertical dashed gray line at w =​ 3 indicates the optimal weight, where the loss 
 function reaches its minimum value. The second subplot on the right displays the derivative of the 
 loss function, which is given by indicating the slope of the loss function. This derivative is crucial 
-for optimization algorithms like gradient descent. It shows a straight line that crosses the x- axis at 
-w =  3, where the derivative is zero, corresponding to the optimal weight. A horizontal dashed gray 
-line at y =  0 indicates where the derivative is zero.
-3.4  GRADIENTS
+for optimization algorithms like gradient descent. It shows a straight line that crosses the x-​axis at 
+w =​ 3, where the derivative is zero, corresponding to the optimal weight. A horizontal dashed gray 
+line at y =​ 0 indicates where the derivative is zero.
+3.4  GRADIENTS
 In multivariable calculus, the gradient is a central concept, especially when dealing with functions 
 of several variables. The gradient provides a way to encapsulate the rates of change of a function in 
 every direction in a single vector. By pointing in the direction of the steepest ascent and having a 
 magnitude representing the maximum increase rate, the gradient offers an understanding of how a 
-function changes in different directions. Given a scalar-  valued function f of several variables, such 
-as f(x, y)  or f(x, y, z) , the gradient of f, denoted by ∇f or “grad f,” is a vector whose components 
-are the partial derivatives of f concerning each of its variables. For a function f(x, y) , the gradient   
-is ,∇=∂
-∂∂
-∂
-
-ff
-xf
-y. For a function f(x, y, z) , the gradient is ,,∇=∂
-∂∂∂∂
-∂
-
-
-ff
-xfyf
-z, and so on for functions 
+function changes in different directions. Given a scalar-​valued function f of several variables, such 
+as f(x, y) or f(x, y, z), the gradient of f, denoted by ∇f or “grad f,” is a vector whose components 
+are the partial derivatives of f concerning each of its variables. For a function f(x, y), the gradient 
+is 
+,
+∇=
+∂
+∂
+∂
+∂
+
+
+
+
+f
+f
+x
+f
+y . For a function f(x, y, z), the gradient is 
+,
+,
+∇=
+∂
+∂
+∂
+∂
+∂
+∂
+
+
+
+
+f
+f
+x
+f
+y
+f
+z , and so on for functions 
 with more variables. Its geometric interpretation includes the following:
-(a) Direction:  The gradient of a function indicates the direction of the steepest ascent. If you 
+(a)	 Direction: The gradient of a function indicates the direction of the steepest ascent. If you 
 imagine standing on a hill represented by the function f and walking toward the gradient, you 
 will climb the mountain as steeply as possible.
-(b) Magnitude:  The gradient vector’s magnitude (or length) represents the function’s maximum 
-increase rate. If the gradient is zero at a point, then that point is a local maximum, local min -
-imum, or a saddle point. 
-  
+(b)	 Magnitude: The gradient vector’s magnitude (or length) represents the function’s maximum 
+increase rate. If the gradient is zero at a point, then that point is a local maximum, local min-
+imum, or a saddle point.
 
 --- PDF PAGE 82 ---
-69 Multivariate Calculus
-FIGURE 3.2  (a) Loss function and (b) derivative of the loss function.
-  newgenrtpdf
+69
+Multivariate Calculus
+FIGURE 3.2  (a) Loss function and (b) derivative of the loss function.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 83 ---
-70 Mathematical Foundations for Deep Learning
+70
+Mathematical Foundations for Deep Learning
 Gradient has two main properties:
-1. Linearity:  For scalar constants a and b and functions F and G: ∇+( )=∇ +∇af bg af bg
-2. Dot Product with Directional Derivative:  The dot product of the gradient of f at a point and 
-a unit vector u gives the rate of change of f in your direction. This is also known as the dir -
-ectional derivative of F in the direction Df fuu=∇ ⋅  .
+1.	 Linearity: For scalar constants a and b and functions F and G: ∇
++
+(
+) = ∇+ ∇
+af
+bg
+a f
+b g
+2.	 Dot Product with Directional Derivative: The dot product of the gradient of f at a point and 
+a unit vector u gives the rate of change of f in your direction. This is also known as the dir-
+ectional derivative of F in the direction D f
+f u
+u
+
+= ∇⋅ .
 Gradients can be computed analytically using differentiation rules for each partial derivative. 
-However, analytical computations can be challenging for complicated functions, especially in high-  
+However, analytical computations can be challenging for complicated functions, especially in high-​
 dimensional spaces. In such cases, numerical methods or automatic differentiation tools (standard 
 in machine learning frameworks) might be employed. In gradient descent, the weights are updated 
 iteratively in the opposite direction of the gradient of the loss function. The update rule for a weight 
 w at iteration t can be expressed as follows:
- wwL
-wtt+=−∂
-∂1η  
+	
+w
+w
+L
+w
+t
+t
++ =
+−
+∂
+∂
+1
+η
+	
 where η is the learning rate and ∂
-∂L
+∂
+L
 w is the gradient of the loss L with respect to w. Additionally, 
 backpropagation is an algorithm designed to compute gradients efficiently in neural networks. It 
 propagates the error backward through the network, layer by layer, to determine the gradient of the 
-loss with respect to each weight. This process relies heavily on the chain rule of calculus to decom -
-pose the gradient calculation into manageable steps. Consider a function f xy xy,()=+22, the gra -
+loss with respect to each weight. This process relies heavily on the chain rule of calculus to decom-
+pose the gradient calculation into manageable steps. Consider a function f x y
+x
+y
+,
+(
+) =
++
+2
+2, the gra-
 dient of f is:
- ∇()=∂
-∂∂
-∂
-
-=( ) fx yf
-xf
-yxy ,, , 22  
-At the point (x, y)  =  (1, 2), the gradient is:
- ∇()=× ×( )=() f12 21 22 24 ,, ,  
+	
+∇(
+) =
+∂
+∂
+∂
+∂
+
+
+
+= (
+)
+f x y
+f
+x
+f
+y
+x
+y
+,
+,
+,
+2
+2
+	
+At the point (x, y) =​ (1, 2), the gradient is:
+	
+∇(
+) =
+×
+×
+(
+) = (
+)
+f 1 2
+2
+1 2
+2
+2 4
+,
+,
+,
+	
 This tells us that at the point (1, 2), the function increases most rapidly in the direction (2, 4), and the 
 steepness of the increase is proportional to the length of the gradient, which is:
-  ∇()=+ =≈ f12 24 20 44 722,.  
-Figure 3.3  illustrates the shape of the function’s surface alongside the direction and magnitude of 
-its gradient at various points. The contour plot depicts the function f xy xy ,()=+22, representing 
+	
+ 
+∇(
+) =
++
+=
+≈
+f 1 2
+2
+4
+20
+4 47
+2
+2
+,
+.
+	
+Figure 3.3 illustrates the shape of the function’s surface alongside the direction and magnitude of 
+its gradient at various points. The contour plot depicts the function f x y
+x
+y
+,
+(
+) =
++
+2
+2, representing 
 a symmetrical paraboloid surface characterized by lines of constant function value. These contour 
-lines indicate the function’s elevation as one moves outward from the origin, with labels speci -
+lines indicate the function’s elevation as one moves outward from the origin, with labels speci-
 fying their corresponding values for enhanced clarity. The gradient vectors are visualized as red 
-arrows, which embody the direction and magnitude of the function’s gradient ∇f(x, y) =   (2x, 2y). 
+arrows, which embody the direction and magnitude of the function’s gradient ∇f(x, y) =​ (2x, 2y). 
 The length and orientation of each arrow accurately represent the gradient’s strength and direction, 
 effectively demonstrating the steepest ascent paths of the function at those locations. Key points 
-such as (1, 1), (–  1, – 1), (1, –  1), and (–  1, 1) are distinctly marked on the plot with blue annotations 
+such as (1, 1), (–​1, –​1), (1, –​1), and (–​1, 1) are distinctly marked on the plot with blue annotations 
 and corresponding arrows. These annotations are strategically positioned to prevent overlap with 
 other plot elements, ensuring that each key point is easily identifiable and their associated gradient 
-vectors are clearly understood. Additionally, black lines are drawn along the y =  0 and x =  0 axes to  
- 
- 
-  
+vectors are clearly understood. Additionally, black lines are drawn along the y =​ 0 and x =​ 0 axes to
 
 --- PDF PAGE 84 ---
-71 Multivariate Calculus
-FIGURE 3.3  Contour plot f xy xy,() =+22 with gradient vectors.
-  newgenrtpdf
+71
+Multivariate Calculus
+FIGURE 3.3  Contour plot f x y
+x
+y
+,
+(
+) =
++
+2
+2 with gradient vectors.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 85 ---
-72 Mathematical Foundations for Deep Learning
+72
+Mathematical Foundations for Deep Learning
 denote the origin, aiding in spatial orientation and providing a reference framework for interpreting 
 the plot’s elements.
-3.5  GRADIENT IN DEEP LEARNING
-In deep learning, neural networks are trained for classification and regression by fine-  tuning their 
+3.5  GRADIENT IN DEEP LEARNING
+In deep learning, neural networks are trained for classification and regression by fine-​tuning their 
 weights and biases to minimize a specified loss (or cost) function. Gradients are the driving force 
 behind the training of deep neural networks. By understanding how the loss changes concerning 
 model parameters, we can iteratively adjust these parameters to improve the model’s performance. 
@@ -607,299 +1067,702 @@ we must understand how the loss changes for the model’s parameters (weights an
 is where the gradient comes into play. The gradient of the loss function concerning the model’s 
 parameters shows how the loss function changes in direction and magnitude when these parameters 
 are adjusted. Specifically, for a neural network with thousands (or even millions) of parameters, the 
-gradient is a high-  dimensional vector where each component represents the partial derivative of    
+gradient is a high-​dimensional vector where each component represents the partial derivative of 
 the loss function with respect to one of these parameters. Each partial derivative indicates how much 
 the loss will increase or decrease if the corresponding parameter is adjusted by a small amount. 
 There are several challenges for gradient in deep learning, here we review some of the most common 
 and their possible solution.
-(a) Vanishing Gradients:  In deep networks, gradients can become very small as they propa -
+(a)	 Vanishing Gradients: In deep networks, gradients can become very small as they propa-
 gate through the layers, leading to slow learning. Techniques like normalization, appropriate 
-activation functions, and advanced architectures like long short-  term memory networks 
+activation functions, and advanced architectures like long short-​term memory networks 
 help mitigate this issue. Using ReLU (Rectified Linear Unit) or its variants can mitigate the 
 vanishing gradient problem.
-(b) Exploding Gradients : Conversely, gradients can become excessively large, causing unstable 
+(b)	 Exploding Gradients: Conversely, gradients can become excessively large, causing unstable 
 updates. Gradient clipping is widely used to tackle this issue by limiting the gradients to 
 a maximum value. Gradient clipping involves setting a threshold value and scaling down 
 gradients that exceed this threshold, preventing the exploding gradient problem.
-(c) Saddle Points : Points where the gradient is zero but is neither a minimum nor a maximum of 
+(c)	 Saddle Points: Points where the gradient is zero but is neither a minimum nor a maximum of 
 the loss function can cause neural networks to get stuck, slowing down the training process. 
 Algorithms like Adam, RMSprop, and Adagrad adjust the learning rate dynamically and 
 consider past gradients to provide more stable and faster convergence than vanilla gradient 
 descent.
-3.5.1   g radient  deScent
+3.5.1  Gradient Descent
 Gradient descent is an optimization algorithm that minimizes the loss function in neural networks. 
 The idea is simple, iteratively adjust each parameter in the opposite direction of its corresponding 
 gradient component, aiming to reduce the loss function. The update rule for gradient descent is:
- θ θη θθtt tJ+() () ()=− ∇ ()1  
- 
-  
+	
+θ
+θ
+η
+θ
+θ
+t
+t
+t
+J
++
+(
+)
+( )
+( )
+=
+−
+∇
+(
+)
+1
 
 --- PDF PAGE 86 ---
-73 Multivariate Calculus
+73
+Multivariate Calculus
 where
- •θ is the parameter vector,
- •η is the learning rate,
- •∇()()
-θθJt is the gradient of the loss function with respect to θ at iteration t.
+	•
+θ is the parameter vector,
+	•
+η is the learning rate,
+	•
+∇
+(
+)
+( )
+θ
+θ
+J
+t is the gradient of the loss function with respect to θ at iteration t.
 The variations differ in how much data is used to compute the gradient, affecting the speed and 
 efficiency of the optimization process. Suppose you are training a neural network with 100,000 
 parameters, and the goal is to minimize the loss function. The dataset contains 1,000 training 
 samples. Variations of gradient descent include:
-(a) Stochastic Gradient Descent (SGD) : In this case, after processing each individual data 
+(a)	 Stochastic Gradient Descent (SGD): In this case, after processing each individual data 
 sample, the network updates its parameters. So, if you process the first sample, calculate the 
-loss, and compute the gradient, the parameters are updated immediately, and then you pro -
-ceed to the next sample. For example, if the current parameter value is θ(t) =  0.5, the learning 
-rate is η =  0.01, and the gradient for a particular parameter is ∇∇θ =  0.2, the update would be: 
-.. .. θt+()=− ×=105 00 10 20 498 .
-(b) Mini-  Batch Gradient Descent : In mini-  batch gradient descent, the model updates its 
+loss, and compute the gradient, the parameters are updated immediately, and then you pro-
+ceed to the next sample. For example, if the current parameter value is θ(t) =​ 0.5, the learning 
+rate is η =​ 0.01, and the gradient for a particular parameter is ∇θ =​ 0.2, the update would be: 
+.
+.
+.
+.
+θ t+
+(
+) =
+−
+×
+=
+1
+0 5
+0 01
+0 2
+0 498.
+(b)	 Mini-​Batch Gradient Descent: In mini-​batch gradient descent, the model updates its 
 parameters after processing small, manageable batches of data. For example, if the batch 
 size is 32 samples, the model processes these 32 samples, computes the average gradient 
-for the batch, and updates the parameters accordingly. This approach balances the trade-  off 
+for the batch, and updates the parameters accordingly. This approach balances the trade-​off 
 between the efficiency of SGD and the stability of batch gradient descent, leading to faster 
 convergence and smoother updates.
-(c) Batch Gradient Descent:  In batch gradient descent, the model processes the entire dataset 
+(c)	 Batch Gradient Descent: In batch gradient descent, the model processes the entire dataset 
 (e.g., all 1,000 samples) before updating the parameters. After computing the gradient for 
 the entire dataset, the parameters are updated in one large step. This method provides a more 
 stable gradient estimate, but it is computationally expensive, especially for large datasets, as 
 it requires going through all data points before making an update.
-3.5.2   Backpropagation
+3.5.2  Backpropagation
 The backpropagation algorithm is essential for determining the gradient of the loss function relative 
 to each network parameter. It operates through two primary phases:
-1. Forward Propagation:  Input data is processed layer by layer to produce the network’s output.
-2. Reverse Propagation:  By applying the chain rule, the gradient of the loss function concerning 
+1.	 Forward Propagation: Input data is processed layer by layer to produce the network’s output.
+2.	 Reverse Propagation: By applying the chain rule, the gradient of the loss function concerning 
 each parameter is calculated, starting from the output layer and working backward to the 
 input layer.
 The gradient of the loss function L with respect to a weight w in layer l is computed using the 
 chain rule:
- ∂
-∂=∂
-∂⋅∂
-∂⋅∂
-∂L
-wL
-aa
-zz
-wlll
-ll
-l 
+	
+∂
+∂
+= ∂
+∂
+⋅∂
+∂
+⋅∂
+∂
+L
+w
+L
+a
+a
+z
+z
+w
+l
+l
+l
+l
+l
+l
+	
 where:
- •al is the activation at layer l,
- •zl is the pre-  activation (linear combination of weights and inputs) at layer l. 
-  
+	•
+al is the activation at layer l,
+	•
+zl is the pre-​activation (linear combination of weights and inputs) at layer l.
 
 --- PDF PAGE 87 ---
-74 Mathematical Foundations for Deep Learning
-Backpropagation efficiently computes gradients for all parameters in the network, making it funda -
+74
+Mathematical Foundations for Deep Learning
+Backpropagation efficiently computes gradients for all parameters in the network, making it funda-
 mental for training deep neural networks. Suppose you’re training a neural network with three layers 
 to classify images. During forward propagation, a sample image passes through the network, and 
 the model predicts a class based on its current parameters. For example, if the true class label is 2 
-and the network predicts class 3, a loss function (such as cross-  entropy) is used to measure the error 
-between the predicted class and the true class. During reverse (backward) propagation, the algo -
+and the network predicts class 3, a loss function (such as cross-​entropy) is used to measure the error 
+between the predicted class and the true class. During reverse (backward) propagation, the algo-
 rithm calculates the gradient of the loss with respect to the parameters (weights and biases), starting 
 from the output layer and propagating back through the three layers to the input. Using the chain 
 rule of calculus, backpropagation computes how each weight and bias contributes to the loss. These 
 gradients are then used to update the parameters in the opposite direction of the gradient (through 
 gradient descent), reducing the loss and improving the model’s predictions. This process is repeated 
-for multiple samples in the training set, gradually fine-  tuning the network’s parameters.
-Figure 3.4  illustrates the behavior of a quadratic loss function and the corresponding gradient 
-descent optimization process used to minimize it. In the subplot (a), the loss function L(w) =   (w 
-− 3)2 +  2 is displayed as a smooth blue curve. This parabolic curve depicts how the loss varies with 
-different weight values w, reaching its minimum at the optimal weight w =  3. The Gradient Descent 
-Path is illustrated with a dashed orange line and highlighted with large red markers, tracing the itera -
-tive steps taken from an initial weight of w =  0 toward the minimum. Each red marker represents 
-an updated weight after applying the gradient descent update rule with a learning rate of 0.1, show -
-casing the step-  by- step approach toward minimizing the loss. A vertical dashed green line marks 
-the optimal weight ( w =  3), providing a clear reference point for the goal of the optimization. The 
-subplot (b) focuses on the gradient of the loss function ∇L(w) =   2(w − 3) depicted as a robust orange 
+for multiple samples in the training set, gradually fine-​tuning the network’s parameters.
+Figure 3.4 illustrates the behavior of a quadratic loss function and the corresponding gradient 
+descent optimization process used to minimize it. In the subplot (a), the loss function L(w) =​ (w 
+− 3)2 +​ 2 is displayed as a smooth blue curve. This parabolic curve depicts how the loss varies with 
+different weight values w, reaching its minimum at the optimal weight w =​ 3. The Gradient Descent 
+Path is illustrated with a dashed orange line and highlighted with large red markers, tracing the itera-
+tive steps taken from an initial weight of w =​ 0 toward the minimum. Each red marker represents 
+an updated weight after applying the gradient descent update rule with a learning rate of 0.1, show-
+casing the step-​by-​step approach toward minimizing the loss. A vertical dashed green line marks 
+the optimal weight (w =​ 3), providing a clear reference point for the goal of the optimization. The 
+subplot (b) focuses on the gradient of the loss function ∇L(w) =​ 2(w − 3) depicted as a robust orange 
 line. This linear function illustrates how the gradient changes with different values of w, crossing 
 zero precisely at the optimal weight of 3. The gradient steps are marked with purple scatter points, 
-corresponding to the gradient values at each step of the gradient descent process. These points visu -
+corresponding to the gradient values at each step of the gradient descent process. These points visu-
 ally demonstrate how the gradient diminishes as the weight approaches the optimal value, guiding 
 the descent toward the minimum loss. A horizontal dashed gray line indicates the zero gradient level, 
 providing a reference for where the gradient equals zero, signifying the optimal point.
-3.6  JACOBIANS
-Jacobian is a fundamental concept in various branches of mathematics, including calculus, differen -
+3.6  JACOBIANS
+Jacobian is a fundamental concept in various branches of mathematics, including calculus, differen-
 tial equations, and geometry. It is essential in multivariate calculus and has numerous applications in 
 theoretical and applied mathematics. The Jacobian matrix of a system of transformation equations is 
-a matrix of the first-  order partial derivatives of the functions involved. For a vector-  valued function/  
-mapping it can be ff:, ()()
-()
-()RR⋮nm
-mxfx
-fx
-fx→=
-
-
-
-
-1
-2 nmto , the Jacobian matrix is m × n, defined as 
-follows:
- Jf
-xf
-xf
-x
+a matrix of the first-​order partial derivatives of the functions involved. For a vector-​valued function/​
+mapping it can be f
 f
-xf
-xf
-x
-f
-xf
-xn
+:
+,
+( )
+( )
+( )
+( )
+R
+R
+⋮
 n
-mmf()=∂
-∂∂
-∂∂
-∂
-∂
-∂∂
-∂∂
-∂
-∂
-∂∂
-∂1
-11
-21
+m
+m
+x
+f x
+f
+x
+f
+x
+→
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
 2
-12
-22
-1…
+ 
+
+n
+m
+to
+, the Jacobian matrix is m × n, defined as 
+follows:
+	
+J
+f
+x
+f
+x
+f
+x
+f
+x
+f
+x
+f
+x
+f
+x
+f
+x
+n
+n
+m
+m
+f( ) =
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+1
+1
+1
+2
+1
+2
+1
+2
+2
+2
+1
 …
-⋮⋮ ⋱⋮
-2 2…∂
-∂
-
-
-f
+…
+⋮
+⋮
+⋱
+⋮
+2
+…
+∂
+∂
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f
 x
 m
-n  
-  
+n
 
 --- PDF PAGE 88 ---
-75 Multivariate Calculus
-FIGURE 3.4  (a) Loss function and gradient descent path, (b) gradient of the loss function.
-  newgenrtpdf
+75
+Multivariate Calculus
+FIGURE 3.4  (a) Loss function and gradient descent path, (b) gradient of the loss function.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 89 ---
-76 Mathematical Foundations for Deep Learning
-Here, Fi represents the ith component of the vector-  valued function F. The Jacobian matrix has sev -
+76
+Mathematical Foundations for Deep Learning
+Here, Fi represents the ith component of the vector-​valued function F. The Jacobian matrix has sev-
 eral critical applications. In optimization, the Jacobian provides information about the gradient and 
 direction to move toward or away from a local optimum, aiding in the optimization process.
-3.6.1   Jaco Bian determinant
+3.6.1  Jacobian Determinant
 The determinant of a Jacobian matrix is called the Jacobian determinant or simply the Jacobian. For 
-a function that maps from nn→  , the Jacobian determinant indicates how the function scales 
+a function that maps from 
+
+n
+n
+→
+ , the Jacobian determinant indicates how the function scales 
 areas or volumes in the neighborhood of a point. If the Jacobian determinant at a point is positive, 
 the function preserves orientation near that point; if it is negative, the function reverses orientation.
-For a transformation function fnn:→ , the Jacobian determinant is:
- det() det,,,
-,,,Jff f
-xx xn
-n=∂…()
-∂…()
-
-12
-12 
+For a transformation function f
+n
+n
+: 
+
+→
+, the Jacobian determinant is:
+	
+det( )
+det
+,
+,
+,
+,
+,
+,
+J
+f
+f
+f
+x x
+x
+n
+n
+=
+∂
+…
+(
+)
+∂
+…
+(
+)
+
+
+
+
+
+
+1
+2
+1
+2
+	
 The Jacobian determinant informs how the function scales areas or volumes locally and whether it 
-preserves or reverses orientation. Consider a transformation function that maps from 22to . The 
-function transforms the coordinates (x, y)  to new coordinates (u, v)  using the equations:
- u xy vx y=+ =−2,  
+preserves or reverses orientation. Consider a transformation function that maps from 
+
+2
+2
+to
+. The 
+function transforms the coordinates (x, y) to new coordinates (u, v) using the equations:
+	
+u
+x
+y
+v
+x
+y
+=
++
+=
+−
+2
+,
+	
 The Jacobian matrix is:
- J=−
-
-21
-11 
+	
+J =
+−
+
+
+
+
+2
+1
+1
+1 	
 The Jacobian determinant is calculated as follows:
- detJ()=× −( )−×()=− −= −2111 21 3  
+	
+det J( ) =
+× −
+(
+) −
+×
+(
+) = −−= −
+2
+1
+1 1
+2
+1
+3	
 As the determinant is negative, the transformation reverses orientation near the point.
-3.6.2   r elation Ship with the chain rule
+3.6.2  Relationship with the Chain Rule
 The Jacobian matrix is closely related to the chain rule in calculus. The chain rule allows us to find 
 the derivative of a composite function, and when working with tasks from nto m, it involves the 
-Jacobian matrix. Specifically, if f and g are functions such that fnp:→  and pm→ , then the 
-Jacobian matrix of the composite function h gf=°  is the product of the Jacobian matrices of g and 
-f. If fnp:→  and gpm:→ , the Jacobian of the composite function hgfx= ()( ) is:
- JxJ fx Jxhg f()= ()( )⋅() 
-The chain rule in multi-  dimensional calculus uses this product of Jacobians to compute the deriva -
+Jacobian matrix. Specifically, if f and g are functions such that f
+n
+p
+: 
+
+→
+ and 
+
+p
+m
+→
+, then the 
+Jacobian matrix of the composite function h
+g f
+=
+° is the product of the Jacobian matrices of g and 
+f. If f
+n
+p
+: 
+
+→
+ and g
+p
+m
+: 
+
+→
+, the Jacobian of the composite function h
+g f x
+=
+( )
+(
+) is:
+	
+J
+x
+J
+f x
+J
+x
+h
+g
+f
+( ) =
+( )
+(
+)⋅
+( )	
+The chain rule in multi-​dimensional calculus uses this product of Jacobians to compute the deriva-
 tive of composite functions. Suppose you have two functions:
-1. f(x, y) =   (2x +  y, x − y)
-2. g(u, v) (where u and v are the outputs of f(x, y))
+1.	 f(x, y) =​ (2x + ​y, x − y)
+2.	 g(u, v) (where u and v are the outputs of f(x, y))
 To find the derivative of the composite function g(f(x, y)), you need to use the chain rule for 
 multivariable functions, which involves multiplying the Jacobian matrices of g and f. Let us do the 
-process step by step: 
- 
- 
- 
- 
- 
-  
+process step by step:
 
 --- PDF PAGE 90 ---
-77 Multivariate Calculus
-1. Compute the Jacobian of  f(x, y) : The Jacobian matrix of f(x, y) is the matrix of partial 
+77
+Multivariate Calculus
+1.	 Compute the Jacobian of f(x, y): The Jacobian matrix of f(x, y) is the matrix of partial 
 derivatives of each component of f with respect to x and y:
- Jxyxy
-xxy
+	
+J
+x y
+x
 y
-xy
-xxy
-yf,()=∂+( )
-∂∂+( )
+x
+x
+y
+y
+x
+y
+x
+x
+y
+y
+f
+,
+(
+) =
 ∂
-∂−( )
-∂∂−( )
-∂
++
+(
+)
+∂
+∂
++
+(
+)
+∂
+∂
+−
+(
+)
+∂
+∂
+−
+(
+)
+∂
+
+
+
+
+
+
+
+
+
+
+
+
+=
+2
+2
+2
+1
+1
+−
+
 
-
-=22
-21
-1− −
-
-1 
-2. Compute the Jacobian of  g(u, v) : Suppose g(u, v) is a function of u and v, you need to com -
+
+
+1 	
+2.	 Compute the Jacobian of g(u, v): Suppose g(u, v) is a function of u and v, you need to com-
 pute its Jacobian with respect to u and v:
- Juvg
-ug
+	
+J
+u v
+g
+u
+g
 v
 g
-ug
-vg,()=∂
-∂∂
+u
+g
+v
+g
+,
+(
+) =
 ∂
 ∂
-∂∂
-∂
-
-
-11
-22 
-3. Apply the Chain Rule:  The chain rule for multivariable functions states that the Jacobian of 
+∂
+∂
+∂
+∂
+∂
+∂
+
+
+
+
+
+
+
+
+
+
+1
+1
+2
+2
+	
+3.	
+Apply the Chain Rule: The chain rule for multivariable functions states that the Jacobian of 
 the composite function g(f(x, y)) is the product of the Jacobian matrices of g and f:
- J xy Ju vJ xygf gf ()()=()⋅() ,, , 
-3.6.3   c omputational  aSpect S
+	
+J
+x y
+J
+u v
+J
+x y
+g f
+g
+f
+( ) (
+) =
+(
+)⋅
+(
+)
+,
+,
+,
+	
+3.6.3  Computational Aspects
 In computational fields, the Jacobian is often used in numerical methods, such as Newton’s Method. 
 This technique finds the roots of equations with multiple variables, utilizing the Jacobian matrix 
 to approach the solution iteratively. The Jacobian assists in linearizing complex systems, making 
 numerical approximation methods more efficient. Newton’s Method for systems of equations uses 
 the Jacobian matrix to update guesses iteratively:
- xx xf xnn nnJ+() () − () ()=− () ⋅()1 1 
+	
+x
+x
+x
+f x
+n
+n
+n
+n
+J
++
+(
+)
+( )
+−
+( )
+( )
+=
+−
+(
+)⋅(
+)
+1
+1
+	
 where
- •x()nis the current guess,
- •J is the Jacobian matrix of the system,
- •f represents the system of equations.
-This iterative process converges to the roots, making it effective for solving non-  linear systems. 
+	•
+x( )
+n is the current guess,
+	•
+J is the Jacobian matrix of the system,
+	•
+f represents the system of equations.
+This iterative process converges to the roots, making it effective for solving non-​linear systems. 
 Suppose you want to find the roots of the system of equations:
- f xy xy fx yx y122
-240 0 ,, , ()=+−= ()=−=  
-Using Newton’s Method, you start with an initial guess, say ( x0, y0) =  (1, 1), and iteratively apply the 
+	
+f
+x y
+x
+y
+f
+x y
+x
+y
+1
+2
+2
+2
+4
+0
+0
+,
+,
+,
+(
+) =
++
+−
+=
+(
+) =
+−
+= 	
+Using Newton’s Method, you start with an initial guess, say (x0, y0) =​ (1, 1), and iteratively apply the 
 method to get closer to the solution. The Jacobian matrix for this system is:
- Jxy=−
-
-22
-11 
-This matrix is used in the iterative formula to update the guesses for x and y. 
- 
- 
- 
- 
- 
-  
+	
+J
+x
+y
+=
+−
+
+
+
+
+2
+2
+1
+1 	
+This matrix is used in the iterative formula to update the guesses for x and y.

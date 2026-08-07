@@ -1,0 +1,128 @@
+8.3.4  Information Geometry
+Information geometry is a fascinating intersection of probability theory and differential geometry. 
+It studies random variables and probability distributions using geometric structures. One prominent 
+concept from information geometry is the Fisher Information Metric. In deep learning, this metric 
+helps us understand the sensitivity of a model’s predictions to its parameters. In Bayesian deep 
+learning, where we consider a distribution over neural network weights instead of fixed values, 
+information geometry plays a crucial role in understanding the model’s uncertainty and guiding the 
+learning process. Imagine a neural network trained for image classification. Instead of treating the 
+weights of the network as fixed values, we treat them as random variables, representing our uncer-
+tainty about the optimal weights. In this probabilistic framework, Information Geometry helps us 
+understand the geometry of the parameter space in terms of probability distributions. The Fisher 
+Information Metric is a key tool here, as it measures how sensitive the model’s predictions are to 
+small changes in the weights. The Fisher Information Metric defines a Riemannian metric on the 
+space of probability distributions. It essentially measures how much information a random variable 
+carries about the unknown parameters of a distribution. In the context of deep learning, it helps 
+quantify how much influence a small change in the model’s parameters θ has on the predicted prob-
+ability distribution. Mathematically, if p(x∣θ) is the probability distribution of the data x given the 
+parameters θ, the Fisher Information Matrix I(θ) is defined as:
+	
+I
+p x
+p x
+T
+θ
+θ
+θ
+θ
+θ
+( ) =
+∂
+(
+)
+∂
+
+
+
+
+∂
+(
+)
+∂
+
+
+
+
+
+
+
+
+
+
+
+
+
+log
+log
+,
+|
+|
+	
+where:
+	•
+p(x ∣ θ) is the likelihood function.
+	•
+The expectation E is taken with respect to the data distribution.
+
+--- PDF PAGE 268 ---
+255
+Differential Geometry
+This matrix tells us how sensitive the likelihood is to changes in the parameters. If the Fisher 
+Information Matrix has large values, it indicates that small changes in the parameters will signifi-
+cantly affect the likelihood, suggesting that the model is highly sensitive to those parameters.
+In Bayesian deep learning, where we model a distribution over the neural network weights 
+instead of using fixed weights, information geometry provides insights into uncertainty. The Fisher 
+Information Metric can guide how the weight distribution is updated during training. Instead of 
+taking fixed steps in parameter space, we adjust the steps based on the geometry of the space, 
+leading to more informed updates. Consider the Fisher Information Matrix as a measure of the local 
+geometry around a point in parameter space. In natural gradient descent, the Fisher Information 
+Matrix is used to scale the parameter updates in a way that takes into account the underlying geom-
+etry of the probability distributions. The natural gradient update is given by:
+	
+θ
+θ
+η θ
+θ
+θ
+t
+t
+t
+t
+I
+L
++
+−
+=
+−
+∇
+( )
+1
+1
+(
+)
+,	
+where:
+	•
+I(θt)−1 is the inverse of the Fisher Information Matrix,
+	•
+∇θL(θt) is the gradient of the loss function,
+	•
+η is the learning rate.
+This approach ensures that parameter updates are adapted to the sensitivity of the model to changes 
+in the parameters, improving convergence, especially in high-​dimensional or complex models.
+Figure 8.5 provides a comparative visualization of a loss landscape Figure 8.5a and feature space 
+clusters Figure 8.5b to demonstrate how different parameter configurations and feature distributions 
+impact classification and optimization in machine learning. In Figure 8.5a, the 3D loss landscape 
+illustrates how the value of the loss function changes across different parameter settings. The sur-
+face is colored using a gradient from blue (low loss) to red (high loss), indicating convex, concave, 
+and saddle regions as the parameter values vary. The contour lines highlight the elevation levels, 
+making it easier to visualize the gradient flow and pathways toward minima. The convex region 
+(highlighted in red) represents areas where the function value is higher, typically seen in regions 
+away from the global minimum. The concave region (blue) indicates a valley where the loss value 
+is minimized. The green dot marks a saddle point, where the surface curves upward in one direc-
+tion and downward in another, demonstrating the challenges faced during optimization when tra-
+versing such regions. Figure 8.5b presents a 2D scatter plot of feature space, showing two clusters 
+corresponding to different classes: Class 1 (orange circles) and Class 2 (blue squares). The clusters 
+are well-​separated, indicating that the features provide enough distinction for classification. Arrows 
+point to the centers of each class cluster, demonstrating the centroids where the mean feature values 
+for each class lie.

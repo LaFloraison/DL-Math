@@ -1,73 +1,71 @@
 
---- PDF PAGE 11 ---
- 
-
 --- PDF PAGE 12 ---
-xiAbout the Author
-Mehdi Ghayoumi  is a distinguished Assistant Professor at the Center for Criminal Justice, 
+xi
+About the Author
+Mehdi Ghayoumi is a distinguished Assistant Professor at the Center for Criminal Justice, 
 Intelligence, and Cybersecurity at the State University of New York (SUNY) Canton. His academic 
 career is marked by excellence and leadership, reflecting a deep commitment to both teaching and 
 research. Previously, as a Research Assistant Professor at SUNY Binghamton, he spearheaded 
-innovative projects at the Media Core Lab, driving forward research and development in emer -
+innovative projects at the Media Core Lab, driving forward research and development in emer-
 ging technologies. At Kent State University, his exceptional teaching earned him the prestigious 
 Teaching Award for two consecutive years, 2016 and 2017.
 Ghayoumi has been instrumental in developing several courses in fields such as machine learning, 
 data science, robotics, and programming. His broad and impactful research interests include Machine 
-Learning, Machine Vision, Robotics, Human–  Robot Interaction (HRI), and privacy. Focusing on the 
-creation of practical and viable systems for real-  world environments, his current multidisciplinary 
+Learning, Machine Vision, Robotics, Human–​Robot Interaction (HRI), and privacy. Focusing on the 
+creation of practical and viable systems for real-​world environments, his current multidisciplinary 
 research spans HRI, manufacturing, biometrics, and healthcare.
 Deeply involved in the academic community, Ghayoumi serves on technical program committees 
-for numerous high-  profile conferences and workshops. He is also a member of the editorial boards 
+for numerous high-​profile conferences and workshops. He is also a member of the editorial boards 
 for several respected journals in machine learning, mathematics, and robotics. His influence reaches 
 some of the most prestigious conferences in these domains, including ICML, ICPR, NeurIPS HRI, 
-FG, WACV , IROS, CIBCB, and JAI.
-Ghayoumi’s contributions are substantial and far-  reaching. His research has been presented at 
-leading conferences and published in top-  tier journals, earning recognition for its depth and prac -
+FG, WACV, IROS, CIBCB, and JAI.
+Ghayoumi’s contributions are substantial and far-​reaching. His research has been presented at 
+leading conferences and published in top-​tier journals, earning recognition for its depth and prac-
 tical relevance. He has made significant strides in advancing HRI, Robotics Science and Systems 
 (RSS), and machine learning applications, demonstrating his ongoing commitment to pushing the 
-boundaries of knowledge and technology.  newgenprepdf
-
---- PDF PAGE 13 ---
+boundaries of knowledge and technology.
  
+ 
+newgenprepdf
 
 --- PDF PAGE 14 ---
-1 DOI: 10.1201/9781032690742-11 Introduction
-1.1  INTRODUCTION
-Welcome to Mathematical Foundations for Deep Learning , a journey into the core of mathematics 
+1
+DOI: 10.1201/9781032690742-1
+1	 Introduction
+1.1  INTRODUCTION
+Welcome to Mathematical Foundations for Deep Learning, a journey into the core of mathematics 
 and its impact on artificial intelligence (AI). Over the past 10 years, deep learning has changed 
 industries and how we use technology. This book aims to make these complex ideas easier to 
 understand by focusing on the main mathematical principles behind deep learning. Whether 
-you’re a computer scientist looking to deepen your knowledge, an artist exploring where cre -
+you’re a computer scientist looking to deepen your knowledge, an artist exploring where cre-
 ativity meets technology or just someone who’s curious, this book will show how mathematics is 
-the backbone of AI. You’ll learn how abstract concepts turn into real-  world applications through 
+the backbone of AI. You’ll learn how abstract concepts turn into real-​world applications through 
 clear examples, such as the role of linear algebra in neural networks and the use of calculus 
 in optimization algorithms. This chapter gives an overview of the main topics we’ll cover. It 
 highlights how these mathematical ideas help build and improve deep learning models, preparing 
 you for the detailed exploration ahead.
-1.2  IMPORTANCE OF MATHEMATICS IN DEEP LEARNING
+1.2  IMPORTANCE OF MATHEMATICS IN DEEP LEARNING
 Deep learning is a field that combines many different areas, and mathematics plays a big role in 
-it. But why is math so important for deep learning? Simply put, mathematics provides the founda -
+it. But why is math so important for deep learning? Simply put, mathematics provides the founda-
 tion for everything in deep learning. It helps organize complex information, creates structure from 
 random data, and gives meaning to the numbers we work with. If you want to design, understand, 
 or improve deep learning algorithms, having a strong grasp of these mathematical ideas is not just 
 useful but essential. Mathematics makes it possible to build effective models that can learn from data 
 and make accurate predictions.
-1.2.1   Structuring  chao S
+1.2.1  Structuring Chaos
 Deep learning is about finding meaningful patterns hidden in large amounts of data. However, as 
 there’s so much data and it can be quite random, finding these patterns can feel like searching 
 for a needle in a haystack. This is where mathematics comes in to turn chaos into something we 
-can manage and understand. Mathematical principles, especially linear algebra, provide system -
-atic ways to process and represent data. Concepts like vectors, matrices, and tensors are funda -
+can manage and understand. Mathematical principles, especially linear algebra, provide system-
+atic ways to process and represent data. Concepts like vectors, matrices, and tensors are funda-
 mental in deep learning. They allow us to represent and manipulate data efficiently. This structured 
 approach makes it easier to use computational techniques that speed up data analysis. For example, 
 matrix operations let us transform entire datasets into a single, coherent action, greatly simplifying 
-the data processing phase. When deep learning algorithms extract insights or patterns from data,  
- 
- 
-  
+the data processing phase. When deep learning algorithms extract insights or patterns from data,
 
 --- PDF PAGE 15 ---
-2 Mathematical Foundations for Deep Learning
+2
+Mathematical Foundations for Deep Learning
 mathematics, particularly statistics and probability, provides the essential tools to measure these 
 discoveries. Measures like mean, median, standard deviation, and correlation give us the language to 
 describe and assess patterns, turning abstract data into clear insights. Moreover, mathematics plays 
@@ -76,8 +74,8 @@ adjust model parameters step by step to minimize errors. This optimization proce
 learning models to learn from data and improve their accuracy over time. Mathematics also offers 
 strategies to handle outliers and prevent overfitting. Techniques like regularization help balance a 
 model’s complexity, improving its ability to generalize and leading to more reliable predictions in 
-real- world applications.
-1.2.2   impo Sing ruleS on randomne SS
+real-​world applications.
+1.2.2  Imposing Rules on Randomness
 Deep learning often involves dealing with uncertainty, like the random starting weights in neural 
 networks. This brings up an important question: How can we use this randomness to improve 
 our model’s predictions? Mathematics, with its clear yet flexible rules, offers a structured way to 
@@ -85,57 +83,57 @@ handle this uncertainty. A neural network begins by setting initial weights, whi
 how well it performs. These weights are usually given random values within a specific range, but 
 this randomness isn’t without control. Mathematical principles guide the choice of this range and 
 how the initial weights are distributed, ensuring they’re set up properly for effective learning. As 
-the network trains, it adjusts these weights based on the errors it makes, a process where math -
+the network trains, it adjusts these weights based on the errors it makes, a process where math-
 ematics truly shines. Math provides systematic methods for updating these weights, which is 
 crucial for learning effectively from randomness. At the heart of learning in neural networks is 
 backpropagation, an algorithm based on the chain rule from calculus. Backpropagation calculates 
 the gradient of the loss function with respect to the network’s weights. This gradient shows how to 
 update the weights to minimize errors, steadily improving the network’s performance. To put this 
 in simple terms, imagine navigating a complex maze without a clear path. Backpropagation acts 
-as a guide, giving you step-  by- step directions on how to adjust your course at each turn. While 
+as a guide, giving you step-​by-​step directions on how to adjust your course at each turn. While 
 randomness plays a key role in deep learning, the goal is for models to eventually find optimal 
-solutions. Mathematics provides the rules and methods that make this convergence happen sys -
+solutions. Mathematics provides the rules and methods that make this convergence happen sys-
 tematically and efficiently.
-1.2.3   infuSing data with meaning
+1.2.3  Infusing Data with Meaning
 In its natural form, data is just a collection of unprocessed facts. Mathematics helps us turn this 
 raw data into meaningful information by representing it as mathematical objects like vectors, 
-matrices, or higher-  dimensional tensors. This mapping allows us to measure relationships, calcu -
+matrices, or higher-​dimensional tensors. This mapping allows us to measure relationships, calcu-
 late distances, and find patterns, which are essential steps in deep learning. A key aspect of deep 
-learning is how we represent data. Whether we’re dealing with images, text, or sounds, real-  world 
+learning is how we represent data. Whether we’re dealing with images, text, or sounds, real-​world 
 data is often converted into numerical arrays or tensors. This transformation uses the power of 
 linear algebra, enabling us to manipulate and analyze data efficiently. By adding structure to 
-what might be chaotic information, mathematics makes it easier to manage and understand com -
+what might be chaotic information, mathematics makes it easier to manage and understand com-
 plex data. Mathematics also helps us quantify relationships between different data points. This 
 could involve calculating correlations, finding dependencies, or uncovering hidden patterns using 
 techniques like dimensionality reduction. Additionally, mathematical tools allow us to measure 
 distances or differences between data points. Methods like Euclidean distance or cosine similarity 
 tell us how similar or dissimilar items are. This ability is vital in many deep learning applications, 
 such as grouping similar items (clustering), detecting unusual data points (anomaly detection), 
-and finding the closest matches in data (nearest-  neighbor searches). By mapping data onto math -
-ematical structures, we can identify patterns. For example, Fourier analysis can detect repeating  
-  
+and finding the closest matches in data (nearest-​neighbor searches). By mapping data onto math-
+ematical structures, we can identify patterns. For example, Fourier analysis can detect repeating
 
 --- PDF PAGE 16 ---
-3 Introduction
-patterns in time-  based data, while convolution operations in convolutional neural networks 
+3
+Introduction
+patterns in time-​based data, while convolution operations in convolutional neural networks 
 (CNNs) find spatial patterns in images. Recognizing these patterns is fundamental to learning 
 from data and making accurate predictions. To bring this idea to life, imagine grouping data points 
-based on their similarities. Without mathematical techniques to measure these similarities, effect -
+based on their similarities. Without mathematical techniques to measure these similarities, effect-
 ively clustering data would be nearly impossible.
-Figure 1.1  illustrates how various mathematical constructs transform raw data into meaningful 
+Figure 1.1 illustrates how various mathematical constructs transform raw data into meaningful 
 insights. The first subplot demonstrates the use of principal component analysis (PCA) to reduce 
 the dimensionality of data, making it more interpretable and easier to visualize. In the second 
-subplot, a heatmap reveals the Euclidean distances between data points, quantifying their dis -
-similarities and helping us understand the spatial relationships within the dataset. The third sub -
+subplot, a heatmap reveals the Euclidean distances between data points, quantifying their dis-
+similarities and helping us understand the spatial relationships within the dataset. The third sub-
 plot displays a heatmap of cosine similarities, highlighting the degree of similarity between data 
-points by focusing on their angular relationships. Finally, the K-  means clustering subplot shows 
+points by focusing on their angular relationships. Finally, the K-​means clustering subplot shows 
 how data points are grouped into distinct clusters, revealing underlying patterns and structures in 
 the dataset.
-1.2.4   d eSigning  and interpreting  algorithm S
+1.2.4  Designing and Interpreting Algorithms
 Mathematical principles act like a compass, helping us choose the right functions, understand the 
 effects of our choices, and keep improving existing algorithms. For example, consider how math is 
 crucial when selecting activation functions for neural networks. Why are sigmoid functions often 
-used? The answer lies in their unique mathematical properties. With their S-  shaped curve, sigmoid 
+used? The answer lies in their unique mathematical properties. With their S-​shaped curve, sigmoid 
 functions accept any real number as input but always output a value between 0 and 1. This makes 
 them perfect for situations where predictions, like probabilities, need to stay within a specific range. 
 Understanding the math behind an algorithm also sheds light on how it behaves. For instance, 
@@ -144,35 +142,38 @@ knowing that sigmoid functions squeeze extreme input values into a narrow range 
 phenomenon where the gradients become very small, slowing down learning and affecting training 
 efficiency. Mathematics is not just foundational for enhancing and creating new algorithms but also 
 for understanding current ones.
-1.2.5   improving  model S
+1.2.5  Improving Models
 Mathematics is essential for designing and understanding deep learning models, and it plays a 
 crucial role in improving their performance. By learning mathematical concepts like overfitting, 
 underfitting, and regularization, we can identify issues in our models, optimize their performance, 
 and enhance their reliability. Overfitting and underfitting are common challenges in machine 
 learning. Understanding these problems is key to fixing weaknesses in our models. Mathematics 
-provides us with tools to tackle these issues directly. For example, regularization is a mathemat -
+provides us with tools to tackle these issues directly. For example, regularization is a mathemat-
 ical technique that improves a model’s ability to generalize by reducing its complexity, helping 
 to prevent overfitting. Techniques like L1 and L2 regularization, each with their own benefits, 
 are crucial for simplifying models and making them more effective. Knowing these techniques 
-empowers us to choose the best one for our specific needs, further enhancing our model’s per -
-formance. Mathematics also plays a vital role in optimizing model parameters. Methods like gra -
+empowers us to choose the best one for our specific needs, further enhancing our model’s per-
+formance. Mathematics also plays a vital role in optimizing model parameters. Methods like gra-
 dient descent adjust model parameters step by step to minimize errors efficiently. Additionally, 
-understanding the bias-  variance trade-  off, a key concept in statistics, helps us balance a model’s 
+understanding the bias-​variance trade-​off, a key concept in statistics, helps us balance a model’s 
 accuracy on training data (bias) with its ability to perform well on new data (variance). Finding 
 the right balance between bias and variance is crucial for building accurate and robust models. By 
-applying mathematical insights, we can fine-  tune our models to ensure they perform well both in 
-theory and in real-  world situations. 
-  
+applying mathematical insights, we can fine-​tune our models to ensure they perform well both in 
+theory and in real-​world situations.
 
 --- PDF PAGE 17 ---
-4 Mathematical Foundations for Deep Learning
-FIGURE 1.1  Transforming data and identifying patterns.
-  newgenrtpdf
+4
+Mathematical Foundations for Deep Learning
+FIGURE 1.1  Transforming data and identifying patterns.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 18 ---
-5 Introduction
-1.3  BRIEF OVERVIEW OF DEEP LEARNING
-1.3.1   Simulating  human - like learning
+5
+Introduction
+1.3  BRIEF OVERVIEW OF DEEP LEARNING
+1.3.1  Simulating Human-​Like Learning
 Deep learning takes inspiration from how humans learn, especially through experience. Just like a 
 child recognizes shapes, sounds, or faces by seeing them repeatedly, deep learning models process 
 vast amounts of data through layers of artificial neural networks (ANNs). These models gradually 
@@ -186,107 +187,111 @@ with each training cycle to reduce prediction errors. The more data they are exp
 they perform their tasks. This ongoing process mirrors human learning, where continuous practice 
 leads to gradual improvement and mastery. By imitating the way humans learn, deep learning has 
 become invaluable in many areas, from image recognition and natural language processing (NLP) 
-to self-  driving cars and medical diagnoses. Deep learning models can tackle complex problems that 
+to self-​driving cars and medical diagnoses. Deep learning models can tackle complex problems that 
 were once thought too difficult for artificial intelligence (AI).
-1.3.2   a rtificial  neural  network S
-ANNs  are the foundation of deep learning and are inspired by the neural networks in the human 
-brain. These computational models imitate how the brain processes information but in a much sim -
-pler way. ANNs  consist of interconnected layers of nodes, or “neurons”, that work together to pro -
-cess information and learn patterns from data. An ANN  is typically organized into three main layers:
- •Input Layer:  This layer receives the raw data that the network will process. Each neuron here 
+1.3.2  Artificial Neural Networks
+ANNs are the foundation of deep learning and are inspired by the neural networks in the human 
+brain. These computational models imitate how the brain processes information but in a much sim-
+pler way. ANNs consist of interconnected layers of nodes, or “neurons”, that work together to pro-
+cess information and learn patterns from data. An ANN is typically organized into three main layers:
+	•
+Input Layer: This layer receives the raw data that the network will process. Each neuron here 
 represents a feature or input variable from your dataset.
- •Hidden Layers:  These are the intermediate layers that perform complex transformations on 
-the input data. An ANN  can have one or more hidden layers, each containing many neurons. 
+	•
+Hidden Layers: These are the intermediate layers that perform complex transformations on 
+the input data. An ANN can have one or more hidden layers, each containing many neurons. 
 These neurons are connected to neurons in the previous and next layers through weighted 
 connections, similar to synapses in the brain. When a network has multiple hidden layers, it’s 
 called a deep neural network.
- •Output Layer:  This final layer produces the network’s output, the result of processing the data. 
+	•
+Output Layer: This final layer produces the network’s output, the result of processing the data. 
 The number of neurons in this layer depends on how many output variables you need.
-Each neuron in an ANN  performs a simple operation:
-1. Receive Inputs:  The neuron gets inputs from the neurons in the previous layer. Each input is 
+Each neuron in an ANN performs a simple operation:
+1.	 Receive Inputs: The neuron gets inputs from the neurons in the previous layer. Each input is 
 multiplied by a specific weight.
-2. Calculate Weighted Sum:  The neuron sums up all these weighted inputs and adds a bias term.
-3. Apply Activation Function:  The result is passed through an activation function, like the sig -
+2.	 Calculate Weighted Sum: The neuron sums up all these weighted inputs and adds a bias term.
+3.	 Apply Activation Function: The result is passed through an activation function, like the sig-
 moid function or ReLU (rectified linear unit). This function introduces nonlinearity into the 
 model, allowing the network to learn complex patterns that aren’t just straight lines.
-The real strength of ANNs  comes from the way neurons and layers are interconnected. During 
+The real strength of ANNs comes from the way neurons and layers are interconnected. During 
 training, the network adjusts the weights and biases of each neuron to minimize the difference 
 between its predictions and the actual values. This adjustment is done through a process called 
 backpropagation, which uses optimization algorithms like gradient descent. Backpropagation 
-calculates the gradient of the loss function (which measures the error) with respect to each weight.  
- 
-  
+calculates the gradient of the loss function (which measures the error) with respect to each weight.
 
 --- PDF PAGE 19 ---
-6 Mathematical Foundations for Deep Learning
-FIGURE 1.2  (a) Structure of an ANN, (b) neuron operation, and (c) backpropagation and optimization.
-  newgenrtpdf
+6
+Mathematical Foundations for Deep Learning
+FIGURE 1.2  (a) Structure of an ANN, (b) neuron operation, and (c) backpropagation and optimization.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 20 ---
-7 Introduction
-It then updates the weights to reduce this loss. ANNs  are powerful because of their layered and 
+7
+Introduction
+It then updates the weights to reduce this loss. ANNs are powerful because of their layered and 
 interconnected structure, and they can model complex patterns and structures in data. They excel 
 at finding hidden patterns and subtle relationships that traditional machine learning models might 
 miss. This ability has led to major breakthroughs in areas such as computer vision, NLP, and speech 
 recognition.
-Figure 1.2  illustrates the key components of ANNs. Figure 1.2a  depicts the basic structure of 
-an ANN, showcasing the input layer, one or more hidden layers, and the output layer. Figure 1.2b  
+Figure 1.2 illustrates the key components of ANNs. Figure 1.2a depicts the basic structure of 
+an ANN, showcasing the input layer, one or more hidden layers, and the output layer. Figure 1.2b 
 demonstrates the operation of a single neuron, showing how it processes inputs, applies weights 
-and biases, and utilizes an activation function to produce an output. Figure 1.2c  visualizes the 
+and biases, and utilizes an activation function to produce an output. Figure 1.2c visualizes the 
 backpropagation process, highlighting how the loss decreases over epochs as the model’s parameters 
 are optimized through iterative weight adjustments.
-1.3.3   a pplication S of deep learning
+1.3.3  Applications of Deep Learning
 Deep learning, a major part of AI, has transformed many fields in technology, research, and business 
-through its wide-  ranging applications. Its ability to process and learn from large amounts of data 
+through its wide-​ranging applications. Its ability to process and learn from large amounts of data 
 has led to breakthroughs once thought impossible. In computer vision, deep learning excels at 
 image recognition, enabling models to quickly and accurately identify objects, people, and scenes 
-in images. This power is behind facial recognition systems, self-  driving cars, and medical imaging. 
+in images. This power is behind facial recognition systems, self-​driving cars, and medical imaging. 
 For example, deep learning algorithms can detect tumors in medical scans with accuracy similar 
 to experienced doctors. In NLP, deep learning has made significant strides. Algorithms can now 
 understand and generate human language, allowing for sentiment analysis, language translation, text 
-summarization, and question-  answering. These advancements power everyday tools such as voice 
-assistants, customer service chatbots, and real-  time translation services, improving communication 
+summarization, and question-​answering. These advancements power everyday tools such as voice 
+assistants, customer service chatbots, and real-​time translation services, improving communication 
 and accessibility worldwide. Beyond recognition and understanding, deep learning fosters creativity 
-through generative models like generative adversarial networks (GANs). GANs  can produce new 
+through generative models like generative adversarial networks (GANs). GANs can produce new 
 data that closely resembles their training data, creating realistic images, music, and even art. For 
-instance, GANs  can generate lifelike human faces of people who do not exist, which has exciting 
+instance, GANs can generate lifelike human faces of people who do not exist, which has exciting 
 applications in entertainment, fashion, and virtual reality. In predictive analytics, deep learning is 
 a powerful tool that can analyze vast amounts of data to forecast future events like stock prices, 
 customer behavior, disease outbreaks, and natural disasters. Industries such as finance, marketing, 
-healthcare, and disaster management use this predictive power to make informed, data-  driven 
+healthcare, and disaster management use this predictive power to make informed, data-​driven 
 decisions with greater confidence. Additionally, reinforcement learning, a subset of deep learning, 
 involves models that learn to make decisions by interacting with their environment. This approach 
-has achieved remarkable success in game-  playing AI, surpassing human champions in games like 
+has achieved remarkable success in game-​playing AI, surpassing human champions in games like 
 Go, Chess, and Poker. Reinforcement learning is also applied in robotics, helping robots learn to 
 navigate environments and manipulate objects on their own, paving the way for more advanced 
 automation and intelligent systems. These applications demonstrate the significant impact deep 
 learning has across various fields, driving innovation and enhancing capabilities in many aspects of 
-modern life. As deep learning continues to evolve, it holds the promise of unlocking new possibil -
+modern life. As deep learning continues to evolve, it holds the promise of unlocking new possibil-
 ities and addressing complex challenges that were once beyond our reach.
-1.4  BOOK FEATURES AND STRUCTURE
-1.4.1   Book feature S
+1.4  BOOK FEATURES AND STRUCTURE
+1.4.1  Book Features
 Math can often feel overwhelming, filled with strange symbols and complex rules, especially when 
 you’re new to deep learning. Concepts like vectors and matrices from linear algebra, the tricky 
 operations of calculus, and the rules of probability are all deeply connected to deep learning. At first 
 glance, these ideas might seem scary, like a wall that’s hard to climb. That’s where this book comes 
-in. It aims to guide you through the maze of math by breaking down these abstract concepts and  
- 
-  
+in. It aims to guide you through the maze of math by breaking down these abstract concepts and
 
 --- PDF PAGE 21 ---
-8 Mathematical Foundations for Deep Learning
+8
+Mathematical Foundations for Deep Learning
 making them easy to grasp. One of our main goals is to uncover the complexity of mathematical 
-ideas. Terms like complex numbers, high-  dimensional vectors, and abstract spaces can seem intimi -
-dating. The abstract nature of math often makes it hard to see how it applies to real-  life problems, 
+ideas. Terms like complex numbers, high-​dimensional vectors, and abstract spaces can seem intimi-
+dating. The abstract nature of math often makes it hard to see how it applies to real-​life problems, 
 leaving many wondering how these theories are useful. This book is dedicated to bridging that gap 
 by directly linking mathematical theories to their uses in deep learning. By doing this, abstract ideas 
 become practical tools you can use in AI. It’s not just about understanding math; it’s about seeing 
 these theories come alive in deep learning. You might think of math and deep learning as completely 
 separate fields. Math, with its abstract symbols and strict proofs, often feels very different from the 
-hands-  on, algorithm-  focused world of deep learning. However, the connection between them is 
-much deeper than it might seem. This book aims to connect these seemingly different areas by cre -
+hands-​on, algorithm-​focused world of deep learning. However, the connection between them is 
+much deeper than it might seem. This book aims to connect these seemingly different areas by cre-
 ating clear and practical links between mathematical concepts and deep learning techniques. Each 
-math concept is paired with its real-  world application in a deep learning scenario. This approach 
+math concept is paired with its real-​world application in a deep learning scenario. This approach 
 not only applies theoretical knowledge but also shows how to turn abstract formulas into useful 
 algorithms. By exploring these connections, you’ll gain deeper insights into deep learning, turning 
 it from a mysterious “black box” into a system you can understand and explain. This foundational 
@@ -298,103 +303,125 @@ deep into the algorithms, figuring out how they work, and understanding why they
 in certain situations. Moreover, it’s more than just understanding; it’s about innovation, using your 
 new knowledge to build on existing methods and create unique solutions to your challenges. That’s 
 why a key goal of this book is to empower you, the reader.
-1.4.2   o verview  of chapter S
- •Chapter 1 : Introduction:  The introductory chapter sets the stage for the book, providing 
+1.4.2  Overview of Chapters
+	•
+Chapter 1: Introduction: The introductory chapter sets the stage for the book, providing 
 an overview of the core topics that will be covered. It emphasizes how these mathematical 
 concepts contribute to the development and optimization of deep learning models, preparing 
-you for the in-  depth exploration ahead.
- •Chapter 2 : Linear Algebra:  This chapter delves into the essential elements of linear algebra, 
+you for the in-​depth exploration ahead.
+	•
+Chapter 2: Linear Algebra: This chapter delves into the essential elements of linear algebra, 
 which form the backbone of many deep learning algorithms. Topics include vectors, matrices, 
 matrix operations, eigenvalues, and eigenvectors. Understanding these concepts is vital for 
-grasping more advanced techniques, such as matrix factorization and singular value decom -
+grasping more advanced techniques, such as matrix factorization and singular value decom-
 position, which are critical for neural network computations and data transformations.
- •Chapter 3 : Multivariate Calculus:  Multivariate calculus is integral to the optimization 
+	•
+Chapter 3: Multivariate Calculus: Multivariate calculus is integral to the optimization 
 processes in deep learning. This chapter explores derivatives, gradients, partial derivatives, 
 and the Hessian matrix. We focus on their applications in neural networks, especially during 
-the training phase, where gradient-  based optimization techniques like backpropagation are 
+the training phase, where gradient-​based optimization techniques like backpropagation are 
 employed to minimize loss functions.
- •Chapter 4 : Probability Theory and Statistics:  Deep learning models operate under uncer -
+	•
+Chapter 4: Probability Theory and Statistics: Deep learning models operate under uncer­
 tainty, making probability and statistics fundamental to their success. This chapter covers 
 probability distributions, Bayesian inference, hypothesis testing, and statistical methods that 
 help model uncertainty. These tools enable effective learning from data in environments where 
 randomness and variability are significant factors.
- •Chapter 5 : Optimization Theory:  At the heart of deep learning is the challenge of opti -
+	•
+Chapter 5: Optimization Theory: At the heart of deep learning is the challenge of opti­
 mizing model parameters. This chapter introduces optimization theory, covering both convex 
-and nonconvex optimization techniques, gradient descent methods, and advanced optimiza -
-tion strategies like stochastic gradient descent, Adam, and root mean squared propagation   
+and nonconvex optimization techniques, gradient descent methods, and advanced optimiza-
+tion strategies like stochastic gradient descent, Adam, and root mean squared propagation
 
 --- PDF PAGE 22 ---
-9 Introduction
+9
+Introduction
 (RMSprop). These methods ensure that models efficiently converge to the best possible 
 performance.
- •Chapter 6 : Information Theory:  Information theory provides tools for quantifying the infor -
+	•
+Chapter 6: Information Theory: Information theory provides tools for quantifying the infor­
 mation processed by neural networks. This chapter discusses key concepts such as entropy, 
-mutual information, and Kullback–  Leibler divergence (KL divergence), highlighting their 
+mutual information, and Kullback–​Leibler divergence (KL divergence), highlighting their 
 relevance in model regularization, compression, and understanding information flow through 
 networks. Applications in areas like variational autoencoders and information bottleneck 
 methods are explored.
- •Chapter 7 : Graph Theory:  Graph theory has gained importance in deep learning, particu -
+	•
+Chapter 7: Graph Theory: Graph theory has gained importance in deep learning, particu­
 larly with the development of graph neural networks (GNNs). This chapter introduces the 
 fundamentals of graphs, including nodes, edges, adjacency matrices, and graph Laplacians. 
 It explores their applications in representing complex relationships in structured data such as 
 social networks, molecular structures, and knowledge graphs.
- •Chapter 8 : Differential Geometry:  Studying high-  dimensional spaces is crucial for deep 
+	•
+Chapter 8: Differential Geometry: Studying high-​dimensional spaces is crucial for deep 
 learning models, which often operate in complex, nonlinear environments. This chapter 
-introduces the mathematical structures of manifolds and tangent spaces geometry. We demon -
+introduces the mathematical structures of manifolds and tangent spaces geometry. We demon-
 strate how differential geometry enhances our understanding of optimization landscapes and 
 generalization properties in deep learning.
- •Chapter 9 : Topology in Deep Learning:  Topology provides a way to understand the shape 
+	•
+Chapter 9: Topology in Deep Learning: Topology provides a way to understand the shape 
 and structure of data. This chapter introduces topological data analysis (TDA), focusing on 
 concepts like persistent homology and Betti numbers. We discuss how these tools are applied 
 in deep learning to uncover hidden patterns and structures in data, leading to improved feature 
 extraction and data representation techniques.
- •Chapter 10 : Harmonic Analysis for CNNs:  Harmonic analysis focuses on the frequency 
+	•
+Chapter 10: Harmonic Analysis for CNNs: Harmonic analysis focuses on the frequency 
 components of signals and has significant applications in CNNs. This chapter explores 
 Fourier transforms, wavelets, and spectral analysis, illustrating how these mathematical 
 tools improve feature extraction, signal processing, and understanding of convolution 
-operations in CNNs .
- •Chapter 11 : Dynamical Systems and Differential Equations for RNNs:  Recurrent neural 
-networks (RNNs) are designed to handle sequential data, where time-  dependent behavior 
+operations in CNNs.
+	•
+Chapter 11: Dynamical Systems and Differential Equations for RNNs: Recurrent neural 
+networks (RNNs) are designed to handle sequential data, where time-​dependent behavior 
 plays a crucial role. This chapter examines the theory of dynamical systems and differential 
-equations, explaining how they are used to model temporal dependencies in RNNs .
- •Chapter 12 : Quantum Computing:  Quantum computing represents the next frontier in com -
+equations, explaining how they are used to model temporal dependencies in RNNs.
+	•
+Chapter 12: Quantum Computing: Quantum computing represents the next frontier in com­
 putational power, with the potential to revolutionize deep learning. This chapter introduces 
 quantum principles and quantum algorithms, discussing how quantum computing might be 
 leveraged to accelerate and enhance neural network training and inference.
-1.4.3   c hapter ’S Structure
+1.4.3  Chapter’s Structure
 Each chapter in this book is thoroughly crafted to provide a complete understanding of fundamental 
 mathematical concepts and their relevance to deep learning. To facilitate your learning journey, 
 every chapter includes the following sections:
- •Preface:  Each chapter begins with a preface that introduces the core concepts to be covered.
- •Chapter Contents: Definitions, Formulas, Examples, and Real-  World Applications:  
+	•
+Preface: Each chapter begins with a preface that introduces the core concepts to be covered.
+	•
+Chapter Contents: Definitions, Formulas, Examples, and Real-​World Applications: 
 The main content delves into essential definitions, formulas, and mathematical frameworks. 
 Concepts are explained step by step, accompanied by practical examples to ensure clarity. 
-Real-  world applications demonstrate how these principles are applied in deep learning models 
-and related fields, making the transition from theory to practice seamless.  
+Real-​world applications demonstrate how these principles are applied in deep learning models 
+and related fields, making the transition from theory to practice seamless.
 
 --- PDF PAGE 23 ---
-10 Mathematical Foundations for Deep Learning
- •Hands-  On Examples:  To bridge the gap between theory and practice, each chapter includes 
-a hands-  on section with programming examples. These examples allow you to imple -
+10
+Mathematical Foundations for Deep Learning
+	•
+Hands-​On Examples: To bridge the gap between theory and practice, each chapter includes 
+a hands-​on section with programming examples. These examples allow you to imple-
 ment the mathematical concepts in code, gaining practical experience and reinforcing your 
 understanding of how these techniques are applied in deep learning frameworks.
- •Common Mistakes and Troubleshooting Tips:  Learning complex mathematical concepts 
+	•
+Common Mistakes and Troubleshooting Tips: Learning complex mathematical concepts 
 often involves overcoming challenges. This section highlights frequent mistakes that students 
 and practitioners make when applying the material, along with tips for troubleshooting and 
 avoiding errors in both theoretical understanding and practical implementation.
- •Review Questions:  Review questions are provided to test your understanding of the chapter 
+	•
+Review Questions: Review questions are provided to test your understanding of the chapter 
 material. These questions challenge your understanding of definitions, formulas, and key 
-concepts, allowing you to self-  assess your learning progress.
- •Programming Exercises:  To deepen your programming skills, each chapter includes three 
+concepts, allowing you to self-​assess your learning progress.
+	•
+Programming Exercises: To deepen your programming skills, each chapter includes three 
 programming problems categorized as easy, medium, and challenging. These exercises are 
 directly related to the chapter’s content, providing an opportunity to apply what you’ve 
 learned in a practical coding environment. By solving these problems, you will enhance your 
-problem-  solving abilities and strengthen your grasp of how mathematics drives deep learning 
-algorithms. 
+problem-​solving abilities and strengthen your grasp of how mathematics drives deep learning 
+algorithms.
 
 --- PDF PAGE 24 ---
-11 DOI: 10.1201/9781032690742-22 Linear Algebra
-2.1  INTRODUCTION
+11
+DOI: 10.1201/9781032690742-2
+2	 Linear Algebra
+2.1  INTRODUCTION
 Linear algebra provides the essential framework for describing vectors, matrices, and tensor 
 operations that form the core of neural network computations. Beyond a set of mathematical tools, 
 linear algebra is the thread weaving through the fabric of deep learning, enabling us to frame 
@@ -405,1483 +432,3830 @@ concepts are not only theoretical foundations but also practical instruments tha
 models to life. As you journey through this chapter, you will discover how the principles of linear 
 algebra are applied to enable neural networks to learn from data, optimize models, and ultimately 
 drive innovation in artificial intelligence.
-2.2  VECTORS, MATRICES, AND TENSOR OPERATIONS
+2.2  VECTORS, MATRICES, AND TENSOR OPERATIONS
 This section will dive into the fundamental concepts of vectors, matrices, tensor operations, linear 
 transformations, eigenvalues, eigenvectors, and singular value decomposition (SVD).
-2.2.1   u nder Standing  vector S
-2.2.1.1   What Is a Vector?
+2.2.1  Understanding Vectors
+2.2.1.1  What Is a Vector?
 A vector is a fundamental mathematical entity that possesses both magnitude (size) and direction. 
 You can visualize a vector as an arrow: the length of the arrow represents its magnitude, and the 
 arrow’s orientation indicates its direction. This concept is not just theoretical; vectors are crucial in 
-numerous real-  world applications, including deep learning, where they are used to represent data 
+numerous real-​world applications, including deep learning, where they are used to represent data 
 points, model weights, and activations within neural networks (NNs). Imagine you’re playing a 
-video game where your character’s movement is determined by a two-  dimensional (2D) vector. This 
+video game where your character’s movement is determined by a two-​dimensional (2D) vector. This 
 vector tells the character how much to move in the x (horizontal) and y (vertical) directions. For 
 example, consider the vector:
- v=
-
-3
-4. 
-This vector instructs the character to move three units to the right (along the x- axis) and four units  
-upward (along the y- axis). By representing movement in this way, vectors provide a concise and   
- 
- 
- 
- 
-  
+	
+v = 
+
+
+
+3
+4 .	
+This vector instructs the character to move three units to the right (along the x-​axis) and four units 
+upward (along the y-​axis). By representing movement in this way, vectors provide a concise and
 
 --- PDF PAGE 25 ---
-12 Mathematical Foundations for Deep Learning
-powerful way to encode directional information, which is essential in both physics and computa -
+12
+Mathematical Foundations for Deep Learning
+powerful way to encode directional information, which is essential in both physics and computa-
 tional fields like deep learning.
-Figure 2.1  illustrates a vector represented by a red arrow that starts from the origin (0, 0) and 
+Figure 2.1 illustrates a vector represented by a red arrow that starts from the origin (0, 0) and 
 points toward the coordinates (3, 4). The length of the arrow indicates the vector’s magnitude, while 
 its orientation shows its direction. The magnitude of a vector can be thought of as its “strength” or 
 “length.” For the vector v given by:
- v=
-
-3
-4, 
+	
+v = 
+
+
+
+3
+4 ,	
 you can calculate the magnitude using the Pythagorean theorem:
- v=+ =+ =+ == vvxy22 2234 91 62 55 . 
-Here, ∥∥v∥∥ =  5 units. This value represents the direct distance from the origin to the point (3, 4) on 
+	
+v =
++
+=
++
+=
++
+=
+=
+v
+v
+x
+y
+2
+2
+2
+2
+3
+4
+9
+16
+25
+5. 	
+Here, ∥v∥ =​ 5 units. This value represents the direct distance from the origin to the point (3, 4) on 
 a 2D plane.
-FIGURE 2.1  Vector representation [3, 4]. 
- 
-  
+FIGURE 2.1  Vector representation [3, 4].
 
 --- PDF PAGE 26 ---
-13 Linear Algebra
-2.2.1.2   Vector Operations
+13
+Linear Algebra
+2.2.1.2  Vector Operations
 Vectors are fundamental in various fields, and understanding their operations is crucial. Here are 
 some essential vector operations with examples.
-(a) Addition:  Adding two vectors involves adding their respective components. Geometrically, 
+(a)	 Addition: Adding two vectors involves adding their respective components. Geometrically, 
 you place the tail of one vector at the head of the other and then draw a vector from the tail of 
 the first to the head of the second. This new vector is the resultant or sum of the two vectors.
-Example:  Let a and b be defined as follows:
- ab=[] =[] 12 34,, .and 
+Example: Let a and b be defined as follows:
+	
+a
+b
+= [
+]
+= [
+]
+1 2
+3 4
+,
+,
+.
+and
+	
 To add these vectors:
- ca b=+= [1, 2] + [3, 4]  = [1 + 3, 2 + 4] = [4, 6]. 
-In Figure 2.2 , the red arrow represents a, the blue arrow represents b, and the green arrow c 
-represents the resultant vector c =  a +  b.
-(b) Scalar Multiplication:  Multiplying a vector by a scalar changes its magnitude without chan -
+	
+c
+a
+b
+=
++
+= [1, 2] + [3, 4]  = [1 + 3, 2 + 4] = [4, 6]. 	
+In Figure 2.2, the red arrow represents a, the blue arrow represents b, and the green arrow c 
+represents the resultant vector c =​ a +​ b.
+(b)	 Scalar Multiplication: Multiplying a vector by a scalar changes its magnitude without chan-
 ging its direction unless the scalar is negative, in which case the direction is reversed. To 
 scale a vector by a scalar k, multiply each component of the vector by k.
-Example:  Let v and scalar k be defined as follows:
-v=
-
- =3
-42 ,k  The scaled vector is:
- v=
-
-=
-
- 23
-46
-8 
-In Figure 2.3 , the red arrow represents v as (a), and the blue arrow represents the scaled 
+Example: Let v and scalar k be defined as follows:
+v = 
+
+
+
+=
+3
+4
+2
+,
+k
+  The scaled vector is:
+	
+v =
+
+
+
+= 
+
+
+
+2 3
+4
+6
+8 	
+In Figure 2.3, the red arrow represents v as (a), and the blue arrow represents the scaled 
 vector kv as (3a). It illustrates the concept of vector scaling on a 2D plane. It shows two 
 vectors, a and 3a, originating from the origin (0, 0) and extending in the same direction. The 
 vector a, with coordinates (2, 1), is marked in red, and its magnitude (or length) is labeled as 
-approximately 2.24, calculated as 21 522+= . The second vector, 3a, represents a scaled 
+approximately 2.24, calculated as 2
+1
+5
+2
+2
++
+=
+. The second vector, 3a, represents a scaled 
 version of a by a factor of 3, extending further along the same direction. Its length is shown 
-as 6.71, three times the magnitude of a (since 33aa=× ). This blue vector demonstrates 
+as 6.71, three times the magnitude of a (since 3
+3
+a
+a
+=
+×
+). This blue vector demonstrates 
 the effect of scalar multiplication on a vector’s length, keeping the direction unchanged 
 while proportionally increasing the magnitude.
-(c) Dot Product:  The dot product is an operation that multiplies two vectors to obtain a scalar. It 
+(c)	 Dot Product: The dot product is an operation that multiplies two vectors to obtain a scalar. It 
 helps determine the angle between two vectors and is calculated as the sum of the products 
 of their respective components.
-Example:  Let a and b be defined as follows:
-a b=
-
- =
-
-1
-23
-4,   
- 
- 
- 
- 
-  
+Example: Let a and b be defined as follows:
+a
+b
+= 
+
+
+
+= 
+
+
+
+1
+2
+3
+4
+,
 
 --- PDF PAGE 27 ---
-14 Mathematical Foundations for Deep Learning
+14
+Mathematical Foundations for Deep Learning
 The dot product of a and b is:
- a b⋅= ()()+()()=+=13 24 3811.  
-The dot product is 11, and this scalar value is crucial in various applications, such as calcu -
+	
+a b
+⋅
+= ( )( )+( )( ) =
++
+=
+1 3
+2
+4
+3
+8
+11.	
+The dot product is 11, and this scalar value is crucial in various applications, such as calcu-
 lating the cosine of the angle between the two vectors:
- cos.θ=⋅ab
-ab  
-Figure 2.4  shows two vectors, a (red) and b (blue), with the green vector representing the 
+	
+cos
+.
+θ =
+⋅
+a b
+a
+b
+ 
+	
+Figure 2.4 shows two vectors, a (red) and b (blue), with the green vector representing the 
 projection of a onto b. This projection shows how much of a aligns with b. The projection 
 length depends on the cosine of the angle between a and b, indicating the part of a that points 
 in b’s direction. The “Dot Product: 11” label represents the dot product, a measure of this 
 alignment.
-FIGURE 2.2  Vector addition: a +  b. 
- 
-  
+FIGURE 2.2  Vector addition: a +​ b.
 
 --- PDF PAGE 28 ---
-15 Linear Algebra
-(d) Cross-  Product:  The cross-  product between two vectors in three-  dimensional space produces  
-another vector that is perpendicular to the plane formed by the two original vectors. The  
-cross-  product of vectors a and b produces a third vector, c, that is perpendicular to both a  
+15
+Linear Algebra
+(d)	 Cross-​Product: The cross-​product between two vectors in three-​dimensional space produces 
+another vector that is perpendicular to the plane formed by the two original vectors. The 
+cross-​product of vectors a and b produces a third vector, c, that is perpendicular to both a  
 and b.
-Example:  Let a and b be defined as follows:
-a b=
-
-
-=
-
-1
-0
-00
-10 ,.
-The cross-  product is calculated using the determinant of a matrix composed of unit vectors 
-and the components of a and b:
-FIGURE 2.3  Scalar multiplication: 3a. 
-  
-
---- PDF PAGE 29 ---
-16 Mathematical Foundations for Deep Learning
- ab ab×=
-
-
-
-=×=−+xyz
-cx yz100
-01000
-1010001001,t henor
- 
- cab=×=−
-−
-−
-
-
-
-
-ab ab
-ab ab
-ab abyz zy
-zx xz
-xy yx 
-Substituting the components:
- c=()()−()()
-()()−()()
-()()−()()
-
-=
-00 01
-00 1011 00001 
+Example: Let a and b be defined as follows:
+a
+b
+=
+
+
+
+
 
 
- 
-FIGURE 2.4  Dot product interpretation. 
- 
- 
-  
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+1
+0
+,
+.
+The cross-​product is calculated using the determinant of a matrix composed of unit vectors 
+and the components of a and b:
+FIGURE 2.3  Scalar multiplication: 3a.
+
+--- PDF PAGE 29 ---
+16
+Mathematical Foundations for Deep Learning
+	
+a
+b
+a
+b
+×
+=
+
+
+
+
+
+
+
+
+
+
+=
+×
+=
+−
++
+x
+y
+z
+c
+x
+y
+z
+1
+0
+0
+0
+1
+0
+0
+0
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+, then
+or 	
+	
+c
+a
+b
+=
+×
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+
+
+
+
+a b
+a b
+a b
+a b
+a b
+a b
+y
+z
+z
+y
+z
+x
+x
+z
+x
+y
+y
+x
+	
+Substituting the components:
+	
+c =
+( )( ) −( )( )
+( )( ) −( )( )
+( )( ) −( )( )
+
+
+
+
+
+
+
+
+
+
+=
+
+
+
+0 0
+0 1
+0 0
+1 0
+1 1
+0 0
+0
+0
+1
+
+
+
+
+
+
+
+	
+FIGURE 2.4  Dot product interpretation.
 
 --- PDF PAGE 30 ---
-17 Linear Algebra
-Figure 2.5  demonstrates the concept of the cross-  product between two vectors, a (red) and b (blue).  
-The cross-  product, shown as the green vector labeled a × b , represents a new vector that is perpen -
-dicular to both a and b. This perpendicular direction follows the right-  hand rule, meaning if you  
-point your right-  hand’s fingers along a and curl them toward b, your thumb points in the direction of  
-a × b . The length of the green vector reflects the magnitude of the cross-  product, which corresponds  
+17
+Linear Algebra
+Figure 2.5 demonstrates the concept of the cross-​product between two vectors, a (red) and b (blue). 
+The cross-​product, shown as the green vector labeled a × b, represents a new vector that is perpen-
+dicular to both a and b. This perpendicular direction follows the right-​hand rule, meaning if you 
+point your right-​hand’s fingers along a and curl them toward b, your thumb points in the direction of 
+a × b. The length of the green vector reflects the magnitude of the cross-​product, which corresponds 
 to the area of the parallelogram covered by a and b.
-2.2.1.3   Vector Components
+2.2.1.3  Vector Components
 In a 2D space, any vector can be decomposed into its components along the axes of the coordinate 
 system.
-Example:  Consider a vector that terminates at the point (3, 4) on a 2D Cartesian plane. This vector 
-can be represented by its components along the x and y axes: 
-AAi Ajxy=+ ˆˆ
-Figure 2.6  illustrates the components of the vector 
-A on a 2D Cartesian plane, where Ax and Ay  
-are unit vectors along the x and y directions, respectively. For vector, 
-A, Ax is 3, and Ay is 4. The  
-FIGURE 2.5  The cross-  product of vectors a and b. 
-  
+Example: Consider a vector that terminates at the point (3, 4) on a 2D Cartesian plane. This vector 
+can be represented by its components along the x and y axes: 
+
+A
+A i
+A j
+x
+y
+=
++
+ˆ
+ˆ
+Figure 2.6 illustrates the components of the vector 
+
+A on a 2D Cartesian plane, where Ax and Ay 
+are unit vectors along the x and y directions, respectively. For vector, 
+
+A, Ax is 3, and Ay is 4. The 
+FIGURE 2.5  The cross-​product of vectors a and b.
 
 --- PDF PAGE 31 ---
-18 Mathematical Foundations for Deep Learning
-red arrow shows the vector 
-A ending at point (3, 4). The green arrow represents the x- component  
-extending along the x- axis to 3, and the blue arrow indicates the y- component extending along the  
-y- axis to 4.
-2.2.1.4   Magnitude and Direction
-The magnitude of a vector 
-A in 2D space is given by: 
-A=+AAxy22. The direction can be found 
+18
+Mathematical Foundations for Deep Learning
+red arrow shows the vector 
+
+A ending at point (3, 4). The green arrow represents the x-​component 
+extending along the x-​axis to 3, and the blue arrow indicates the y-​component extending along the 
+y-​axis to 4.
+2.2.1.4  Magnitude and Direction
+The magnitude of a vector 
+
+A in 2D space is given by: 
+
+A =
++
+A
+A
+x
+y
+2
+2 . The direction can be found 
 using trigonometry, typically with the tangent function:
- θ=
-
- arctan.A
-Ay
-x 
-Example:  Consider a vector that terminates at the point (3, 4) on a 2D Cartesian plane. This vector can 
-be represented by its components along the x and y axes: 
-AAi Ajxy=+ ˆˆ , where Ax=3 and Ay=4 
-The magnitude is: 
-A=+ =+ == 34 91 62 5522 and the direction is: θ=
-
-=° arctan .4
-353 13 .
-FIGURE 2.6  Vector components of A. 
- 
-  
+	
+θ =
+
+
+
+
+arctan
+.
+A
+A
+y
+x
+	
+Example: Consider a vector that terminates at the point (3, 4) on a 2D Cartesian plane. This vector can 
+be represented by its components along the x and y axes: 
+
+A
+A i
+A j
+x
+y
+=
++
+ˆ
+ˆ, where Ax = 3 and Ay = 4 
+The magnitude is: 
+
+A =
++
+=
++
+=
+=
+3
+4
+9
+16
+25
+5
+2
+2
+ and the direction is: θ =
+
+
+
+=
+°
+arctan
+.
+4
+3
+53 13 .
+FIGURE 2.6  Vector components of A.
 
 --- PDF PAGE 32 ---
-19 Linear Algebra
-Figure 2.7  shows vector A =  (3, 4) on a 2D plane. The red arrow represents vector A, starting 
+19
+Linear Algebra
+Figure 2.7 shows vector A =​ (3, 4) on a 2D plane. The red arrow represents vector A, starting 
 from the origin (0, 0) and pointing to (3, 4). The length, or magnitude, of A, is labeled as 5.00, 
-calculated from 34 522+= . The angle between A and the x- axis is marked as 53.13°, which is 
+calculated from 3
+4
+5
+2
+2
++
+= . The angle between A and the x-​axis is marked as 53.13°, which is 
 found using tan−
-
-14
-3. The blue and green dashed lines show the projections of A onto the y- axis at 
-(0, 4) and the x- axis at (3, 0), highlighting its horizontal and vertical components.
-2.2.1.5   Vector Spaces
-A vector space is a set of vectors combined with two operations (vector addition and scalar multi -
+
+
+
+1
+4
+3 . The blue and green dashed lines show the projections of A onto the y-​axis at 
+(0, 4) and the x-​axis at (3, 0), highlighting its horizontal and vertical components.
+2.2.1.5  Vector Spaces
+A vector space is a set of vectors combined with two operations (vector addition and scalar multi-
 plication) that satisfy specific properties. The space itself can be in any dimension, and the vectors 
 do not necessarily have to be geometric; they can be functions, polynomials, or other mathematical 
 entities as long as they follow the defined rules of a vector space. A vector space V over a field F 
 (often the field of real numbers) must satisfy the following properties:
-FIGURE 2.7  Vector magnitude and direction. 
-  
+FIGURE 2.7  Vector magnitude and direction.
 
 --- PDF PAGE 33 ---
-20 Mathematical Foundations for Deep Learning
-(a) Vector Addition
-1. Commutativity:  uv vu uv+=+ ∈fora ll ,Vs
-2. Associativity: uv w) uv wu v,++ =++∈(( )f or all,wV
-3. Identity:  Theree xistsa vector such that vv fora ll vV 00∈+ =∈ V
-4. Additive Inverse:  Fore very theree xistsavector such that vV vV vv∈− ∈+ − ()=,0
-(b) Scalar Multiplication
-1. Distributivity over Vector Addition:
-aa aa Vuv uv uv+( )=+ ∈ fora ll scalarsa nd vectors ,
-2. Distributivity over Scalar Addition:
-ab aa ab V+( )=+ ∈uuvu fora ll scalarsa nd vectors ,  
-3. Associativity:  ab ab ab Vuu u()=() ∈ fora ll scalarsa nd vectors ,
-4. Identity:  1⋅= ∈vv fora ll where1is the multiplicativeidentityin the f vV, i ield F
-Figure 2.8  shows different operations on two vectors, v1 =  (1, 2) and v2 =  (2, 3), on a 2D plane. 
+20
+Mathematical Foundations for Deep Learning
+(a)	 Vector Addition
+1.	 Commutativity: u
+v
+v
+u
+u v
++
+=
++
+∈
+forall
+,
+Vs
+2.	 Associativity:u
+v
+w)
+u
+v
+w
+u v,
++
++
+=
++
++
+∈
+(
+(
+)
+forall
+,
+w
+V
+3.	 Identity: There exists a vector
+such that v
+v forallv
+V
+0
+0
+∈
++
+=
+∈
+V
+4.	 Additive Inverse: For every
+thereexistsa vector
+such that
+v
+V
+v
+V
+v
+v
+∈
+−
+∈
++ −
+(
+) =
+,
+0
+(b)	 Scalar Multiplication
+1.	 Distributivity over Vector Addition:
+a
+a
+a
+a
+V
+u
+v
+u
+v
+u v
++
+(
+) =
++
+∈
+for allscalars and vectors ,
+2.	 Distributivity over Scalar Addition:
+a
+b
+a
+a
+a b
+V
++
+(
+)
+=
++
+∈
+u
+u
+v
+u
+for allscalars
+and vectors
+,
+ 
+3.	 Associativity: a b
+ab
+a b
+V
+u
+u
+u
+(
+) = (
+)
+∈
+for allscalars
+and vectors
+,
+4.	 Identity: 1⋅
+=
+∈
+v
+vfor all
+where1is the multiplicativeidentityin the f
+v
+V,
+ield F
+Figure 2.8 shows different operations on two vectors, v1 =​ (1, 2) and v2 =​ (2, 3), on a 2D plane. 
 The red vector represents v1, starting from the origin and pointing to (1, 2), while the blue vector 
-represents v2, pointing to (2, 3). The pink vector, 3 × v1 =  (3, 6), is a scaled version of v1 by a 
+represents v2, pointing to (2, 3). The pink vector, 3 × v1 =​ (3, 6), is a scaled version of v1 by a 
 factor of 3, extending in the same direction but with three times the length. The green vector, v1 
-+  v2 =  (3, 5), shows the result of adding v1 and v2 together, combining their directions to reach 
-the point (3, 5). Finally, the cyan vector, − v1 =  (−1, −2), is v1 reversed in direction, pointing to 
++​ v2 =​ (3, 5), shows the result of adding v1 and v2 together, combining their directions to reach 
+the point (3, 5). Finally, the cyan vector, −v1 =​ (−1, −2), is v1 reversed in direction, pointing to 
 (−1, −2).
-2.2.3   v ector  relevance  in the context  of deep learning
-2.2.3.1   Data Representation
-(a) Feature Vectors:  In machine learning and deep learning, data is typically represented as 
-vectors, where each component (or dimension) of the vector corresponds to a specific fea -
+2.2.3  Vector Relevance in the Context of Deep Learning
+2.2.3.1  Data Representation
+(a)	 Feature Vectors: In machine learning and deep learning, data is typically represented as 
+vectors, where each component (or dimension) of the vector corresponds to a specific fea-
 ture of the data. For instance, consider an image from the MNIST dataset, which contains 
 images of handwritten digits, each with a resolution of 28 × 28 pixels. This image can be 
-flattened into a feature vector with 784 dimensions (since 28 × 28 =   784). Also, each dimen -
+flattened into a feature vector with 784 dimensions (since 28 × 28 =​ 784). Also, each dimen-
 sion in this vector represents the intensity of a specific pixel, ranging from 0 (black) to 255 
 (white). For example, a pixel value of 0 represents a completely black pixel, and a value of 
-255 represents a fully white pixel. This representation transforms the image into a manage -
+255 represents a fully white pixel. This representation transforms the image into a manage-
 able vector format for machine learning models to process. Suppose we have a 3 × 3 image 
 for simplicity, with the following pixel intensity values:
-255 128 0
-64 255 32
-0 128 64
-
-
-
-
-Flattening this 3 × 3 image into a vector results in a nine-  dimensional feature vector:
- [255, 128, 0, 64, 255, 32, 0, 128, 64]  
-This flattened vector can now be used as input to a machine learning model. 
- 
- 
-  
+255
+128
+0
+64
+255
+32
+0
+128
+64
+
+
+
+
+
+
+
+
+
+
+Flattening this 3 × 3 image into a vector results in a nine-​dimensional feature vector:
+	
+[255, 128, 0, 64, 255, 32, 0, 128, 64]	
+This flattened vector can now be used as input to a machine learning model.
 
 --- PDF PAGE 34 ---
-21 Linear Algebra
-(b) Word Embeddings:  In natural language processing (NLP), words or phrases are mapped to  
-vectors of real numbers, known as word embeddings. These embeddings place words in a  
-high-  dimensional vector space, where the distance between words reflects their semantic  
-relationships. For example, word embeddings might position “king” and “queen” close  
-to each other because of their similar meanings, while “apple” and “banana” might be  
-positioned close due to their shared category as fruits. Consider two words, “king” and  
-“queen,” represented by three-  dimensional embeddings as follows: “king” =   [0.8, 0.2, 0.7]  
-and “queen” =   [0.75, 0.3, 0.65]. The values for “king” and “queen” are just examples of  
-values that illustrate how word embeddings work. For example, “king” and “queen” have  
-similar vectors because they share common features like royalty, but small differences in  
-their numbers capture distinctions like gender. In practice, the actual numbers would come  
-from a trained model like Word2Vec, based on analyzing large text corpora. To measure their  
+21
+Linear Algebra
+(b)	 Word Embeddings: In natural language processing (NLP), words or phrases are mapped to 
+vectors of real numbers, known as word embeddings. These embeddings place words in a 
+high-​dimensional vector space, where the distance between words reflects their semantic 
+relationships. For example, word embeddings might position “king” and “queen” close 
+to each other because of their similar meanings, while “apple” and “banana” might be 
+positioned close due to their shared category as fruits. Consider two words, “king” and 
+“queen,” represented by three-​dimensional embeddings as follows: “king” =​ [0.8, 0.2, 0.7] 
+and “queen” =​ [0.75, 0.3, 0.65]. The values for “king” and “queen” are just examples of 
+values that illustrate how word embeddings work. For example, “king” and “queen” have 
+similar vectors because they share common features like royalty, but small differences in 
+their numbers capture distinctions like gender. In practice, the actual numbers would come 
+from a trained model like Word2Vec, based on analyzing large text corpora. To measure their 
 similarity, we can compute the cosine similarity between the two vectors:
-cosines imilarityking queen
-king queen=⋅=×( )+×( )+08 07 50 20 3 .. ..0 07 06 5
-08 02 07 07 50 30 652222 22..
-.... ..×( )
-++×+ +
-FIGURE 2.8  Vector operations in 2. 
-  
+cosine similarity
+king queen
+king queen
+=
+⋅
+=
+×
+(
+)+
+×
+(
+)+
+0 8
+0 75
+0 2
+0 3
+.
+.
+.
+.
+0 7
+0 65
+0 8
+0 2
+0 7
+0 75
+0 3
+0 65
+2
+2
+2
+2
+2
+2
+.
+.
+.
+.
+.
+.
+.
+.
+×
+(
+)
++
++
+×
++
++
+FIGURE 2.8  Vector operations in 2.
 
 --- PDF PAGE 35 ---
-22 Mathematical Foundations for Deep Learning
-cosines imilarity =≈1 115
-1 12150 9942.
-...
+22
+Mathematical Foundations for Deep Learning
+cosine similarity =
+≈
+1 115
+1 1215
+0 9942
+.
+.
+.
+.
 The resulting value (0.994 and close to 1) indicates a strong similarity between “king” and “queen,” 
 reflecting their semantic connection.
-2.2.3.2   Neural Network Parameters
+2.2.3.2  Neural Network Parameters
 The parameters of NNs, specifically the weights and biases, are organized as vectors, matrices, or 
-higher-  dimensional tensors depending on the structure of the network. These parameters are essen -
+higher-​dimensional tensors depending on the structure of the network. These parameters are essen-
 tial in controlling how the network processes and transforms input data. When the network receives 
-an input in the form of a feature vector, it performs matrix–  vector multiplications using the weights 
+an input in the form of a feature vector, it performs matrix–​vector multiplications using the weights 
 and biases at each layer. The result is then passed through activation functions, such as the ReLU 
-(Rectified Linear Unit) or sigmoid function, to introduce non-  linearity. This step-  by- step process 
+(Rectified Linear Unit) or sigmoid function, to introduce non-​linearity. This step-​by-​step process 
 transforms the input data, enabling the network to learn complex patterns and generate the desired 
-output. Let’s consider a simple NN layer with 3 input features and 2 output neurons. The input fea -
+output. Let’s consider a simple NN layer with 3 input features and 2 output neurons. The input fea-
 ture vector is:
- x =  [1.0, 0.5, –  0.2] 
+	
+x =​ [1.0, 0.5, –​0.2]	
 The weight matrix for this layer is a 2 × 3 matrix, where each row corresponds to the weights 
 connected to a single output neuron:
- W=−
-−
-
-02 05 10
-03 08 05.. .
-.... 
-The bias vector for the two output neurons is:
- b =  [0.1, –  0.1] 
-To calculate the output, we perform matrix–  vector multiplication and add the bias:
- zW xb=+ =−
-−
-
-
-−
+	
+W =
+−
+−
+
 
-
-+−02 05 10
-03 08 0510
-05
-0201 .. .
-....
-.
-..
-0 01 ..
-
- 
-Performing the matrix multiplication:
- z=×( )+− ×( )+× −( )
-−×( )+×( )+×02 10 05 05 10 02
-03 10 08 05 05.. .. ..
-.. .. .− − ( )
-
-+−
-
-=−−
-−+ −
-
-0201
-0102 02 50 2
-03 04 01 ..
-... .
-...+ +−
-
+
 
-=−+
-−
-
-=−
-−
-
-01
-01
-02 50 1
-00 0101 5
-01.
+0 2
+0 5
+1 0
+0 3
+0 8
+0 5
 .
-..
-...
-.. 
+.
+.
+.
+.
+.
+.	
+The bias vector for the two output neurons is:
+	
+b =​ [0.1, –​0.1]	
+To calculate the output, we perform matrix–​vector multiplication and add the bias:
+	
+z
+Wx
+b
+=
++
+=
+−
+−
+
+
+
+
+−
+
+
+
+
+
+
+
+
+
+
++ −
+0 2
+0 5
+1 0
+0 3
+0 8
+0 5
+1 0
+0 5
+0 2
+0 1
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+0 1.
+.
+
+
+
+	
+Performing the matrix multiplication:
+	
+z =
+×
+(
+)+ −
+×
+(
+)+
+× −
+(
+)
+−
+×
+(
+)+
+×
+(
+)+
+×
+0 2
+1 0
+0 5
+0 5
+1 0
+0 2
+0 3 1 0
+0 8
+0 5
+0 5
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+−
+(
+)
+
+
+
+
+
++ −
+
+
+
+=
+−
+−
+−
++
+−
+
+
+
+
+0 2
+0 1
+0 1
+0 2
+0 25
+0 2
+0 3
+0 4
+0 1
+.
+.
+.
+.
+.
+.
+.
+.
+.
++ −
+
+
+
+
+= −
++
+−
+
+
+
+= −
+−
+
+
+
+
+0 1
+0 1
+0 25
+0 1
+0 0
+0 1
+0 15
+0 1
+.
+.
+.
+.
+.
+.
+.
+.
+.
+	
 Thus, the output of this layer before applying the activation function is [−0.15, −0.1]. If we apply a 
 ReLU activation function (which outputs 0 for negative values), the final output will be [0, 0].
-2.2.3.3   Activation Functions and Layers
+2.2.3.3  Activation Functions and Layers
 In an NN, the output from each layer, known as the activations, is represented as a vector. These 
 activations are computed by first multiplying the input vector by the layer’s weights, adding the 
-biases, and then applying an activation function to introduce non-  linearity. The activation function  
- 
- 
- 
- 
- 
- 
-  
+biases, and then applying an activation function to introduce non-​linearity. The activation function
 
 --- PDF PAGE 36 ---
-23 Linear Algebra
+23
+Linear Algebra
 transforms the output in such a way that the network can model complex relationships within the 
 data. The resulting activation vector from one layer serves as the input to the next layer, allowing 
 the network to progressively learn more intricate data representations. Consider an NN layer with a 
-single input value x =  1.0, a weight w =  0.5, and a bias b =  0.2. The layer applies the ReLU activation 
+single input value x =​ 1.0, a weight w =​ 0.5, and a bias b =​ 0.2. The layer applies the ReLU activation 
 function, which outputs the input value if it is positive and returns 0 otherwise.
-Step 1:  Compute the linear combination of input, weight, and bias:
- z wx b=+ =× ( )+=+=05 10 02 05 02 07 .. .. ..  
-Step 2:  Apply the ReLU activation function:
-ReLUzz ()== =max( ,) max( ,.). . 00 07 07
+Step 1: Compute the linear combination of input, weight, and bias:
+	
+z
+wx
+b
+=
++
+=
+×
+(
+)+
+=
++
+=
+0 5 1 0
+0 2
+0 5
+0 2
+0 7
+.
+.
+.
+.
+.
+. 	
+Step 2: Apply the ReLU activation function:
+ReLU z
+z
+( ) =
+=
+=
+max( , )
+max( , . )
+. .
+0
+0 0 7
+0 7
 In this example, the activation output is 0.7, which becomes the input to the next layer. If we used a 
 different activation function, like the sigmoid function, the output would have been:
- Sigmoidzeez()=+=+≈−−1
-11
-10 66807 ...  
+	
+Sigmoid z
+e
+e
+z
+( ) =
++
+=
++
+≈
+−
+−
+1
+1
+1
+1
+0 668
+0 7.
+.
+.	
 By applying different activation functions, the network can handle various kinds of data patterns, 
 enabling it to learn more complex representations as it passes data through multiple layers.
-2.2.3.4   Dot Product in Neural Network
+2.2.3.4  Dot Product in Neural Network
 The dot product is a core mathematical operation in NNs, playing a critical role in how information is 
 processed and propagated through layers. When an input vector is passed into a layer, it is multiplied 
 by the weight matrix of that layer. This multiplication involves calculating the dot product between the 
 input vector and each column (or row, depending on the network’s architecture) of the weight matrix. 
 The result is a transformed output that is passed on to the next layer, making the dot product essential for 
 updating the network’s activations and learning patterns from the data. Let us take a simple example of an 
-NN with an input vector x =  [2, 3] and a weight matrix W for a layer with two neurons:
- W=
-
-01 04
-02 05..
-... 
+NN with an input vector x =​ [2, 3] and a weight matrix W for a layer with two neurons:
+	
+W = 
+
+
+
+0 1
+0 4
+0 2
+0 5
+.
+.
+.
+.
+.	
 To calculate the dot product, we multiply the input vector by the weight matrix:
- zW x=⋅ =
-
+	
+z
+W x
+=
+⋅
+= 
+
+
 ⋅
-
-01 04
-02 052
-3..
-... 
+
+
+
+0 1
+0 4
+0 2
+0 5
+2
+3
+.
+.
+.
+.
+.	
 This results in:
- z=×( )+×( )
-×( )+×( )
-
-=+
-+
-
-01 20 43
-02 20 5302 12
-04 15..
-....
-.. =
-
-14
-19.
-.. 
+	
+z =
+×
+(
+)+
+×
+(
+)
+×
+(
+)+
+×
+(
+)
+
+
+
+
+
+=
++
++
+
+
+
+
+0 1
+2
+0 4
+3
+0 2
+2
+0 5
+3
+0 2
+1 2
+0 4
+1 5
+.
+.
+.
+.
+.
+.
+.
+. = 
+
+
+
+1 4
+1 9
+.
+.
+.	
 In this example, the dot product produces a new vector [1.4, 1.9], which serves as the output of this 
 layer before applying any activation functions. This process enables the network to combine the 
 input data with the learned weights, transforming the input into a new representation that is then 
-passed to the next layer for further processing. 
- 
- 
- 
- 
- 
-  
+passed to the next layer for further processing.
 
 --- PDF PAGE 37 ---
-24 Mathematical Foundations for Deep Learning
-2.2.3.5   Gradient Descent and Backpropagation
+24
+Mathematical Foundations for Deep Learning
+2.2.3.5  Gradient Descent and Backpropagation
 A gradient is a vector that contains the partial derivatives of the loss function with respect to each 
 parameter of the network (weights and biases). During training, the gradient of the loss function 
 is computed with respect to these parameters, providing insights into how the loss changes as the 
 parameters are adjusted. The parameters are then updated by moving in the opposite direction of the 
 gradient, a method known as gradient descent. This iterative process helps the network reduce loss 
-and improves its performance over time. The backpropagation algorithm is used to efficiently com -
+and improves its performance over time. The backpropagation algorithm is used to efficiently com-
 pute the gradients. It works by applying the chain rule of calculus to propagate the error backward 
 through the network, layer by layer, calculating the gradient of the loss function with respect to each 
-parameter. By updating the parameters step-  by- step, backpropagation enables the network to learn 
+parameter. By updating the parameters step-​by-​step, backpropagation enables the network to learn 
 from data and improve its accuracy. Suppose we have a simple NN with one parameter (weight) 
-w =  2.0 and a loss function L ww()=−() 52. The goal is to minimize the loss using gradient descent.
-Step 1:  Compute the gradient of the loss function with respect to w:
- ∂()
-∂=−( )Lw
-ww25 .  
-Step 2:  Update the parameter using gradient descent. Let the learning rate be α =  0.1:
- wwLw
-wnewo ld=− ×∂()
-∂α . 
- wnew=− ×− ( )=− ×− ()=+=20 01 22 05 20 01 23 20 06 26 .. .. .. .. .  
-Step 3:  Repeat the process. After the first update, the new weight is w =  2.6, which brings the 
+w =​ 2.0 and a loss function L w
+w
+( ) =
+−
+(
+)
+5 2. The goal is to minimize the loss using gradient descent.
+Step 1: Compute the gradient of the loss function with respect to w:
+	
+∂( )
+∂
+=
+−
+(
+)
+L w
+w
+w
+2
+5 .	
+Step 2: Update the parameter using gradient descent. Let the learning rate be α =​ 0.1:
+	
+w
+w
+L w
+w
+new
+old
+=
+−
+× ∂( )
+∂
+α
+.	
+	
+wnew =
+−
+×
+−
+(
+) =
+−
+×
+−
+(
+) =
++
+=
+2 0
+0 1
+2 2 0
+5
+2 0
+0 1
+2
+3
+2 0
+0 6
+2 6
+.
+.
+.
+.
+.
+.
+.
+. .	
+Step 3: Repeat the process. After the first update, the new weight is w =​ 2.6, which brings the 
 loss function closer to its minimum. Over multiple iterations, the weight will converge toward the 
-optimal value of w =  5, minimizing the loss.
-2.2.3.6   Batch Processing
+optimal value of w =​ 5, minimizing the loss.
+2.2.3.6  Batch Processing
 Learning models, particularly in machine learning and deep learning, often process data in batches 
 to accelerate training and make more efficient use of computational resources. When handling a 
 batch of data, each input, activation, gradient, and other intermediate values are represented as 
-matrices or higher-  dimensional tensors. This extends the concept of single input vectors to multiple 
+matrices or higher-​dimensional tensors. This extends the concept of single input vectors to multiple 
 dimensions, allowing the model to process multiple examples simultaneously. By doing so, the 
 model can leverage efficient computation and parallel processing, speeding up training and making 
 better use of available hardware, such as GPUs. Suppose we are training an NN with a batch size 
 of 3, and each input is a vector of 4 features. Instead of processing each input separately, the model 
 processes the batch as a whole by organizing the data into a matrix:
- X=
-
-
-
-xxxx
-xxxx
-xxxx11 12 13 14
-21 22 23 24
-31 32 33 34,, ,,
-,, ,,
-,, ,, 
-
-=
-
-
-
-10 20 30 40
-50 60 70 80
-90 10 01 10 12 0..
-..
-.. ..
-.... 
+	
+X =
+
+
+
+
+
+
+
+
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+1 1
+1 2
+1 3
+1 4
+2 1
+2 2
+2 3
+2 4
+3 1
+3 2
+3 3
+3 4
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+1 0
+2 0
+3 0
+4 0
+5 0
+6 0
+7 0
+8 0
+9 0
+10 0
+11 0
+12 0
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+	
 Here, each row represents a single input vector, and the network processes all three input vectors in 
 parallel. The same applies to activations and gradients, which are now computed for the entire batch 
-in one step, making the training process much faster compared to handling one input at a time. In  
- 
- 
- 
- 
-  
+in one step, making the training process much faster compared to handling one input at a time. In
 
 --- PDF PAGE 38 ---
-25 Linear Algebra
+25
+Linear Algebra
 addition to speeding up training, batch processing helps stabilize learning by averaging gradients 
 across multiple examples, which reduces the noise in parameter updates. This is particularly useful 
 in stochastic gradient descent (SGD), where updating the model based on a single example can lead 
 to noisy and inefficient convergence.
-2.2.3.7   Convolutional Neural Networks
-In convolutional neural networks (CNNs), filters (also known as kernels) are small-  weight matrices 
+2.2.3.7  Convolutional Neural Networks
+In convolutional neural networks (CNNs), filters (also known as kernels) are small-​weight matrices 
 that slide over the input data, such as images, to extract important local features. The convolution 
 process involves taking the dot product between the filter and small patches of the input data at 
 each position. This operation produces a feature map, which highlights the presence of specific 
 patterns in the data, such as edges, textures, or corners. By detecting local patterns, CNNs are highly 
 effective for tasks like image recognition, where spatial relationships between pixels are crucial for 
 understanding the content. Consider a 3 × 3 filter applied to a 5 × 5 grayscale image. The filter is:
- F=−
+	
+F =
 −
-−
-
-
-10 1
-10 1
-10 1. 
+−
+−
+
+
+
+
+
+
+
+
+
+
+1
+0
+1
+1
+0
+1
+1
+0
+1
+.	
 The input image is:
- I=
-
-
-255 255 255 00
-255 255 255 00
-255 255 255 00
-0000 0
-0000 0 
-. 
-Step 1:  Apply the filter at the top-  left corner of the image. The dot product between the filter and 
+	
+I =
+
+
+
+
+
+
+
+
+
+
+
+
+
+255
+255
+255
+0
+0
+255
+255
+255
+0
+0
+255
+255
+255
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+
+
+
+.	
+Step 1: Apply the filter at the top-​left corner of the image. The dot product between the filter and 
 the corresponding 3 × 3 patch of the image is:
-1 255 0 255 1 255 1 255 0 255 1 255
-1 255×( )+×( )+−×( )+×( )+×( )+−×( )
-+×( )+0 0 255 1 255 0×( )+−×( )=
+1
+255
+0
+255
+1
+255
+1
+255
+0
+255
+1
+255
+1
+255
+×
+(
+)+
+×
+(
+)+ −×
+(
+)+
+×
+(
+)+
+×
+(
+)+ −×
+(
+)
++
+×
+(
+)+ 0
+255
+1
+255
+0
+×
+(
+)+ −×
+(
+) =
 Slide the filter one step to the right (position (1, 2)):
- 1 255 00 10 1 255 00 10
-1×( )+×( )+−×( )+×( )+×( )+−×( )
-+               × ×( )+×( )+−×( )=255 00 10 765  
+	
+1
+255
+0
+0
+1
+0
+1
+255
+0
+0
+1
+0
+1
+×
+(
+)+
+×
+(
+)+ −×
+(
+)+
+×
+(
+)+
+×
+(
+)+ −×
+(
+)
++
+               
+×
+(
+)+
+×
+(
+)+ −×
+(
+) =
+255
+0
+0
+1
+0
+765
+	
 Slide the filter one step to the right again (position (1, 3)):
- 1 255 00 10 1 255 00 10 1 255×( )+×( )+−×( )+×( )+×( )+−×( )+×( )
-                              +× ( )+−×( )=00 10 765.  
+	
+1
+255
+0
+0
+1
+0
+1
+255
+0
+0
+1
+0
+1
+255
+×
+(
+)+
+×
+(
+)+ −×
+(
+)+
+×
+(
+)+
+×
+(
+)+ −×
+(
+)+
+×
+(
+)
+                             +
+×
+(
+)+ −×
+(
+) =
+0
+0
+1
+0
+765.
+	
 Move down to the second row (position (2, 1)):
- 1 255 0 255 1 255 1 255 0 255×( )+×( )+−×( )+×( )+×( )
-+−                1 1 255 10 00 10 0×( )+×()+×( )+−×( )=  
- 
- 
- 
- 
- 
-  
+	
+1
+255
+0
+255
+1
+255
+1
+255
+0
+255
+×
+(
+)+
+×
+(
+)+ −×
+(
+)+
+×
+(
+)+
+×
+(
+)
++ −
+                
+1
+255
+1
+0
+0
+0
+1
+0
+0
+×
+(
+)+
+×
+(
+)+
+×
+(
+)+ −×
+(
+) =
 
 --- PDF PAGE 39 ---
-26 Mathematical Foundations for Deep Learning
-Step 2:  Slide the filter to the right by one pixel and repeat the process. After sliding the filter over 
+26
+Mathematical Foundations for Deep Learning
+Step 2: Slide the filter to the right by one pixel and repeat the process. After sliding the filter over 
 all positions of the image, we get a 3 × 3 feature map:
-Fmap=
-
-
-0 765 765
-0 765 765
-00 0.
+Fmap =
+
+
+
+
+
+
+
+
+
+
+0
+765
+765
+0
+765
+765
+0
+0
+0
+.
 This feature map highlights the edges or transitions in the original image where the filter detects 
 changes, specifically horizontal edges, due to the structure of the filter.
-2.3  MATRICES
-2.3.1   w hat iS a matrix?
+2.3  MATRICES
+2.3.1  What Is a Matrix?
 A matrix is a rectangular array of numbers, symbols, or expressions arranged in rows and columns. 
 Matrices are denoted by capital letters (e.g., A, B, C) and are often used in systems of linear 
 equations, computer graphics, statistics, and many other areas.
-Example:  Let us delve into the basics of matrices. Imagine you have a table of numbers where each 
+Example: Let us delve into the basics of matrices. Imagine you have a table of numbers where each 
 cell contains a value. This table can be thought of as a matrix. For instance:
- A=
-
-
-123
-456
-789. 
-2.3.2   d imen SionS
-The size or dimension of a matrix is defined by the number of rows and columns it contains. A matrix 
-with m rows and n columns is called a matrix, often read as “ m by n.”
-Example:  Consider a matrix B:
- B=
-
-
-12
-34
-56, 
-where B is a matrix which has three rows and two columns.
-2.3.3   t ypeS of matrice S
-2.3.3.1  Row Matrix
-A matrix with only one row.
-Example:  R=( ) 123. 
- 
- 
- 
- 
- 
-  
-
---- PDF PAGE 40 ---
-27 Linear Algebra
-2.3.3.2  Column Matrix
-A matrix with only one column.
-Example:  C=
-
-
-
-1
+	
+A =
+
+
+
+
+
+
+
+
+1
 2
 3
-2.3.3.3  Square Matrix
+4
+5
+6
+7
+8
+9
+.	
+2.3.2  Dimensions
+The size or dimension of a matrix is defined by the number of rows and columns it contains. A matrix 
+with m rows and n columns is called a matrix, often read as “m by n.”
+Example: Consider a matrix B:
+	
+B =
+
+
+
+
+
+
+
+
+1
+2
+3
+4
+5
+6
+,	
+where B is a matrix which has three rows and two columns.
+2.3.3  Types of Matrices
+2.3.3.1  Row Matrix
+A matrix with only one row.
+Example: R = (
+)
+1
+2
+3 .
+
+--- PDF PAGE 40 ---
+27
+Linear Algebra
+2.3.3.2  Column Matrix
+A matrix with only one column.
+Example: C =
+
+
+
+
+
+
+
+
+1
+2
+3
+2.3.3.3  Square Matrix
 A matrix with the same number of rows and columns.
-Example:  S=
-
-12
-34
-2.3.3.4  Diagonal Matrix
+Example: S = 
+
+
+
+1
+2
+3
+4
+2.3.3.4  Diagonal Matrix
 A square matrix where all elements outside the main diagonal are zero.
-Example : D=
-
-
-
-100
-020
-003
-2.3.3.5  Identity Matrix (or Unit Matrix)
+Example: D =
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+2
+0
+0
+0
+3
+2.3.3.5  Identity Matrix (or Unit Matrix)
 A diagonal matrix where all diagonal elements are 1.
-Example:  I=
-
-
-
-100
-010001
-2.3.3.6  Zero Matrix
+Example: I =
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+1
+0
+0
+0
+1
+2.3.3.6  Zero Matrix
 All elements are zero.
-Example:  O=
-
-00
-00
-2.3.3.7  Symmetric Matrix
-AT =  A where AT is the transpose of A.
-Example:  A AT=
+Example: O = 
 
-
-=
-
-123
-245
-356123
-245
-356,
-2.3.3.8  Skew-  Symmetric Matrix
-A skew-  symmetric matrix is a square matrix A that satisfies A AT=− , meaning each element 
-aaij ij=−  and all diagonal elements are zero.
-Example : A AT=−−
-−
-
-=−
-−−
-
-023
-20 5
-35 002 3
-205
-35 0, 
+
+
+0
+0
+0
+0
+2.3.3.7  Symmetric Matrix
+AT =​ A where AT is the transpose of A.
+Example: A
+AT
+=
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+1
+2
+3
+2
+4
+5
+3
+5
+6
+1
+2
+3
+2
+4
+5
+3
+5
+6
+,
+2.3.3.8  Skew-​Symmetric Matrix
+A skew-​symmetric matrix is a square matrix A that satisfies A
+A
+T = −, meaning each element 
+a
+a
+ij
+ij
+= −
+ and all diagonal elements are zero.
+Example: A
+AT
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+0
+2
+3
+2
+0
+5
+3
+5
+0
+0
+2
+3
+2
+0
+5
+3
+5
+0
+,
 
 --- PDF PAGE 41 ---
-28 Mathematical Foundations for Deep Learning
-2.3.4   m atrix operation S
-2.3.4.1  Addition and Subtraction
-Matrices can be added or subtracted element-  wise if they have the exact dimensions.
+28
+Mathematical Foundations for Deep Learning
+2.3.4  Matrix Operations
+2.3.4.1  Addition and Subtraction
+Matrices can be added or subtracted element-​wise if they have the exact dimensions.
 Example:
- Let and :AB=
-
-=
-
-12
-3420
-13 
- Addition :AB+=++
-++
-
-=
-
-1220
-314332
-47 
- Subtraction: . AB−=−−
-−−
-
-=−
-
-1220
-314312
-21 
-2.3.4.2  Scalar Multiplication
+	
+Let
+and
+: A
+B
+= 
+
+
+
+= 
+
+
+
+1
+2
+3
+4
+2
+0
+1
+3 	
+	
+Addition : A
+B
++
+=
++
++
++
++
+
+
+
+= 
+
+
+
+1
+2
+2
+0
+3
+1
+4
+3
+3
+2
+4
+7 	
+	
+Subtraction :
+.
+A
+B
+−
+=
+−
+−
+−
+−
+
+
+
+=
+−
+
+
+
+
+1
+2
+2
+0
+3
+1
+4
+3
+1
+2
+2
+1
+	
+2.3.4.2  Scalar Multiplication
 Every matrix element is multiplied by the scalar.
 Example:
- Let If then :. ,Ak kA=
-
-=⋅ =⋅
-
-=⋅⋅
-⋅⋅
-12
-343312
-3431 32
-33 34 
-=
-
-36
-91 2. 
-2.3.4.3  Matrix Multiplication
+	
+Let
+If
+then
+:
+.
+,
+A
+k
+k A
+= 
+
+
+
+=
+⋅
+=
+⋅
+
+
+=
+⋅
+⋅
+⋅
+⋅
+
+
+1
+2
+3
+4
+3
+3
+1
+2
+3
+4
+3 1
+3 2
+3 3
+3 4
+
+
+= 
+
+
+
+3
+6
+9
+12 .	
+2.3.4.3  Matrix Multiplication
 For two matrices to be multiplied, the number of columns of the first matrix must equal the number 
 of rows of the second matrix. The resulting matrix has the number of rows of the first matrix and the 
 number of columns of the second matrix.
 Example:
- Let and:,AB=
-
-=
-
-12
-3420
-13 
- CA B=⋅=
-
+	
+Let
+and
+:
+,
+A
+B
+= 
+
+
+
+= 
+
+
+
+1
+2
+3
+4
+2
+0
+1
+3
+	
+	
+C
+A B
+=
+⋅
+= 
+
+
 ⋅
-
-=⋅+⋅( ) ⋅+⋅( )
-⋅+⋅( ) ⋅12
-3420
-1312 21 10 23
-32 41 30+ +⋅ ( )
-
-=++
-++
-
-=
-
-4322 06
-6401 246
-10 12. 
-2.3.4.4  Determinant
+
+
+=
+⋅+
+⋅
+(
+)
+⋅+
+⋅
+(
+)
+⋅+
+⋅
+(
+)
+⋅
+1
+2
+3
+4
+2
+0
+1
+3
+1 2
+2 1
+1 0
+2 3
+3 2
+4 1
+3 0 +
+⋅
+(
+)
+
+
+
+=
++
++
++
++
+
+
+
+= 
+
+
+
+4 3
+2
+2
+0
+6
+6
+4
+0
+12
+4
+6
+10
+12 .	
+2.3.4.4  Determinant
 For square matrices, the determinant is a scalar value representing the volume scaling factor of the 
 transformation the matrix represents.
 Example:
- Let :, det( ). AA=
-
-== ⋅ ()−⋅()=−=−12
-3412
-3414 23 46 2   
- 
- 
- 
- 
- 
- 
-  
+	
+Let :
+, det( )
+.
+A
+A
+= 
+
+
+
+=
+=
+⋅
+(
+) −
+⋅
+(
+) =
+−
+= −
+1
+2
+3
+4
+1
+2
+3
+4
+1 4
+2 3
+4
+6
+2
 
 --- PDF PAGE 42 ---
-29 Linear Algebra
-2.3.4.5  Transpose
+29
+Linear Algebra
+2.3.4.5  Transpose
 Reflects the matrix over its main diagonal.
 Example:
- Let:, .AAT=
-
-=
+	
+Let :
+,
+.
+A
+AT
+= 
 
-
+
 
-123
-45614
-25
-36 
-2.3.4.6  Inverse
+=
+
+
+
+
+
+
+
+
+1
+2
+3
+4
+5
+6
+1
+4
+2
+5
+3
+6
+	
+2.3.4.6  Inverse
 For some square matrices, the inverse exists such that when the matrix is multiplied by its inverse, 
 the result is the identity matrix.
 Example:
- Let’
-:,det( ),d et()AAAdb
-caA=
-
-=−
-−
-
-=⋅()−⋅−12
-34114 231( ()=−=−46 2, 
- A AA−−=−−
-−
-
-=−
-−
-
-⋅=
-111
-242
-3121
-15 0512
-34 ..and 
+	
+Let
+’
+:
+,
+det( )
+, det( )
+A
+A
+A
+d
+b
+c
+a
+A
+= 
+
+
+
+=
+−
+−
+
+
+
+
+=
+⋅
+(
+) −
+⋅
+−
+1
+2
+3
+4
+1
+1 4
+2 3
+1
+(
+) =
+−
+= −
+4
+6
+2,	
+	
+A
+A A
+−
+−
+= −
+−
+−
+
+
+
+=
+−
+−
+
+
+
+
+⋅
+= 
+
+1
+1
+1
+2
+4
+2
+3
+1
+2
+1
+1 5
+0 5
+1
+2
+3
+4
+.
+.
+and
+
 ⋅−
-−
-
-=
-
-21
-15 0510
-01 ... 
-2.3.5   a pplication S in linear algeBra
-2.3.5.1  System of Linear Equations
+−
+
+
+
+= 
+
+
+
+2
+1
+1 5
+0 5
+1
+0
+0
+1
+.
+.
+.	
+2.3.5  Applications in Linear Algebra
+2.3.5.1  System of Linear Equations
 Matrices can be used to represent and solve systems of linear equations. In a system of linear 
 equations, the coefficients of the variables can be arranged in a matrix, and the equations can be 
 solved using matrix operations.
 Example:
-Considerxy
-xy+=
-+=
-
-25
-34 6,
-and it can be writteni nt hisf orm
-12
-345
-6
-
-
-
-=
-
-x
-y.
-Let and :, ,AXx
-yB=
-
-=
-
-=
-
-12
-345
-6
-Then we have ,:
-AX B⋅=.
-Now for calculating X, we have :
-XAB=⋅−1,
-and for calculating:A−1 
- 
- 
-  
-
---- PDF PAGE 43 ---
-30 Mathematical Foundations for Deep Learning
-det() ,A=⋅ ()−⋅()=−=−14 23 46 2  and A−=−−
-−
-
-=−
-−
-
-11
-242
-3121
-15 05..
-and now we have andt henw e can calculate theAB X−1,:
-X=−
-−
-
-
-
-=−⋅( )+⋅()
-⋅( )+− ⋅( )
-21
-15 055
-625 16
-15 50 56 .. .. 
-=−+
-−
-
-=−
-
-10 6
-75 34
-45 ..,
-thent he solutioni s:
-xy=− =44 5 ,. .
-2.3.5.2  Eigenvalues and Eigenvectors
-Eigenvalues and eigenvectors are fundamental in understanding the properties of linear transform -
-ations. For a square matrix A, an eigenvector v and eigenvalue λ satisfy the equation:
- Av v= λ 
-2.3.5.3  Transformations
-Matrices perform linear transformations in geometry and computer graphics, such as scaling, rota -
-tion, and translation.
-Example:
- •Scaling:  S =  s
-sx
-y0
-0
-
-
- •Rotation:  R =  coss in
-sinc osθθ
-θθ− 
-
-
- •Translation:  This is typically handled in homogeneous coordinates, involving an additional 
-dimension for translation vectors. In homogeneous coordinates, a 2D point ( x, y) becomes 
-(x, y, 1), allowing translation by a vector( tx, ty) using the matrix10
-01
-001t
-tx
-y
-
-
-
-
-
- . This matrix is 
-applied to the point ( x, y, 1) to produce the translated point ( x′, y′):
- ′
-′
-
-
-
-=
-
-
-
-x
-yt
-tx
+Consider
+x
 y
 x
 y
-110
-01
-001 1, 
-where x′ =  x +  tx and y′ =  y +  ty.
-2.3.6   m atrice S in deep learning
++
+=
++
+=
+
+
+
+2
+5
+3
+4
+6,
+and it can be written in this form
+1
+2
+3
+4
+5
+6
+
+
+
+
+
+
+
+= 
+
+
+
+x
+y
+.
+Let
+and
+:
+,
+,
+A
+X
+x
+y
+B
+= 
+
+
+
+= 
+
+
+
+= 
+
+
+
+1
+2
+3
+4
+5
+6
+Then we have
+,
+:
+A X
+B
+⋅
+=
+.
+Now for calculating X, we have:
+X
+A
+B
+=
+⋅
+−1
+,
+and for calculating
+:
+A−1
+
+--- PDF PAGE 43 ---
+30
+Mathematical Foundations for Deep Learning
+det( )
+,
+A =
+⋅
+(
+) −
+⋅
+(
+) =
+−
+= −
+1 4
+2 3
+4
+6
+2 and A−= −
+−
+−
+
+
+
+=
+−
+−
+
+
+
+
+1
+1
+2
+4
+2
+3
+1
+2
+1
+1 5
+0 5
+.
+.
+and now we have
+and
+then we can calculate the
+A
+B
+X
+−1
+,
+:
+X =
+−
+−
+
+
+
+
+
+
+
+=
+−⋅
+(
+)+
+⋅
+(
+)
+⋅
+(
+)+ −
+⋅
+(
+)
+
+
+2
+1
+1 5
+0 5
+5
+6
+2 5
+1 6
+1 5 5
+0 5 6
+.
+.
+.
+.
+
+=
+−
++
+−
+
+
+
+=
+−
+
+
+
+
+10
+6
+7 5
+3
+4
+4 5
+.
+.
+,
+then the solution is:
+x
+y
+= −
+=
+4
+4 5
+,
+. .
+2.3.5.2  Eigenvalues and Eigenvectors
+Eigenvalues and eigenvectors are fundamental in understanding the properties of linear transform-
+ations. For a square matrix A, an eigenvector v and eigenvalue λ satisfy the equation:
+	
+Av
+v
+= λ 	
+2.3.5.3  Transformations
+Matrices perform linear transformations in geometry and computer graphics, such as scaling, rota-
+tion, and translation.
+Example:
+	•
+Scaling: S =​ 
+s
+s
+x
+y
+0
+0
+
+
+
+
+	•
+Rotation: R =​ cos
+sin
+sin
+cos
+θ
+θ
+θ
+θ
+−
+
+
+
+
+	•
+Translation: This is typically handled in homogeneous coordinates, involving an additional 
+dimension for translation vectors. In homogeneous coordinates, a 2D point (x, y) becomes 
+(x, y, 1), allowing translation by a vector(tx, ty) using the matrix
+1
+0
+0
+1
+0
+0
+1
+t
+t
+x
+y
+
+
+
+
+
+
+
+
+
+
+ . This matrix is 
+applied to the point (x, y, 1) to produce the translated point (x′, y′):
+	
+′
+′
+
+
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+x
+y
+t
+t
+x
+y
+x
+y
+1
+1
+0
+0
+1
+0
+0
+1
+1
+,	
+where x′ =​ x +​ tx and y′ =​ y +​ ty.
+2.3.6  Matrices in Deep Learning
 Matrices are fundamental in deep learning, serving as the backbone for data representation, network 
 parameters, and essential operations. Let us dive into their importance in various aspects of deep 
-learning. 
- 
-  
+learning.
 
 --- PDF PAGE 44 ---
-31 Linear Algebra
-2.3.6.1   Data Representation
-(a) Input Data:  In deep learning, data is often structured and represented in matrix form, particu -
+31
+Linear Algebra
+2.3.6.1  Data Representation
+(a)	 Input Data: In deep learning, data is often structured and represented in matrix form, particu-
 larly for tasks like image processing. For example, a grayscale image is typically represented 
-as a 2D matrix where each element corresponds to the pixel intensity. A 28 × 28 pixel gray -
+as a 2D matrix where each element corresponds to the pixel intensity. A 28 × 28 pixel gray-
 scale image from the MNIST dataset can be represented as a 28 × 28 matrix, with each entry 
 holding a value between 0 (black) and 255 (white). This matrix representation allows the 
 model to easily interpret and process the image data by performing matrix operations like 
 convolutions or transformations. Consider a 3 × 3 grayscale image with the following pixel 
 intensities:
- I=
-
-
-
-100 150 200
-50 100 150
-05 0 100   
+	
+I =
+
+
+
+
+
+
+
+
+
+
+100
+150
+200
+50
+100
+150
+0
+50
+100
+ 	
+ 
 Here, each element of the matrix represents the intensity of a pixel. This matrix can be fed 
 into the deep learning model for further processing.
-(b) Batch Processing : When processing multiple samples at once, deep learning models stack 
+(b)	 Batch Processing: When processing multiple samples at once, deep learning models stack 
 the input data into a larger matrix or tensor. Each row in this matrix represents a different 
 sample from the batch. For example, if we are processing 5 grayscale images of 28 × 28 
 pixels, the data would be represented as a 3D tensor of shape (5, 28, 28), where 5 represents 
 the batch size, and 28 × 28 represents the dimensions of each image. Batch processing allows 
-for more efficient computation and faster training, as multiple samples are processed in par -
+for more efficient computation and faster training, as multiple samples are processed in par-
 allel. Suppose we have a batch of 3 images, each represented by a 2 × 2 matrix:
- I II12 3100 150
-50 100200 250
-150 20050 75
-25 50=
-
- =
-
- =
-,,
-  
-Stacking these images forms a 3D tensor of shape (3, 2, 2):
- Batc h=
-
-=
-
-
-
-I
+	
 I
-I1
+I
+I
+1
 2
-3100 150
-50 100200 250
-150 200,  
-
-
-
- ,50 75
-25 50 
+3
+100
+150
+50
+100
+200
+250
+150
+200
+50
+75
+25
+50
+= 
+
+
+
+= 
+
+
+
+= 
+
+
+,
+,
+	
+Stacking these images forms a 3D tensor of shape (3, 2, 2):
+	
+Batch =
+
+
+
+
+
+
+
+
+
+
+= 
+
+
+
+
+
+
+
+I
+I
+I
+1
+2
+3
+100
+150
+50
+100
+200
+250
+150
+200
+,
+
+
+
+
+
+
+
+
+
+
+
+,
+50
+75
+25
+50
+	
 This format allows deep learning models to process multiple images simultaneously, improving 
 computational efficiency and reducing training time.
-2.3.6.2   Parameters of the Network
-(a) Weights:  In an NN, the weights connecting two layers are represented as a matrix. Each 
+2.3.6.2  Parameters of the Network
+(a)	 Weights: In an NN, the weights connecting two layers are represented as a matrix. Each 
 element of this matrix corresponds to a connection between a neuron in the first layer and a 
 neuron in the subsequent layer. For example, if the first layer has n neurons and the second 
-layer has m neurons, the weight matrix will have dimensions m × n . These weights are 
+layer has m neurons, the weight matrix will have dimensions m × n. These weights are 
 learned during training, as they define how the input data is transformed and passed through 
 the network. Consider an NN with 3 input neurons and 2 output neurons. The weights 
 between the input and output layers are represented by a 2 × 3 matrix:
- W=
-
-01 02 03
-04 05 06...
-...    
- 
- 
- 
- 
-  
+	
+W = 
+
+
+
+0 1
+0 2
+0 3
+0 4
+0 5
+0 6
+.
+.
+.
+.
+.
+.
 
 --- PDF PAGE 45 ---
-32 Mathematical Foundations for Deep Learning
-  Here, the value 0.1 connects the first input neuron to the first output neuron, 0.2 connects 
+32
+Mathematical Foundations for Deep Learning
+		
+Here, the value 0.1 connects the first input neuron to the first output neuron, 0.2 connects 
 the second input neuron to the first output neuron, and so on. These weights determine how 
 much influence each input has on the outputs.
-(b) Biases:  Biases are typically represented as a vector, with each element corresponding to a 
+(b)	 Biases: Biases are typically represented as a vector, with each element corresponding to a 
 neuron in the output layer. Bias values allow the network to shift the activation function and 
 provide additional flexibility in learning. In the case of batch processing, bias values are 
 often broadcast across the entire batch during computation, meaning the same bias is applied 
-to each example in the batch. The bias vector is added to the result of the matrix multipli -
+to each example in the batch. The bias vector is added to the result of the matrix multipli-
 cation between the input data and the weight matrix, ensuring that each output neuron has 
 a corresponding bias term. For the previous example with 2 output neurons, the bias vector 
 might look like this:
- b=
-
-01
-02.
-.. 
+	
+b = 
+
+
+
+0 1
+0 2
+.
+.
+.	
 If we are processing a batch of three input samples, each input will be multiplied by the 
 weight matrix, and the same bias vector will be added to the result. For instance, given an 
-input vector x =  [1, 0, −1], the output calculation would be:
- zW xb=⋅ +=
-
-⋅
-−
+input vector x =​ [1, 0, −1], the output calculation would be:
+	
+z
+W x
+b
+=
+⋅
++
+= 
 
-
-+
- 01 02 03
-04 05 061
+
+⋅
+−
+
+
+
+
+
+
+
+
+
+
++ 
+
+
+0 1
+0 2
+0 3
+0 4
+0 5
+0 6
+1
 0
-101
-02...
-....
-. =−+
-−+
-
-=−
-
-01 03 01
-04 06 0201
-00...
-....
-. 
-2.3.6.3   Operations in Layers
-(a) Matrix Multiplication : In fully connected (dense) layers of an NN, matrix multiplication 
+1
+0 1
+0 2
+.
+.
+.
+.
+.
+.
+.
+. =
+−
++
+−
++
+
+
+
+= −
+
+
+
+
+0 1
+0 3
+0 1
+0 4
+0 6
+0 2
+0 1
+0 0
+.
+.
+.
+.
+.
+.
+.
+.
+	
+2.3.6.3  Operations in Layers
+(a)	 Matrix Multiplication: In fully connected (dense) layers of an NN, matrix multiplication 
 is the fundamental operation. The input data, represented as a matrix, is multiplied by the 
 weight matrix to produce the output, which is then shifted by adding the bias vector. This 
-operation transforms the input data and propagates it to the next layer. The matrix multi -
+operation transforms the input data and propagates it to the next layer. The matrix multi-
 plication allows the network to combine features from the input data based on the learned 
-weights. Suppose we have an input vector x =  [1, 2], a weight matrix W=
-
-05 01
-03 07..
-.., and a 
-bias vector b =  [0.2, 0.3]. The output of this fully connected layer is computed as:
- zW xb=⋅ +=
-
+weights. Suppose we have an input vector x =​ [1, 2], a weight matrix W = 
+
+
+
+0 5
+0 1
+0 3
+0 7
+.
+.
+.
+.
+, and a 
+bias vector b =​ [0.2, 0.3]. The output of this fully connected layer is computed as:
+	
+z
+W x
+b
+=
+⋅
++
+= 
+
+
 ⋅
-
-+
-
-=×+05 01
-03 071
-202
-0305 10 1 ..
-...
-...× ×
-×+ ×
-
-+
-
-=
-
-+
-
-2
-03 10 7202
-0307
-1702
-03 ...
-..
-..
-. =
-
-09
-20.
-. 
-(b) Convolution : In convolutional layers, commonly used in CNNs, the input matrix (or tensor, 
+
+
++ 
+
+
+=
+× +
+0 5
+0 1
+0 3
+0 7
+1
+2
+0 2
+0 3
+0 5 1
+0 1
+.
+.
+.
+.
+.
+.
+.
+. ×
+× +
+×
+
+
+
++ 
+
+
+= 
+
+
++ 
+
+
+
+2
+0 3 1
+0 7
+2
+0 2
+0 3
+0 7
+1 7
+0 2
+0 3
+.
+.
+.
+.
+.
+.
+.
+. = 
+
+
+
+0 9
+2 0
+.
+.
+	
+(b)	 Convolution: In convolutional layers, commonly used in CNNs, the input matrix (or tensor, 
 for color images) is convolved with a filter (or kernel) matrix to produce feature maps. The 
 filter slides across the input, and at each position, a dot product is computed between the 
 filter and the input patch. This operation allows CNNs to detect local patterns, such as edges 
 or textures, in the input data. Consider a 3 × 3 filter applied to a 4 × 4 input image:
- I F=
-
-
-=−
-−−
-
-
-
-
-1021
-0102
-1210010110 110 110 1,
-  
- 
- 
- 
-  
+	
+I
+F
+=
+
+
+
+
+
+
+
+
+
+
+
+
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+
+
+1
+0
+2
+1
+0
+1
+0
+2
+1
+2
+1
+0
+0
+1
+0
+1
+1
+0
+1
+1
+0
+1
+1
+0
+1
+,
 
 --- PDF PAGE 46 ---
-33 Linear Algebra
+33
+Linear Algebra
 The convolution operation slides the filter over the input, performing a dot product at each 
-position. For example, when the filter is applied to the top-  left corner (the first 3 × 3 patch), 
+position. For example, when the filter is applied to the top-​left corner (the first 3 × 3 patch), 
 the result is:
- 11 00 2101 10 0111 20 11
-1×()+×( )+× −( )+×()+×()+× −( )+×()+×( )+× −( )
-=+ +−++++ +−=−02000101 1  
+	
+1 1
+0
+0
+2
+1
+0
+1
+1
+0
+0
+1
+1 1
+2
+0
+1
+1
+1
+×
+(
+)+
+×
+(
+)+
+× −
+(
+)+
+×
+(
+)+
+×
+(
+)+
+× −
+(
+)+
+×
+(
+)+
+×
+(
+)+
+× −
+(
+)
+= +
+−
++
++
++
++ +
+−= −
+0
+2
+0
+0
+0
+1
+0
+1
+1
+	
 Sliding the filter over the rest of the input produces a feature map that highlights specific patterns 
 in the image. This convolution process enables CNNs to focus on local features in the data and is 
 crucial for tasks like image recognition.
-2.3.6.4   Activation Functions
+2.3.6.4  Activation Functions
 After matrix multiplication in a layer, the resulting matrix is often passed through an activation 
-function element-  wise, such as ReLU, sigmoid, or tanh.
-(a) ReLU:  Returns x if x > 0; otherwise, it returns 0. It is commonly used in CNNs and deep 
+function element-​wise, such as ReLU, sigmoid, or tanh.
+(a)	 ReLU: Returns x if x > 0; otherwise, it returns 0. It is commonly used in CNNs and deep 
 feedforward networks.
-(b) Sigmoid:  Squeezes the output between 0 and 1. It is helpful in early NNs but less common 
+(b)	 Sigmoid: Squeezes the output between 0 and 1. It is helpful in early NNs but less common 
 due to limitations like vanishing gradients.
-(c) Tanh (Hyperbolic Tangent):  Output values between –  1 and 1. Similar to sigmoid but 
-zero-  centered.
-2.3.6.5   Backpropagation
-(a) Gradient Matrices:  In the process of training an NN, backpropagation computes the gradients 
+(c)	 Tanh (Hyperbolic Tangent): Output values between –​1 and 1. Similar to sigmoid but 
+zero-​centered.
+2.3.6.5  Backpropagation
+(a)	 Gradient Matrices: In the process of training an NN, backpropagation computes the gradients 
 (partial derivatives) of the loss function with respect to each network parameter, including 
-weights and biases. These gradients are represented as matrices, where each element cor -
-responds to the partial derivative of the loss with respect to a specific weight. The gra -
+weights and biases. These gradients are represented as matrices, where each element cor-
+responds to the partial derivative of the loss with respect to a specific weight. The gra-
 dient matrix indicates how much the loss function would change if a small change were 
 made to the corresponding weights. These gradients are crucial for updating the parameters 
 to minimize the loss and improve model performance. Suppose we have a weight matrix 
-W=
-
-05 01
-03 07..
-.., and during backpropagation, the gradient matrix with respect to the loss is 
-computed as: G=− 
-
-00 20 01
-00 30 04..
-... This gradient matrix informs us how the loss will change 
+W = 
+
+
+
+0 5
+0 1
+0 3
+0 7
+.
+.
+.
+.
+, and during backpropagation, the gradient matrix with respect to the loss is 
+computed as:G =
+−
+
+
+
+
+0 02
+0 01
+0 03
+0 04
+.
+.
+.
+.
+. This gradient matrix informs us how the loss will change 
 based on small adjustments to each corresponding weight.
-(b) Weight Update:  Once the gradient matrix is calculated, the weights are updated to reduce the 
+(b)	 Weight Update: Once the gradient matrix is calculated, the weights are updated to reduce the 
 loss by moving in the opposite direction of the gradient. This process involves subtracting 
 a fraction of the gradient matrix from the current weight matrix. The fraction is determined 
 by the learning rate, a hyperparameter that controls how large the weight updates should be. 
-Let’s assume a learning rate α =  0.1. The updated weight matrix Wnew is computed as:
-WWGnew=− ⋅=
-
-−⋅− 
-
+Let’s assume a learning rate α =​ 0.1. The updated weight matrix Wnew is computed as:
+W
+W
+G
+new =
+−
+⋅
+= 
+
+
+−
+⋅
+−
+
+
+
 
-=α05 01
-03 070100 20 01
-00 30 04.......
-..
-0 05 0 002 01 0 001
-03 0 003 07 0 0040 498 0 10102 9.. ..
-.. .. ..
-.−+
-−−
-
-=7 70 696 .
-
+=
+α
+0 5
+0 1
+0 3
+0 7
+0 1
+0 02
+0 01
+0 03
+0 04
+.
+.
+.
+.
+.
+.
+.
+.
+.
+0 5
+0 002
+0 1
+0 001
+0 3
+0 003
+0 7
+0 004
+0 498
+0 101
+0 29
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+−
++
+−
+−
+
+
+
+=
+7
+0 696
+.
+
+
+
 
 After updating, the weight matrix is slightly adjusted in a way that reduces the loss. This 
-iterative process of calculating gradients and updating weights continues until the model  
- 
- 
-  
+iterative process of calculating gradients and updating weights continues until the model
 
 --- PDF PAGE 47 ---
-34 Mathematical Foundations for Deep Learning
+34
+Mathematical Foundations for Deep Learning
 converges to an optimal set of weights, minimizing the loss function. Backpropagation 
-ensures that each weight and bias in the network is gradually adjusted to improve perform -
+ensures that each weight and bias in the network is gradually adjusted to improve perform-
 ance, allowing the network to learn complex patterns from the data.
-2.3.6.6   Regularization
-(a) L2 Regularization:  It, also known as weight decay, adds a penalty to the loss function for 
+2.3.6.6  Regularization
+(a)	 L2 Regularization: It, also known as weight decay, adds a penalty to the loss function for 
 large weights, discouraging the model from relying too heavily on any particular parameter. 
 This penalty helps prevent overfitting by encouraging the network to keep the weights small, 
 making the model simpler and more generalizable. The loss function with L2 regularization 
 is given by:
-LossL ossL2 original=+ ∑λ
-22w  
-  where Lossoriginal is the original loss (e.g., mean squared error (MSE)), w represents the 
+Loss
+Loss
+L2
+original
+=
++
+∑
+λ
+2
+2
+w  
+		
+where Lossoriginal is the original loss (e.g., mean squared error (MSE)), w represents the 
 weights, and λ is the regularization coefficient. A larger λ increases the penalty for larger 
 weights, thus enforcing stronger regularization. Consider a simple network with two weights, 
-w1= 0.5 and w2= 0.8, and an original loss of 1.0. If the regularization coefficient λ =  0.1, the L2 
+w1=​0.5 and w2=​0.8, and an original loss of 1.0. If the regularization coefficient λ =​ 0.1, the L2 
 regularized loss is:
-LossL2=+×+ () =+ ×+ ( )=+ ×1001
-205 08 10 00 50 25 06 41 00 0522.... .. .. ..0 08 9
-10 0 0445 1 0445.
-.. .=+ =
+LossL2 =
++
+×
++
+(
+) =
++
+×
++
+(
+) =
++
+×
+1 0
+0 1
+2
+0 5
+0 8
+1 0
+0 05
+0 25
+0 64
+1 0
+0 05
+2
+2
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+0 89
+1 0
+0 0445
+1 0445
+.
+.
+.
+.
+=
++
+=
 The additional term penalizes large weights, encouraging the model to learn simpler patterns.
-(b) Dropout:  Dropout is a regularization technique used to prevent overfitting by randomly 
-“dropping out” or turning off neurons during each forward and backward pass with a prob -
-ability p. During training, at each iteration, a fraction of neurons (typically p =  0.5) are set to 
+(b)	 Dropout: Dropout is a regularization technique used to prevent overfitting by randomly 
+“dropping out” or turning off neurons during each forward and backward pass with a prob-
+ability p. During training, at each iteration, a fraction of neurons (typically p =​ 0.5) are set to 
 zero, which forces the network to rely on multiple pathways for learning. This helps make the 
-network more robust and prevents neurons from co-  adapting too strongly to specific features. 
+network more robust and prevents neurons from co-​adapting too strongly to specific features. 
 Suppose we have a layer with four neurons and the following activations during training:
- a=[]09080407 .,.,.,.  
-With a dropout probability of p =  0.5, two neurons might randomly be dropped, resulting in:
- adropout=[]090040 .,,. ,. 
+	
+a = [
+]
+0 9 0 8 0 4 0 7
+. , . , . , .
+	
+With a dropout probability of p =​ 0.5, two neurons might randomly be dropped, resulting in:
+	
+adropout = [
+]
+0 9 0 0 4 0
+. , , . ,
+.	
 The network then continues training with these modified activations. At test time, dropout 
 is turned off, but the output is scaled by a factor of 1 − p to account for the dropped neurons 
 during training, making the network’s predictions more robust. Both L2 regularization and 
 dropout are essential techniques for preventing overfitting and ensuring that NNs generalize 
 well to unseen data.
-2.3.6.7   Optimizers
-(a) RMSprop:  RMSprop (Root Mean Square Propagation) is an optimizer that adjusts the 
+2.3.6.7  Optimizers
+(a)	 RMSprop: RMSprop (Root Mean Square Propagation) is an optimizer that adjusts the 
 learning rate for each parameter by using a moving average of the squared gradients. This 
 helps prevent the learning rate from decaying too quickly, as seen in Adagrad, making 
-RMSprop well-  suited for training deep NNs. The update rule for RMSprop is as follows: 
- 
- 
- 
- 
-  
+RMSprop well-​suited for training deep NNs. The update rule for RMSprop is as follows:
 
 --- PDF PAGE 48 ---
-35 Linear Algebra
- vv gw w
-vgtt tt t
-tt=+ − () =−
-+−−ββη
-12
-11a nd
-. 
+35
+Linear Algebra
+	
+v
+v
+g
+w
+w
+v
+g
+t
+t
+t
+t
+t
+t
+t
+=
++
+−
+(
+)
+=
+−
++
+−
+−
+β
+β
+η
+1
+2
+1
+1
+and
+
+.	
 Here, vt is the moving average of the squared gradients, gt is the current gradient, β is the 
 decay rate, η is the learning rate, and ϵ is a small constant for numerical stability. RMSprop 
 helps normalize the gradients, ensuring that each parameter has a more stable and balanced 
-learning rate. Suppose η =  0.01, β =  0.9, and the gradient gt =  0.5. Initially, v0 =  0, and the 
+learning rate. Suppose η =​ 0.01, β =​ 0.9, and the gradient gt =​ 0.5. Initially, v0 =​ 0, and the 
 updated vt and wt values can be computed as:
-vw w12
-1009 00 10 50 10 25 0 0250=× +× =× == −.. .. ...and0 01
-0 02505
-...
-+×
+v
+w
+w
+1
+2
+1
+0
+0 9
+0
+0 1
+0 5
+0 1
+0 25
+0 025
+0
+=
+×
++
+×
+=
+×
+=
+=
+−
+.
+.
+.
+.
+.
+.
+.
+and
+01
+0 025
+0 5
+.
+. .
++
+×
 
 For small ϵ, the update normalizes the gradient, leading to a more balanced update.
-(b) Adam:  Adam (Adaptive Moment Estimation) combines the benefits of RMSprop and 
+(b)	 Adam: Adam (Adaptive Moment Estimation) combines the benefits of RMSprop and 
 momentum. It maintains two moving averages: one for the gradient (momentum) and another 
 for the squared gradient. This dual mechanism allows Adam to adapt the learning rate based 
 on the gradient’s magnitude and direction. The update rules are:
- mm gv vg mmvtt tt tt tt
-t=+ − () =+ − () =−−−βββββ11 12 122
-1111,, , ^ ^ ^tt
-tv=−12β 
- ww
-vmtt
-tt=−
-+−1η
-ˆˆ.
- 
-Here, mt is the moving average of the gradient, vt is the moving average of the squared gra -
-dient, β1 and β2 are decay rates, η is the learning rate, and ϵ is a small constant. Suppose η =  
-0.01, β1 =  0.9, β2 =  0.999, and gt =  0.5. Initially, m0 =  0 and v0 =  0. The updated values for 
+	
+m
+m
+g
+v
+v
+g
+m
+m
+v
+t
+t
+t
+t
+t
+t
+t
+t
+t
+=
++
+−
+(
+)
+=
++
+−
+(
+)
+=
+−
+−
+−
+β
+β
+β
+β
+β
+1
+1
+1
+2
+1
+2
+2
+1
+1
+1
+1
+,
+,
+,
+^
+^ t
+t
+t
+v
+=
+−
+1
+2
+β 	
+	
+w
+w
+v
+m
+t
+t
+t
+t
+=
+−
++
+−1
+η
+ˆ
+ˆ .
+
+	
+Here, mt is the moving average of the gradient, vt is the moving average of the squared gra-
+dient, β1 and β2 are decay rates, η is the learning rate, and ϵ is a small constant. Suppose η =​ 
+0.01, β1 =​ 0.9, β2 =​ 0.999, and gt =​ 0.5. Initially, m0 =​ 0 and v0 =​ 0. The updated values for 
 mt, vt, and the weight update wt are:
- m v11209 00 10 50 05 0 999 00 001 05 00 0=× +×== ×+ ×=.. .. .. .. and0 025.  
-The bias-  corrected estimates are:
- ˆˆ.
-..,.
-...m v1100 5
-10 9050 00025
-10 99902 5=−==−=  
+	
+m
+v
+1
+1
+2
+0 9
+0
+0 1
+0 5
+0 05
+0 999
+0
+0 001
+0 5
+0 00
+=
+×
++
+×
+=
+=
+×
++
+×
+=
+.
+.
+.
+.
+.
+.
+.
+.
+and
+025.	
+The bias-​corrected estimates are:
+	
+ˆ
+ˆ
+.
+.
+. ,
+.
+.
+.
+.
+m
+v
+1
+1
+0 05
+1
+0 9
+0 5
+0 00025
+1
+0 999
+0 25
+=
+−
+=
+=
+−
+=
+	
 The weight update becomes:
- ww1000 1
-02 505 =−
-+×.
-...
- 
+	
+w
+w
+1
+0
+0 01
+0 25
+0 5
+=
+−
++
+×
+.
+.
+. .
+
+	
 Adam’s ability to adapt learning rates based on both the gradient’s momentum and its 
 squared magnitude makes it one of the most effective and widely used optimizers in deep 
 learning. RMSprop and Adam are both adaptive learning rate optimizers widely used in 
 training deep NNs, but they differ in their mechanisms and resulting updates. RMSprop 
 adjusts the learning rate for each parameter by maintaining a moving average of the squared 
-gradients, effectively normalizing the gradient and stabilizing updates. Its single moving  
- 
- 
- 
- 
- 
-  
+gradients, effectively normalizing the gradient and stabilizing updates. Its single moving
 
 --- PDF PAGE 49 ---
-36 Mathematical Foundations for Deep Learning
-average (using a decay rate like β =  0.9) ensures that the learning rate adapts based solely on 
+36
+Mathematical Foundations for Deep Learning
+average (using a decay rate like β =​ 0.9) ensures that the learning rate adapts based solely on 
 the magnitude of recent gradients. In contrast, Adam extends RMSprop by also incorporating 
 a moving average of the gradients themselves (momentum), using separate decay rates for 
-the first and second moments (e.g., β₁ =  0.9 and β₂ =  0.999). Additionally, Adam applies bias 
+the first and second moments (e.g., β₁ =​ 0.9 and β₂ =​ 0.999). Additionally, Adam applies bias 
 correction to these moving averages, especially during the initial training steps, to produce 
 unbiased estimates. As a result, Adam typically provides more balanced and efficient updates 
-by considering both the direction and magnitude of gradients, often leading to faster conver -
+by considering both the direction and magnitude of gradients, often leading to faster conver-
 gence and better performance in practice. Consequently, while both optimizers may appear 
 to produce similar updates in simplified examples, especially in early iterations, their outputs 
 diverge as training progresses due to Adam’s additional momentum and bias correction, 
 making Adam generally more robust and effective for a wider range of NN architectures.
-2.3.6.8   Batch Normalization
+2.3.6.8  Batch Normalization
 Batch normalization is a technique used to normalize the activations of a layer in an NN. This helps 
 maintain a consistent mean and variance across different batches during training, improving the 
 model’s stability and performance. Batch normalization works in the following steps:
-1. Calculate the mean ( μ) and variance ( σ2) of the input X over the batch:
- µ σµB
-im
-iB
-im
-iBmXmX == −
-==∑∑11
-12
-12and( ),  
+1.	 Calculate the mean (μ) and variance (σ2) of the input X over the batch:
+	
+µ
+σ
+µ
+B
+i
+m
+i
+B
+i
+m
+i
+B
+m
+X
+m
+X
+=
+=
+−
+=
+=
+∑
+∑
+1
+1
+1
+2
+1
+2
+and
+(
+) ,	
 where m is the number of samples in the batch, and Xi represents each input in the batch.
-2. Normalize the input X by subtracting the mean and dividing by the standard deviation:
- ˆ .XX
-iiB
-B=−
-+µ
-σ2 
+2.	 Normalize the input X by subtracting the mean and dividing by the standard deviation:
+	
+ˆ
+.
+X
+X
+i
+i
+B
+B
+=
+−
++
+µ
+σ2
+
+	
 Here, ϵ is a small constant added for numerical stability to avoid division by zero.
-3. Scale and shift the normalized input using two learnable parameters, γ (scale) and β (shift):
- Y Xii=+γβˆ  
-The parameters γ and β are learned during training and allow the network to restore the rep -
+3.	 Scale and shift the normalized input using two learnable parameters, γ (scale) and β (shift):
+	
+Y
+X
+i
+i
+=
++
+γ
+β
+ˆ
+	
+The parameters γ and β are learned during training and allow the network to restore the rep-
 resentational power that might be lost due to normalization.
-Figure 2.9  provides a visualization of the forward and backward pass in an NN layer, represented  
-through a series of matrices. The input data matrix illustrates the initial data fed into the NN, with each  
-element representing feature values across rows and columns. Following this, the Batch Data (Sample  
-1) matrix shows how a single sample from the batch is processed, demonstrating the model’s handling  
-of data during training in smaller chunks, known as mini-  batches. Moving to the Weights Matrix, this  
-highlights the learned weights, which connect the input data to the neurons in the layer. Complementing  
-the weights, the Biases Vector is shown, which contains bias values added to the weighted sum of  
-inputs for each neuron, providing additional flexibility in shifting the neuron’s output. The Output  
-Matrix shows the raw result after multiplying the input data by the weights and adding the biases, yet  
-before any activation function is applied. The ReLU Activation Output matrix then demonstrates the  
-effect of applying the ReLU activation function, which zeros out any negative values while keeping  
-positive values the same. This step introduces non-  linearity into the model, making it more capable of   
- 
- 
-  
+Figure 2.9 provides a visualization of the forward and backward pass in an NN layer, represented 
+through a series of matrices. The input data matrix illustrates the initial data fed into the NN, with each 
+element representing feature values across rows and columns. Following this, the Batch Data (Sample 
+1) matrix shows how a single sample from the batch is processed, demonstrating the model’s handling 
+of data during training in smaller chunks, known as mini-​batches. Moving to the Weights Matrix, this 
+highlights the learned weights, which connect the input data to the neurons in the layer. Complementing 
+the weights, the Biases Vector is shown, which contains bias values added to the weighted sum of 
+inputs for each neuron, providing additional flexibility in shifting the neuron’s output. The Output 
+Matrix shows the raw result after multiplying the input data by the weights and adding the biases, yet 
+before any activation function is applied. The ReLU Activation Output matrix then demonstrates the 
+effect of applying the ReLU activation function, which zeros out any negative values while keeping 
+positive values the same. This step introduces non-​linearity into the model, making it more capable of
 
 --- PDF PAGE 50 ---
-37 Linear Algebra
-learning complex patterns. Following the forward pass, the Gradients Matrix represents the calculated  
-gradients during backpropagation, where the network computes how much the weights should be  
-adjusted to minimize the loss function. These gradients are then used to adjust the model’s parameters,  
-as illustrated in the weight updates matrix. Finally, the Batch Normalization Output matrix presents the  
+37
+Linear Algebra
+learning complex patterns. Following the forward pass, the Gradients Matrix represents the calculated 
+gradients during backpropagation, where the network computes how much the weights should be 
+adjusted to minimize the loss function. These gradients are then used to adjust the model’s parameters, 
+as illustrated in the weight updates matrix. Finally, the Batch Normalization Output matrix presents the 
 normalized output values after applying batch normalization.
-2.4  TENSOR AND ITS OPERATIONS
-2.4.1   t enSorS
-A tensor is a multi-  dimensional array of numerical values and can be seen as a generalization of 
+2.4  TENSOR AND ITS OPERATIONS
+2.4.1  Tensors
+A tensor is a multi-​dimensional array of numerical values and can be seen as a generalization of 
 scalars, vectors, and matrices. In deep learning and many applications in physics, tensors are used 
 to represent many data structures.
-FIGURE 2.9  Visual representation of matrix concepts in deep learning. 
- 
-  
+FIGURE 2.9  Visual representation of matrix concepts in deep learning.
 
 --- PDF PAGE 51 ---
-38 Mathematical Foundations for Deep Learning
- •Scalar  (zero-  dimensional tensor): A single number. For example, c =  5.
- •Vector  (one-  dimensional tensor): An array of numbers. For example, v =  [1, 2, 3].
- •Matrix  (two-  dimensional tensor): A 2D array of numbers. For example, M=
-
-12
-34.
- •Higher-  dimensional Tensor:  Tensors can have three or more dimensions. For instance, color 
-images can be represented as a three-  dimensional tensor (height, width, color channels), 
+38
+Mathematical Foundations for Deep Learning
+	•
+Scalar (zero-​dimensional tensor): A single number. For example, c =​ 5.
+	•
+Vector (one-​dimensional tensor): An array of numbers. For example, v =​ [1, 2, 3].
+	•
+Matrix (two-​dimensional tensor): A 2D array of numbers. For example, M = 
+
+
+
+1
+2
+3
+4 .
+	•
+Higher-​dimensional Tensor: Tensors can have three or more dimensions. For instance, color 
+images can be represented as a three-​dimensional tensor (height, width, color channels), 
 such as T for an image with dimensions 100 × 100 pixels and 3 color channels (RGB): Tijk, 
-whereij k=… =… =1 100 1 100 123 ,, ;, ,; ,,.
-2.4.2   t enSor operation S
-2.4.2.1  Element-  Wise Operations
-Operations like addition, subtraction, multiplication, and division are performed element-  wise 
+where i
+j
+k
+=
+…
+=
+…
+=
+1
+100
+1
+100
+1 2 3
+,
+,
+;
+,
+,
+;
+, , .
+2.4.2  Tensor Operations
+2.4.2.1  Element-​Wise Operations
+Operations like addition, subtraction, multiplication, and division are performed element-​wise 
 between two tensors of the same shape. For example, if two matrices (2D tensors) exist, corresponding 
 elements will be added to A and B.
-2.4.2.2  Tensor Dot Product (or Tensor Contraction)
+2.4.2.2  Tensor Dot Product (or Tensor Contraction)
 Extends the idea of the dot product in vectors and matrix multiplication. It involves multiplying 
 elements of tensors and summing the result, often reducing the tensor’s dimensionality.
-(a) Tensor Reshaping:  It changes the shape of a tensor while preserving its data. It is beneficial 
+(a)	 Tensor Reshaping: It changes the shape of a tensor while preserving its data. It is beneficial 
 in deep learning when preparing data for different layers.
-(b) Reduction Operations:  This refers to operations like sum, mean, max, or min, where you 
-reduce a tensor to a more minor rank. For example, you might take the sum along one dimen -
+(b)	 Reduction Operations: This refers to operations like sum, mean, max, or min, where you 
+reduce a tensor to a more minor rank. For example, you might take the sum along one dimen-
 sion, resulting in a tensor of one less dimension.
-2.4.2.3  Matrix-  Specific Operations on 2D Tensors
+2.4.2.3  Matrix-​Specific Operations on 2D Tensors
 There are several operations including:
-(a) Transpose:  Swap rows with columns.
-(b) Inverse:  Find the matrix that gives the identity matrix when multiplied with the original.
-(c) Determinant:  A scalar value representing specific properties of the matrix.
-(d) Tensor Slicing and Indexing:  Extracting specific portions of a tensor is analogous to slicing 
+(a)	 Transpose: Swap rows with columns.
+(b)	 Inverse: Find the matrix that gives the identity matrix when multiplied with the original.
+(c)	 Determinant: A scalar value representing specific properties of the matrix.
+(d)	 Tensor Slicing and Indexing: Extracting specific portions of a tensor is analogous to slicing 
 lists or arrays.
-(e) Broadcasting:  They make element-  wise binary operations compatible with tensors of 
+(e)	 Broadcasting: They make element-​wise binary operations compatible with tensors of 
 different shapes. For instance, adding a vector to a matrix by duplicating the vector along 
 the rows of the matrix.
-(f) Outer Product:  Produces a higher-  rank tensor from two lower-  rank tensors. For vectors, it 
+(f)	 Outer Product: Produces a higher-​rank tensor from two lower-​rank tensors. For vectors, it 
 produces a matrix.
-(g) Tensor Decompositions:  Techniques like SVD  or QR decomposition can be extended to 
+(g)	 Tensor Decompositions: Techniques like SVD or QR decomposition can be extended to 
 tensors.
-In Figure 2.10 , various tensor operations are performed on sample tensors using TensorFlow and  
-visualized through heatmaps. The first row of subplots shows the results of element-  wise operations.  
-The element-  wise addition plot displays the sum of corresponding elements from tensors A and B.  
-The element-  wise subtraction plot illustrates the difference between the corresponding elements of  
-A and B. The element-  wise multiplication plot highlights the product of corresponding elements  
-from A and B, while the element-  wise division plot shows the quotient of corresponding elements  
-of A divided by B. The second row of subplots continues with more complex operations. The tensor    
+In Figure 2.10, various tensor operations are performed on sample tensors using TensorFlow and 
+visualized through heatmaps. The first row of subplots shows the results of element-​wise operations. 
+The element-​wise addition plot displays the sum of corresponding elements from tensors A and B. 
+The element-​wise subtraction plot illustrates the difference between the corresponding elements of 
+A and B. The element-​wise multiplication plot highlights the product of corresponding elements 
+from A and B, while the element-​wise division plot shows the quotient of corresponding elements 
+of A divided by B. The second row of subplots continues with more complex operations. The tensor
 
 --- PDF PAGE 52 ---
-39 Linear Algebra
-dot product plot presents the result of a dot product operation between tensors A and B, which  
-involves summing the products of corresponding elements along the specified axes. The reshaped  
-tensor plot shows tensor A rearranged into a column vector with a shape of (4, 1). The third row  
+39
+Linear Algebra
+dot product plot presents the result of a dot product operation between tensors A and B, which 
+involves summing the products of corresponding elements along the specified axes. The reshaped 
+tensor plot shows tensor A rearranged into a column vector with a shape of (4, 1). The third row 
 includes summary statistics and transformations of tensor A.
 The tensor sum plot displays the sum of all elements in A as a single value. Similarly, the tensor 
 mean plot presents the mean of all elements in A, and the tensor max plot shows the maximum 
@@ -1889,157 +4263,324 @@ value among all elements in A. The fourth row focuses on matrix transformations 
 The transpose of A plot shows the result of swapping the rows and columns of tensor A. The inverse 
 of the identity matrix plot displays the inverse of a 2 × 2 identity matrix, which remains the identity 
 matrix itself. Finally, the determinant of the identity matrix plot shows that the determinant of a 2 × 
-2 identity matrix is 1. Additionally, the SVD  results are printed. The singular values ( s), left singular 
-vectors ( u), and right singular vectors ( v) of tensor A are provided. These values and vectors are 
+2 identity matrix is 1. Additionally, the SVD results are printed. The singular values (s), left singular 
+vectors (u), and right singular vectors (v) of tensor A are provided. These values and vectors are 
 crucial in many applications, such as data compression and noise reduction.
-FIGURE 2.10  Visualization of tensor operations.  
+FIGURE 2.10  Visualization of tensor operations.
 
 --- PDF PAGE 53 ---
-40 Mathematical Foundations for Deep Learning
-2.4.3   t enSorS in deep learning
+40
+Mathematical Foundations for Deep Learning
+2.4.3  Tensors in Deep Learning
 At a high level, deep learning involves building and training NNs, which can be thought of as 
 a composition of functions. These functions are applied to data to make predictions or create 
 representations. In this paradigm, tensors are the primary data structure for various operations and 
 transformations.
-(a) Input Data:  In deep learning, input data is typically multi-  dimensional. For example, 
-in Image Data , Images are represented as 3D tensors with dimensions corresponding to 
+(a)	 Input Data: In deep learning, input data is typically multi-​dimensional. For example, 
+in Image Data, Images are represented as 3D tensors with dimensions corresponding to 
 height, width, and channels (RGB). For instance, an RGB image of size 32 × 32 pixels 
 can be represented as a tensor of shape, and for Sequential Data, Text or time series data 
 can be represented as 2D tensors, where one dimension represents the sequence length, 
 and the other represents features or embedding dimensions. For example, a sequence of 
-50 words, each represented by a 300-  dimensional embedding, would be a tensor of shape 
+50 words, each represented by a 300-​dimensional embedding, would be a tensor of shape 
 (50, 300).
-(b) Weights and Biases:  The parameters of NNs, including weights and biases, are stored as 
+(b)	 Weights and Biases: The parameters of NNs, including weights and biases, are stored as 
 tensors. The architecture of the network and the connections between neurons dictate the 
 shape of these tensors. For example, for a convolutional layer in an NN with 16 filters of size 
 3 × 3 applied to an input with 3 channels (such as RGB images), the weights would be stored 
 in a 4D tensor of shape (16, 3, 3, 3), representing the number of filters, input channels, and 
 the spatial dimensions of each filter. Biases would be stored in a 1D tensor of shape (16), 
 representing one bias per filter.
-(c) Intermediate Values:  As data progresses through an NN, it gets transformed at each layer. 
+(c)	 Intermediate Values: As data progresses through an NN, it gets transformed at each layer. 
 These transformations yield new tensors, representing the intermediate outputs. For example, 
 applying a convolutional layer to input images of shape (32, 32, 3) with 16 filters can produce 
 intermediate tensors of shape (32, 32, 16), where each filter produces a separate feature map 
 of the same spatial dimensions as the input image.
-(d) Final Outputs:  The predictions or classifications made by an NN are also represented as 
-tensors. For example , after passing the intermediate tensor through an activation function 
+(d)	 Final Outputs: The predictions or classifications made by an NN are also represented as 
+tensors. For example, after passing the intermediate tensor through an activation function 
 like ReLU and a final dense layer with 10 output neurons (for a classification task with 10 
 classes), we get the final outputs as a 1D tensor of shape (10), representing the predicted 
 probabilities for each class.
-2.4.4   t enSor operation S in deep learning
-(a) Linear Transformations:  In fully connected layers, the primary operation is matrix multi -
-plication, a tensor operation. For example, given an input tensor X =  [1.0, 2.0] and a weight 
-tensor W=
-
-05 03
-07 09..
-.., the output is calculated as:
- ZW Xb=⋅ +=
-
+2.4.4  Tensor Operations in Deep Learning
+(a)	 Linear Transformations: In fully connected layers, the primary operation is matrix multi-
+plication, a tensor operation. For example, given an input tensor X =​ [1.0, 2.0] and a weight 
+tensor W = 
+
+
+
+0 5
+0 3
+0 7
+0 9
+.
+.
+.
+.
+, the output is calculated as:
+	
+Z
+W X
+b
+=
+⋅
++
+= 
+
+
 ⋅
-
-+
-
-=05 03
-07 0910
-2001
-0211
-2..
-...
-..
-..
-.5 5
-
-, 
+
+
++ 
+
+
+=
+0 5
+0 3
+0 7
+0 9
+1 0
+2 0
+0 1
+0 2
+1 1
+2
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.5
+
+
+
+,	
 where b is the bias tensor.
-(b) Activation Functions:  After a linear transformation, activation functions are applied element-  
-wise to tensors. For instance, applying the ReLU activation to the previous result Z =   [1.1, 
+(b)	 Activation Functions: After a linear transformation, activation functions are applied element-​
+wise to tensors. For instance, applying the ReLU activation to the previous result Z =​ [1.1, 
 2.5] results in:
- ReLUZ ()=[ ) =][ max( ,. ,max(,.) ., .] 011 0251 12 5   
- 
- 
-  
+	
+ReLU Z
+( ) = [
+)
+=] [
+max( , .
+,max( , . )
+. , . ]
+0 1 1
+0 2 5
+1 1 2 5
 
 --- PDF PAGE 54 ---
-41 Linear Algebra
-(c) Convolutions:  In CNNs, convolution operations involve sliding a filter tensor over an input 
-tensor to produce a feature map. For instance, convolving a 3 × 3 filter F=−
+41
+Linear Algebra
+(c)	 Convolutions: In CNNs, convolution operations involve sliding a filter tensor over an input 
+tensor to produce a feature map. For instance, convolving a 3 × 3 filter F =
 −
-−
-
-
-10 1
-10 1
-10 1 over 
+−
+−
+
+
+
+
+
+
+
+
+
+
+1
+0
+1
+1
+0
+1
+1
+0
+1
+ over 
 a 4 × 4 input tensor, I produce a feature map after calculating dot products at each position.
-(d) Pooling : Pooling layers reduce the spatial dimensions of feature maps. For example, max-  
-pooling with a 2 × 2 window on a tensor I=
-
-13
-24 would result in:
-Max-PoolingI ()==max( ,,,) 1 234 4
-(e) Batch Operations:  When processing data in batches, multiple samples are stacked into a 
-single tensor. For example, processing a batch of two input tensors X1 =  [1.0, 2.0] and X2 =  
+(d)	 Pooling: Pooling layers reduce the spatial dimensions of feature maps. For example, max-​
+pooling with a 2 × 2 window on a tensor I = 
+
+
+
+1
+3
+2
+4 would result in:
+Max-Pooling I( ) =
+=
+max( , , , )
+1 2 3 4
+4
+(e)	 Batch Operations: When processing data in batches, multiple samples are stacked into a 
+single tensor. For example, processing a batch of two input tensors X1 =​ [1.0, 2.0] and X2 =​ 
 [0.5, 1.5] results in a batch tensor:
- Xbatch=
-
-10 20
-05 15..
-.. 
+	
+Xbatch = 
+
+
+
+1 0
+2 0
+0 5
+1 5
+.
+.
+.
+.
+	
 Tensor operations, such as matrix multiplication, are then performed simultaneously on this 
 entire batch.
-(f) Backpropagation:  During training, gradients are computed as tensors with the same shape 
-as the weights. For instance, if the weight tensor W=
-
-05 03
-07 09..
-.. has a gradient tensor 
-G=− 
-
-00 20 01
-00 30 04..
-.., the weight update is:
- WW Gnew=− ⋅=−+
-−−
-
- η05 00 20 30 01
-07 00 30 90 04.. ..
-.. .. 
-(g) Sequence Processing:  In RNNs and transformers, sequences are processed using tensor 
+(f)	 Backpropagation: During training, gradients are computed as tensors with the same shape 
+as the weights. For instance, if the weight tensor W = 
+
+
+
+0 5
+0 3
+0 7
+0 9
+.
+.
+.
+.
+ has a gradient tensor 
+G =
+−
+
+
+
+
+0 02
+0 01
+0 03
+0 04
+.
+.
+.
+.
+, the weight update is:
+	
+W
+W
+G
+new =
+−
+⋅
+=
+−
++
+−
+−
+
+
+
+
+η
+0 5
+0 02
+0 3
+0 01
+0 7
+0 03
+0 9
+0 04
+.
+.
+.
+.
+.
+.
+.
+.
+	
+(g)	 Sequence Processing: In RNNs and transformers, sequences are processed using tensor 
 operations like the dot product. For instance, calculating the dot product between two 
 sequences (tensors) determines how much one sequence element influences another.
-(h) Broadcasting:  Broadcasting allows tensors of different shapes to be combined. For example, 
-adding a vector [1.0, 2.0] to each row of a matrix M=
-
-34
-56 results in:
-Mnew=++
-++
-
-=
-
-31 0420
-51 062046
-68..
-...
-(i) Regularization and Normalization:  Techniques like dropout randomly drop units during 
-training, represented by setting some elements of the activation tensor to zero. Batch nor -
+(h)	 Broadcasting: Broadcasting allows tensors of different shapes to be combined. For example, 
+adding a vector [1.0, 2.0] to each row of a matrix M = 
+
+
+
+3
+4
+5
+6 results in:
+Mnew =
++
++
++
++
+
+
+
+= 
+
+
+
+3
+1 0
+4
+2 0
+5
+1 0
+6
+2 0
+4
+6
+6
+8
+.
+.
+.
+.
+.
+(i)	 Regularization and Normalization: Techniques like dropout randomly drop units during 
+training, represented by setting some elements of the activation tensor to zero. Batch nor-
 malization normalizes activations using tensor operations to maintain a consistent mean and 
 variance.
-(j) Loss Computation:  The loss between predictions and actual targets is computed using tensor 
-operations. For instance, if the predicted tensor is Ypred =  [0.8, 0.4] and the actual target 
-tensor is Ytrue =  [1.0, 0.0], the MSE loss is:
- Loss=− +− () =+( )=1
-208 10 04 001
-200 40 16 0122(( .. ). .) .. ..  
- 
- 
- 
-  
+(j)	 Loss Computation: The loss between predictions and actual targets is computed using tensor 
+operations. For instance, if the predicted tensor is Ypred =​ [0.8, 0.4] and the actual target 
+tensor is Ytrue =​ [1.0, 0.0], the MSE loss is:
+	
+Loss =
+−
++
+−
+(
+) =
++
+(
+) =
+1
+2
+0 8
+1 0
+0 4
+0 0
+1
+2 0 04
+0 16
+0 1
+2
+2
+(( .
+. )
+.
+. )
+.
+.
+. .
 
 --- PDF PAGE 55 ---
-42 Mathematical Foundations for Deep Learning
-In Figure 2.11 , various tensor operations related to a CNN are performed on a sample input image 
+42
+Mathematical Foundations for Deep Learning
+In Figure 2.11, various tensor operations related to a CNN are performed on a sample input image 
 and visualized through heatmaps. The first subplot, “Input Image (Channel 1),” displays one channel 
 of the RGB input image, which is an 8 × 8 pixel grid with intensity values ranging from 0 to 255. 
 This visualization provides a grayscale representation of the first color channel of the image. The 
@@ -2047,10 +4588,10 @@ second subplot, “Convolution Filter 1,” shows the weights of the first convo
 to the input image. This 3 × 3 filter is used to detect specific features within the input image. The 
 heatmap illustrates the values of the filter weights, which will be convolved with the input image. 
 The third subplot, “Intermediate Tensor (Filter 1),” presents the result of applying the convolutional 
-filter to the input image. This intermediate tensor captures the feature map produced by the convo -
-lution operation, highlighting areas of the input image that match the filter’s pattern. The fourth sub -
+filter to the input image. This intermediate tensor captures the feature map produced by the convo-
+lution operation, highlighting areas of the input image that match the filter’s pattern. The fourth sub-
 plot, “Activated Tensor (ReLU),” shows the result of applying the ReLU activation function to the 
-intermediate tensor. The ReLU function sets all negative values to zero, introducing non-  linearity 
+intermediate tensor. The ReLU function sets all negative values to zero, introducing non-​linearity 
 to the model. This heatmap represents the activated feature map, emphasizing the features detected 
 by the filter. The fifth subplot, “Flattened Tensor (Segment),” illustrates a segment of the flattened 
 tensor obtained by reshaping the activated tensor into a 1D array. This transformation prepares 
@@ -2060,462 +4601,935 @@ displays the final output tensor after passing the flattened tensor through a de
 performs a linear transformation using learned weights and biases to produce the final output. The 
 heatmap represents the output tensor as a row vector, showing the resulting values for each of the 
 10 output units.
-2.5  LINEAR TRANSFORMATIONS
+2.5  LINEAR TRANSFORMATIONS
 A linear transformation, often called a linear map, is a function between two vector spaces that 
-preserves the operations of vector addition and scalar multiplication. In simpler terms, it is a trans -
-formation that does not “bend” or “twist” the space in a non-  linear way. Mathematically, a function 
+preserves the operations of vector addition and scalar multiplication. In simpler terms, it is a trans-
+formation that does not “bend” or “twist” the space in a non-​linear way. Mathematically, a function 
 T from a vector space V to a vector space W is called a linear transformation if the following two 
 properties hold for all vectors u and v in V and any scalar c:
- •Additivity: T  (u +  v) =  T (u) +  T (v)
- •Homogeneity: T  (cu) =   cT ( u)
-2.5.1   m atrix repre Sentation  of linear tranSformation S
+	•
+Additivity: T (u +​ v) =​ T (u) +​ T (v)
+	•
+Homogeneity: T (cu) =​ cT (u)
+2.5.1  Matrix Representation of Linear Transformations
 A matrix can represent every linear transformation. Given a vector space V and a basis for that 
 space, a linear transformation can be associated with a matrix A. When you multiply this matrix 
 by a column vector (representing a point in space), you get a new column vector representing the 
 transformed point. When you have a linear transformation defined by a matrix and want to apply this 
-transformation to a vector V, you perform the matrix–  vector multiplication to obtain the transformed 
+transformation to a vector V, you perform the matrix–​vector multiplication to obtain the transformed 
 vector.
-2.5.2   e xample S of linear tranSformation S
-2.5.2.1   Scaling
+2.5.2  Examples of Linear Transformations
+2.5.2.1  Scaling
 Scaling involves multiplying vectors by a scalar, stretching or shrinking them but not changing their 
 direction unless the scalar is negative. A vector can be scaled using a diagonal matrix where each 
-diagonal entry corresponds to a scaling factor along each dimension. 
- 
- 
-  
+diagonal entry corresponds to a scaling factor along each dimension.
 
 --- PDF PAGE 56 ---
-43 Linear Algebra
-FIGURE 2.11  Visual representation of key Tensor Operations in deep learning.
-  newgenrtpdf
+43
+Linear Algebra
+FIGURE 2.11  Visual representation of key Tensor Operations in deep learning.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 57 ---
-44 Mathematical Foundations for Deep Learning
-2.5.2.2   Rotating
-Rotating vectors around the origin involves using a rotation matrix. To rotate a 2D vector by a spe -
+44
+Mathematical Foundations for Deep Learning
+2.5.2.2  Rotating
+Rotating vectors around the origin involves using a rotation matrix. To rotate a 2D vector by a spe-
 cific angle:
- Arotation=− 
-
-coss in
-sinc osθθ
-θθ 
-2.5.2.3   Reflecting
+	
+Arotation =
+−
+
+
+
+
+cos
+sin
+sin
+cos
+θ
+θ
+θ
+θ
+	
+2.5.2.3  Reflecting
 Reflecting vectors across a line (in 2D) or a plane (in 3D) can be represented using a reflection 
-matrix. Reflecting a 2D vector across the x- axis uses the matrix:
- Areflection=−
-
-10
-01 
-2.5.2.4   Shearing
+matrix. Reflecting a 2D vector across the x-​axis uses the matrix:
+	
+Areflection =
+−
+
+
+
+
+1
+0
+0
+1 	
+2.5.2.4  Shearing
 Shearing involves “sliding” vectors along a fixed line or plane. A shear transformation can be 
 represented by:
- Ak
-shear=
-
-1
-01, 
+	
+A
+k
+shear = 
+
+
+
+1
+0
+1 ,	
 where k is the shear factor.
-Figure 2.12  visualizes various linear transformations applied to an original vector. The ori -
+Figure 2.12 visualizes various linear transformations applied to an original vector. The ori­
 ginal vector, shown in blue, represents the vector before any transformation. The scaled vector, 
 depicted in red, is the result of scaling the vector by different factors along the x and y directions, 
 which stretches or shrinks the vector. The rotated vector, shown in green, demonstrates the effect of 
 rotating the vector by 45° around the origin. The reflected vector, represented in magenta, illustrates 
-the transformation of reflecting the vector across the x- axis, flipping it over the x- axis. Lastly, the 
-sheared vector, shown in yellow, represents the vector after being sheared along the x- direction, 
-sliding the vector along the x- axis while changing its shape without altering its area.
-2.5.3   l inear tranSformation S in deep learning
+the transformation of reflecting the vector across the x-​axis, flipping it over the x-​axis. Lastly, the 
+sheared vector, shown in yellow, represents the vector after being sheared along the x-​direction, 
+sliding the vector along the x-​axis while changing its shape without altering its area.
+2.5.3  Linear Transformations in Deep Learning
 Linear transformations play a crucial role in deep learning due to their modeling power, efficiency, 
 and interpretability. While individual linear transformations are limited in their ability to capture 
-complex relationships, when stacked and combined with non-  linear activation functions, they 
-enable NNs to model intricate, non-  linear patterns in data. Additionally, linear operations in matrix 
-form are highly optimized on modern hardware, particularly GPUs, making the training and infer -
+complex relationships, when stacked and combined with non-​linear activation functions, they 
+enable NNs to model intricate, non-​linear patterns in data. Additionally, linear operations in matrix 
+form are highly optimized on modern hardware, particularly GPUs, making the training and infer-
 ence processes in deep learning more efficient. Furthermore, linear transformations are often more 
-interpretable than their non-  linear counterparts due to their simplicity, which can be valuable in 
-applications where understanding the model’s decision-  making process is essential.
-2.5.3.1   Neural Network Layers
+interpretable than their non-​linear counterparts due to their simplicity, which can be valuable in 
+applications where understanding the model’s decision-​making process is essential.
+2.5.3.1  Neural Network Layers
 In an NN, a dense (fully connected) layer is a linear transformation of the input. Given an input 
-vector x=… xx xn12,,, , the dense layer transforms it using a weight matrix W and a bias vector b. 
+vector x =
+…
+
+
+x x
+xn
+1
+2
+,
+,
+,
+, the dense layer transforms it using a weight matrix W and a bias vector b. 
 Mathematically, the transformation is expressed as:
- z Wx b=+.   
- 
- 
- 
- 
- 
- 
- 
-  
+	
+z
+Wx
+b
+=
++ .
 
 --- PDF PAGE 58 ---
-45 Linear Algebra
+45
+Linear Algebra
 Here, W is the weight matrix, and b is the bias vector. This linear transformation maps the input 
 vector to an output vector, and the bias vector shifts the output. After this linear transformation, an 
-activation function (e.g., ReLU or sigmoid) is typically applied to introduce non-  linear capabilities 
-to the model. Suppose we have an input vector x =  [1, 2], a weight matrix W=
-
-05 03
-07 09..
-.. and a bias 
-vector b =  [0.1, 0.2]. The output is computed as:
- zW xb=+ =
-
+activation function (e.g., ReLU or sigmoid) is typically applied to introduce non-​linear capabilities 
+to the model. Suppose we have an input vector x =​ [1, 2], a weight matrix W = 
+
+
+
+0 5
+0 3
+0 7
+0 9
+.
+.
+.
+.
+ and a bias 
+vector b =​ [0.1, 0.2]. The output is computed as:
+	
+z
+Wx
+b
+=
++
+= 
+
+
 ⋅
-
-+
-
-=
- 05 03
-07 091
-201
-0211
-27..
-...
-..
-. . 
-2.5.3.2   Convolutional Neural Networks
+
+
++ 
+
+
+= 
+
+
+0 5
+0 3
+0 7
+0 9
+1
+2
+0 1
+0 2
+1 1
+2 7
+.
+.
+.
+.
+.
+.
+.
+. .	
+2.5.3.2  Convolutional Neural Networks
 In CNNs, the convolution operation can be viewed as a series of small, local linear transformations. 
 A convolutional filter (or kernel) slides over different local regions of the input image, applying a 
 linear transformation to produce a feature map. By stacking multiple convolution layers, CNNs 
 detect complex patterns such as edges, textures, and shapes.
-FIGURE 2.12  Visual representation of linear transformations. 
- 
-  
+FIGURE 2.12  Visual representation of linear transformations.
 
 --- PDF PAGE 59 ---
-46 Mathematical Foundations for Deep Learning
-2.5.3.3   Embeddings
+46
+Mathematical Foundations for Deep Learning
+2.5.3.3  Embeddings
 In NLP, embedding layers map discrete words or tokens to continuous vector representations in 
-a high-  dimensional space. The transformation from a token to its corresponding vector is a linear 
+a high-​dimensional space. The transformation from a token to its corresponding vector is a linear 
 operation. Embedding lookup involves selecting a specific row (vector) from the embedding matrix, 
 which corresponds to the input token. For an embedding matrix E of size 10 × 4, where each row 
 represents a word vector of dimension 4, input token 3 corresponds to the third row of E, resulting 
 in a vector v3 .
-2.5.3.4  Regularization Techniques
-While normalization techniques like batch normalization are not linear by nature, they include learn -
+2.5.3.4  Regularization Techniques
+While normalization techniques like batch normalization are not linear by nature, they include learn-
 able parameters (gamma and beta) that apply a linear transformation to the normalized output. 
 Specifically, after normalization, the output is scaled by γ and shifted by β, introducing a linear 
 transformation that adjusts the normalization effect based on the data.
-2.5.3.5   Initialization
+2.5.3.5  Initialization
 When initializing the weights of an NN, the initial linear transformations applied to the data must 
 be carefully chosen. Proper initialization helps ensure that the transformations do not excessively 
 shrink or expand the data, preventing issues like vanishing or exploding gradients during training.
-2.5.3.6   Loss Functions and Optimization
+2.5.3.6  Loss Functions and Optimization
 Many loss functions, including MSE, involve linear components. For example, the MSE loss 
 function, which computes the squared difference between predictions and actual values, includes a 
 summation of squared errors, a linear operation. During optimization, gradients of the loss function 
 with respect to the weights are computed, often involving linear operations, and used to update the 
-model’s parameters. For a simple linear regression model with predicted values ˆ ,y=[]23 and actual 
-values y =  [1, 4], the MSE  is: (( )) .1
-221 34 0522−+ − () =
+model’s parameters. For a simple linear regression model with predicted values ˆ
+,
+y = [
+]
+2 3 and actual 
+values y =​ [1, 4], the MSE is:
+((
+)
+)
+.
+1
+2
+2
+1
+3
+4
+0 5
+2
+2
+−
++
+−
+(
+) =
 The gradient of this loss function with respect to the weights leads to a weight update that is a 
 linear transformation of the error.
-In Figure 2.13 , the linear transformation process applied to a 2D input vector using a dense layer 
+In Figure 2.13, the linear transformation process applied to a 2D input vector using a dense layer 
 is visualized. This figure illustrates the transformation of the input vector by applying weights and 
 biases, resulting in an output vector. The input vector is represented in blue, starting from the origin 
-(0, 0) and pointing to the coordinates (2, 3). The transformed vector is depicted in red, also origin -
+(0, 0) and pointing to the coordinates (2, 3). The transformed vector is depicted in red, also origin-
 ating from (0, 0) but pointing to the coordinates determined by the linear transformation. In this case, 
 the output vector is calculated using the weights and biases defined for the dense layer. Additionally, 
 dashed lines indicate the path of each vector from the origin to their respective endpoints, with blue 
 representing the input vector and red for the transformed vector.
-2.6  MATRIX FACTORIZATIONS
+2.6  MATRIX FACTORIZATIONS
 Matrix factorization techniques allow us to decompose matrices into products of simpler matrices. 
 These techniques are beneficial in various applications, from solving systems of equations to data 
 compression and dimensionality reduction. Here are essential matrix factorization methods.
-2.6.1   lu  decompo Sition
+2.6.1  LU Decomposition
 LU Decomposition factorizes a matrix as the product of a lower L and upper triangular matrix U. 
 This is particularly useful for solving systems of linear equations, inverting matrices, and computing 
-determinants. 
- 
- 
- 
- 
-  
+determinants.
 
 --- PDF PAGE 60 ---
-47 Linear Algebra
-Example:  Consider am atrixA The :.A=
-
-43
-63LU Decomposition of A expresses it as the 
-product of a lower triangular matrix L and an upper triangular matrix U:
- AL UL U
-A=⋅ =
-
-=−
-
+47
+Linear Algebra
+Example: Consider a matrix A
+The
+:
+.
+A = 
+
+
 
-=
-where
-Then10
-15 143
-01 5
-10
-15 1...
-.and
- 
-−
-
-=
-
-43
-01 543
-63 ..  
+4
+3
+6
+3
+LU Decomposition of A expresses it as the 
+product of a lower triangular matrix L and an upper triangular matrix U:
+	
+A
+L U
+L
+U
+A
+=
+⋅
+= 
+
+
+
+=
+−
+
+
+
+
+= 
+
+where
+Then
+1
+0
+1 5
+1
+4
+3
+0
+1 5
+1
+0
+1 5
+1
+.
+.
+.
+.
+and
+
+
+−
+
+
+
+= 
+
+
+
+4
+3
+0
+1 5
+4
+3
+6
+3
+.
+.
+	
 This decomposition is useful for solving equations, inverting A, and finding determinants efficiently 
-(a) L Matrix:  The lower triangular matrix from the LU decomposition of the matrix A. This 
-matrix has non-  zero elements only on and below the main diagonal:
-FIGURE 2.13  Visual representation of linear transformation in a dense layer. 
-  
+(a)	 L Matrix: The lower triangular matrix from the LU decomposition of the matrix A. This 
+matrix has non-​zero elements only on and below the main diagonal:
+FIGURE 2.13  Visual representation of linear transformation in a dense layer.
 
 --- PDF PAGE 61 ---
-48 Mathematical Foundations for Deep Learning
-Ll
-ll
-lll
-ll llnn nn n=
-
-
-11
-21 22
-31 32 33
-12300 0
-00
+48
+Mathematical Foundations for Deep Learning
+L
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+n
+n
+n
+nn
+=
+
+
+
+
+
+
+
+
+
+
+11
+21
+22
+31
+32
+33
+1
+2
+3
 0
-0…
-……
-⋮⋮⋮⋱
-… 
-
+0
+0
+0
+0
+0
+0
+…
+…
+…
+⋮
+⋮
+⋮
+⋱
+…
+
+
+
+
 The lower triangular matrix from the LU decomposition of the matrix A. This matrix has 
-non- zero elements only on and below the main diagonal.
- L=
-
-10
-1.5 1 
-(b) U Matrix:  The upper triangular matrix from the LU decomposition. This matrix has non-  
-zero elements only on and above the main diagonal.
- Uuu uu
-uu u
-uu
-un
-n
-n
-nn=
+non-​zero elements only on and below the main diagonal.
+	
+L = 
 
-
-11 12 13 1
-22 23 2
-33 30
-00
-000…
+
+
+1
+0
+1.5
+1 	
+(b)	 U Matrix: The upper triangular matrix from the LU decomposition. This matrix has non-​
+zero elements only on and above the main diagonal.
+	
+U
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+n
+n
+n
+nn
+=
+
+
+
+
+
+
+
+
+
+
+11
+12
+13
+1
+22
+23
+2
+33
+3
+0
+0
+0
+0
+0
+0
 …
 …
-⋮⋮⋮⋱⋮
-… 
-. 
-The upper triangular matrix from the LU decomposition. This matrix has non-  zero elements 
+…
+⋮
+⋮
+⋮
+⋱
+⋮
+…
+
+
+
+
+.	
+The upper triangular matrix from the LU decomposition. This matrix has non-​zero elements 
 only on and above the main diagonal.
- U=−
-
-43
-01 5 .. 
-(c) Reconstructed Matrix  A: The original matrix A was reconstructed by multiplying L and U. 
+	
+U =
+−
+
+
+
+
+4
+3
+0
+1 5.
+.	
+(c)	 Reconstructed Matrix A: The original matrix A was reconstructed by multiplying L and U. 
 This step verifies the correctness of the decomposition. The original matrix was reconstructed 
 by multiplying L and U. This step verifies the correctness of the decomposition.
- AL U=⋅ =
-
-−
-
-=
-
-10
-15 143
-01 543
-63 ... 
-2.6.2   Qr decompo Sition
+	
+A
+L U
+=
+⋅
+= 
+
+
+
+−
+
+
+
+= 
+
+
+
+1
+0
+1 5
+1
+4
+3
+0
+1 5
+4
+3
+6
+3
+.
+.
+.	
+2.6.2  QR Decomposition
 QR decomposition decomposes a matrix into an orthogonal Q and upper triangular matrix R. This 
 decomposition is widely used in numerical linear algebra to solve most minor square problems and 
 in eigenvalue algorithms.
 Example:
- AQRAQ=⋅ =−
+	
+A
+Q R A
+Q
+=
+⋅
+=
 −
-−
-
-=−
-−,,.. .
-...42 1
-63 8
-571003 60 48 08
-05 40 87 00
-0. ...,.. .
-..
-. 72 01 20 6811 18 21 55 95
-07 68 80 2
-00 38 7
-
-
-=− 
-
-R .  
- 
- 
- 
- 
- 
-  
+−
+−
+
+
+
+
+
+
+
+
+=
+−
+−
+,
+,
+.
+.
+.
+.
+.
+.
+4
+2
+1
+6
+3
+8
+5
+7
+10
+0 36
+0 48
+0 8
+0 54
+0 87
+0 0
+0.
+.
+.
+,
+.
+.
+.
+.
+.
+.
+72
+0 12
+0 68
+11 18
+2 15
+5 95
+0
+7 68
+8 02
+0
+0
+3 87
+
+
+
+
+
+
+
+
+=
+−
+
+
+
+
+
+
+R
+
+.
 
 --- PDF PAGE 62 ---
-49 Linear Algebra
-(a) Q Matrix ( QR Decomposition) : The orthogonal matrix Q from the QR decomposition of the 
+49
+Linear Algebra
+(a)	 Q Matrix (QR Decomposition): The orthogonal matrix Q from the QR decomposition of the 
 matrix A. Orthogonal matrices have the property that their columns are orthonormal vectors.
 Example:
- Q=−
-−
-
-
-03 60 48 08
-05 40 87 00
-07 20 12 06 8.. .
-...
-.... 
-(b) R Matrix ( QR Decomposition):  The upper triangular matrix from the QR decomposition. 
-This matrix has non-  zero elements only on and above the main diagonal.
+	
+Q =
+−
+−
+
+
+
+
+
+
+
+
+0 36
+0 48
+0 8
+0 54
+0 87
+0 0
+0 72
+0 12
+0 68
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.	
+(b)	 R Matrix (QR Decomposition): The upper triangular matrix from the QR decomposition. 
+This matrix has non-​zero elements only on and above the main diagonal.
 Example:
- R=− 
-
-
-
-11 18 21 55 95
-07 68 80 2
-00 38 7.. .
-..
-.. 
-(c) Reconstructed:  A(Q *R ) the original matrix was reconstructed by multiplying Q and R. This 
+	
+R =
+−
+
+
+
+
+
+
+
+
+11 18
+2 15
+5 95
+0
+7 68
+8 02
+0
+0
+3 87
+.
+.
+.
+.
+.
+.
+.	
+(c)	 Reconstructed: A(Q *R) the original matrix was reconstructed by multiplying Q and R. This 
 step confirms that the decomposition accurately represents the original matrix.
 Example:
- AQR=⋅=−
-−
-
-
-
-03 60 48 08
-05 40 87 00
-07 20 12 06 811 18 21 .. .
-...
-..... 5 55 95
-07 68 80 2
-00 38 742 1
-63 8
-5710− 
-
-
-
-=−
+	
+A
+Q R
+=
+⋅
+=
 −
-−
-
-
-
-.
-..
-.. 
-2.6.3   Singular  value decompo Sition
+−
+
+
+
+
+
+
+
+
+0 36
+0 48
+0 8
+0 54
+0 87
+0 0
+0 72
+0 12
+0 68
+11 18
+2 1
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+. 5
+5 95
+0
+7 68
+8 02
+0
+0
+3 87
+4
+2
+1
+6
+3
+8
+5
+7
+10
+−
+
+
+
+
+
+
+
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+.
+.
+.
+.
+.	
+2.6.3  Singular Value Decomposition
 SVD represents a matrix as the product of three matrices: an orthogonal matrix U, a diagonal matrix 
 ∑, and the transpose of an orthogonal matrix VT
-Example:  If the matrix A in the image is something like this:
- A=
-
-
-
-100
-040
-000. 
-Its SVD would be: AU V=Σ,
+Example: If the matrix A in the image is something like this:
+	
+A =
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+4
+0
+0
+0
+0
+.	
+Its SVD would be: A
+U V
+=
+Σ
+,
 where
- •A is the original matrix,
- •U is an orthogonal matrix (with orthonormal columns),
- •Σ is a diagonal matrix containing the singular values of A,
- •V is the transpose of an orthogonal matrix V, 
- 
- 
- 
-  
+	•
+A is the original matrix,
+	•
+U is an orthogonal matrix (with orthonormal columns),
+	•
+Σ is a diagonal matrix containing the singular values of A,
+	• V is the transpose of an orthogonal matrix V,
 
 --- PDF PAGE 63 ---
-50 Mathematical Foundations for Deep Learning
+50
+Mathematical Foundations for Deep Learning
 where
- UV=
-
-
-=
-
-=
-
-010
-100
-001400
-010000010100001
-,,Σ  
-. 
+	
+U
+V
+=
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+0
+1
+0
+1
+0
+0
+0
+0
+1
+4
+0
+0
+0
+1
+0
+0
+0
+0
+0
+1
+0
+1
+0
+0
+0
+0
+1
+,
+,
+Σ
+
+
+.	
 Each decomposition technique has specific applications and provides unique insights into the matrix 
 structure. LU decomposition is particularly useful for solving systems of linear equations, QR 
 decomposition is widely used in numerical linear algebra for solving most minor squares problems, 
-and SVD  is fundamental in applications like principal component analysis (PCA), data compres -
+and SVD is fundamental in applications like principal component analysis (PCA), data compres-
 sion, and signal processing.
-In Figure 2.14 , the results of three different matrix decompositions ( LU, QR, and SVD ) are 
+In Figure 2.14, the results of three different matrix decompositions (LU, QR, and SVD) are 
 visualized. For the LU decomposition, the L matrix shows the lower triangular matrix obtained from 
-the decomposition of matrix A, featuring non-  zero elements below the main diagonal and zeros above 
-it. The U matrix displays the upper triangular matrix, which has non-  zero elements on and above the 
+the decomposition of matrix A, featuring non-​zero elements below the main diagonal and zeros above 
+it. The U matrix displays the upper triangular matrix, which has non-​zero elements on and above the 
 main diagonal, with zeros below it. The third heatmap shows the reconstructed matrix A obtained 
 by multiplying the L and U matrices, confirming the accuracy of the decomposition. For the QR 
 decomposition, the Q matrix is an orthogonal matrix with orthonormal columns, obtained from the 
-decomposition of matrix A. The R matrix is an upper triangular matrix with non-  zero elements on and 
+decomposition of matrix A. The R matrix is an upper triangular matrix with non-​zero elements on and 
 above the main diagonal and zeros below it. The reconstructed matrix A, shown in the third heatmap, 
-is obtained by multiplying the Q and R matrices, demonstrating the correctness of the QR decompos -
-ition. Finally, for the SVD , the U matrix represents the left singular vectors of matrix A, forming an 
-orthogonal matrix. The Sigma matrix is a diagonal matrix of singular values, which are non-  negative 
-and sorted in descending order. The last heatmap shows the reconstructed matrix A, obtained by multi -
-plying the U, Sigma, and Vt (transpose of V) matrices, validating the SVD  process.
-2.6.4   e igenvalue S and eigenvector S
+is obtained by multiplying the Q and R matrices, demonstrating the correctness of the QR decompos-
+ition. Finally, for the SVD, the U matrix represents the left singular vectors of matrix A, forming an 
+orthogonal matrix. The Sigma matrix is a diagonal matrix of singular values, which are non-​negative 
+and sorted in descending order. The last heatmap shows the reconstructed matrix A, obtained by multi-
+plying the U, Sigma, and Vt (transpose of V) matrices, validating the SVD process.
+2.6.4  Eigenvalues and Eigenvectors
 Eigenvalues and eigenvectors are fundamental concepts in linear algebra with widespread 
 applications in various fields, including physics, engineering, and data science. Given a square 
-matrix A, if there exists a non-  zero vector v and a scalar λ such that the following equation holds:
- Avv= λ. 
+matrix A, if there exists a non-​zero vector v and a scalar λ such that the following equation holds:
+	
+Av
+v
+= λ .	
 Then is an eigenvector of A and is the corresponding eigenvalue.
-In Figure 2.15 , the visual representation of eigenvalues and eigenvectors for a given square 
-matrix A is displayed. The matrix A is defined as: A=
-
-42
-13. The plot begins with the original 
+In Figure 2.15, the visual representation of eigenvalues and eigenvectors for a given square 
+matrix A is displayed. The matrix A is defined as:A = 
+
+
+
+4
+2
+1
+3 . The plot begins with the original 
 eigenvectors, which are represented in green. Each eigenvector is plotted starting from the origin (0, 
 0) and pointing to the coordinates defined by its components. Labels, such as v1 and v2, are placed 
 at the endpoints of these eigenvectors to clearly identify them. Next, the transformed eigenvectors 
 are shown in red. These vectors are obtained by multiplying the original eigenvectors by matrix A, 
 demonstrating how A transforms its eigenvectors.
-In Figure 2.16 , the SVD of a matrix M is visualized by transforming a grid of points. The matrix 
+In Figure 2.16, the SVD of a matrix M is visualized by transforming a grid of points. The matrix 
 M is defined as:
- M=
-
-123
-456
-789  
- 
- 
-  
+	
+M =
+
+
+
+
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
 
 --- PDF PAGE 64 ---
-51 Linear Algebra
-The SVD decomposes M into three matrices: U, Σ, and VT, where U contains the left singular  
-vectors, Σ is a diagonal matrix of singular values, and VT contains the right singular vectors. It  
-presents the effects of these matrices on a grid of points, allowing for a visual understanding of  
-the SVD components. The original grid is plotted in blue, representing the initial arrangement of  
-points before any transformation. These points form a regular grid centered around the origin. The  
-U matrix (left singular vectors) is visualized by transforming the original grid using the U matrix.  
-This transformation primarily represents a rotation. The green lines and points show how the left  
-singular vectors of M rotate the grid. The Sigma matrix (singular values) illustrates the scaling effect  
-of the singular values. The red lines and points depict the grid after being scaled by the diagonal  
-matrix Σ. This scaling adjusts the lengths of the vectors but does not change their directions. The VT  
-matrix (right singular vectors) is visualized by transforming the original grid using the VT matrix.  
-The orange lines and points show the effect of applying the right singular vectors to the grid, which  
+51
+Linear Algebra
+The SVD decomposes M into three matrices: U, Σ, and VT, where U contains the left singular 
+vectors, Σ is a diagonal matrix of singular values, and VT contains the right singular vectors. It 
+presents the effects of these matrices on a grid of points, allowing for a visual understanding of 
+the SVD components. The original grid is plotted in blue, representing the initial arrangement of 
+points before any transformation. These points form a regular grid centered around the origin. The 
+U matrix (left singular vectors) is visualized by transforming the original grid using the U matrix. 
+This transformation primarily represents a rotation. The green lines and points show how the left 
+singular vectors of M rotate the grid. The Sigma matrix (singular values) illustrates the scaling effect 
+of the singular values. The red lines and points depict the grid after being scaled by the diagonal 
+matrix Σ. This scaling adjusts the lengths of the vectors but does not change their directions. The VT 
+matrix (right singular vectors) is visualized by transforming the original grid using the VT matrix. 
+The orange lines and points show the effect of applying the right singular vectors to the grid, which 
 typically involves another rotation.
-FIGURE 2.14  Visual representation of LU decomposition, QR decomposition, and singular value 
-decomposition.  
+FIGURE 2.14  Visual representation of LU decomposition, QR decomposition, and singular value 
+decomposition.

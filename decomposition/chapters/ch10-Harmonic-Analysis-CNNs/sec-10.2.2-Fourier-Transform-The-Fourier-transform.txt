@@ -1,0 +1,307 @@
+10.2.2  Fourier Transform
+The Fourier transform (FT) is a mathematical operation that converts a function from its original 
+domain (typically time or space) into the frequency domain. This transformation provides a fre-
+quency spectrum that shows how much of each frequency is present in the original signal. For a 
+continuous time-​domain function f(t), the FT F w
+( ) is defined as:
+	
+F
+f t e
+dt
+j t
+ω
+ω
+( ) =
+( )
+−∞
+∞
+−
+∫
+	
+where:
+	•
+f t( ) is the function in the time domain,
+	•
+ω is the angular frequency, which is related to the frequency f by ω =​ 2πf, and
+	•
+e
+j t
+−w is the complex exponential function, where j is the imaginary unit (i.e., j2 =​ –​1).
+
+--- PDF PAGE 312 ---
+299
+Harmonic Analysis for CNNs
+This transformation is similar to decomposing a complex musical chord into individual notes. 
+Each note corresponds to a frequency component of the chord, and the FT helps identify these 
+components. Let’s consider a time-​domain signal composed of two sine waves:
+	
+f t
+t
+t
+( ) =
+×
++
+×
+3
+2
+50
+2
+2
+120
+sin(
+)
+sin(
+)
+π
+π
+	
+Here:
+	•
+3 sin(2π × 50t) is a sine wave with an amplitude of 3 and a frequency of 50 Hz.
+	•
+2 sin(2π × 120t) is a sine wave with an amplitude of 2 and a frequency of 120 Hz.
+We plan to use the FT to identify the frequency components and their amplitudes in f(t).
+Step 1. Apply the FT: Think of the FT as a tool that takes your complex sound and breaks it down 
+into its basic building blocks, the pure tones (sine waves). For our sound, which is:
+	
+F
+t
+t
+e
+dt
+j t
+ω
+π
+π
+ω
+( ) =
+×
++
+×
+[
+]
+−∞
+∞
+−
+∫3
+2
+50
+2
+2
+120
+sin(
+)
+sin(
+)
+	
+Using the linearity property of the FT, this can be separated into:
+	
+F
+t e
+dt
+t e
+dt
+j t
+j t
+( )
+sin(
+)
+sin(
+)
+ω
+π
+π
+ω
+ω
+=
+×
++
+×
+−∞
+∞
+−
+−∞
+∞
+−
+∫
+∫
+3
+2
+50
+2
+2
+120
+	
+We want to find out the frequencies (50 and 120 Hz) and their strengths (3 and 2).
+Step 2. Compute the Transform for Each Sine Wave: The FT of sin(2πft) is given by:
+	
+{sin(
+)}
+2
+2
+2
+2
+π
+δ ω
+π
+δ ω
+π
+ft
+j
+f
+f
+=
+−
+(
+) −
++
+(
+)
+
+	
+Applying this to each sine component:
+1.	 For the 50 Hz tone: 3 sin(2π × 50t): The math shows that there’s a spike (a sharp point) at 50 
+Hz. The strength of this spike is related to the number 3 in front of the sine wave.
+	
+3
+2
+2
+50
+2
+50
+3
+2
+100
+100
+×
+−
+×
+(
+) −
++
+×
+(
+)
+
+=
+−
+(
+) −
++
+(
+)
+
+
+j
+j
+δ ω
+π
+δ ω
+π
+δ ω
+π
+δ ω
+π
+	
+2.	 For the 120 Hz tone: 2 sin(2π × 120t): Similarly, there ’s another spike at 120 Hz, and its 
+strength comes from the number 2.
+	
+2
+2
+2
+120
+2
+120
+240
+240
+×
+−
+×
+(
+) −
++
+×
+(
+)
+
+=
+−
+(
+) −
++
+(
+)
+
+
+j
+j
+δ ω
+π
+δ ω
+π
+δ ω
+π
+δ ω
+π
+	
+Step 3. Combine the Results:
+	
+F
+j
+j
+j
+j
+ω
+δ ω
+π
+δ ω
+π
+δ ω
+π
+δ ω
+π
+( ) =
+−
+(
+) −
++
+(
+)+
+−
+(
+) −
++
+(
+)
+3
+2
+100
+3
+2
+100
+240
+240
+
+--- PDF PAGE 313 ---
+300
+Mathematical Foundations for Deep Learning
+The FT F(ω) reveals spikes (delta functions) at specific angular frequencies: ω =​ 100π rad/​s 
+(which corresponds to 50 Hz) and ω =​ 240π rad/​s (which corresponds to 120 Hz). The 
+coefficients in front of the delta functions indicate the amplitude and phase of each frequency 
+component. At 50 Hz the amplitude is 3
+2
+j and at 120 Hz the amplitude is j. As the original signal 
+	 f(t) is real-​valued, the FT exhibits symmetry: Positive frequencies (e.g., 50 and 120 Hz) have 
+corresponding negative frequencies. The magnitudes of the Fourier coefficients correspond to 
+the amplitudes of the sine waves.
+Figure 10.1 illustrates three individual sine waves at 5, 50, and 120 Hz, along with their combined 
+time-​domain signal and their frequency-​domain representation. In Figure 10.1a, the slowest oscilla­
+tion at 5 Hz is shown, displaying only a few cycles over the 1-​second interval. Figure 10.1bintroduces 
+the 50 Hz wave, which has considerably more peaks and troughs in the same time frame. Figure 10.1c 
+presents the highest-​frequency component at 120 Hz, where many closely spaced oscillations occur 
+within one second. These three sine waves are summed in Figure 10.1d, producing a complex wave­
+form in the time domain whose various undulations result from the superposition of 5, 50, and 120 
+Hz components. In Figure 10.1e, the FT of this combined signal shows three clear spectral peaks 
+corresponding to each individual sine wave, verifying that all three frequencies are indeed present. 
+Finally, Figure 10.1f zooms in on the 0–​100 Hz region, highlighting the 5 and 50 Hz peaks more 
+clearly while the 120 Hz peak remains outside the zoomed frequency range.

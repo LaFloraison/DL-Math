@@ -1,0 +1,6 @@
+9.2  BASIC TOPOLOGY
+Topology is a part of mathematics that looks at the ways spaces can stay the same even when they 
+are changed in certain ways, especially smooth and continuous changes. It began by trying to under-
+stand the basic nature of shapes and spaces, focusing on important features rather than minor details. 
+In the end, although the word “topology” is used differently in pure mathematics and deep learning, 
+both areas are all about structure and the properties that come from that structure.

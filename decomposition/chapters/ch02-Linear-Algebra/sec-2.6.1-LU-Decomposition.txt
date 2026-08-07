@@ -1,0 +1,262 @@
+2.6.1  LU Decomposition
+LU Decomposition factorizes a matrix as the product of a lower L and upper triangular matrix U. 
+This is particularly useful for solving systems of linear equations, inverting matrices, and computing 
+determinants.
+
+--- PDF PAGE 60 ---
+47
+Linear Algebra
+Example: Consider a matrix A
+The
+:
+.
+A = 
+
+
+
+4
+3
+6
+3
+LU Decomposition of A expresses it as the 
+product of a lower triangular matrix L and an upper triangular matrix U:
+	
+A
+L U
+L
+U
+A
+=
+⋅
+= 
+
+
+
+=
+−
+
+
+
+
+= 
+
+where
+Then
+1
+0
+1 5
+1
+4
+3
+0
+1 5
+1
+0
+1 5
+1
+.
+.
+.
+.
+and
+
+
+−
+
+
+
+= 
+
+
+
+4
+3
+0
+1 5
+4
+3
+6
+3
+.
+.
+	
+This decomposition is useful for solving equations, inverting A, and finding determinants efficiently 
+(a)	 L Matrix: The lower triangular matrix from the LU decomposition of the matrix A. This 
+matrix has non-​zero elements only on and below the main diagonal:
+FIGURE 2.13  Visual representation of linear transformation in a dense layer.
+
+--- PDF PAGE 61 ---
+48
+Mathematical Foundations for Deep Learning
+L
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
+n
+n
+n
+nn
+=
+
+
+
+
+
+
+
+
+
+
+11
+21
+22
+31
+32
+33
+1
+2
+3
+0
+0
+0
+0
+0
+0
+0
+…
+…
+…
+⋮
+⋮
+⋮
+⋱
+…
+
+
+
+
+The lower triangular matrix from the LU decomposition of the matrix A. This matrix has 
+non-​zero elements only on and below the main diagonal.
+	
+L = 
+
+
+
+1
+0
+1.5
+1 	
+(b)	 U Matrix: The upper triangular matrix from the LU decomposition. This matrix has non-​
+zero elements only on and above the main diagonal.
+	
+U
+u
+u
+u
+u
+u
+u
+u
+u
+u
+u
+n
+n
+n
+nn
+=
+
+
+
+
+
+
+
+
+
+
+11
+12
+13
+1
+22
+23
+2
+33
+3
+0
+0
+0
+0
+0
+0
+…
+…
+…
+⋮
+⋮
+⋮
+⋱
+⋮
+…
+
+
+
+
+.	
+The upper triangular matrix from the LU decomposition. This matrix has non-​zero elements 
+only on and above the main diagonal.
+	
+U =
+−
+
+
+
+
+4
+3
+0
+1 5.
+.	
+(c)	 Reconstructed Matrix A: The original matrix A was reconstructed by multiplying L and U. 
+This step verifies the correctness of the decomposition. The original matrix was reconstructed 
+by multiplying L and U. This step verifies the correctness of the decomposition.
+	
+A
+L U
+=
+⋅
+= 
+
+
+
+−
+
+
+
+= 
+
+
+
+1
+0
+1 5
+1
+4
+3
+0
+1 5
+4
+3
+6
+3
+.
+.
+.

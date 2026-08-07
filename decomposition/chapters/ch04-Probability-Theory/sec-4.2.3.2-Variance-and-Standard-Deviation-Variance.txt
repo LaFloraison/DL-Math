@@ -1,0 +1,49 @@
+4.2.3.2  Variance and Standard Deviation
+Variance and standard deviation measure how much the values of the distribution deviate from 
+the mean. Variance is the average of the squared differences from the mean, while the standard 
+deviation is the square root of the variance. The mathematical representation of variance is as 
+follows:
+	
+σ
+µ
+2
+2
+=
+( ) =
+−
+⋅( )
+∑
+Var X
+x
+P x
+i
+i
+i
+(
+)
+	
+For a continuous distribution:
+	
+σ
+µ
+2
+2
+=
+−
+⋅( )
+−∞
+∞
+∫(
+)
+x
+f x dx	
+The mathematical representation of standard deviation is as follows:
+	
+σ =
+( )
+Var X 	
+For a normal distribution with μ =​ 50 and a standard deviation σ =​ 5, the variance is σ2
+25
+=
+. This 
+means that most values fall within 1 standard deviation of the mean, that is, between 45 and 55.

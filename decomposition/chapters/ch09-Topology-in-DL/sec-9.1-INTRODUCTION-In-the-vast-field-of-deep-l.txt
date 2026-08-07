@@ -1,0 +1,8 @@
+9.1  INTRODUCTION
+In the vast field of deep learning, the design and layout of neural networks are crucial in shaping how 
+they work and how effective they are. This design, often referred to as “topology” in deep learning, 
+is the base that allows algorithms to learn and improve. However, the word “topology” isn’t used 
+only for neural networks. It originally comes from a detailed area of mathematics that studies the 
+properties of spaces that stay the same even when they are stretched or bent without breaking. This 
+link between deep learning and mathematical topology helps us better understand how neural net-
+work algorithms come together and behave. This chapter reviews this concept in more detail.

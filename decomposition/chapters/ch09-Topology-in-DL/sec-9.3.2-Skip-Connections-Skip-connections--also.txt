@@ -1,0 +1,32 @@
+9.3.2  Skip Connections
+Skip connections, also known as residual connections, allow information to move directly across 
+one or more layers by creating a straight path around certain layers. This design is important for 
+training very deep neural networks because it helps solve some of the main problems that come 
+with having many layers. Skip connections have several benefits. They help prevent the vanishing 
+gradient problem, which is when the signals used to train the network become too small as they 
+move through many layers. By providing a direct path for these signals, skip connections keep them 
+strong, making the training process more stable and efficient. This allows deeper networks to be 
+trained effectively. Another advantage of skip connections is that they support a type of learning 
+called ensemble learning. This means that each layer can focus on learning the difference between 
+what it currently predicts and what it should predict. This approach allows each layer to build on 
+what the previous layers have learned, leading to better performance and faster learning.
+Skip connections also make the network more flexible. They let different layers adjust their 
+outputs on their own, which helps the network handle various levels of detail and complexity in 
+the data. This makes the network more adaptable to different tasks. However, skip connections also 
+come with some challenges. They make the network more complex by creating multiple paths for 
+information to flow, which requires careful design to keep everything stable. Additionally, they use 
+a bit more memory and processing power because the network needs to combine the outputs from 
+both the direct and the bypassed paths. Despite these challenges, the advantages of skip connections 
+usually outweigh the drawbacks, especially when using efficient designs and modern hardware. 
+Figure 9.3 illustrates the impact of skip connections on the gradient flow through a neural network’s 
+layers, comparing scenarios with and without skip connections. On the y-​axis, the plot represents 
+the gradient magnitude on a logarithmic scale, while the x-​axis displays the layers of the network. 
+Without skip connections, represented by the red dashed line, there is a significant reduction in 
+gradient magnitude across layers, a phenomenon known as the vanishing gradient. This issue is 
+prominent in deeper networks, where gradients become too small to effectively update weights, 
+leading to poor learning. In contrast, the blue solid line shows the preserved gradient flow when 
+skip connections (residuals) are introduced. These connections enable the gradient to remain rela-
+tively stable even as the network deepens, addressing the vanishing gradient problem. As seen in the 
+plot, the gradient magnitude remains higher and more stable, preventing degradation of the learning 
+process. The shaded gray region between the lines emphasizes the difference in gradient behavior, 
+highlighting the improvement achieved through skip connections in deep neural networks.

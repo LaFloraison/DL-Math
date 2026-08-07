@@ -1,0 +1,42 @@
+4.3.4  Systematic Sampling
+Systematic sampling selects a random starting point, and then every kth member of the population 
+is chosen. This method is more convenient than SRS due to its straightforward approach and ease 
+of implementation. However, there is a risk of bias if the population has a periodic pattern, as this 
+could result in a non-​representative sample. Suppose you have a population of 1,000 people, and you 
+want to sample 100 individuals. You randomly select a starting point, say 5, and then select every 
+10th person after that (e.g., 5th, 15th, 25th, and so on) until you have your sample of 100 people. If 
+N is the population size, and n is the desired sample size, the sampling interval k is calculated as:
+	
+k
+N
+n
+=
+	
+If N =​ 1000 and n =​ 100, the interval k is:
+	
+k =
+=
+1 000
+100
+10
+,
+	
+4.3.5  Quota Sampling (Non-​Probability Method)
+Quota sampling is a non-​probability method that divides the population into subgroups and selects 
+individuals non-​randomly. This approach is simple and cost-​effective, making it attractive for 
+studies with limited resources. However, the absence of random selection makes it less reliable, as 
+it may introduce bias and limit the generalizability of the results. Suppose you want to survey 500 
+people about their favorite type of transportation. You decide to divide the population into subgroups 
+by age: 200 people aged 18–​29, 150 people aged 30–​49, and 150 people aged 50+​. Instead of ran-
+domly selecting individuals from each group, you select people conveniently or based on certain 
+characteristics until you meet the quota for each age group. In quota sampling, the sample size for 
+each subgroup is predefined based on the desired proportions. If the total sample is 500 and 40% of 
+the population is aged 18-​29, you need to select:
+n =
+×
+=
+0 40
+500
+200
+.
+ individuals from the 18 to 29 group.

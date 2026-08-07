@@ -1,0 +1,14 @@
+10.3.2  Applications of WT
+WTs have broad applications across various fields. In image compression, they are the backbone of 
+the JPEG 2000 standard, offering efficient, high-​quality compression. Wavelets are also key in noise 
+reduction, where they remove noise while preserving important signal features. In signal processing, 
+wavelets enable time-​frequency analysis, making them ideal for examining signals that change over 
+time. Additionally, in medical imaging, WTs help enhance image analysis by highlighting crucial 
+structures and details, improving diagnostic accuracy. Consider a signal composed of two sine 
+waves with frequencies of 5 and 20 Hz.
+Figure 10.3 illustrates the relationship between the original signal and its WT. Figure 10.3a 
+shows the time-​domain signal, which is a combination of two sine waves. The signal’s varying 
+pattern over time is a result of these interacting frequencies. Figure 10.3b represents the WT of the 
+signal, revealing how its frequency components change over time. The color intensity in the plot 
+corresponds to the magnitude of the wavelet coefficients, highlighting the signal’s decomposition 
+into different scales, where the red regions indicate higher magnitudes.

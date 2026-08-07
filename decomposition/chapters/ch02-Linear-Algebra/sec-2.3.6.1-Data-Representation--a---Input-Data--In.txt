@@ -1,0 +1,129 @@
+2.3.6.1  Data Representation
+(a)	 Input Data: In deep learning, data is often structured and represented in matrix form, particu-
+larly for tasks like image processing. For example, a grayscale image is typically represented 
+as a 2D matrix where each element corresponds to the pixel intensity. A 28 × 28 pixel gray-
+scale image from the MNIST dataset can be represented as a 28 × 28 matrix, with each entry 
+holding a value between 0 (black) and 255 (white). This matrix representation allows the 
+model to easily interpret and process the image data by performing matrix operations like 
+convolutions or transformations. Consider a 3 × 3 grayscale image with the following pixel 
+intensities:
+	
+I =
+
+
+
+
+
+
+
+
+
+
+100
+150
+200
+50
+100
+150
+0
+50
+100
+ 	
+ 
+Here, each element of the matrix represents the intensity of a pixel. This matrix can be fed 
+into the deep learning model for further processing.
+(b)	 Batch Processing: When processing multiple samples at once, deep learning models stack 
+the input data into a larger matrix or tensor. Each row in this matrix represents a different 
+sample from the batch. For example, if we are processing 5 grayscale images of 28 × 28 
+pixels, the data would be represented as a 3D tensor of shape (5, 28, 28), where 5 represents 
+the batch size, and 28 × 28 represents the dimensions of each image. Batch processing allows 
+for more efficient computation and faster training, as multiple samples are processed in par-
+allel. Suppose we have a batch of 3 images, each represented by a 2 × 2 matrix:
+	
+I
+I
+I
+1
+2
+3
+100
+150
+50
+100
+200
+250
+150
+200
+50
+75
+25
+50
+= 
+
+
+
+= 
+
+
+
+= 
+
+
+,
+,
+	
+Stacking these images forms a 3D tensor of shape (3, 2, 2):
+	
+Batch =
+
+
+
+
+
+
+
+
+
+
+= 
+
+
+
+
+
+
+
+I
+I
+I
+1
+2
+3
+100
+150
+50
+100
+200
+250
+150
+200
+,
+
+
+
+
+
+
+
+
+
+
+
+,
+50
+75
+25
+50
+	
+This format allows deep learning models to process multiple images simultaneously, improving 
+computational efficiency and reducing training time.

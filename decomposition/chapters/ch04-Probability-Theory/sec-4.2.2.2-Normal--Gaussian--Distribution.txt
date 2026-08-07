@@ -1,0 +1,48 @@
+4.2.2.2  Normal (Gaussian) Distribution
+The normal distribution is one of the most widely used continuous distributions, known for its bell-​
+shaped curve. It is determined by two parameters: the mean (μ) and the standard deviation (σ). Here 
+is its general formula:
+	
+f x
+e
+x
+( ) =
+−
+−
+1
+2
+2
+2
+2
+σ
+π
+µ
+σ
+(
+)
+	
+where:
+	•
+μ is the mean,
+	•
+σ is the standard deviation,
+	•
+f(x) is the PDF.
+The mean μ represents the center of the distribution, while the standard deviation σ determines the 
+spread of the data. The total area under the curve equals 1. The further a value is from the mean, 
+the lower the probability density. Suppose the height of individuals in a population is normally 
+distributed with a mean of 170 cm and a standard deviation of 10 cm. The probability of an indi-
+vidual being between 160 and 180 cm can be found using the cumulative distribution function 
+(CDF). Approximately 68% of individuals fall within 1 standard deviation of the mean:
+	
+P
+X
+160
+180
+0 68
+≤
+≤
+(
+) ≈.
+	
+This means there is a 68% probability that an individual’s height will be between 160 and 180 cm.

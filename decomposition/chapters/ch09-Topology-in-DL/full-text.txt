@@ -1,160 +1,163 @@
 
 --- PDF PAGE 270 ---
-257 Differential Geometry
-classes and visualize the graph with nodes colored based on their predicted classes. To further dem -
+257
+Differential Geometry
+classes and visualize the graph with nodes colored based on their predicted classes. To further dem-
 onstrate manifold learning, we generate a Swiss roll dataset with 1,000 samples and a small amount 
-of noise. We apply t-  SNE and UMAP, two popular dimensionality reduction techniques, to project 
-the high-  dimensional Swiss roll data into two dimensions. Additionally, we compute the pairwise 
+of noise. We apply t-​SNE and UMAP, two popular dimensionality reduction techniques, to project 
+the high-​dimensional Swiss roll data into two dimensions. Additionally, we compute the pairwise 
 distance matrix, derive the Laplacian matrix, and perform singular value decomposition (SVD) to 
 understand the data’s geometric structure.
-Figure 8.6  provides a visual exploration of different data transformation and dimensionality 
-reduction techniques. Figure 8.6 a shows node classification results from a graph convolutional net -
+Figure 8.6 provides a visual exploration of different data transformation and dimensionality 
+reduction techniques. Figure 8.6a shows node classification results from a graph convolutional net­
 work (GCN). The blue dots likely represent nodes in a graph that have been classified into distinct 
 categories after training the model. This visualization demonstrates how the GCN has grouped nodes 
-based on their learned features. In Figure 8.6 b, we see the popular 3D Swiss roll dataset, which is 
+based on their learned features. In Figure 8.6b, we see the popular 3D Swiss roll dataset, which is 
 often used to test algorithms that deal with nonlinear data structures. The Swiss roll is a twisted 
 3D manifold that provides a challenging structure for machine learning algorithms to untangle and 
-understand. Figure 8.6 c and d display the results of applying two different dimensionality reduction 
-techniques to the Swiss roll dataset. In Figure 8.6 c, the t-  SNE method has been used to reduce the 
-high-  dimensional data into a 2D space. t-  SNE focuses on preserving the local relationships between 
-points, meaning points that were close in the original high-  dimensional space are still close in this 
-2D projection. In Figure 8.6 d, the UMAP method has been applied to the same dataset. UMAP, like 
-t- SNE, reduces high-  dimensional data into two dimensions but often does so more efficiently, pre -
+understand. Figure 8.6c and d display the results of applying two different dimensionality reduction 
+techniques to the Swiss roll dataset. In Figure 8.6c, the t-​SNE method has been used to reduce the 
+high-​dimensional data into a 2D space. t-​SNE focuses on preserving the local relationships between 
+points, meaning points that were close in the original high-​dimensional space are still close in this 
+2D projection. In Figure 8.6d, the UMAP method has been applied to the same dataset. UMAP, like 
+t-​SNE, reduces high-​dimensional data into two dimensions but often does so more efficiently, pre-
 serving both local and global relationships between points.
-8.4.2   o ptimization
-Optimizing deep neural networks involves finding effective minima within the complex, high-  
+8.4.2  Optimization
+Optimizing deep neural networks involves finding effective minima within the complex, high-​
 dimensional loss landscapes they inhabit. Differential geometry provides powerful tools to better 
 understand and navigate these landscapes, leading to improved optimization strategies. Saddle 
 points are locations in the loss landscape where the curvature changes direction; they are neither 
-purely convex nor concave. In high-  dimensional spaces, these points can significantly delay the 
+purely convex nor concave. In high-​dimensional spaces, these points can significantly delay the 
 training process, causing slow convergence. At saddle points, the curvature of the loss landscape is 
-positive in some directions and negative in others. This variation in curvature means that conven -
+positive in some directions and negative in others. This variation in curvature means that conven-
 tional optimization algorithms may struggle, as they might incorrectly interpret the local geometry. 
 By considering curvature information, optimization algorithms can be designed to rapidly escape 
-saddle points. Techniques such as second-  order optimization methods or algorithms incorporating 
+saddle points. Techniques such as second-​order optimization methods or algorithms incorporating 
 curvature estimations can effectively navigate away from these problematic regions. Understanding 
 the geometry of the loss landscape can inform the design of optimization techniques that achieve 
 faster convergence. By adapting to the local curvature of the landscape, these methods can make 
 more informed updates to the model parameters. Metrics derived from differential geometry, such as 
 the curvature of the loss surface, can guide the adjustment of step sizes. This adaptive approach helps 
 maintain an efficient trajectory through the landscape, avoiding areas of slow progress and making 
-the optimization process more robust. Algorithms like Adaptive Moment Estimation (Adam) exem -
+the optimization process more robust. Algorithms like Adaptive Moment Estimation (Adam) exem-
 plify this approach. Adam adjusts the optimization trajectory based on the geometry of the loss 
-landscape, effectively using curvature information to adapt learning rates. This results in more effi -
+landscape, effectively using curvature information to adapt learning rates. This results in more effi-
 cient and stable convergence, even in the presence of varying curvature. By leveraging the insights 
 provided by differential geometry, deep learning practitioners can develop optimization algorithms 
-that not only avoid saddle points but also achieve faster convergence. This dual focus on geometry-  
+that not only avoid saddle points but also achieve faster convergence. This dual focus on geometry-​
 aware optimization techniques leads to more efficient training processes and improved performance 
-of deep neural networks.  
+of deep neural networks.
 
 --- PDF PAGE 271 ---
-258 Mathematical Foundations for Deep Learning
-8.4.3   m odel interpreta Bility
-As neural networks become more complex, understanding their decision-  making process becomes 
+258
+Mathematical Foundations for Deep Learning
+8.4.3  Model Interpretability
+As neural networks become more complex, understanding their decision-​making process becomes 
 crucial. Deep neural networks transform input data into abstract representations in hidden layers 
 known as feature spaces. The geometry of these feature spaces can provide insights into the 
-relationships between different inputs and the learned features. For example, points close in the fea -
-ture space might be similar in a meaningful way. Techniques like t-  SNE, a dimensionality reduction 
-method, can visualize these high-  dimensional feature spaces in 2D or 3D. It tries to preserve the 
+relationships between different inputs and the learned features. For example, points close in the fea-
+ture space might be similar in a meaningful way. Techniques like t-​SNE, a dimensionality reduction 
+method, can visualize these high-​dimensional feature spaces in 2D or 3D. It tries to preserve the 
 local structure, allowing us to see clusters of similar data points. By understanding the geometry of 
-feature spaces, we can gain insight into what features the network considers essential. The curva -
+feature spaces, we can gain insight into what features the network considers essential. The curva-
 ture or shape of these spaces at different layers can tell us about the complexity and hierarchy of the 
 learned features. Activation maximization or feature inversion techniques can be employed to study 
 the feature spaces. By examining what excites the neurons the most, we can visualize the patterns 
-FIGURE 8.6  (a) Node classification results (GCN), (b) 3D Swiss roll dataset, (c) t-  SNE embedding,  
-(d) UMAP embedding. 
-  
+FIGURE 8.6  (a) Node classification results (GCN), (b) 3D Swiss roll dataset, (c) t-​SNE embedding, 
+(d) UMAP embedding.
 
 --- PDF PAGE 272 ---
-259 Differential Geometry
+259
+Differential Geometry
 or features the network has learned. This approach helps in understanding the network’s learning 
-process and the importance of various features in decision-  making.
-Figure 8.7  illustrates the practical implications of differential geometry in deep learning: The left 
+process and the importance of various features in decision-​making.
+Figure 8.7 illustrates the practical implications of differential geometry in deep learning: The left 
 plot shows a loss landscape with sharp (blue) and flat (red) minima. Penalizing regions of the loss 
 landscape with high curvature (sharp minima) can guide the training process toward flatter areas, 
 leading to better generalization. The middle plot shows a lost landscape with a saddle point (green). 
-Saddle points can slow down the training process as the loss landscape is not purely convex or con -
+Saddle points can slow down the training process as the loss landscape is not purely convex or con-
 cave at these points. By understanding the curvature of the loss landscape, optimization algorithms 
 can be designed to quickly escape from saddle points, improving the overall training efficiency. The 
-right plot shows the feature space clusters for two classes using t-  SNE. Data progresses through 
+right plot shows the feature space clusters for two classes using t-​SNE. Data progresses through 
 a neural network and is transformed into various representations in hidden layers. The clusters 
 represent how the data for each class is grouped in the feature space, providing insights into what 
 the network has learned.
-8.5  CHALLENGES
-8.5.1   h igh dimen Sionality
-Deep neural networks can have millions, if not billions, of parameters. This results in a highly high-  
+8.5  CHALLENGES
+8.5.1  High Dimensionality
+Deep neural networks can have millions, if not billions, of parameters. This results in a highly high-​
 dimensional parameter space, which introduces a significant level of complexity when trying to 
 understand or visualize the behavior of the network. Differential geometric concepts like curvature, 
 tangent spaces, and manifolds become increasingly complex in high dimensions, making their study 
-and application non-  trivial. The challenges in high-  dimensional spaces are as follows.
-8.5.1.1   Curvature
-In high-  dimensional spaces, curvature becomes a multi-  faceted concept that is challenging to com -
+and application non-​trivial. The challenges in high-​dimensional spaces are as follows.
+8.5.1.1  Curvature
+In high-​dimensional spaces, curvature becomes a multi-​faceted concept that is challenging to com-
 pute and interpret. Curvature can vary dramatically in different directions, making the loss landscape 
-highly intricate. Understanding curvature in high-  dimensional spaces is crucial for optimization. 
-Techniques that use second-  order information, such as Newton’s method, rely on understanding 
+highly intricate. Understanding curvature in high-​dimensional spaces is crucial for optimization. 
+Techniques that use second-​order information, such as Newton’s method, rely on understanding 
 the curvature to adjust the optimization path. However, computing and storing the Hessian matrix 
-(which contains second-  order derivatives) becomes impractical for large networks due to their size 
+(which contains second-​order derivatives) becomes impractical for large networks due to their size 
 and computational cost. Tangent spaces provide a local linear approximation of the manifold at a 
 point. In high dimensions, the concept of a tangent space helps in understanding local behavior but 
 becomes harder to visualize and compute. The gradient, which lies in the tangent space, guides the 
-optimization process. In high-  dimensional settings, the gradient can point in complex directions, 
+optimization process. In high-​dimensional settings, the gradient can point in complex directions, 
 and small changes can have significant impacts, making the optimization path difficult to predict 
-and control. Data and parameter spaces in neural networks often form high-  dimensional manifolds. 
-Understanding the structure and geometry of these manifolds is crucial for tasks like optimiza -
-tion, regularization, and generalization. Techniques like PCA, t-  SNE, and UMAP attempt to reduce 
-high-  dimensional manifolds to lower dimensions for visualization and analysis. However, these 
-techniques can lose important structural details, making it challenging to capture the true com -
+and control. Data and parameter spaces in neural networks often form high-​dimensional manifolds. 
+Understanding the structure and geometry of these manifolds is crucial for tasks like optimiza-
+tion, regularization, and generalization. Techniques like PCA, t-​SNE, and UMAP attempt to reduce 
+high-​dimensional manifolds to lower dimensions for visualization and analysis. However, these 
+techniques can lose important structural details, making it challenging to capture the true com-
 plexity of the manifold.
-8.5.2   v iSualization
-One of the most discussed topics about differential geometry in deep learning is the loss land -
-scape. However, visualizing a high-  dimensional loss landscape is inherently challenging. Simple 
-visualizations, like 2D or 3D plots, provide only a limited view, which might not capture the intri -
+8.5.2  Visualization
+One of the most discussed topics about differential geometry in deep learning is the loss land-
+scape. However, visualizing a high-​dimensional loss landscape is inherently challenging. Simple 
+visualizations, like 2D or 3D plots, provide only a limited view, which might not capture the intri-
 cacies of the loss landscape of deep networks. While techniques like dimensionality reduction can 
-help, they may not retain all the essential geometric features of the original space. The challenges  
- 
- 
-  
+help, they may not retain all the essential geometric features of the original space. The challenges
 
 --- PDF PAGE 273 ---
-260 Mathematical Foundations for Deep Learning
-FIGURE 8.7  (a) Regularization: penalizing sharp minima, (b) optimization: avoiding saddle points, and (c) model interpretability: feature space clusters.
-  newgenrtpdf
+260
+Mathematical Foundations for Deep Learning
+FIGURE 8.7  (a) Regularization: penalizing sharp minima, (b) optimization: avoiding saddle points, and (c) model interpretability: feature space clusters.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 274 ---
-261 Differential Geometry
-in visualizing high-  dimensional loss landscapes. Traditional visualizations are limited to two or 
-three dimensions, whereas the loss landscape in deep learning is typically situated in a param -
+261
+Differential Geometry
+in visualizing high-​dimensional loss landscapes. Traditional visualizations are limited to two or 
+three dimensions, whereas the loss landscape in deep learning is typically situated in a param-
 eter space with millions or billions of dimensions. These simple visualizations can only provide a 
-very narrow perspective on the true complexity of the landscape. Projecting high-  dimensional data 
+very narrow perspective on the true complexity of the landscape. Projecting high-​dimensional data 
 into lower dimensions often leads to a loss of important structural information. Critical features 
 such as the curvature and the arrangement of minima and saddle points might not be accurately 
-represented. Methods like PCA, t-  SNE, and UMAP attempt to reduce the dimensionality of the 
+represented. Methods like PCA, t-​SNE, and UMAP attempt to reduce the dimensionality of the 
 data while preserving its most significant features. While these techniques can highlight certain 
 aspects of the loss landscape, they might fail to retain all the essential geometric properties. For 
 example, they might distort distances or lose information about the local curvature and the shape 
 of valleys and ridges.
-8.5.3   c omputational  coSt
-Computing specific differential geometric properties, such as curvature, for high-  dimensional 
-spaces can be computationally expensive. In a training loop where computations need to be effi -
+8.5.3  Computational Cost
+Computing specific differential geometric properties, such as curvature, for high-​dimensional 
+spaces can be computationally expensive. In a training loop where computations need to be effi-
 cient, introducing these calculations might significantly slow down the training process. This high 
 computational cost can make the application of these concepts infeasible for extensive models or 
 large datasets. Challenges of computational cost are as follows. Calculating curvature involves 
-second-  order derivatives, such as those found in the Hessian matrix. For high-  dimensional spaces, 
-the Hessian is extremely large, making its computation and storage impractical. The time com -
+second-​order derivatives, such as those found in the Hessian matrix. For high-​dimensional spaces, 
+the Hessian is extremely large, making its computation and storage impractical. The time com-
 plexity of computing the Hessian matrix scales quadratically with the number of parameters, 
 resulting in significant computational overhead for large networks. In practice, training loops are 
 designed to be as efficient as possible to handle large datasets and complex models. Introducing 
 additional computations for differential geometric properties can hinder the overall training speed. 
 Modern deep learning relies on batch processing to optimize resource utilization. Incorporating 
-curvature computations within each batch can disrupt this balance and slow down the training pro -
+curvature computations within each batch can disrupt this balance and slow down the training pro-
 cess significantly.
-8.5.4   t heoretical  vS. practical  gap
+8.5.4  Theoretical vs. Practical Gap
 Differential geometry is a mathematical field that deals with abstract structures and concepts. In 
-the context of deep learning, there is often a gap between theoretical insights and practical imple -
+the context of deep learning, there is often a gap between theoretical insights and practical imple-
 mentation. While differential geometric properties such as curvature can provide valuable insights 
 into the behavior of neural networks, translating these insights into concrete steps for training and 
 optimizing models can be challenging. The challenges of the theoretical vs. practical gap are as 
-follows. Differential geometric concepts like curvature, manifolds, and tangent spaces are inher -
+follows. Differential geometric concepts like curvature, manifolds, and tangent spaces are inher-
 ently complex and abstract. Understanding these concepts requires a solid foundation in advanced 
 mathematics, which can be a barrier for many practitioners. While these concepts can offer deep 
 intuition about the behavior of neural networks, applying them in a practical setting, such as during 
@@ -163,69 +166,70 @@ with flat minima in the loss landscape correlate with better generalization. How
 algorithms or modifying training procedures to explicitly find these flat regions is challenging. 
 While understanding the curvature of the loss landscape can guide the development of optimization 
 algorithms, implementing these ideas in a way that is computationally efficient and effective for 
-large-  scale neural networks is non-  trivial. 
-  
+large-​scale neural networks is non-​trivial.
 
 --- PDF PAGE 275 ---
-262 Mathematical Foundations for Deep Learning
-8.5.5   Scala Bility
+262
+Mathematical Foundations for Deep Learning
+8.5.5  Scalability
 Modern deep learning often involves massive models and huge datasets. Even if specific differential 
-geometric tools prove beneficial for smaller problems, scaling them to handle state-  of- the- art models 
+geometric tools prove beneficial for smaller problems, scaling them to handle state-​of-​the-​art models 
 and datasets can be challenging. The ability to apply these tools efficiently at scale is critical for their 
 practical adoption in contemporary deep learning applications. The challenges of scalability are as 
-follows. State-  of- the- art deep learning models can have millions or even billions of parameters. The 
+follows. State-​of-​the-​art deep learning models can have millions or even billions of parameters. The 
 sheer size of these models makes computing differential geometric properties, such as curvature or 
 the Hessian matrix, computationally intensive and often impractical. Storing and manipulating large 
 parameter sets and their associated geometric properties require substantial memory, which can 
-exceed the capacity of even high-  end hardware. Training on large datasets involves processing vast 
+exceed the capacity of even high-​end hardware. Training on large datasets involves processing vast 
 amounts of data in each training iteration. Integrating differential geometric computations into this 
 process can significantly slow down the training pipeline. Efficient training relies on processing data 
-in batches. Adding complex geometric calculations to each batch increases the computational over -
+in batches. Adding complex geometric calculations to each batch increases the computational over-
 head, making it difficult to maintain the required throughput for timely model training.
-8.5.6   e merging  inSight S
-Deep learning research is vibrant and ever-  evolving, with new architectures, techniques, and best 
-practices emerging regularly. As the field progresses, the relevance and applicability of specific differ -
+8.5.6  Emerging Insights
+Deep learning research is vibrant and ever-​evolving, with new architectures, techniques, and best 
+practices emerging regularly. As the field progresses, the relevance and applicability of specific differ-
 ential geometric insights might change. Keeping geometric tools and analyses updated and relevant in 
 this dynamic environment is a constant challenge. The challenges of emerging insights are as follows. 
 The introduction of new neural network architectures, such as transformers, graph neural networks, 
 and neural ordinary differential equations (ODEs), can shift the focus of geometric analysis. Methods 
-that were effective for earlier architectures may need adaptation or re-  evaluation for these newer 
-models. Advances in training techniques, such as self-  supervised learning, transfer learning, and meta-  
-learning, introduce new dynamics in the loss landscape and optimization process, impacting the appli -
+that were effective for earlier architectures may need adaptation or re-​evaluation for these newer 
+models. Advances in training techniques, such as self-​supervised learning, transfer learning, and meta-​
+learning, introduce new dynamics in the loss landscape and optimization process, impacting the appli-
 cation of geometric insights. The geometric tools and methods must evolve alongside advancements 
 in deep learning. This requires ongoing research to refine and adapt these tools to new contexts and 
-challenges. Collaboration between mathematicians, computer scientists, and domain experts is essen -
+challenges. Collaboration between mathematicians, computer scientists, and domain experts is essen-
 tial to ensure that geometric tools remain relevant and effective for emerging deep learning paradigms.
-The plots in Figure 8.8  illustrate some of the challenges of applying differential geometry 
-concepts to deep learning: The left plot shows a simplified high-  dimensional loss landscape in 2D. 
-This highlights the difficulty of understanding and visualizing complex, high-  dimensional, deep-  
+The plots in Figure 8.8 illustrate some of the challenges of applying differential geometry 
+concepts to deep learning: The left plot shows a simplified high-​dimensional loss landscape in 2D. 
+This highlights the difficulty of understanding and visualizing complex, high-​dimensional, deep-​
 learning concepts. The middle plot shows the impact of additional computational cost on training 
 time. The shaded area represents the additional time required for these computations. The right plot 
 illustrates the gap between theoretical insights (green) and practical impact (orange) on training due 
 to curvature.
-8.6  REAL-  WORLD APPLICATIONS
-8.6.1   a utonomou S SyStemS and roBotic S
+8.6  REAL-​WORLD APPLICATIONS
+8.6.1  Autonomous Systems and Robotics
 In the realm of robotics, differential geometry is instrumental in path planning and control. 
-Autonomous systems, such as drones or self-  driving cars, must navigate through complex envir -
-onments while making real-  time decisions. The concept of manifolds, which represent the possible 
+Autonomous systems, such as drones or self-​driving cars, must navigate through complex envir-
+onments while making real-​time decisions. The concept of manifolds, which represent the possible 
 states or configurations of a system, is crucial in this context. For instance, the configuration space 
-of a robot arm, which includes all possible positions and orientations, can be modeled as a mani -
+of a robot arm, which includes all possible positions and orientations, can be modeled as a mani-
 fold. Understanding the curvature and topology of this space allows the robot to plan efficient and 
-collision-  free paths. This geometric insight is particularly valuable in dynamic environments, where 
-the robot must adapt to changing conditions while maintaining optimal performance. 
- 
- 
-  
+collision-​free paths. This geometric insight is particularly valuable in dynamic environments, where 
+the robot must adapt to changing conditions while maintaining optimal performance.
 
 --- PDF PAGE 276 ---
-263 Differential Geometry
-FIGURE 8.8  (a) High dimensionality: simplified loss landscape, (b) computational cost impact on training time, and (c) theoretical vss. practical gap.
-  newgenrtpdf
+263
+Differential Geometry
+FIGURE 8.8  (a) High dimensionality: simplified loss landscape, (b) computational cost impact on training time, and (c) theoretical vss. practical gap.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 277 ---
-264 Mathematical Foundations for Deep Learning
-8.6.2   m edical  image analy SiS
-Differential geometry is also pivotal in the analysis of medical images, where it aids in the seg -
+264
+Mathematical Foundations for Deep Learning
+8.6.2  Medical Image Analysis
+Differential geometry is also pivotal in the analysis of medical images, where it aids in the seg-
 mentation and interpretation of complex anatomical structures. In medical imaging, the surfaces 
 of organs or tissues can be modeled as manifolds, and the curvature of these surfaces provides 
 critical information about their shape and structure. For instance, in brain imaging, the cortex can 
@@ -233,273 +237,279 @@ be represented as a 2D manifold embedded in 3D space. By analyzing the curvature
 surface, researchers can detect abnormalities such as tumors or atrophy, which are indicative of 
 neurological disorders. The ability to model and analyze these geometric properties enables more 
 accurate diagnoses and better treatment planning.
-8.6.3   c omputer  viSion and image recognition
+8.6.3  Computer Vision and Image Recognition
 In computer vision, differential geometry provides the mathematical foundation for understanding 
-how images are processed and recognized by neural networks. The concept of manifolds is particu -
-larly important in image recognition tasks, where the high-  dimensional space of all possible images 
-is often constrained to a lower-  dimensional manifold that captures the essential features of specific 
+how images are processed and recognized by neural networks. The concept of manifolds is particu-
+larly important in image recognition tasks, where the high-​dimensional space of all possible images 
+is often constrained to a lower-​dimensional manifold that captures the essential features of specific 
 objects. For example, face recognition systems rely on the fact that images of the same person under 
 different conditions (e.g., lighting, pose) lie on a manifold in the space of all possible images. By 
 learning the geometry of this manifold, the system can accurately identify individuals across a wide 
 range of variations. This approach has been successfully applied in various domains, from security 
 systems to social media platforms.
-8.6.4   Signal  proce SSing and communication S
-Differential geometry is also used in signal processing, where it helps in the analysis and compres -
+8.6.4  Signal Processing and Communications
+Differential geometry is also used in signal processing, where it helps in the analysis and compres-
 sion of complex signals. For instance, in wireless communications, signals transmitted through the 
 air can be affected by the curvature of the Earth’s surface and other obstacles. By modeling the 
 signal propagation using geometric principles, engineers can design more efficient communication 
 systems that minimize interference and maximize data transmission rates.
-8.7  HANDS-  ON SECTION
-In this hands-  on section, we will explore the concepts of manifold learning and curvature in high-  
+8.7  HANDS-​ON SECTION
+In this hands-​on section, we will explore the concepts of manifold learning and curvature in high-​
 dimensional spaces using differential geometry.
-8.7.1  Step 1: import  liBrarie S
+8.7.1  Step 1: Import Libraries
 In this part of the code, we are installing and importing the necessary packages for dimensionality 
-reduction and visualization. The command!pip install umap-  learn scikit-  learn matplotlib ensures 
+reduction and visualization. The command!pip install umap-​learn scikit-​learn matplotlib ensures 
 that the required libraries are installed. After installation, we import key functions and classes. These 
-tools are essential for exploring and visualizing high-  dimensional data in a lower-  dimensional space, 
+tools are essential for exploring and visualizing high-​dimensional data in a lower-​dimensional space, 
 making it easier to understand patterns, clusters, and relationships in the data.
 # Install necessary packages
-!pip install umap-  learn scikit-  learn matplotlib
+!pip install umap-​learn scikit-​learn matplotlib
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets import make_  swiss_ roll 
- 
- 
- 
- 
-  
+from sklearn.datasets import make_​swiss_​roll
 
 --- PDF PAGE 278 ---
-265 Differential Geometry
+265
+Differential Geometry
 from sklearn.decomposition import PCA
 from sklearn.manifold import Isomap, TSNE
 import umap
-8.7.2  Step 2: S et random  Seed for reproduci Bility
-In this section, we are generating a synthetic dataset known as the Swiss roll using make_  swiss_  
-roll from scikit-  learn. The Swiss roll is a common 3D dataset used to test and demonstrate 
+8.7.2  Step 2: Set Random Seed for Reproducibility
+In this section, we are generating a synthetic dataset known as the Swiss roll using make_​swiss_​
+roll from scikit-​learn. The Swiss roll is a common 3D dataset used to test and demonstrate 
 dimensionality reduction techniques because it has a complex, curved structure that is challenging 
 for linear methods to handle.
 np.random.seed(42)
 # Generate the Swiss Roll dataset
-n_ samples =   1000
-noise =  0.05
-X, color =   make_ swiss_ roll(n_ samples, noise=  noise)
-8.7.3  Step 3: apply pca for dimen Sionality  reduction
+n_​samples =​ 1000
+noise =​ 0.05
+X, color =​ make_​swiss_​roll(n_​samples, noise=​noise)
+8.7.3  Step 3: Apply PCA for Dimensionality Reduction
 In this section, we are applying four different dimensionality reduction techniques to project the 
-high-  dimensional Swiss roll dataset into 2D space. Dimensionality reduction is crucial for visual -
+high-​dimensional Swiss roll dataset into 2D space. Dimensionality reduction is crucial for visual-
 izing complex datasets in lower dimensions, making patterns or clusters easier to interpret.
-pca =  PCA(n_ components=  2)
-X_ pca =  pca.fit_  transform(X)
+pca =​ PCA(n_​components=​2)
+X_​pca =​ pca.fit_​transform(X)
 # Apply Isomap for Dimensionality Reduction
-isomap =   Isomap(n_  components=  2, n_ neighbors=  10)
-X_ isomap =   isomap.fit_  transform(X)
-# Apply t-  SNE for Dimensionality Reduction
-tsne =  TSNE(n_  components=  2, random_  state= 42)
-X_ tsne =  tsne.fit_  transform(X)
+isomap =​ Isomap(n_​components=​2, n_​neighbors=​10)
+X_​isomap =​ isomap.fit_​transform(X)
+# Apply t-​SNE for Dimensionality Reduction
+tsne =​ TSNE(n_​components=​2, random_​state=​42)
+X_​tsne =​ tsne.fit_​transform(X)
 # Apply UMAP for Dimensionality Reduction
 try:
-umap_ reducer =   umap.UMAP(random_  state= 42)
-X_ umap =  umap_ reducer.fit_  transform(X)
+umap_​reducer =​ umap.UMAP(random_​state=​42)
+X_​umap =​ umap_​reducer.fit_​transform(X)
 except Exception as e:
-print(f “Error with UMAP: {e} ”)
-X_ umap =  np.zeros((X.shape[0]  , 2))  # Fallback to prevent 
+print(f“Error with UMAP: {e}”)
+X_​umap =​ np.zeros((X.shape[0]‌, 2))  # Fallback to prevent 
 plot from being empty
-8.7.4  Step 4: plotting  all graph S in one frame
+8.7.4  Step 4: Plotting All Graphs in One Frame
 In this section, we are visualizing the results of dimensionality reduction techniques applied to the 
-Swiss roll dataset in a series of subplots. 
- 
- 
- 
-  
+Swiss roll dataset in a series of subplots.
 
 --- PDF PAGE 279 ---
-266 Mathematical Foundations for Deep Learning
-fig, axs =   plt.subplots(2, 3, figsize=  (18, 12))
+266
+Mathematical Foundations for Deep Learning
+fig, axs =​ plt.subplots(2, 3, figsize=​(18, 12))
 # Plot a: Swiss Roll Dataset in 3D
-ax =  fig.add_  subplot(2, 3, 1, projection=  ‘3d’)
-ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=  color, cmap=  plt.
+ax =​ fig.add_​subplot(2, 3, 1, projection=​‘3d’)
+ax.scatter(X[:, 0], X[:, 1], X[:, 2], c=​color, cmap=​plt.
 cm.Spectral)
-ax.set_ title( “a) 3D Swiss Roll Dataset ”)
+ax.set_​title(“a) 3D Swiss Roll Dataset”)
 # Plot b: PCA projection
-axs[0, 1].scatter(X_  pca[:, 0], X_  pca[:, 1], c=  color, cmap=  plt.
+axs[0, 1].scatter(X_​pca[:, 0], X_​pca[:, 1], c=​color, cmap=​plt.
 cm.Spectral)
-axs[0, 1].set_  title( “b) PCA Projection ”)
-axs[0, 1].set_  xlabel( “PCA 1 ”)
-axs[0, 1].set_  ylabel( “PCA 2 ”)
+axs[0, 1].set_​title(“b) PCA Projection”)
+axs[0, 1].set_​xlabel(“PCA 1”)
+axs[0, 1].set_​ylabel(“PCA 2”)
 # Plot c: Isomap embedding
-axs[0, 2].scatter(X_  isomap[:, 0], X_  isomap[:, 1], c=  color, 
-cmap= plt.cm.Spectral)
-axs[0, 2].set_  title( “c) Isomap Embedding ”)
-axs[0, 2].set_  xlabel( “Isomap 1 ”)
-axs[0, 2].set_  ylabel( “Isomap 2 ”)
-# Plot d: t-  SNE embedding
-axs[1, 0].scatter(X_  tsne[:, 0], X_  tsne[:, 1], c=  color, cmap=  
+axs[0, 2].scatter(X_​isomap[:, 0], X_​isomap[:, 1], c=​color, 
+cmap=​plt.cm.Spectral)
+axs[0, 2].set_​title(“c) Isomap Embedding”)
+axs[0, 2].set_​xlabel(“Isomap 1”)
+axs[0, 2].set_​ylabel(“Isomap 2”)
+# Plot d: t-​SNE embedding
+axs[1, 0].scatter(X_​tsne[:, 0], X_​tsne[:, 1], c=​color, cmap=​
 plt.cm.Spectral)
-axs[1, 0].set_  title( “d) t- SNE Embedding ”)
-axs[1, 0].set_  xlabel( “t- SNE 1 ”)
-axs[1, 0].set_  ylabel( “t- SNE 2 ”)
+axs[1, 0].set_​title(“d) t-​SNE Embedding”)
+axs[1, 0].set_​xlabel(“t-​SNE 1”)
+axs[1, 0].set_​ylabel(“t-​SNE 2”)
 # Plot e: UMAP embedding
-if X_ umap.any():
-   axs[1, 1].scatter(X_  umap[:, 0], X_  umap[:, 1], c=  color, 
-cmap= plt.cm.Spectral)
+if X_​umap.any():
+   axs[1, 1].scatter(X_​umap[:, 0], X_​umap[:, 1], c=​color, 
+cmap=​plt.cm.Spectral)
 else:
-   axs[1, 1].text(0.5, 0.5, ‘UMAP Failed ’, horizontalalignment=  
-’center ’, verticalalignment=  ’center ’)
-axs[1, 1].set_  title( “e) UMAP Embedding ”)
-axs[1, 1].set_  xlabel( “UMAP 1 ”)
-axs[1, 1].set_  ylabel( “UMAP 2 ”)
-Figure 8.9  presents a comparative analysis of various dimensionality reduction techniques applied 
-to the Swiss roll dataset. Figure 8.9 a depicts the original 3D Swiss roll, illustrating its complex and 
-nonlinear structure. Figure 8.9 b shows the results of PCA , a linear technique, which flattens the 
+   axs[1, 1].text(0.5, 0.5, ‘UMAP Failed’, horizontalalignment=​
+’center’, verticalalignment=​’center’)
+axs[1, 1].set_​title(“e) UMAP Embedding”)
+axs[1, 1].set_​xlabel(“UMAP 1”)
+axs[1, 1].set_​ylabel(“UMAP 2”)
+Figure 8.9 presents a comparative analysis of various dimensionality reduction techniques applied 
+to the Swiss roll dataset. Figure 8.9a depicts the original 3D Swiss roll, illustrating its complex and 
+nonlinear structure. Figure 8.9b shows the results of PCA, a linear technique, which flattens the 
 data and loses much of the intrinsic geometric structure of the manifold, revealing only the global 
-variance. Figure 8.9 c displays the Isomap embedding, which successfully captures the underlying 
-manifold by preserving geodesic distances, offering a more accurate low-  dimensional representa -
-tion. Figure 8.9 d presents the t- SNE  embedding, which excels in maintaining local relationships and 
-clusters within the data but might distort global distances, offering a view of fine-  grained structures. 
-Figure 8.9e shows the UMAP  embedding, which provides a balanced representation that preserves 
+variance. Figure 8.9c displays the Isomap embedding, which successfully captures the underlying 
+manifold by preserving geodesic distances, offering a more accurate low-​dimensional representa-
+tion. Figure 8.9d presents the t-​SNE embedding, which excels in maintaining local relationships and 
+clusters within the data but might distort global distances, offering a view of fine-​grained structures. 
+Figure 8.9e shows the UMAP embedding, which provides a balanced representation that preserves 
 both local and global structures, giving a clear and meaningful visualization of the data’s manifold 
-structure.  
+structure.
 
 --- PDF PAGE 280 ---
-267 Differential Geometry
-FIGURE 8.9  Comparing dimensionality reduction techniques on the Swiss roll dataset. (a) 3D Swiss roll dataset, (b) PCA projection, (c) Isomap embedding, (d) t-  
-SNE embedding, and (e) UMAP embedding.  newgenrtpdf
+267
+Differential Geometry
+FIGURE 8.9  Comparing dimensionality reduction techniques on the Swiss roll dataset. (a) 3D Swiss roll dataset, (b) PCA projection, (c) Isomap embedding, (d) t-​
+SNE embedding, and (e) UMAP embedding.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 281 ---
-268 Mathematical Foundations for Deep Learning
-8.8  COMMON MISTAKES AND TROUBLESHOOTING TIPS
-8.8.1   m iSinterpreting  geometric  concept S
- •Mistake:  Misunderstanding fundamental geometric concepts like manifolds, tangent spaces, 
+268
+Mathematical Foundations for Deep Learning
+8.8  COMMON MISTAKES AND TROUBLESHOOTING TIPS
+8.8.1  Misinterpreting Geometric Concepts
+	•
+Mistake: Misunderstanding fundamental geometric concepts like manifolds, tangent spaces, 
 and curvature can lead to incorrect assumptions and implementations.
- •Tip: Review basic differential geometry textbooks and online resources. Visual aids and inter -
+	•
+Tip: Review basic differential geometry textbooks and online resources. Visual aids and inter-
 active tools can help solidify understanding.
-8.8.2   v iSualizing  high- dimen Sional  Space S
- •Mistake:  Attempting to visualize high-  dimensional loss landscapes or feature spaces without 
+8.8.2  Visualizing High-​Dimensional Spaces
+	•
+Mistake: Attempting to visualize high-​dimensional loss landscapes or feature spaces without 
 appropriate techniques can result in misleading interpretations.
- •Tip: Use dimensionality reduction techniques like t- SNE  or PCA  to visualize high-  dimensional 
+	•
+Tip: Use dimensionality reduction techniques like t-​SNE or PCA to visualize high-​dimensional 
 data. Be aware of the limitations and what information might be lost during dimensionality 
 reduction.
-8.8.3   ignoring  curvature  in optimization
- •Mistake:  Neglecting the curvature of the loss landscape during optimization can lead to poor 
+8.8.3  Ignoring Curvature in Optimization
+	•
+Mistake: Neglecting the curvature of the loss landscape during optimization can lead to poor 
 convergence or getting stuck at saddle points.
- •Tip: Implement optimization algorithms that consider curvature, such as those based on 
-second-  order derivatives or adaptive learning rates. Regularly evaluate and adjust these 
+	•
+Tip: Implement optimization algorithms that consider curvature, such as those based on 
+second-​order derivatives or adaptive learning rates. Regularly evaluate and adjust these 
 methods based on empirical performance.
-8.8.4   o verfitting  and generalization
- •Mistake:  Focusing too much on achieving low training loss without considering the geometry 
+8.8.4  Overfitting and Generalization
+	•
+Mistake: Focusing too much on achieving low training loss without considering the geometry 
 of the loss landscape can lead to overfitting.
- •Tip: Use regularization techniques that penalize sharp minima. Monitor validation perform -
+	•
+Tip: Use regularization techniques that penalize sharp minima. Monitor validation perform-
 ance closely and use early stopping to prevent overfitting.
-8.8.5   c omputational  overhead
- •Mistake:  Incorporating complex differential geometric calculations without considering com -
+8.8.5  Computational Overhead
+	•
+Mistake: Incorporating complex differential geometric calculations without considering com-
 putational cost can slow down training significantly.
- •Tip: Balance the computational cost with the benefits. Use approximations or heuristics where 
+	•
+Tip: Balance the computational cost with the benefits. Use approximations or heuristics where 
 possible to reduce the computational burden.
-8.8.6   Bridging  theory  and practice
- •Mistake:  Failing to translate theoretical insights from differential geometry into practical 
+8.8.6  Bridging Theory and Practice
+	•
+Mistake: Failing to translate theoretical insights from differential geometry into practical 
 applications can limit the usefulness of these concepts.
- •Tip: Focus on practical implementations and empirical validation. Start with simple models 
+	•
+Tip: Focus on practical implementations and empirical validation. Start with simple models 
 and gradually incorporate more complex geometric insights as you gain confidence and 
 understanding.
-8.8.7   h andling  large- Scale model S
- •Mistake:  Applying techniques that work well on small models to large-  scale models without 
-considering scalability issues can lead to inefficiencies. 
- 
- 
- 
- 
- 
- 
-  
+8.8.7  Handling Large-​Scale Models
+	•
+Mistake: Applying techniques that work well on small models to large-​scale models without 
+considering scalability issues can lead to inefficiencies.
 
 --- PDF PAGE 282 ---
-269 Differential Geometry
- •Tip: Test on smaller subsets of your data and incrementally scale up. Use distributed com -
-puting and parallel processing techniques to handle large-  scale models effectively.
-8.9  REVIEW QUESTIONS
-1. What are the fundamental concepts of differential geometry, and how do they apply to neural 
+269
+Differential Geometry
+	•
+Tip: Test on smaller subsets of your data and incrementally scale up. Use distributed com-
+puting and parallel processing techniques to handle large-​scale models effectively.
+8.9  REVIEW QUESTIONS
+1.	 What are the fundamental concepts of differential geometry, and how do they apply to neural 
 networks?
-2. What is the difference between flat and sharp minima, and why are flat minima preferred for 
+2.	 What is the difference between flat and sharp minima, and why are flat minima preferred for 
 better generalization?
-3. How do neural networks transform input data into high-  dimensional feature spaces?
-4. What insights can be gained from analyzing the geometry of these feature spaces?
-5. Why is understanding the curvature of the loss landscape crucial for improving a model’s 
+3.	 How do neural networks transform input data into high-​dimensional feature spaces?
+4.	 What insights can be gained from analyzing the geometry of these feature spaces?
+5.	 Why is understanding the curvature of the loss landscape crucial for improving a model’s 
 generalization to unseen data?
-6. What is the Fisher information metric, and how does it help understand the sensitivity of a 
+6.	 What is the Fisher information metric, and how does it help understand the sensitivity of a 
 model’s predictions?
-7. How does information geometry apply to Bayesian deep learning?
-8. What is the impact of penalizing sharp minima on the training and generalization of neural 
+7.	 How does information geometry apply to Bayesian deep learning?
+8.	 What is the impact of penalizing sharp minima on the training and generalization of neural 
 networks?
-9. What are saddle points, and why is it essential to design optimization techniques that 
+9.	 What are saddle points, and why is it essential to design optimization techniques that 
 avoid them?
-10. How does the geometry of feature spaces enhance the interpretability of neural networks?
-8.10  PROGRAMMING QUESTIONS
-8.10.1   e aSy: implementing  BaSic manifold  learning
-1. Generate a synthetic high-  dimensional dataset.
-2. Apply PCA to reduce the dimensions to 2.
-3. Visualize the reduced dataset using a scatter plot.
-8.10.2   m edium : comparing  manifold  learning  techni QueS
-1. Use a complex dataset such as MNIST or CIFAR-  10.
-2. Apply t-  SNE and UMAP separately to reduce the dimensions to 2.
-3. Visualize the results side by side and compare their ability to preserve the structure.
-8.10.3   h ard: analyzing  curvature  in high- dimen Sional  dataSet
-1. Implement Laplacian eigenmaps to reduce the dimensions of a high-  dimensional dataset.
-2. Calculate the Laplacian matrix and perform eigenvalue decomposition.
-3. Visualize the eigenvalues and analyze the curvature based on their distribution. 
- 
- 
- 
-  
+10.	 How does the geometry of feature spaces enhance the interpretability of neural networks?
+8.10  PROGRAMMING QUESTIONS
+8.10.1  Easy: Implementing Basic Manifold Learning
+1.	 Generate a synthetic high-​dimensional dataset.
+2.	 Apply PCA to reduce the dimensions to 2.
+3.	 Visualize the reduced dataset using a scatter plot.
+8.10.2  Medium: Comparing Manifold Learning Techniques
+1.	 Use a complex dataset such as MNIST or CIFAR-​10.
+2.	 Apply t-​SNE and UMAP separately to reduce the dimensions to 2.
+3.	 Visualize the results side by side and compare their ability to preserve the structure.
+8.10.3  Hard: Analyzing Curvature in High-​Dimensional Dataset
+1.	 Implement Laplacian eigenmaps to reduce the dimensions of a high-​dimensional dataset.
+2.	 Calculate the Laplacian matrix and perform eigenvalue decomposition.
+3.	 Visualize the eigenvalues and analyze the curvature based on their distribution.
 
 --- PDF PAGE 283 ---
 270
-270 DOI: 10.1201/9781032690742-99 Topology in Deep Learning
-9.1  INTRODUCTION
+270
+DOI: 10.1201/9781032690742-9
+9  Topology in Deep Learning
+9.1  INTRODUCTION
 In the vast field of deep learning, the design and layout of neural networks are crucial in shaping how 
 they work and how effective they are. This design, often referred to as “topology” in deep learning, 
 is the base that allows algorithms to learn and improve. However, the word “topology” isn’t used 
 only for neural networks. It originally comes from a detailed area of mathematics that studies the 
 properties of spaces that stay the same even when they are stretched or bent without breaking. This 
-link between deep learning and mathematical topology helps us better understand how neural net -
+link between deep learning and mathematical topology helps us better understand how neural net-
 work algorithms come together and behave. This chapter reviews this concept in more detail.
-9.2  BASIC TOPOLOGY
+9.2  BASIC TOPOLOGY
 Topology is a part of mathematics that looks at the ways spaces can stay the same even when they 
-are changed in certain ways, especially smooth and continuous changes. It began by trying to under -
+are changed in certain ways, especially smooth and continuous changes. It began by trying to under-
 stand the basic nature of shapes and spaces, focusing on important features rather than minor details. 
 In the end, although the word “topology” is used differently in pure mathematics and deep learning, 
 both areas are all about structure and the properties that come from that structure.
-9.2.1   c ontinuou S tranSformation S and invariance
-A key idea in topology is the concept of homeomorphism: a continuous, one-  to- one, onto map 
+9.2.1  Continuous Transformations and Invariance
+A key idea in topology is the concept of homeomorphism: a continuous, one-​to-​one, onto map 
 whose inverse is also continuous. Intuitively, a homeomorphism lets you bend or stretch one shape 
-into another without cutting or attaching new pieces. If two shapes are connected by a homeo -
+into another without cutting or attaching new pieces. If two shapes are connected by a homeo-
 morphism, they are considered the same in topology, or “homeomorphic.” This concept ignores 
 measures like distances or angles, focusing instead on the fundamental properties that remain 
 unchanged under continuous deformations. For example, topologically, a circle can be deformed 
 into an ellipse without breaking or merging parts, so they are homeomorphic. A classic illustration 
 is the coffee mug and the donut, each has exactly one hole, making them topologically equivalent 
 despite looking quite different in everyday terms.
-Figure 9.1 a shows a circle (solid blue line) and an ellipse (dashed green line), which can be 
+Figure 9.1a shows a circle (solid blue line) and an ellipse (dashed green line), which can be 
 stretched or compressed into each other without cutting or gluing. This ability to transform smoothly 
-shows that the circle and ellipse are topologically equivalent, they share the same fundamental struc -
-ture in topology. Figure 9.1 b illustrates a 3D view of a torus (donut shape) characterized by a single 
+shows that the circle and ellipse are topologically equivalent, they share the same fundamental struc-
+ture in topology. Figure 9.1b illustrates a 3D view of a torus (donut shape) characterized by a single 
 hole. This hole is a key topological feature that distinguishes it from shapes like the circle or ellipse, 
-which have none. Together, these plots demonstrate how topology focuses on properties like con -
-nectedness and the number of holes rather than exact shapes. 
- 
- 
-  
+which have none. Together, these plots demonstrate how topology focuses on properties like con-
+nectedness and the number of holes rather than exact shapes.
 
 --- PDF PAGE 284 ---
-271 Topology in Deep Learning
-FIGURE 9.1  (a) Circle and ellipse, topologically equivalent due to smooth transformations. (b) Torus, highlighting its single hole as a distinct topological 
-feature.  newgenrtpdf
+271
+Topology in Deep Learning
+FIGURE 9.1  (a) Circle and ellipse, topologically equivalent due to smooth transformations. (b) Torus, highlighting its single hole as a distinct topological 
+feature.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 285 ---
-272 Mathematical Foundations for Deep Learning
-9.2.2   n eural  network S and topological  Structure
+272
+Mathematical Foundations for Deep Learning
+9.2.2  Neural Networks and Topological Structure
 In deep learning, when we talk about the topology of a neural network, we mean its structure or 
 design. This includes how many nodes (or neurons) there are, how they are arranged into layers, 
-and how they are connected to each other. This “structure” acts like a plan that guides how the net -
+and how they are connected to each other. This “structure” acts like a plan that guides how the net-
 work works. However, comparing the topology of neural networks to mathematical topology is not 
 straightforward. In mathematics, topology is about properties that stay the same even when shapes 
 are stretched or bent. In deep learning, topology is more about the basic setup of the network, such 
@@ -509,7 +519,7 @@ deeper link between them. The way you design the topology of a neural network ca
 it learns and how it can apply what it has learned to new situations. In some ways, the network’s 
 design and the way it learns work, like the rules in mathematical topology, deciding what parts can 
 change and what parts stay the same as the network learns from data.
-9.3  RELATION TO CONVERGENCE OF LEARNING ALGORITHMS
+9.3  RELATION TO CONVERGENCE OF LEARNING ALGORITHMS
 The topology of a neural network sets the foundation for how well it performs. However, factors 
 like the number of layers (depth), the number of neurons in each layer (width), how the neurons are 
 connected, and the activation functions used, all along with the type of data and the specific task, 
@@ -518,33 +528,31 @@ Good design, proper ways to start the network (initialization), and techniques t
 (regularization) are essential, especially as the network becomes more complex. The way a neural 
 network is structured can greatly affect how successfully the learning algorithm can find the best 
 solution.
-9.3.1   d epth and width
-9.3.1.1   Depth (Number of Layers)
+9.3.1  Depth and Width
+9.3.1.1  Depth (Number of Layers)
 The depth of a network, meaning the number of layers it has, is very important for its ability to 
 understand and learn complex patterns and ideas. The layers in a deep network learn features in a 
 hierarchical way:
-1. Initial Layers:  The first layers of a deep network usually learn simple and basic features, like 
+1.	 Initial Layers: The first layers of a deep network usually learn simple and basic features, like 
 edges, corners, and textures in images. These simple parts are the building blocks for more 
 complicated patterns.
-2. Intermediate Layers:  As the data move through the network, the middle layers combine 
+2.	 Intermediate Layers: As the data move through the network, the middle layers combine 
 these simple features to create more complex shapes and outlines. This stage provides a 
 more detailed and richer understanding of the input data.
-3. Deep Layers:  The deepest layers of the network capture very complex and abstract features. 
+3.	 Deep Layers: The deepest layers of the network capture very complex and abstract features. 
 For example, in image recognition, these layers might identify specific objects, scenes, or 
-intricate patterns that are important for high-  level understanding and making decisions.
+intricate patterns that are important for high-​level understanding and making decisions.
 Adding more layers to neural networks has clear benefits for both how they represent data and how 
 well they perform. First, having more layers helps the network learn and show complex patterns 
-in data, which is especially useful for tasks like recognizing images and speech or processing lan -
+in data, which is especially useful for tasks like recognizing images and speech or processing lan-
 guage. With more layers, deep networks can understand features at different levels, allowing them to 
 grasp data in a hierarchical way, which often works better than networks with fewer layers. Second, 
 deeper networks have led to major improvements in performance. For example, very deep networks 
-have achieved significant increases in accuracy for image recognition, setting new records in various  
- 
- 
-  
+have achieved significant increases in accuracy for image recognition, setting new records in various
 
 --- PDF PAGE 286 ---
-273 Topology in Deep Learning
+273
+Topology in Deep Learning
 tasks and demonstrating how depth can enhance a neural network’s performance. However, deeper 
 networks also bring some challenges, such as overfitting, problems with training, and the need for 
 a lot of computing power. First, deeper networks with more parameters are more likely to overfit, 
@@ -552,22 +560,22 @@ especially when there is not enough data. Overfitting happens when the model lea
 data instead of the useful patterns, which makes it worse at handling new data. Second, as networks 
 become deeper, they can have trouble converging during training. This means that the gradients used 
 to update the network’s parameters can either become very small (vanish) or very large (explode), 
-making it hard to optimize the model effectively. Finally, deeper networks need more computa -
-tional power, which makes training them time-  consuming and resource-  heavy. These networks often 
+making it hard to optimize the model effectively. Finally, deeper networks need more computa-
+tional power, which makes training them time-​consuming and resource-​heavy. These networks often 
 require powerful GPUs or TPUs and distributed computing systems, which can be a challenge for 
 those who do not have access to advanced hardware.
-Figure 9.2 a shows the decision boundary created by a shallow neural network with a single hidden 
+Figure 9.2a shows the decision boundary created by a shallow neural network with a single hidden 
 layer containing five neurons. The network is limited in its ability to capture complex patterns, leading 
 to a relatively simple decision boundary. This demonstrates how initial layers in a shallow network 
-primarily capture basic features, resulting in a straightforward separation of the data. Figure 9.2 b 
+primarily capture basic features, resulting in a straightforward separation of the data. Figure 9.2b 
 shows the decision boundary of a neural network with two hidden layers, each containing 10 neurons. 
-This medium-  depth network captures more complex patterns than the shallow network, leading to a 
+This medium-​depth network captures more complex patterns than the shallow network, leading to a 
 smoother and more detailed decision boundary. The plot illustrates how intermediate layers allow the 
 network to learn and combine more intricate features, improving its ability to model the underlying 
-structure of the data. Figure 9.2 c shows the decision boundary produced by a deep neural network 
+structure of the data. Figure 9.2c shows the decision boundary produced by a deep neural network 
 with three hidden layers, each containing 50 neurons. The deep network is capable of capturing 
 highly complex and abstract patterns, resulting in a very refined and intricate decision boundary.
-9.3.1.2   Width (Number of Nodes per Layer)
+9.3.1.2  Width (Number of Nodes per Layer)
 The width of a layer in a neural network refers to how many nodes or neurons are in that layer. The 
 width affects how well the network can learn from data and recognize complex patterns. Making 
 the network wider can sometimes mean you don’t need to make it deeper, but it also brings its own 
@@ -581,7 +589,7 @@ especially complex datasets, and can improve performance without needing to add 
 However, there are also challenges when increasing the width of neural networks. One major issue 
 is overfitting. Wider layers can make the network too complex, causing it to memorize the training 
 data instead of learning to work well with new, unseen data. This can lead to poor performance 
-when the network is tested with real-  world data. Making the network wider also means there are 
+when the network is tested with real-​world data. Making the network wider also means there are 
 more parameters, which requires more computing power and longer training times. This can slow 
 down the training process and may need stronger hardware like GPUs or TPUs. Additionally, more 
 parameters use more memory, which can be a problem for very wide networks. Lastly, there comes 
@@ -593,15 +601,19 @@ categories, such as handwritten digits from 0 to 9. In this case, adjusting the 
 can help it learn to recognize the different digits more effectively without necessarily making the 
 network deeper. Let’s look at two different situations: In the first situation, called a narrow network, 
 the hidden layer has 50 nodes. If the input layer has 784 nodes, which represent a 28 by 28 image, 
-then the number of connections between the input layer and the hidden layer is 784 multiplied by 50.   
+then the number of connections between the input layer and the hidden layer is 784 multiplied by 50.
 
 --- PDF PAGE 287 ---
-274 Mathematical Foundations for Deep Learning
-FIGURE 9.2  Hierarchical feature learning across network depths, (a) initial layers, (b) intermediate layers, (c) deep layers.
-  newgenrtpdf
+274
+Mathematical Foundations for Deep Learning
+FIGURE 9.2  Hierarchical feature learning across network depths, (a) initial layers, (b) intermediate layers, (c) deep layers.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 288 ---
-275 Topology in Deep Learning
+275
+Topology in Deep Learning
 This equals 39,200 connections. In the second situation, called a wide network, the hidden layer has 
 500 nodes instead of 50. With the same input layer of 784 nodes, the number of connections between 
 the input and hidden layers becomes 784 multiplied by 500, which is 392,000 connections. In this 
@@ -610,7 +622,7 @@ number of connections allows the network to recognize more detailed and complex 
 training data. However, having so many connections also increases the chance that the network will 
 overfit. Overfitting happens when the network learns the training data too well, including any noise 
 or specific details, which makes it perform poorly when it encounters new, unseen data.
-9.3.2   Skip connection S
+9.3.2  Skip Connections
 Skip connections, also known as residual connections, allow information to move directly across 
 one or more layers by creating a straight path around certain layers. This design is important for 
 training very deep neural networks because it helps solve some of the main problems that come 
@@ -630,66 +642,108 @@ information to flow, which requires careful design to keep everything stable. Ad
 a bit more memory and processing power because the network needs to combine the outputs from 
 both the direct and the bypassed paths. Despite these challenges, the advantages of skip connections 
 usually outweigh the drawbacks, especially when using efficient designs and modern hardware. 
-Figure 9.3  illustrates the impact of skip connections on the gradient flow through a neural network’s 
-layers, comparing scenarios with and without skip connections. On the y- axis, the plot represents 
-the gradient magnitude on a logarithmic scale, while the x- axis displays the layers of the network. 
+Figure 9.3 illustrates the impact of skip connections on the gradient flow through a neural network’s 
+layers, comparing scenarios with and without skip connections. On the y-​axis, the plot represents 
+the gradient magnitude on a logarithmic scale, while the x-​axis displays the layers of the network. 
 Without skip connections, represented by the red dashed line, there is a significant reduction in 
 gradient magnitude across layers, a phenomenon known as the vanishing gradient. This issue is 
 prominent in deeper networks, where gradients become too small to effectively update weights, 
 leading to poor learning. In contrast, the blue solid line shows the preserved gradient flow when 
-skip connections (residuals) are introduced. These connections enable the gradient to remain rela -
+skip connections (residuals) are introduced. These connections enable the gradient to remain rela-
 tively stable even as the network deepens, addressing the vanishing gradient problem. As seen in the 
 plot, the gradient magnitude remains higher and more stable, preventing degradation of the learning 
 process. The shaded gray region between the lines emphasizes the difference in gradient behavior, 
 highlighting the improvement achieved through skip connections in deep neural networks.
-9.3.3   r ecurrent  connection S
-Recurrent neural networks (RNNs) are built to work with data that comes in a sequence by using  
-loops that let information carry over from one step to the next. This setup allows RNNs to handle  
-sequences of different lengths and understand how things change over time and depend on each  
-other in order. The main benefits of these looping connections in neural networks are seen when pro -
-cessing sequential data and keeping information over time. First, the loops let RNNs handle data in   
-  
+9.3.3  Recurrent Connections
+Recurrent neural networks (RNNs) are built to work with data that comes in a sequence by using 
+loops that let information carry over from one step to the next. This setup allows RNNs to handle 
+sequences of different lengths and understand how things change over time and depend on each 
+other in order. The main benefits of these looping connections in neural networks are seen when pro-
+cessing sequential data and keeping information over time. First, the loops let RNNs handle data in
 
 --- PDF PAGE 289 ---
-276 Mathematical Foundations for Deep Learning
-the order it happens, making them great for tasks like analyzing time-  based data, understanding lan -
-guage, and recognizing speech. These networks can work with input sequences that vary in length,  
-which is important for tasks where the size of the input can change a lot, such as predicting the next  
-word in a sentence or processing spoken words. Second, the looping connections give the network a  
-kind of memory because information can stay available across different steps. This means the model  
-can use what it learned before to make better predictions now, giving it a deeper understanding of  
-how things are related in the sequence. For example, think about trying to predict the next word in  
-a sentence. Suppose we have the sequence: “The cat is on the.” The goal is to guess the next word,  
-which is likely “mat.” An RNN looks at this sequence one word at a time, using the words that came  
-before to help predict the next one. In this case, each word is treated as a separate step. At each step  
-t, the RNN takes in an input xt (like the word “The,” “cat,” “is,” etc.) and updates its hidden state ht  
+276
+Mathematical Foundations for Deep Learning
+the order it happens, making them great for tasks like analyzing time-​based data, understanding lan-
+guage, and recognizing speech. These networks can work with input sequences that vary in length, 
+which is important for tasks where the size of the input can change a lot, such as predicting the next 
+word in a sentence or processing spoken words. Second, the looping connections give the network a 
+kind of memory because information can stay available across different steps. This means the model 
+can use what it learned before to make better predictions now, giving it a deeper understanding of 
+how things are related in the sequence. For example, think about trying to predict the next word in 
+a sentence. Suppose we have the sequence: “The cat is on the.” The goal is to guess the next word, 
+which is likely “mat.” An RNN looks at this sequence one word at a time, using the words that came 
+before to help predict the next one. In this case, each word is treated as a separate step. At each step 
+t, the RNN takes in an input xt (like the word “The,” “cat,” “is,” etc.) and updates its hidden state ht 
 based on the current word and the hidden state from the previous step ht−1. For example:
- •At t =  1, the RNN processes “The,” and updates its hidden state h1.
- •At t =  2, it processes “cat,” using both x2 (“cat”) and the hidden state h1 (from “The”).
-This continues until the RNN processes “the” at t =  4, using all previous context to predict the next 
-word, “mat.” The RNN’s recurrent connections allow information from earlier time steps to influ -
+	•
+At t =​ 1, the RNN processes “The,” and updates its hidden state h1.
+	•
+At t =​ 2, it processes “cat,” using both x2 (“cat”) and the hidden state h1 (from “The”).
+This continues until the RNN processes “the” at t =​ 4, using all previous context to predict the next 
+word, “mat.” The RNN’s recurrent connections allow information from earlier time steps to influ-
 ence later predictions. In the example above, knowing “The cat is on the” helps the model predict 
 “mat” because of the context it has accumulated over the sequence. At each time step t, the RNN 
 updates its hidden state using the following equations:
- h fW hW xbth tx t=⋅ +⋅ +()−1 
+	
+h
+f W
+h
+W
+x
+b
+t
+h
+t
+x
+t
+=
+⋅
++
+⋅
++
+(
+)
+−1
+	
 where:
- •ht is the hidden state at time t,
- •ht- 1 is the hidden state from the previous time step,
-FIGURE 9.3  Impact of skip connections on gradient flow in deep networks. 
-  
+	•
+ht is the hidden state at time t,
+	•
+ht-​1 is the hidden state from the previous time step,
+FIGURE 9.3  Impact of skip connections on gradient flow in deep networks.
 
 --- PDF PAGE 290 ---
-277 Topology in Deep Learning
- •xt is the input at time t,
- •Wh and Wx are weight matrices,
- •b is the bias term, and
- •f is the activation function (typically a non-  linear function like tanh or ReLU).
+277
+Topology in Deep Learning
+	•
+xt is the input at time t,
+	•
+Wh and Wx are weight matrices,
+	•
+b is the bias term, and
+	•
+f is the activation function (typically a non-​linear function like tanh or ReLU).
 The hidden state ht stores information from previous time steps, enabling the RNN to “remember” 
 the context as it processes new data. Finally, the output at each time step, yt, is given by:
- yf Wh cty t=⋅ + ()  
+	
+y
+f W
+h
+c
+t
+y
+t
+=
+⋅
++
+(
+)	
 where:
- •Wy is the output weight matrix,
- •c is the output bias.
+	•
+Wy is the output weight matrix,
+	•
+c is the output bias.
 For example, if we want to guess the next word in a sentence, yt would show the chances of different 
 words coming next. The word with the highest chance is chosen as the next word. Recurrent 
 connections in neural networks have some problems, such as vanishing and exploding gradients, 
@@ -698,13 +752,13 @@ back through time. In long sequences, these gradients can either become very sma
 gradients) or very large (exploding gradients). When gradients vanish, the network struggles to learn 
 connections that are far apart in the sequence. When gradients explode, the training can become 
 unstable. These problems can make training slow or ineffective, especially for tasks that need to 
-understand long-  term relationships. Second, RNNs handle data one step at a time, with each step 
+understand long-​term relationships. Second, RNNs handle data one step at a time, with each step 
 depending on the one before it. This makes training slower compared to other types of networks like 
 convolutional neural networks (CNNs), which can handle many parts of the data at the same time. 
 Because RNNs work step by step, they require more computing power and memory, making the 
 training process take longer and use more resources.
-9.3.4   a ctivation  function S
-Activation functions add non-  linearity to the network, which helps it learn complex patterns. ReLU is 
+9.3.4  Activation Functions
+Activation functions add non-​linearity to the network, which helps it learn complex patterns. ReLU is 
 a popular activation function used in neural networks. It doesn’t get stuck at certain values, which often 
 makes the network train faster. However, ReLU can cause some neurons to stop working, meaning 
 they never activate. To fix this, variations like LeakyReLU and ParametricReLU have been created. 
@@ -713,57 +767,60 @@ output layer for tasks that have two possible outcomes because they produce valu
 1. Tanh functions are used when the output needs to be between −1 and 1, which is useful for certain 
 hidden layers. However, both Sigmoid and Tanh can cause a problem called the vanishing gradient 
 because they can make the values very small. This makes it hard to train deep networks effectively.
-Figure 9.4  presents six subplots, each representing the training process of neural network models 
-with different depths and activation functions. The x- axis represents the number of epochs, while 
-the y- axis displays the loss and accuracy values. The red line indicates the loss, and the blue line 
+Figure 9.4 presents six subplots, each representing the training process of neural network models 
+with different depths and activation functions. The x-​axis represents the number of epochs, while 
+the y-​axis displays the loss and accuracy values. The red line indicates the loss, and the blue line 
 shows the accuracy.
 Depth: 1, Activation: relu: This subplot shows the training results for a neural network with a 
 single hidden layer using the ReLU activation function. Initially, the loss decreases rapidly, and 
 the accuracy increases, indicating that the model is learning. As training progresses, both metrics 
 stabilize, suggesting the model has reached a plateau. Depth: 1, Activation: tanh: This subplot 
-represents a neural network with one hidden layer using the Tanh activation function. The loss  
-  
+represents a neural network with one hidden layer using the Tanh activation function. The loss
 
 --- PDF PAGE 291 ---
-278 Mathematical Foundations for Deep Learning
-FIGURE 9.4  Effect of depth and activation functions on convergence.
-  newgenrtpdf
+278
+Mathematical Foundations for Deep Learning
+FIGURE 9.4  Effect of depth and activation functions on convergence.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 292 ---
-279 Topology in Deep Learning
+279
+Topology in Deep Learning
 decreases steadily over the epochs, while the accuracy improves. Compared to the ReLU activation, 
 the Tanh function shows a more gradual learning curve, reflecting different dynamics in how the 
 network converges. Depth: 3, Activation: relu: This subplot corresponds to a neural network with 
-three hidden layers and the ReLU activation function. Initially, the model showed rapid improve -
+three hidden layers and the ReLU activation function. Initially, the model showed rapid improve-
 ment in both loss and accuracy. The increased depth allows the network to capture more complex 
-patterns, leading to higher accuracy than the single-  layer models. Depth: 3, Activation: tanh: Here, 
+patterns, leading to higher accuracy than the single-​layer models. Depth: 3, Activation: tanh: Here, 
 the neural network with three hidden layers uses the Tanh activation function. The training process 
-shows a steady decrease in loss and an increase in accuracy. The multiple layers with Tanh acti -
+shows a steady decrease in loss and an increase in accuracy. The multiple layers with Tanh acti-
 vation help the network learn effectively, with the training curves indicating smooth convergence. 
 Depth: 5, Activation: relu: This subplot shows the performance of a deeper neural network with 
 five hidden layers using ReLU. The training curves indicate rapid initial learning, with both loss 
-and accuracy reaching stable values. The depth of the network provides the capacity to model com -
+and accuracy reaching stable values. The depth of the network provides the capacity to model com-
 plex relationships, reflected in the training metrics. Depth: 5, Activation: tanh: This final subplot 
 represents a neural network with five hidden layers and Tanh activation. The loss decreases, and 
-accuracy increases steadily, similar to other Tanh-  activated models. The depth combined with Tanh 
+accuracy increases steadily, similar to other Tanh-​activated models. The depth combined with Tanh 
 activation allows the network to converge smoothly, capturing intricate patterns in the data.
-9.4  TOPOLOGICAL DATA ANALYSIS IN NEURAL NETWORKS
+9.4  TOPOLOGICAL DATA ANALYSIS IN NEURAL NETWORKS
 Integrating Topological Data Analysis (TDA) with neural networks is a new and promising area that 
 can lead to many discoveries and improvements. TDA  provides tools and methods to examine and 
 understand the shape and structure of datasets. This helps us gain deep insights into how data are 
 organized and how different parts of the data are related. When TDA is used with neural networks 
 that are learning intensively, it offers a unique way to understand both the data and how the network 
 behaves.
-9.4.1   p erSiStent homology
+9.4.1  Persistent Homology
 Persistent homology is a technique from computational topology that helps analyze the shape 
-and structure of data at different levels. It is especially useful for understanding complex, high-  
+and structure of data at different levels. It is especially useful for understanding complex, high-​
 dimensional data by looking at how its features remain or change as we examine it at various scales. 
 In persistent homology, the main ideas include topological features, filtration, and visualizations 
 like persistence diagrams and barcodes. Topological features are the basic shapes in the data, such 
 as points, lines, loops, and cavities. These features are counted using Betti numbers. For example, 
 the zeroth Betti number counts the number of separate pieces or connected components, the first 
 Betti number counts the number of loops or cycles, and the second Betti number counts the number 
-of voids or enclosed spaces. A filtration is a step-  by- step process where we build a series of shapes 
+of voids or enclosed spaces. A filtration is a step-​by-​step process where we build a series of shapes 
 called simplicial complexes by changing a scale parameter. A simplicial complex is made up of 
 points, lines, triangles, and other simple shapes that approximate the data’s structure. This process 
 allows us to analyze the topological features at different scales. Each feature has a birth scale, which 
@@ -772,97 +829,104 @@ scales measures how long the feature persists. Visualizations like persistence d
 are used to show how the topological features appear and disappear as the scale changes. Features 
 that last through many scales are considered important, while those that appear and disappear 
 quickly are usually seen as noise. Consider a group of six data points: (0, 0), (1, 0), (0, 1), (1, 1), (2, 
-1), and (3, 1) arranged in a two-  dimensional (2D) space. We will use persistent homology to study 
+1), and (3, 1) arranged in a two-​dimensional (2D) space. We will use persistent homology to study 
 the shapes and structures within this data. First, let’s talk about topological features, specifically 
-Betti numbers, which help us understand the structure of the data. The Betti-  0 number counts the 
+Betti numbers, which help us understand the structure of the data. The Betti-​0 number counts the 
 number of separate pieces or connected components. Initially, with a very small radius around each 
-point, there are six separate components because all points are disconnected. As we increase the  
-  
+point, there are six separate components because all points are disconnected. As we increase the
 
 --- PDF PAGE 293 ---
-280 Mathematical Foundations for Deep Learning
+280
+Mathematical Foundations for Deep Learning
 radius, some points start to connect. For example, at a radius of 0.5, some points merge into fewer 
 connected components. Eventually, when the radius is large enough, all points come together into 
-one single connected component, so the Betti-  0 number drops to one. Next, Betti-  1 numbers count 
+one single connected component, so the Betti-​0 number drops to one. Next, Betti-​1 numbers count 
 the number of loops or cycles in the data. When we increase the radius further, some connections 
-form loops. For instance, the points at (0, 0), (1, 0), (0, 1), and (1, 1) can create a square-  like loop, 
-making the Betti-  1 number equal to one. If we keep increasing the radius, this loop might fill in 
-and disappear, causing the Betti-  1 number to go back to zero. Filtration is the process of gradually 
+form loops. For instance, the points at (0, 0), (1, 0), (0, 1), and (1, 1) can create a square-​like loop, 
+making the Betti-​1 number equal to one. If we keep increasing the radius, this loop might fill in 
+and disappear, causing the Betti-​1 number to go back to zero. Filtration is the process of gradually 
 increasing the radius around each point and keeping track of when topological features appear and 
-disappear. At the start, with radius r =  0, there are six separate components. As the radius grows to 
+disappear. At the start, with radius r =​ 0, there are six separate components. As the radius grows to 
 0.5, some points connect, reducing the number of components to three. When the radius reaches 1.5, 
 these connections might form one connected component and one loop. Finally, when the radius is 
-2.5, all points merge into a single connected component, and no loops remain. A persistence dia -
+2.5, all points merge into a single connected component, and no loops remain. A persistence dia-
 gram is a way to visualize when each feature (like connected components or loops) appears and 
-disappears as the radius changes. For example, a connected component might appear at r =  0 and 
-merge with others at r =  0.5. A loop might form at r =  1.0 and disappear at r =  2.0. These diagrams 
-help us see which features last longer and are more important, while short-  lived features are often 
-considered noise. Persistent homology has many useful applications in data analysis. In shape ana -
+disappears as the radius changes. For example, a connected component might appear at r =​ 0 and 
+merge with others at r =​ 0.5. A loop might form at r =​ 1.0 and disappear at r =​ 2.0. These diagrams 
+help us see which features last longer and are more important, while short-​lived features are often 
+considered noise. Persistent homology has many useful applications in data analysis. In shape ana-
 lysis, it helps examine the geometric structure of data, such as 3D shapes or molecular structures, by 
 identifying important shapes within the data. In machine learning, persistent homology can extract 
 topological features from complex data, which can improve tasks like classification or grouping 
 similar data together by capturing structural information that traditional methods might miss. It also 
-helps reduce noise by focusing on features that persist over many scales and ignoring those that dis -
+helps reduce noise by focusing on features that persist over many scales and ignoring those that dis-
 appear quickly, making it especially useful for datasets with a lot of noise. Additionally, in network 
-analysis, persistent homology can study complex networks like social, biological, or communica -
+analysis, persistent homology can study complex networks like social, biological, or communica-
 tion networks, providing insights into how these networks are connected, how they cluster, and their 
 overall structure.
-Figure 9.5  demonstrates the application of  TDA using persistent homology to analyze and visu -
-alize topological features in a dataset. Figure 9.5 a shows a scatter plot of data points grouped into 
+Figure 9.5 demonstrates the application of  TDA using persistent homology to analyze and visu­
+alize topological features in a dataset. Figure 9.5a shows a scatter plot of data points grouped into 
 two clusters, labeled as Cluster 1 and Cluster 2. These clusters highlight distinct regions in the 
 dataset, illustrating how data can be divided into separate components based on proximity. The 
 arrows point to representative clusters, emphasizing the idea of connectivity within each region. 
-Figure 9.5 b presents a persistence diagram, a tool that visualizes the birth and death of topological 
+Figure 9.5b presents a persistence diagram, a tool that visualizes the birth and death of topological 
 features as the scale parameter varies. Two types of features are shown: connected components 
 (H0) and loops (H1). The diagonal line represents features that appear and quickly disappear, which 
 are often considered noise. Points farther from the diagonal correspond to persistent features that 
 remain across multiple scales, indicating their importance in understanding the data’s structure. For 
 instance, a loop (H1) appears at a specific scale and persists for some time, reflecting a significant 
 cycle in the data’s topology.
-Figure 9.6  illustrates a visualization of TDA using three interconnected panels: (a) a point cloud, 
-(b) a persistence diagram, and (c) a persistence barcode. These visualizations collectively show -
-case the persistence of topological features in the data across multiple scales. Figure 9.6 a depicts 
-the scatter plot of a two-  cluster point cloud, with Cluster 1 and Cluster 2 labeled in blue and green, 
+Figure 9.6 illustrates a visualization of TDA using three interconnected panels: (a) a point cloud, 
+(b) a persistence diagram, and (c) a persistence barcode. These visualizations collectively show-
+case the persistence of topological features in the data across multiple scales. Figure 9.6a depicts 
+the scatter plot of a two-​cluster point cloud, with Cluster 1 and Cluster 2 labeled in blue and green, 
 respectively. This representation highlights the raw spatial distribution and connectivity of data 
-points, providing an initial view of the clusters’ structure. Figure 9.6 b, the persistence diagram, 
+points, providing an initial view of the clusters’ structure. Figure 9.6b, the persistence diagram, 
 captures the birth and death of topological features, such as connected components (H0) and loops 
-(H1). Points closer to the diagonal indicate short-  lived features, often regarded as noise, while points 
+(H1). Points closer to the diagonal indicate short-​lived features, often regarded as noise, while points 
 farther from the diagonal represent persistent features that are structurally significant. For example, 
 loops (H1) and connected components (H0) are annotated to emphasize their relevance at specific 
-scales. Figure 9.6 c visualizes the same topological features using a persistence barcode. Each hori -
-zontal bar represents a feature’s lifespan, starting at its birth and ending at its death. Longer bars  
+scales. Figure 9.6c visualizes the same topological features using a persistence barcode. Each hori­
+zontal bar represents a feature’s lifespan, starting at its birth and ending at its death. Longer bars
 
 --- PDF PAGE 294 ---
-281 Topology in Deep Learning
-FIGURE 9.5  (a) Point cloud and (b) persistence diagram .
-  newgenrtpdf
+281
+Topology in Deep Learning
+FIGURE 9.5  (a) Point cloud and (b) persistence diagram.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 295 ---
-282 Mathematical Foundations for Deep Learning
-FIGURE 9.6  TDA visualization. (a) Point cloud, (b) persistence diagram, (c) persistence barcode.
-  newgenrtpdf
+282
+Mathematical Foundations for Deep Learning
+FIGURE 9.6  TDA visualization. (a) Point cloud, (b) persistence diagram, (c) persistence barcode.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 296 ---
-283 Topology in Deep Learning
+283
+Topology in Deep Learning
 signify features that persist over a wide range of scales, indicating their importance, while shorter 
-bars represent transient noise. The barcode succinctly complements the persistence diagram by pro -
+bars represent transient noise. The barcode succinctly complements the persistence diagram by pro-
 viding an alternative view of feature longevity.
-9.5  TOPOLOGICAL DATA ANALYSIS WITH DEEP LEARNING
-Combining TDA with deep learning is becoming more popular and provides new ways to under -
+9.5  TOPOLOGICAL DATA ANALYSIS WITH DEEP LEARNING
+Combining TDA with deep learning is becoming more popular and provides new ways to under-
 stand and improve neural network models. TDA helps us examine and use the natural shape and 
 structure of data, which can lead to stronger and more efficient learning methods.
-9.5.1   p erSiStent homology  in deep learning
+9.5.1  Persistent Homology in Deep Learning
 Persistent homology is an important idea in TDA. It looks at the shapes and features of data at 
 different levels. By doing this, it helps us understand the data’s structure by finding things like 
 connected parts, loops, and empty spaces. In deep learning, persistent homology can be used in 
 several powerful ways. One key use is analyzing the loss landscape, which is the graph of the 
 loss function that the neural network tries to minimize. Persistent homology helps us study the 
 shapes of this loss function by looking at how many low points and saddle points it has. This gives 
-researchers important information about how difficult the optimization problem is. With this know -
+researchers important information about how difficult the optimization problem is. With this know-
 ledge, they can create better algorithms to optimize the network. For example, if there are many low 
 points, they can develop methods to avoid getting stuck and find better overall solutions. Another 
 major use is feature extraction. Persistent homology can pull out topological features from the data, 
-such as connected parts, holes, and higher-  dimensional empty spaces. These features capture com -
+such as connected parts, holes, and higher-​dimensional empty spaces. These features capture com-
 plex information that regular methods might miss. These extracted features can be added as extra 
 inputs to neural networks, helping the model find more detailed patterns, work better on new data, 
 and be more reliable. Additionally, persistent homology helps reduce the number of dimensions 
@@ -871,75 +935,218 @@ neural network to handle.
 When using persistent homology in deep learning, there are several practical things to consider. 
 First, it can be very computationally heavy. Calculating persistent homology for large or complex 
 datasets can take a lot of resources, so efficient algorithms and software are needed. To use persistent 
-homology in large-  scale deep learning, it’s important to manage the computational load carefully. 
+homology in large-​scale deep learning, it’s important to manage the computational load carefully. 
 Next, integrating persistent homology with neural networks requires several preprocessing steps 
 to calculate the topological features and then smoothly add them to the network’s structure. It’s 
-important to make sure this process doesn’t slow down training or prediction. Also, calculating per -
+important to make sure this process doesn’t slow down training or prediction. Also, calculating per-
 sistent homology involves setting certain parameters, like the scale for filtering, which need to be 
 carefully adjusted to capture important features without adding unnecessary noise. Finally, being 
 able to interpret and visualize the topological features is crucial. The features found by persistent 
 homology need to make sense for the specific task, and understanding how they relate to the data is 
-key for using them effectively. Imagine we have two datasets: Dataset A, points arranged in a cir -
+key for using them effectively. Imagine we have two datasets: Dataset A, points arranged in a cir-
 cular shape, and Dataset B, points scattered randomly within a square. Our goal is to train a neural 
 network to classify new data points as belonging to either Dataset A or Dataset B. To improve 
 the neural network’s performance, we will extract topological features from each dataset using 
 persistent homology and incorporate these features into the training process. Let’s represent each 
 dataset numerically. In Dataset A (circle), we have eight points evenly spaced around a unit circle:
- 10 22 22 01 22 22 10
-22 22,, ,, ,, ,, ,,
-,,// //
-//()( )()−( )−( )
-−−( )0 01 22 2 ,, , 2/ /−( ) − ( )   
- 
-  
+	
+1 0
+2 2
+2 2
+0 1
+2 2
+2 2
+1 0
+2 2
+2 2
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+/
+/
+/
+/
+/
+/
+(
+) (
+) (
+) −(
+) −
+(
+)
+−
+−
+(
+) 0
+1
+2
+2 2
+,
+,
+,
+2/
+/
+−
+(
+)
+−
+(
+)
 
 --- PDF PAGE 297 ---
-284 Mathematical Foundations for Deep Learning
+284
+Mathematical Foundations for Deep Learning
 In Dataset B (square), we have eight points randomly scattered within a unit square:
- 0109 0407 0602 0904 0305 0708 ., .,.,.,.,.,. , .,. ,. ,. ,.( )( )( )( )( )( ) )( )( ) ,. ,. ,. ,. 0501 0206  
+	
+0 1 0 9
+0 4 0 7
+0 6 0 2
+0 9 0 4
+0 3 0 5
+0 7 0 8
+. , .
+,
+. , .
+,
+. , .
+,
+. , .
+,
+. , .
+,
+. , .
+(
+) (
+) (
+) (
+) (
+) (
+) (
+) (
+)
+,
+. , .
+,
+. , .
+0 5 0 1
+0 2 0 6 	
 To extract topological features, we’ll compute the persistent homology of each dataset. Persistent 
 homology studies the shape of data by analyzing features like connected components and loops 
 across different scales.
-Step 1:  First, we calculate the pairwise Euclidean distances between points in each dataset. 
+Step 1: First, we calculate the pairwise Euclidean distances between points in each dataset. 
 For Dataset A (circle), let’s compute the distance between the first point (1, 0) and the other 
-points: The distance to 22 22//,( ):
- d=− +− ≈+ −
-≈+ ≈(/ )( /) (. )( .)
-..12 20 22 0 2929 0 7071
-0 0858 05 022 22
-     .. . 5858 0 7654≈  
-And distance to (0, 1) is d=− +− =+ =≈ () () . 10 01 11 21 414222. We repeat this for all 
+points: The distance to 
+2 2
+2 2
+/
+/
+,
+(
+) :
+	
+d =
+−
++
+−
+≈
++ −
+≈
++
+≈
+(
+/ )
+(
+/ )
+( .
+)
+(
+.
+)
+.
+.
+1
+2 2
+0
+2 2
+0 2929
+0 7071
+0 0858
+0 5
+0
+2
+2
+2
+2
+     
+.
+.
+5858
+0 7654
+≈
+	
+And distance to (0, 1) is d =
+−
++
+−
+=
++
+=
+≈
+(
+)
+(
+)
+.
+1
+0
+0
+1
+1 1
+2
+1 4142
+2
+2
+. We repeat this for all 
 pairs, constructing a distance matrix DA for Dataset A. For Dataset B (square), We compute 
 distances between each pair of points in a similar manner, creating a distance matrix DB .
-Step 2:  We construct Vietoris–  Rips complexes for each dataset at various distance thresholds 
-ϵ. A Vietoris–  Rips complex connects points that are within a distance ϵ of each other. Let’s 
+Step 2: We construct Vietoris–​Rips complexes for each dataset at various distance thresholds 
+ϵ. A Vietoris–​Rips complex connects points that are within a distance ϵ of each other. Let’s 
 choose several ϵ values (e.g., 0.5, 1.0, 1.5) and observe how the topology changes. For Dataset 
-A (circle), at ϵ =  0.5, points are connected only to their immediate neighbors, forming indi -
+A (circle), at ϵ =​ 0.5, points are connected only to their immediate neighbors, forming indi-
 vidual edges and resulting in multiple connected components. As ϵ increases to 0.8, more 
 points connect, forming a loop that represents a 1D hole resembling a circular shape. When ϵ 
 reaches 1.5, all points are connected, and the loop fills in, causing the hole to disappear. For 
-Dataset B (square), at ϵ =  0.5, some points are connected, but no significant loops are formed. 
+Dataset B (square), at ϵ =​ 0.5, some points are connected, but no significant loops are formed. 
 As ϵ increases to 1.0, more connections appear; however, any loops that emerge are due to 
-random arrangements and are not persistent, indicating they do not represent meaningful topo -
+random arrangements and are not persistent, indicating they do not represent meaningful topo-
 logical features.
-Step 3:  Betti numbers quantify the topological features: β0 is a number of connected components, 
+Step 3: Betti numbers quantify the topological features: β0 is a number of connected components, 
 and β1 is a number of 1D holes (loops). For each ϵ, we compute β0 and β1. For Dataset A 
-(circle), at ϵ =  0.5, the Betti numbers are β₀₀ =  8 (each point is a separate component) and β₁₁ =  0 
-(no loops). At ϵ =  0.8, β₀₀ becomes 1 as all points connect into one component, and β₁₁ becomes 
-1, indicating one persistent loop. By ϵ =  1.5, β₀₀ remains 1, and β₁₁ returns to 0 as the loop fills 
-in. For Dataset B (square), at ϵ =  0.5, β₀₀ varies depending on the point distribution, while β₁₁ 
-remains 0 (no loops). As ϵ increases, β₀₀ decreases as components merge, and β₁₁ stays at 0 or 
+(circle), at ϵ =​ 0.5, the Betti numbers are β₀ =​ 8 (each point is a separate component) and β₁ =​ 0 
+(no loops). At ϵ =​ 0.8, β₀ becomes 1 as all points connect into one component, and β₁ becomes 
+1, indicating one persistent loop. By ϵ =​ 1.5, β₀ remains 1, and β₁ returns to 0 as the loop fills 
+in. For Dataset B (square), at ϵ =​ 0.5, β₀ varies depending on the point distribution, while β₁ 
+remains 0 (no loops). As ϵ increases, β₀ decreases as components merge, and β₁ stays at 0 or 
 shows insignificant loops that quickly disappear.
-Step 4:  We plot persistence diagrams for each dataset, where each topological feature is represented 
+Step 4: We plot persistence diagrams for each dataset, where each topological feature is represented 
 as a point with coordinates (birth ϵ, death ϵ). For Dataset A (circle), the persistent loop appears 
-at ϵ ≈ 0.8 and disappears at ϵ ≈ 1.5. This results in a point at (0.8, 1.5) in the persistence dia -
-gram, indicating a significant topological feature. For Dataset B (square), No significant per -
+at ϵ ≈ 0.8 and disappears at ϵ ≈ 1.5. This results in a point at (0.8, 1.5) in the persistence dia-
+gram, indicating a significant topological feature. For Dataset B (square), No significant per-
 sistent loops are observed, and features in the diagram have short lifespans (birth and death ϵ 
 values are close), indicating they are noise.
-Step 5:  From the persistence diagrams, we extract features: For Dataset A, the most significant 
-β1 feature (loop) has a persistence of 1.5 –   0.8 =   0.7. For Dataset B, any β1 features have low 
+Step 5: From the persistence diagrams, we extract features: For Dataset A, the most significant 
+β1 feature (loop) has a persistence of 1.5 –​ 0.8 =​ 0.7. For Dataset B, any β1 features have low 
 persistence, close to zero. We can define a topological feature vector for each dataset based on 
 the persistence of loops. For Dataset A, the topological feature is the persistence of the loop, 
 which is 0.7. For Dataset B, the topological feature is the persistence of the loop, which is 0, 
-indicating no significant loops persist. 
-  
+indicating no significant loops persist.

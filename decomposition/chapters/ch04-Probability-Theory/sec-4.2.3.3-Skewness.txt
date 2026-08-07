@@ -1,0 +1,39 @@
+4.2.3.3  Skewness
+Skewness measures the asymmetry of the distribution. A skewness value of zero indicates a sym-
+metric distribution. Positive skewness means the distribution has a longer tail on the right, and 
+negative skewness means it has a longer tail on the left. The mathematical representation is as 
+follows:
+	
+Skewness =
+−
+(
+] =
+−
+⋅( )
+∑
+E X
+x
+P x
+i
+i
+i
+[
+)
+(
+)
+µ
+σ
+µ
+σ
+3
+3
+3
+3
+	
+For a right-​skewed distribution with a mean of μ =​ 40, if the skewness is positive, it indicates that 
+there are more extreme values on the right side of the distribution. This often happens in income 
+distributions where there are a few very high values.
+
+--- PDF PAGE 110 ---
+97
+Probability Theory and Statistics

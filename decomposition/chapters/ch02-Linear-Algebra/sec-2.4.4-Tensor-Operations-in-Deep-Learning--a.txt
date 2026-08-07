@@ -1,0 +1,300 @@
+2.4.4  Tensor Operations in Deep Learning
+(a)	 Linear Transformations: In fully connected layers, the primary operation is matrix multi-
+plication, a tensor operation. For example, given an input tensor X =​ [1.0, 2.0] and a weight 
+tensor W = 
+
+
+
+0 5
+0 3
+0 7
+0 9
+.
+.
+.
+.
+, the output is calculated as:
+	
+Z
+W X
+b
+=
+⋅
++
+= 
+
+
+⋅
+
+
++ 
+
+
+=
+0 5
+0 3
+0 7
+0 9
+1 0
+2 0
+0 1
+0 2
+1 1
+2
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.5
+
+
+
+,	
+where b is the bias tensor.
+(b)	 Activation Functions: After a linear transformation, activation functions are applied element-​
+wise to tensors. For instance, applying the ReLU activation to the previous result Z =​ [1.1, 
+2.5] results in:
+	
+ReLU Z
+( ) = [
+)
+=] [
+max( , .
+,max( , . )
+. , . ]
+0 1 1
+0 2 5
+1 1 2 5
+
+--- PDF PAGE 54 ---
+41
+Linear Algebra
+(c)	 Convolutions: In CNNs, convolution operations involve sliding a filter tensor over an input 
+tensor to produce a feature map. For instance, convolving a 3 × 3 filter F =
+−
+−
+−
+
+
+
+
+
+
+
+
+
+
+1
+0
+1
+1
+0
+1
+1
+0
+1
+ over 
+a 4 × 4 input tensor, I produce a feature map after calculating dot products at each position.
+(d)	 Pooling: Pooling layers reduce the spatial dimensions of feature maps. For example, max-​
+pooling with a 2 × 2 window on a tensor I = 
+
+
+
+1
+3
+2
+4 would result in:
+Max-Pooling I( ) =
+=
+max( , , , )
+1 2 3 4
+4
+(e)	 Batch Operations: When processing data in batches, multiple samples are stacked into a 
+single tensor. For example, processing a batch of two input tensors X1 =​ [1.0, 2.0] and X2 =​ 
+[0.5, 1.5] results in a batch tensor:
+	
+Xbatch = 
+
+
+
+1 0
+2 0
+0 5
+1 5
+.
+.
+.
+.
+	
+Tensor operations, such as matrix multiplication, are then performed simultaneously on this 
+entire batch.
+(f)	 Backpropagation: During training, gradients are computed as tensors with the same shape 
+as the weights. For instance, if the weight tensor W = 
+
+
+
+0 5
+0 3
+0 7
+0 9
+.
+.
+.
+.
+ has a gradient tensor 
+G =
+−
+
+
+
+
+0 02
+0 01
+0 03
+0 04
+.
+.
+.
+.
+, the weight update is:
+	
+W
+W
+G
+new =
+−
+⋅
+=
+−
++
+−
+−
+
+
+
+
+η
+0 5
+0 02
+0 3
+0 01
+0 7
+0 03
+0 9
+0 04
+.
+.
+.
+.
+.
+.
+.
+.
+	
+(g)	 Sequence Processing: In RNNs and transformers, sequences are processed using tensor 
+operations like the dot product. For instance, calculating the dot product between two 
+sequences (tensors) determines how much one sequence element influences another.
+(h)	 Broadcasting: Broadcasting allows tensors of different shapes to be combined. For example, 
+adding a vector [1.0, 2.0] to each row of a matrix M = 
+
+
+
+3
+4
+5
+6 results in:
+Mnew =
++
++
++
++
+
+
+
+= 
+
+
+
+3
+1 0
+4
+2 0
+5
+1 0
+6
+2 0
+4
+6
+6
+8
+.
+.
+.
+.
+.
+(i)	 Regularization and Normalization: Techniques like dropout randomly drop units during 
+training, represented by setting some elements of the activation tensor to zero. Batch nor-
+malization normalizes activations using tensor operations to maintain a consistent mean and 
+variance.
+(j)	 Loss Computation: The loss between predictions and actual targets is computed using tensor 
+operations. For instance, if the predicted tensor is Ypred =​ [0.8, 0.4] and the actual target 
+tensor is Ytrue =​ [1.0, 0.0], the MSE loss is:
+	
+Loss =
+−
++
+−
+(
+) =
++
+(
+) =
+1
+2
+0 8
+1 0
+0 4
+0 0
+1
+2 0 04
+0 16
+0 1
+2
+2
+(( .
+. )
+.
+. )
+.
+.
+. .
+
+--- PDF PAGE 55 ---
+42
+Mathematical Foundations for Deep Learning
+In Figure 2.11, various tensor operations related to a CNN are performed on a sample input image 
+and visualized through heatmaps. The first subplot, “Input Image (Channel 1),” displays one channel 
+of the RGB input image, which is an 8 × 8 pixel grid with intensity values ranging from 0 to 255. 
+This visualization provides a grayscale representation of the first color channel of the image. The 
+second subplot, “Convolution Filter 1,” shows the weights of the first convolutional filter applied 
+to the input image. This 3 × 3 filter is used to detect specific features within the input image. The 
+heatmap illustrates the values of the filter weights, which will be convolved with the input image. 
+The third subplot, “Intermediate Tensor (Filter 1),” presents the result of applying the convolutional 
+filter to the input image. This intermediate tensor captures the feature map produced by the convo-
+lution operation, highlighting areas of the input image that match the filter’s pattern. The fourth sub-
+plot, “Activated Tensor (ReLU),” shows the result of applying the ReLU activation function to the 
+intermediate tensor. The ReLU function sets all negative values to zero, introducing non-​linearity 
+to the model. This heatmap represents the activated feature map, emphasizing the features detected 
+by the filter. The fifth subplot, “Flattened Tensor (Segment),” illustrates a segment of the flattened 
+tensor obtained by reshaping the activated tensor into a 1D array. This transformation prepares 
+the tensor for input into a dense (fully connected) layer. The heatmap visualizes a segment of this 
+flattened tensor as an 8 × 8 grid for better interpretation. The sixth subplot, “Final Output Tensor,” 
+displays the final output tensor after passing the flattened tensor through a dense layer. This layer 
+performs a linear transformation using learned weights and biases to produce the final output. The 
+heatmap represents the output tensor as a row vector, showing the resulting values for each of the 
+10 output units.

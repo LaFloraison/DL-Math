@@ -1,0 +1,309 @@
+7.7.1  GraphSAGE (Graph Sample and Aggregation)
+GraphSAGE is a scalable technique designed to address the computational challenges of GCNs when 
+applied to large graphs. By sampling a fixed-​size subset of neighbors for each node, GraphSAGE
+
+--- PDF PAGE 238 ---
+225
+Graph Theory
+reduces computational complexity while preserving essential structural information. This approach 
+ensures that memory and processing requirements remain manageable, even as the graph size grows, 
+making it ideal for large-​scale graphs, such as social networks or biological networks. A key feature 
+of GraphSAGE is its neighborhood sampling method. Rather than using all neighbors of a node, 
+it samples a fixed number, allowing the model to scale without sacrificing important local struc-
+ture. The model introduces several aggregation functions to combine the features of the sampled 
+neighbors. The mean aggregation function calculates the mean of the neighbors’ features, pro-
+viding a smooth representation of the local structure. The long short-​term memory network (LSTM) 
+aggregation function uses a LSTM to capture sequential information and dependencies between 
+neighbors. The pooling aggregation function, such as max pooling, highlights the most significant 
+features in the neighborhood. The GraphSAGE methodology involves several steps. First, a fixed 
+number of neighbors is sampled for each node, reducing neighborhood size while capturing repre-
+sentative structural information. Next, an aggregation function (mean, LSTM, or pooling) is applied 
+to combine the sampled neighbors’ features, which are then used to update the node’s representa-
+tion. Through multiple layers of sampling and aggregation, GraphSAGE learns meaningful node 
+representations that incorporate both node features and the structural information from their neigh-
+borhood. These learned representations are then used to perform tasks such as node classification, 
+link prediction, or graph classification. For a given Node v, GraphSAGE first samples a fixed-​size 
+set of neighbors N(v). The feature vectors of these neighbors are then aggregated using one of the 
+aggregation functions. For example, using mean aggregation, the new representation for Node v at 
+layer l +​ 1 is computed as:
+	
+h
+W
+h
+h
+u
+N v
+v
+l
+l
+v
+l
+u
+l
++ =
+⋅
+{ }∪
+∀∈
+( )
+{
+}
+(
+)
+(
+)
+1
+σ
+mean
+,
+	
+where:
+	•
+hv
+l is the feature vector of Node v at layer l,
+	• W l is a weight matrix,
+	•
+N(v) is the set of sampled neighbors of v, and
+	•
+σ is a nonlinear activation function, such as ReLU.
+This process is repeated over multiple layers, enabling the model to incorporate multi-​hop neigh-
+borhood information. Consider a simple undirected graph with six nodes: A, B, C, D, E, and F. 
+Connections (edges) are as follows:
+	•
+Node A is connected to Nodes B and C.
+	•
+Node B is connected to Nodes A, D, and E.
+	•
+Node C is connected to Nodes A and F.
+	•
+Node D is connected to Node B.
+	•
+Node E is connected to Node B.
+	•
+Node F is connected to Node C.
+The adjacency list is: N(A) =​ {B,C}, N(B) =​ {A,D,E}, N(C) =​ {A,F}, N(D) =​ {B}, N(E) =​ {B}, 
+and N(F) =​ {C}. Each node has a two-​dimensional feature vector representing certain attributes 
+(e.g., properties or characteristics): hA
+0
+1 0
+( ) = [
+]
+,
+, hB
+0
+0 1
+( ) = [
+]
+,
+, hC
+0
+1 1
+( ) = [
+]
+,
+, hD
+0
+0 0
+( ) = [
+]
+,
+, hE
+0
+0 1
+( ) = [
+]
+,
+, 
+and hF
+0
+1 0
+( ) = [
+]
+,
+. The parameters, for example, are:
+	•
+Sampling Size (K): At each layer, sample up to two neighbors per node
+	•
+Number of Layers: Two layers (we will update node representations over two iterations)
+
+--- PDF PAGE 239 ---
+226
+Mathematical Foundations for Deep Learning
+	•
+Aggregation Function: Mean aggregation
+	•
+Activation Function (σ): ReLU
+	•
+Weight Matrices: W 1
+0 5
+0 1
+0 3
+0 7
+( ) = 
+
+
+
+.
+.
+.
+.
+ and W 2
+0 6
+0 2
+0 4
+0 8
+( ) = 
+
+
+
+.
+.
+.
+.
+.
+For each node and at each layer, these three steps should be done:
+Step 1: Sampling Neighbors: Randomly sample up to K neighbors from the node’s immediate 
+neighbors.
+Step 2: Aggregate Neighbor Features: Apply the aggregation function to the sampled neighbors’ 
+features.
+Step 3: Update Node Representation: Combine the node’s own feature with the aggregated 
+neighbor features, apply the weight matrix, and pass it through the activation function to get 
+the new node representation.
+The step-​by-​step computation is as follows. At the first layer (from h(0) to h(1)):
+Step 1. Sampling Neighbors: For this example, we’ll fix the sampled neighbors for consistency:
+	•
+Node A: Sampled Nodes B and C
+	•
+Node B: Sampled Nodes A and D
+	•
+Node C: Sampled Nodes A and F
+	•
+Node D: Sampled Node B (only neighbor)
+	•
+Node E: Sampled Node B (only neighbor)
+	•
+Node F: Sampled Node C (only neighbor).
+Step 2. Aggregate Neighbor Features: Using mean aggregation, compute the aggregated neighbor 
+features for each node.
+	•
+Node A:
+a.	 Sampled neighbors: B and C
+b.	 Neighbor features: hB
+0
+0 1
+( ) = [
+]
+,
+ and hC
+0
+1 1
+( ) = [
+]
+,
+c.	 Aggregated feature: agg
+mean
+A
+B
+C
+h
+h
+1
+0
+0
+0 1
+1 1
+2
+0 5 1
+( )
+( )
+( )
+=
+{
+}
+(
+) =
++] [
+
+= [
+]
+,
+,
+,
+. ,
+.
+	•
+Node B:
+a.	 Sampled neighbors: A and D
+b.	 Neighbor features: hA
+0
+1 0
+( ) = [
+]
+,
+ and hD
+0
+0 0
+( ) = [
+]
+,
+c.	 Aggregated feature: aggB
+1
+1 0
+0 0
+2
+0 5 0
+( ) =
++] [
+
+= [
+]
+,
+,
+. ,
+.
+	•
+Node C:
+a.	 Sampled neighbors: A and F
+b.	 Neighbor features: hA
+0
+1 0
+( ) = [
+]
+,
+ and 
+,
+hF
+0
+1 0
+( ) = [
+]
+c.	 Aggregated feature: aggC
+1
+1 0
+1 0
+2
+1 0
+( ) =
++] [
+
+= [
+]
+,
+,
+,
+.
+	•
+Node D:
+a.	 Sampled neighbor: B
+b.	 Aggregated feature:
+,
+aggD
+B
+h
+1
+0
+0 1
+( )
+( )
+=
+= [
+].

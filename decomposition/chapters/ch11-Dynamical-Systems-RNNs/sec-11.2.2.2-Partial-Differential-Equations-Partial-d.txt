@@ -1,0 +1,172 @@
+11.2.2.2  Partial Differential Equations
+Partial differential equations (PDEs) are more complicated than ODEs because they involve 
+functions with several variables and their partial derivatives. These equations are fundamental in
+
+--- PDF PAGE 338 ---
+325
+Dynamical Systems and Differential Equations for RNNs
+many areas of physics and engineering, like modeling how heat spreads, how fluids flow, and elec-
+tromagnetic fields. PDEs let us describe systems where changes happen in multiple directions, such 
+as time and space. A PDE is typically written in the form:
+	
+∂
+∂=
+∂
+∂
+∂
+∂
+…
+
+
+
+
+u
+t
+F t x u
+u
+x
+u
+x
+, , ,
+,
+,
+2
+2
+	
+where u is the dependent variable representing the state of the system, t, and x are independent 
+variables (often representing time and space), and F is a function that describes how u changes over 
+time and space. A well-​known example of a PDE is the heat equation, which describes how heat 
+diffuses through a material. It is expressed as:
+	
+∂
+∂=
+∂
+∂
+u
+t
+u
+x
+α
+2
+2 	
+where u(t, x) represents the temperature of the material as a function of time t and position x, and α 
+is the thermal diffusivity, a constant that quantifies how quickly heat spreads through the material. 
+Consider a metal rod of length 10 units. The ends of the rod are maintained at a constant tempera-
+ture of 0°C, while the initial temperature at the center of the rod is 100°C, with the rest of the rod at 
+0°C. The goal is to determine how the temperature changes over time. At time t =​ 0, the temperature 
+distribution along the rod can be described as:
+FIGURE 11.2  Simple harmonic oscillator: mass-​spring system.
+
+--- PDF PAGE 339 ---
+326
+Mathematical Foundations for Deep Learning
+	
+u
+x
+x
+0
+100
+5
+0
+,
+,
+,
+(
+) =
+=
+
+
+
+if 
+otherwise 	
+With the given boundary conditions, u(t, 0) =​ u(t, 10) =​ 0 for all values of t. Assuming the thermal 
+diffusivity α is 0.01, the heat equation governs how the temperature evolves over time. After a short 
+time, say at t =​ 1, the temperature at the center of the rod would decrease as heat begins to diffuse 
+toward the ends of the rod. The approximate temperature distribution at this point might be:
+	
+u
+x
+x
+x
+x
+1
+60
+5
+0
+0
+10
+,
+,
+,
+(
+) =
+=
+=
+=
+
+
+
+if 
+if 
+ or 
+	
+As time progresses, the temperature continues to even out along the rod. By t =​ 5, the temperature 
+at the center might decrease further to 20°C, while the ends of the rod remain at 0°C. The tempera-
+ture distribution over time can be obtained by solving the heat equation numerically or analytically, 
+depending on the specific boundary and initial conditions.
+Figure 11.3 displays the temperature distribution along a rod over time, as governed by the heat 
+equation. The x-​axis represents the position along the rod in meters, while the y-​axis indicates time in 
+seconds. The color gradient in the figure reflects temperature values, ranging from low (dark colors) 
+to high (light colors). The heat distribution evolves as time progresses, showing how heat diffuses 
+from the center toward the ends of the rod. At the initial moment, the temperature is concentrated at 
+the center, indicated by the bright yellow region. As time advances, the heat spreads outward, grad-
+ually decreasing in intensity as it moves toward the boundaries of the rod. The equation displayed at 
+the lower left corner, ∂
+∂=
+∂
+∂
+u
+t
+u
+x
+α
+2
+2 , represents the heat equation, where u denotes the temperature, t is 
+time, x is the spatial position along the rod, and α is the thermal diffusivity constant. This equation 
+FIGURE 11.3  Heat equation: temperature distribution over time.
+
+--- PDF PAGE 340 ---
+327
+Dynamical Systems and Differential Equations for RNNs
+describes the rate of change in temperature over time and position, indicating that the temperature 
+change depends on the second spatial derivative of the temperature, which signifies the flow of heat. 
+The temperature color map on the right further provides a scale, showing the range of temperatures 
+from 0°C (dark) to 96°C (light yellow), allowing for a clear visualization of how the temperature 
+changes over both space and time.
+Figure 11.4a illustrates a discrete dynamical system modeled using the logistic map equation 
+xn +​ 1 =​ rxn (1 − xn). The x-​axis represents iterations, while the y-​axis shows the population value 
+normalized between 0 and 1. The blue line, with points marking each iteration, demonstrates the 
+population’s evolution over time, revealing oscillatory and chaotic behavior typical of discrete 
+non-​linear systems. The red dot marks the final population state at the end of the 100 iterations, 
+highlighting how such systems can vary and exhibit complex, unpredictable behavior despite being 
+governed by a simple equation. Figure 11.4b displays a continuous dynamical system in the form 
+of a simple harmonic oscillator. The x-​axis shows time in seconds, while the y-​axis indicates the 
+position of the oscillating mass. The green curve follows the equation x t
+A
+t
+v
+t
+( ) =
+(
+)+
+(
+)
+cos
+sin
+ω
+ω
+ω
+0
+, 
+representing a combination of cosine and sine components where A is the amplitude, ω is the 
+angular frequency, and v0 is the initial velocity.

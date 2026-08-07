@@ -1,0 +1,43 @@
+4.3.6  Monte Carlo Sampling
+Monte Carlo sampling employs repeated random sampling to compute numerical results based on 
+the law of large numbers. This method is widely used in numerical integration and probability 
+computations, providing robust estimates for complex mathematical problems by simulating random 
+variables and averaging the results. The Monte Carlo estimate of an integral I over a domain D is 
+computed as:
+	
+I
+N
+f x
+i
+N
+i
+≈
+( )
+=∑
+1
+1
+	
+where:
+	•
+N is the number of random samples,
+	•
+f(xi) is the function value at random points xi drawn from a uniform distribution over D.
+Suppose you want to estimate the value of π by using the Monte Carlo method. You randomly gen-
+erate 100,000 points in a square with side length 2 and count how many fall inside a circle with 
+radius 1 centered at the origin. If 78,539 points fall inside the circle, the estimate for π is:
+
+--- PDF PAGE 119 ---
+106
+Mathematical Foundations for Deep Learning
+	
+π ≈
+×
+=
+4
+78 539
+100 000
+3 14156
+,
+,
+.
+.

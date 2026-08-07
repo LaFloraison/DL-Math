@@ -1,0 +1,90 @@
+5.6.1  Batch Gradient Descent (BGD)
+BGD, specifically, calculates the gradient of the loss function with respect to each parameter for 
+the entire training dataset at once. BGD guarantees convergence to the global optimum for convex 
+functions and is straightforward to implement. It systematically reduces the loss function by taking 
+steps proportional to the negative gradient of the loss function. The steps are controlled by a learning 
+rate, which determines the size of each step. The algorithm works by first initializing the parameters 
+randomly. Then, for each iteration, the gradient of the loss function with respect to each parameter 
+is calculated using the entire dataset. The parameters are updated by subtracting the product of the 
+learning rate and the gradient. This process is repeated until the parameters converge to values that 
+minimize the loss function. However, BGD is not feasible for large datasets that do not fit in memory. 
+It can also be slow on extensive datasets due to the need to process the entire dataset for each update. 
+This means that every iteration can be time-​consuming, especially for high-​dimensional data. The 
+update rule for BGD is:
+	
+θ
+θ
+α
+θ
+new
+old
+=
+−
+∇( )
+J
+	
+where:
+	•
+θ is the parameter vector,
+	•
+α is the learning rate, and
+	•
+∇J(θ) is the gradient of the loss function J(θ), calculated over the entire dataset.
+This process is repeated until convergence, minimizing the loss function for the entire dataset. 
+Suppose you are training a linear regression model to predict house prices. The loss function is the 
+mean squared error (MSE), and you have a dataset with 1,000 houses. Using BGD, you calculate the 
+gradient of the loss function for all 1,000 houses in each iteration. With a learning rate of α =​ 0.01, 
+the parameters θ are updated by subtracting α × ∇J(θ) from the current values. For example, if the 
+gradient of the loss function at a specific iteration is ∇J(θ) =​ [1.5, −2.0], and the current parameter 
+values are θ =​ [2.0, 3.0], the updated parameters will be calculated as:
+	
+θ
+θ
+α
+θ
+new
+current
+=
+−
+× ∇( )
+J
+	
+Substituting the values:
+	
+θnew = [
+]−
+×
+−
+=] [
+−
++
+=] [
+2 0 3 0
+0 01
+1 5
+2 0
+2 0
+0 015 3 0
+0 02
+1 985
+. , .
+.
+. ,
+.
+.
+.
+, .
+.
+.
+,3 02
+.
+
+	
+This process continues until the parameters θ converge to values that minimize the loss function, 
+ensuring the model provides the best predictions for house prices based on the training data. 
+BGD ensures smooth updates, but its computational cost can become a bottleneck for very large 
+datasets.
+
+--- PDF PAGE 173 ---
+160
+Mathematical Foundations for Deep Learning

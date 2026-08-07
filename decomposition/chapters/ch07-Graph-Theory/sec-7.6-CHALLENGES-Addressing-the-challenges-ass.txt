@@ -1,0 +1,6 @@
+7.6  CHALLENGES
+Addressing the challenges associated with GCNs is crucial for their broader adoption and effect-
+iveness in real-​world applications. Researchers are actively developing techniques to improve 
+scalability, handle dynamic graphs, and manage heterogeneous graphs more effectively. These 
+advancements aim to make GCNs more robust, efficient, and capable of dealing with the complex-
+ities of real-​world graph data. In this section, we discuss some of these challenges.

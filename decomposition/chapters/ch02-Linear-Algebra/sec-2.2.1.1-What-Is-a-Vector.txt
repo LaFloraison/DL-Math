@@ -1,0 +1,66 @@
+2.2.1.1  What Is a Vector?
+A vector is a fundamental mathematical entity that possesses both magnitude (size) and direction. 
+You can visualize a vector as an arrow: the length of the arrow represents its magnitude, and the 
+arrow’s orientation indicates its direction. This concept is not just theoretical; vectors are crucial in 
+numerous real-​world applications, including deep learning, where they are used to represent data 
+points, model weights, and activations within neural networks (NNs). Imagine you’re playing a 
+video game where your character’s movement is determined by a two-​dimensional (2D) vector. This 
+vector tells the character how much to move in the x (horizontal) and y (vertical) directions. For 
+example, consider the vector:
+	
+v = 
+
+
+
+3
+4 .	
+This vector instructs the character to move three units to the right (along the x-​axis) and four units 
+upward (along the y-​axis). By representing movement in this way, vectors provide a concise and
+
+--- PDF PAGE 25 ---
+12
+Mathematical Foundations for Deep Learning
+powerful way to encode directional information, which is essential in both physics and computa-
+tional fields like deep learning.
+Figure 2.1 illustrates a vector represented by a red arrow that starts from the origin (0, 0) and 
+points toward the coordinates (3, 4). The length of the arrow indicates the vector’s magnitude, while 
+its orientation shows its direction. The magnitude of a vector can be thought of as its “strength” or 
+“length.” For the vector v given by:
+	
+v = 
+
+
+
+3
+4 ,	
+you can calculate the magnitude using the Pythagorean theorem:
+	
+v =
++
+=
++
+=
++
+=
+=
+v
+v
+x
+y
+2
+2
+2
+2
+3
+4
+9
+16
+25
+5. 	
+Here, ∥v∥ =​ 5 units. This value represents the direct distance from the origin to the point (3, 4) on 
+a 2D plane.
+FIGURE 2.1  Vector representation [3, 4].
+
+--- PDF PAGE 26 ---
+13
+Linear Algebra

@@ -1,0 +1,77 @@
+8.2.2  Tangent Space
+To understand a tangent space, imagine picking a point on a curved surface, like a sphere. Now 
+picture a flat plane that touches the surface at that exact point but doesn’t cut through it. This plane 
+represents tangent space, and it captures all possible directions from which you could move. For 
+a 2D surface, the tangent space is a flat plane, but for higher-​dimensional manifolds, the concept 
+extends into more complex spaces. In deep learning, the idea of a tangent space becomes important 
+when we consider optimization methods like gradient descent. When we compute the gradient of 
+a loss function at a given point, that gradient can be viewed as a vector lying in the tangent space 
+of the loss landscape. This vector points in the steepest direction of increase, and by following its 
+opposite direction, we perform gradient descent, moving toward a local or global minimum. The 
+tangent space provides a useful linear approximation of the curved manifold at a specific point. 
+This approximation allows gradient-​based optimization methods to update parameters effectively, 
+even in the complex, curved spaces that arise in deep learning. For example, imagine standing at the 
+North Pole of a sphere; the tangent space at this point would be a flat plane, representing all pos-
+sible directions you could step. Though the surface is curved, the tangent plane gives a simple, local 
+approximation of the surface’s behavior. In the context of deep learning, the loss landscape can be 
+seen as a high-​dimensional manifold. The tangent space at any point on this manifold provides a 
+way to navigate the loss landscape using gradient information. The gradient vector within this space 
+shows the direction of the steepest ascent, but in optimization, the algorithm moves in the opposite 
+direction, down the slope, toward minimizing the loss. For a manifold M ⊂ Rn and a point p ∈ M, 
+the tangent space at p, denoted as TpM, is a vector space that contains all the possible directions in 
+which one can move from p on the manifold. Formally, the tangent space at p is spanned by the par-
+tial derivatives of the coordinate functions at p. In the context of gradient descent, at each iteration, 
+the parameter update is given by:
+	
+θ
+θ
+η
+θ
+t
+t
+t
+L
++ =
+−
+∇( )
+1
+,	
+where
+	•
+θt represents the parameters at time step t,
+	•
+η is the learning rate,
+	•
+∇L(θt) is the gradient of the loss function L at θt.
+The gradient ∇L(θt) can be interpreted as a vector in the tangent space of the loss surface at θt. This 
+vector points in the steepest direction of increase, but gradient descent moves in the opposite direc-
+tion to minimize the loss.
+
+--- PDF PAGE 255 ---
+242
+Mathematical Foundations for Deep Learning
+Figure 8.1 illustrates a 3D visualization of a paraboloid surface defined by the function z
+x
+y
+=
++
+2
+2. 
+The plot highlights the geometric and differential properties of the surface at a specific point of 
+tangency located at coordinates (1, 1, 2). The paraboloid surface extends upward, demonstrating 
+a smooth, continuous curvature characteristic of this quadratic function. At the point of tangency 
+(1, 1, 2), a tangent plane is shown in light blue, providing a linear approximation of the surface 
+at this point. This plane represents the best local approximation of the surface around this point, 
+illustrating how the differential geometry concept of tangent spaces applies to this curved surface.
+Additionally, two tangent vectors, labeled Tangent Vector 1 and Tangent Vector 2, are visualized 
+on the plane. Tangent Vector 1 is depicted in red, while Tangent Vector 2 is in green. These vectors 
+lie within the tangent plane, showing the directions along which the surface changes most rapidly 
+at the point of tangency. The vectors highlight how the surface’s behavior can be understood locally 
+through these directional derivatives, capturing the rate and direction of change. The point of tan-
+gency itself is marked by a black dot, emphasizing the specific location where the tangent plane and 
+vectors interact with the surface.
+FIGURE 8.1  3D paraboloid surface with tangent plane and vectors at (1, 1).
+
+--- PDF PAGE 256 ---
+243
+Differential Geometry

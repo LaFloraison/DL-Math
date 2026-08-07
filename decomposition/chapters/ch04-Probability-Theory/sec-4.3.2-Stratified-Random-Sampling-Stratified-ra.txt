@@ -1,0 +1,35 @@
+4.3.2  Stratified Random Sampling
+Stratified random sampling involves dividing the population into homogeneous subgroups (strata) 
+and then applying SRS within each section. This method can provide more precise estimates, par-
+ticularly if the differences between divisions are significant. However, it is more complex to imple-
+ment compared to SRS, requiring careful identification and separation of strata before sampling can 
+proceed. Suppose a population consists of 1,000 students, and you want to divide them into strata 
+based on grade level: 200 freshmen, 300 sophomores, 250 juniors, and 250 seniors. If you want to 
+sample 10% of the population, you apply SRS by selecting 20 freshmen, 30 sophomores, 25 juniors, 
+and 25 seniors. This ensures that each grade level is proportionally represented in the sample. For a 
+population divided into k strata, the sample size for each stratum h is calculated as:
+	
+n
+N
+N
+n
+h
+h
+=
+× 	
+where:
+	•
+Nh is the population size of stratum h,
+	•
+N is the total population size,
+	•
+n is the total sample size.
+If N =​ 1000, Nh =​ 300 (sophomores), and n =​ 100, the sample size for sophomores would be:
+	
+nsophomores =
+×
+=
+300
+1000
+100
+30

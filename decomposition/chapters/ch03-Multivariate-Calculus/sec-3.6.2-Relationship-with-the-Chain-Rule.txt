@@ -1,0 +1,190 @@
+3.6.2  Relationship with the Chain Rule
+The Jacobian matrix is closely related to the chain rule in calculus. The chain rule allows us to find 
+the derivative of a composite function, and when working with tasks from nto m, it involves the 
+Jacobian matrix. Specifically, if f and g are functions such that f
+n
+p
+: 
+
+→
+ and 
+
+p
+m
+→
+, then the 
+Jacobian matrix of the composite function h
+g f
+=
+° is the product of the Jacobian matrices of g and 
+f. If f
+n
+p
+: 
+
+→
+ and g
+p
+m
+: 
+
+→
+, the Jacobian of the composite function h
+g f x
+=
+( )
+(
+) is:
+	
+J
+x
+J
+f x
+J
+x
+h
+g
+f
+( ) =
+( )
+(
+)⋅
+( )	
+The chain rule in multi-​dimensional calculus uses this product of Jacobians to compute the deriva-
+tive of composite functions. Suppose you have two functions:
+1.	 f(x, y) =​ (2x + ​y, x − y)
+2.	 g(u, v) (where u and v are the outputs of f(x, y))
+To find the derivative of the composite function g(f(x, y)), you need to use the chain rule for 
+multivariable functions, which involves multiplying the Jacobian matrices of g and f. Let us do the 
+process step by step:
+
+--- PDF PAGE 90 ---
+77
+Multivariate Calculus
+1.	 Compute the Jacobian of f(x, y): The Jacobian matrix of f(x, y) is the matrix of partial 
+derivatives of each component of f with respect to x and y:
+	
+J
+x y
+x
+y
+x
+x
+y
+y
+x
+y
+x
+x
+y
+y
+f
+,
+(
+) =
+∂
++
+(
+)
+∂
+∂
++
+(
+)
+∂
+∂
+−
+(
+)
+∂
+∂
+−
+(
+)
+∂
+
+
+
+
+
+
+
+
+
+
+
+
+=
+2
+2
+2
+1
+1
+−
+
+
+
+
+1 	
+2.	 Compute the Jacobian of g(u, v): Suppose g(u, v) is a function of u and v, you need to com-
+pute its Jacobian with respect to u and v:
+	
+J
+u v
+g
+u
+g
+v
+g
+u
+g
+v
+g
+,
+(
+) =
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+
+
+
+
+
+
+
+
+
+
+1
+1
+2
+2
+	
+3.	
+Apply the Chain Rule: The chain rule for multivariable functions states that the Jacobian of 
+the composite function g(f(x, y)) is the product of the Jacobian matrices of g and f:
+	
+J
+x y
+J
+u v
+J
+x y
+g f
+g
+f
+( ) (
+) =
+(
+)⋅
+(
+)
+,
+,
+,

@@ -1,0 +1,240 @@
+2.6.2  QR Decomposition
+QR decomposition decomposes a matrix into an orthogonal Q and upper triangular matrix R. This 
+decomposition is widely used in numerical linear algebra to solve most minor square problems and 
+in eigenvalue algorithms.
+Example:
+	
+A
+Q R A
+Q
+=
+⋅
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+=
+−
+−
+,
+,
+.
+.
+.
+.
+.
+.
+4
+2
+1
+6
+3
+8
+5
+7
+10
+0 36
+0 48
+0 8
+0 54
+0 87
+0 0
+0.
+.
+.
+,
+.
+.
+.
+.
+.
+.
+72
+0 12
+0 68
+11 18
+2 15
+5 95
+0
+7 68
+8 02
+0
+0
+3 87
+
+
+
+
+
+
+
+
+=
+−
+
+
+
+
+
+
+R
+
+.
+
+--- PDF PAGE 62 ---
+49
+Linear Algebra
+(a)	 Q Matrix (QR Decomposition): The orthogonal matrix Q from the QR decomposition of the 
+matrix A. Orthogonal matrices have the property that their columns are orthonormal vectors.
+Example:
+	
+Q =
+−
+−
+
+
+
+
+
+
+
+
+0 36
+0 48
+0 8
+0 54
+0 87
+0 0
+0 72
+0 12
+0 68
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.	
+(b)	 R Matrix (QR Decomposition): The upper triangular matrix from the QR decomposition. 
+This matrix has non-​zero elements only on and above the main diagonal.
+Example:
+	
+R =
+−
+
+
+
+
+
+
+
+
+11 18
+2 15
+5 95
+0
+7 68
+8 02
+0
+0
+3 87
+.
+.
+.
+.
+.
+.
+.	
+(c)	 Reconstructed: A(Q *R) the original matrix was reconstructed by multiplying Q and R. This 
+step confirms that the decomposition accurately represents the original matrix.
+Example:
+	
+A
+Q R
+=
+⋅
+=
+−
+−
+
+
+
+
+
+
+
+
+0 36
+0 48
+0 8
+0 54
+0 87
+0 0
+0 72
+0 12
+0 68
+11 18
+2 1
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+. 5
+5 95
+0
+7 68
+8 02
+0
+0
+3 87
+4
+2
+1
+6
+3
+8
+5
+7
+10
+−
+
+
+
+
+
+
+
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+.
+.
+.
+.
+.

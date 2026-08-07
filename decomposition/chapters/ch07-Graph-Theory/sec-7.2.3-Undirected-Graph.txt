@@ -1,0 +1,5 @@
+7.2.3  Undirected Graph
+An undirected graph is a type of graph in which the edges have no direction. This means that 
+each edge simply connects two nodes without implying any order or hierarchy between them. In 
+undirected graphs, the relationships represented by the edges are mutual and bidirectional. Its key 
+characteristics are bidirectional edges and symmetry.

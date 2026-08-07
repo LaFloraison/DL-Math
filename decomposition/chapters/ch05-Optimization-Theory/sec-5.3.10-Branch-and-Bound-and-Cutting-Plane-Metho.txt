@@ -1,0 +1,68 @@
+5.3.10  Branch and Bound and Cutting Plane Methods
+B&B and cutting plane methods are crucial algorithms for solving optimization problems, particu-
+larly combinatorial and IP challenges. B&B is a systematic method for exploring possible solutions 
+within a tree structure. The process begins with branching, where the main problem is divided 
+into smaller subproblems, creating branches in a solution tree. In bounding, each subproblem is 
+evaluated by calculating a bound, and if this bound is better than the current best solution, the 
+subproblem is explored further; otherwise, it is discarded. Pruning occurs when subproblems that 
+cannot improve upon the best-​known solution are eliminated, enhancing efficiency by reducing 
+unnecessary calculations. The cutting plane methods iteratively solve IP problems by refining the 
+feasible region. Here are its general steps:
+(a)	 Starting Solution: Start by solving the problem’s linear programming relaxation, ignoring 
+integer constraints.
+FIGURE 5.10  Optimization with constraints.
+
+--- PDF PAGE 164 ---
+151
+Optimization Theory
+(b)	 Check & Cut: Verify if the solution meets integer constraints. If not, a cut (linear inequality) 
+is added to exclude the current fractional solution while retaining feasible integer points.
+(c)	 Iterate: Repeat until an acceptable integer solution is found or proven that none exists.
+The B&B method explores a solution tree, where each subproblem is a branch, and solutions are 
+bounded. The cutting plane method iterates by adding constraints to refine the feasible region. For 
+the cutting plane method, starting from a linear relaxation:
+Maximize Z
+c x
+c x
+=
++
+1
+1
+2
+2 Subject to:Ax
+b
+x
+≤
+≥
+,
+0
+If the solution is not integer, add a cut (a linear inequality) to exclude fractional solutions while 
+retaining feasible integer points. These methods iteratively refine and solve the problem, improving 
+computational efficiency by avoiding exhaustive searches. Consider an IP problem where we aim to 
+maximize Z =​ 3x1 +​ 4x2, subject to the constraints x1 +​ 2x2 ≤ 8 and x1, x2 ≥ 0, with x1 and x2 required 
+to be integers. Using B&B, we solve the linear relaxation (ignoring integer constraints), yielding 
+a solution of x1 =​ 4, x2 =​ 2. We then branch by creating subproblems where x1 ≤ 3 and x1 ≥ 4, con-
+tinuing to solve and prune subproblems until the optimal integer solution is found.
+Figure 5.11 illustrates the B&B tree used to solve a knapsack problem, a combinatorial optimiza­
+tion challenge where the goal is to maximize the value of items placed in a knapsack without exceeding 
+its weight capacity. The tree starts with the initial node labeled “Start” (value =​ 0, weight =​ 0), where 
+no items have been considered yet. From this node, the algorithm branches out, evaluating two 
+choices: Include item 1 (value =​ 40, weight =​ 2) or exclude item 1 (value =​ 0, weight =​ 0). Each 
+choice generates a new branch, exploring the impact of either including or excluding the item. As 
+the tree progresses, it evaluates further branches for item 2, following the same process of including 
+or excluding the item. Nodes that exceed the weight capacity are marked as pruned/​infeasible, indi-
+cating that these paths do not satisfy the problem’s constraints and are thus discarded from fur-
+ther consideration. The algorithm eventually reaches the optimal node (value =​ 190, weight =​ 10), 
+representing the best possible solution that maximizes the value while staying within the weight 
+limit. This node is highlighted to signify that the optimal solution has been found.
+Figure 5.12 illustrates the cutting plane method for solving an integer linear programming (ILP) 
+problem. This approach refines the feasible region of a linear programming problem to efficiently iden-
+tify integer solutions. The plot presents a system of constraints, each represented as a line: −x − 2y ≤ 
+−3 (blue line), x +​ 2y ≤ 8 (green line), and 2x +​ y ≤ 10 (purple line). These constraints collectively form 
+the feasible region, shaded in light gray, where all points satisfy the inequalities simultaneously. The 
+objective is to find an integer solution within this region that optimizes the objective function. To achieve 
+this, the figure shows two cutting planes represented by dashed lines. Cutting plane 1, marked as a red 
+dashed line, adds an additional constraint to exclude non-​integer solutions from the feasible region. 
+Cutting plane 2, shown as an orange dashed line, further refines the solution space, ensuring that only 
+integer solutions remain. The optimal solution, indicated by a yellow dot within the feasible region, 
+represents the best integer solution that meets all constraints while optimizing the objective function.

@@ -1,0 +1,276 @@
+10.2.3  Inverse Fourier Transform
+The inverse Fourier transform (IFT) reverses the FT process, converting a function from the fre-
+quency domain back to its original domain (often time or space). This operation is crucial for 
+reconstructing the original signal after analysis or manipulation in the frequency domain. The 
+inverse transform of F ω
+( ) is given by:
+	
+f t
+F
+e
+d
+j t
+( ) =
+( )
+−∞
+∞
+∫
+1
+2π
+ω
+ω
+ω
+	
+where:
+	•
+f(t) is the recovered time-​domain function.
+	•
+The factor 1
+2π ensures proper scaling during the transformation.
+Understanding the IFT is essential for practical applications where signals are analyzed in the fre-
+quency domain and then transformed back to their original form for further processing or interpret-
+ation. Suppose we plan to reconstruct the original time-​domain signal from its frequency components 
+using the IFT. Given frequency components: A sine wave with amplitude 3 at 50 Hz and a sine wave 
+with amplitude 2 at 120 Hz. These components can be represented in the frequency domain as spikes 
+at their respective frequencies.
+Step 1. Express the Frequency Components: Each sine wave in the frequency domain can be 
+represented using delta functions (spikes):
+	
+F ω
+δ ω
+π
+δ ω
+π
+δ ω
+π
+δ ω
+π
+( ) =
+−
+(
+) −
++
+(
+)
+
++
+−
+(
+) −
++
+(
+)
+
+
+3
+100
+100
+2
+240
+240
+
+--- PDF PAGE 314 ---
+301
+Harmonic Analysis for CNNs
+FIGURE 10.1  (a) Sine wave 1 (5 Hz). This waveform oscillates at the slowest frequency of the three, completing 5 cycles per second. (b) Sine wave 2 (50 Hz). 
+A higher-​frequency sinusoid that completes 50 cycles per second. (c) Sine wave 3 (120 Hz). The fastest oscillation among the three waves, with 120 cycles per second. 
+(d) Combined time-​domain signal. The result of summing all three sine waves (5, 50, and 120 Hz). (e) Frequency-​domain representation. The FT of the combined signal, 
+showing distinct peaks at 5, 50, and 120 Hz. (f) Zoomed-​in frequency domain (0–​100 Hz). A closer look at the low-​ and mid-​frequency peaks (5 and 50 Hz), with the 
+120 Hz peak lying outside this zoom range.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 315 ---
+302
+Mathematical Foundations for Deep Learning
+(Note: ω =​ 2πf, so 50 Hz becomes 100π rad/​s and 120 Hz becomes 240π rad/​s.)
+Step 2. Apply the IFT: Using the IFT formula:
+	
+f t
+e
+e
+e
+e
+j
+t
+j
+t
+j
+t
+j
+t
+( ) =
+−
+(
+)+
+−
+(
+)
+
+
+−
+−
+1
+2
+3
+2
+100
+100
+240
+240
+π
+π
+π
+π
+π
+	
+Step 3. Simplify Using Euler’s Formula: Recall that e
+e
+j
+j
+j
+θ
+θ
+θ
+−
+=
+−
+2 sin( ):
+	
+f t
+j
+t
+j
+t
+f t
+( ) =
+×
++
+×
+[
+]
+( ) =
+1
+2
+3
+2
+100
+2
+2
+240
+1
+2
+6
+π
+π
+π
+π
+sin(
+)
+sin(
+) and then
+j
+t
+j
+t
+sin(
+)
+sin(
+)
+100
+4
+240
+π
+π
++
+[
+]
+	
+As the original signal is real, the imaginary units cancel out:
+f t
+t
+t
+f t
+t
+( ) =
++
+( ) =
+6
+2
+100
+4
+2
+240
+3
+100
+π
+π
+π
+π
+π
+π
+sin(
+)
+sin(
+)
+sin(
+ and then 
+)
+sin(
+)
++ 2
+240
+π
+πt
+Simplifying further, recognizing that 100π rad/​s is 50 Hz and 240π rad/​s is 120 Hz:
+f t
+t
+t
+( ) =
+×
++
+×
+3
+2
+50
+2
+2
+120
+sin(
+)
+sin(
+)
+π
+π
+This matches our original time-​domain signal:
+	
+f t
+t
+t
+( ) =
+×
++
+×
+3
+2
+50
+2
+2
+120
+sin(
+)
+sin(
+)
+π
+π
+	
+Figure 10.2 depicts on the same three-​sine-​wave combination but provides additional insights 
+into reconstruction and error analysis. Figure 10.2a again displays the time-​domain signal formed 
+by superimposing 5, 50, and 120 Hz waves, reflecting a more complex pattern compared to any 
+single wave alone. Figure 10.2b shows the frequency-​domain representation, showing distinct peaks 
+at 5, 50, and 120 Hz that confirm the presence of all three components. Figure 10.2c illustrates 
+how the inverse fast Fourier transform (IFFT) can recover the original time-​domain waveform 
+from its frequency-​domain data, demonstrating near-​perfect alignment with the combined signal. 
+Figure 10.2d shows the minimal difference between the original and reconstructed signals, which 
+hovers near numerical precision and confirms the accuracy of the forward and IFT process.

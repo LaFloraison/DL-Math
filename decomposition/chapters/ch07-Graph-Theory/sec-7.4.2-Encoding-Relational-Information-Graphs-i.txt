@@ -1,0 +1,8 @@
+7.4.2  Encoding Relational Information
+Graphs inherently encode relational information by directly representing connections between 
+entities. This allows models to leverage these relationships for analytical tasks. A key application 
+is link prediction, which infers missing or future connections by analyzing existing patterns. This 
+is useful for suggesting new friends in social networks, recommending products in e-​commerce, 
+or hypothesizing protein interactions in biology. Another application is node classification, where 
+nodes are labeled based on their attributes and connections, improving accuracy in tasks like classi-
+fying research papers or categorizing users into interest groups.

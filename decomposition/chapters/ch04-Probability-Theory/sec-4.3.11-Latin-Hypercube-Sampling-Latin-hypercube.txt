@@ -1,0 +1,41 @@
+4.3.11  Latin Hypercube Sampling
+Latin hypercube sampling (LHS) is a stratified sampling method that divides the sample space into equally 
+probable subdivisions. This approach is particularly efficient for multi-​dimensional sampling, ensuring 
+that each variable is sampled across its entire range, which leads to more representative and coverage of 
+the sample space compared to SRS. In LHS, for each variable Xi (where i indexes the dimensions), the 
+range is divided into N equally probable intervals. Each sample is then selected such that:
+	
+x
+j
+N
+j
+N
+j
+N
+i
+j( ) ∈
+−
+
+
+
+
+=
+…
+1
+1 2
+,
+, ,
+,
+.
+for
+	
+Suppose you need to sample from a three-​dimensional (3D) parameter space, with each dimension 
+divided into 10 intervals. Using LHS, you randomly select one point from each interval for all three 
+FIGURE 4.5  MCMC sample distribution after burn-​in.
+
+--- PDF PAGE 122 ---
+109
+Probability Theory and Statistics
+dimensions, ensuring that every part of the parameter space is represented. This results in 10 points 
+per dimension, and the total sample size is 10 rather than the 1,000 points needed for full factorial 
+sampling.

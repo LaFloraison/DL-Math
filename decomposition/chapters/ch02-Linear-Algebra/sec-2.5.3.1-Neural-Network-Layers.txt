@@ -1,0 +1,78 @@
+2.5.3.1  Neural Network Layers
+In an NN, a dense (fully connected) layer is a linear transformation of the input. Given an input 
+vector x =
+…
+
+
+x x
+xn
+1
+2
+,
+,
+,
+, the dense layer transforms it using a weight matrix W and a bias vector b. 
+Mathematically, the transformation is expressed as:
+	
+z
+Wx
+b
+=
++ .
+
+--- PDF PAGE 58 ---
+45
+Linear Algebra
+Here, W is the weight matrix, and b is the bias vector. This linear transformation maps the input 
+vector to an output vector, and the bias vector shifts the output. After this linear transformation, an 
+activation function (e.g., ReLU or sigmoid) is typically applied to introduce non-​linear capabilities 
+to the model. Suppose we have an input vector x =​ [1, 2], a weight matrix W = 
+
+
+
+0 5
+0 3
+0 7
+0 9
+.
+.
+.
+.
+ and a bias 
+vector b =​ [0.1, 0.2]. The output is computed as:
+	
+z
+Wx
+b
+=
++
+= 
+
+
+⋅
+
+
++ 
+
+
+= 
+
+
+0 5
+0 3
+0 7
+0 9
+1
+2
+0 1
+0 2
+1 1
+2 7
+.
+.
+.
+.
+.
+.
+.
+. .

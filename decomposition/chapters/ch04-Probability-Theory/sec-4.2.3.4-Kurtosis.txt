@@ -1,0 +1,29 @@
+4.2.3.4  Kurtosis
+Kurtosis measures the heaviness of the tails of the distribution relative to a normal distribution. 
+A higher kurtosis value indicates heavier tails, meaning more outliers. A kurtosis value of 3 is typ-
+ical for a normal distribution (this is referred to as mesokurtic). The mathematical representation is 
+as follows:
+	
+Kurtosis =
+−
+(
+] −
+E X
+[
+)
+µ
+σ
+4
+4
+3	
+Subtracting 3 from the formula centers the kurtosis at zero for a normal distribution (called excess 
+kurtosis). Positive excess kurtosis indicates a heavy-​tailed distribution (leptokurtic), while negative 
+kurtosis suggests a light-​tailed distribution (platykurtic). If a distribution has a kurtosis value greater 
+than 3, it indicates that it has heavy tails and is prone to producing extreme values or outliers.
+4.2.3.5  Mode
+The mode is the value that appears most frequently in the distribution. In a unimodal distribu-
+tion (like the normal distribution), the mode coincides with the mean. However, for multimodal 
+distributions, there may be more than one mode. The mode is useful for understanding the most fre-
+quent outcomes in a distribution, particularly for discrete data or skewed distributions. In a normal 
+distribution, the mode is equal to the mean (μ =​ 50), and the most frequent value is 50. In a right-​
+skewed distribution, the mode would be less than the mean and closer to the peak of the distribution.

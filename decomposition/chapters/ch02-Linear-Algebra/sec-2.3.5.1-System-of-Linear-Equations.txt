@@ -1,0 +1,215 @@
+2.3.5.1  System of Linear Equations
+Matrices can be used to represent and solve systems of linear equations. In a system of linear 
+equations, the coefficients of the variables can be arranged in a matrix, and the equations can be 
+solved using matrix operations.
+Example:
+Consider
+x
+y
+x
+y
++
+=
++
+=
+
+
+
+2
+5
+3
+4
+6,
+and it can be written in this form
+1
+2
+3
+4
+5
+6
+
+
+
+
+
+
+
+= 
+
+
+
+x
+y
+.
+Let
+and
+:
+,
+,
+A
+X
+x
+y
+B
+= 
+
+
+
+= 
+
+
+
+= 
+
+
+
+1
+2
+3
+4
+5
+6
+Then we have
+,
+:
+A X
+B
+⋅
+=
+.
+Now for calculating X, we have:
+X
+A
+B
+=
+⋅
+−1
+,
+and for calculating
+:
+A−1
+
+--- PDF PAGE 43 ---
+30
+Mathematical Foundations for Deep Learning
+det( )
+,
+A =
+⋅
+(
+) −
+⋅
+(
+) =
+−
+= −
+1 4
+2 3
+4
+6
+2 and A−= −
+−
+−
+
+
+
+=
+−
+−
+
+
+
+
+1
+1
+2
+4
+2
+3
+1
+2
+1
+1 5
+0 5
+.
+.
+and now we have
+and
+then we can calculate the
+A
+B
+X
+−1
+,
+:
+X =
+−
+−
+
+
+
+
+
+
+
+=
+−⋅
+(
+)+
+⋅
+(
+)
+⋅
+(
+)+ −
+⋅
+(
+)
+
+
+2
+1
+1 5
+0 5
+5
+6
+2 5
+1 6
+1 5 5
+0 5 6
+.
+.
+.
+.
+
+=
+−
++
+−
+
+
+
+=
+−
+
+
+
+
+10
+6
+7 5
+3
+4
+4 5
+.
+.
+,
+then the solution is:
+x
+y
+= −
+=
+4
+4 5
+,
+. .

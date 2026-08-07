@@ -1,0 +1,44 @@
+4.2.6.3  Prediction
+In BNNs, predictions are made by integrating the possible weights. This means the model considers 
+the uncertainty in the weights rather than using a single fixed value. The model predicts a distribu-
+tion over possible outcomes rather than a single-​point estimate. The general formula for prediction 
+is as follows:
+	
+P y x D
+P y x w P w D dw
+,
+, )
+)
+|
+( |
+( |
+(
+) = ∫
+	
+where:
+	•
+y is the predicted output,
+	•
+x is the input (e.g., features like the number of rooms),
+	•
+P(w | D) is the posterior distribution of weights,
+	•
+P(y | x, w) is the likelihood of predicting y given input x and weights w.
+The prediction integrates all possible weight values based on the posterior distribution, resulting in 
+a prediction that captures the uncertainty in the model’s parameters. This is a key feature of BNNs 
+compared to traditional NNs, which make predictions based on fixed weight values. For predicting 
+the price of a house, the BNN does not output a single price. Instead, it provides a range of possible 
+prices, say from $300,000 to $350,000, with different probabilities assigned to each outcome. This 
+prediction reflects the model’s uncertainty about how strongly the number of rooms influences the 
+price, as the weight for that feature is not fixed but distributed.
+Figure 4.3 presents a visualization of Bayesian ridge regression applied to a synthetic dataset. 
+Figure 4.3 illustrates several important elements of this regression technique. The data points (in 
+blue) represent the observed values from the dataset. The predictive mean line (in dark green)
+
+--- PDF PAGE 116 ---
+103
+Probability Theory and Statistics
+indicates the model’s prediction for the mean outcome as a function of the input variable X. The 
+shaded region around the predictive mean represents the 95% confidence interval (in light green), 
+which provides a measure of uncertainty in the model’s predictions. This interval shows where we 
+expect the true values to lie with 95% confidence, allowing us to assess the model’s reliability.

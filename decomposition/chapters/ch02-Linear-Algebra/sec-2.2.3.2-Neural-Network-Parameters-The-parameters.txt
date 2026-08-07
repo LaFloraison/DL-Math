@@ -1,0 +1,208 @@
+2.2.3.2  Neural Network Parameters
+The parameters of NNs, specifically the weights and biases, are organized as vectors, matrices, or 
+higher-​dimensional tensors depending on the structure of the network. These parameters are essen-
+tial in controlling how the network processes and transforms input data. When the network receives 
+an input in the form of a feature vector, it performs matrix–​vector multiplications using the weights 
+and biases at each layer. The result is then passed through activation functions, such as the ReLU 
+(Rectified Linear Unit) or sigmoid function, to introduce non-​linearity. This step-​by-​step process 
+transforms the input data, enabling the network to learn complex patterns and generate the desired 
+output. Let’s consider a simple NN layer with 3 input features and 2 output neurons. The input fea-
+ture vector is:
+	
+x =​ [1.0, 0.5, –​0.2]	
+The weight matrix for this layer is a 2 × 3 matrix, where each row corresponds to the weights 
+connected to a single output neuron:
+	
+W =
+−
+−
+
+
+
+
+0 2
+0 5
+1 0
+0 3
+0 8
+0 5
+.
+.
+.
+.
+.
+.
+.	
+The bias vector for the two output neurons is:
+	
+b =​ [0.1, –​0.1]	
+To calculate the output, we perform matrix–​vector multiplication and add the bias:
+	
+z
+Wx
+b
+=
++
+=
+−
+−
+
+
+
+
+−
+
+
+
+
+
+
+
+
+
+
++ −
+0 2
+0 5
+1 0
+0 3
+0 8
+0 5
+1 0
+0 5
+0 2
+0 1
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+0 1.
+.
+
+
+
+	
+Performing the matrix multiplication:
+	
+z =
+×
+(
+)+ −
+×
+(
+)+
+× −
+(
+)
+−
+×
+(
+)+
+×
+(
+)+
+×
+0 2
+1 0
+0 5
+0 5
+1 0
+0 2
+0 3 1 0
+0 8
+0 5
+0 5
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+−
+(
+)
+
+
+
+
+
++ −
+
+
+
+=
+−
+−
+−
++
+−
+
+
+
+
+0 2
+0 1
+0 1
+0 2
+0 25
+0 2
+0 3
+0 4
+0 1
+.
+.
+.
+.
+.
+.
+.
+.
+.
++ −
+
+
+
+
+= −
++
+−
+
+
+
+= −
+−
+
+
+
+
+0 1
+0 1
+0 25
+0 1
+0 0
+0 1
+0 15
+0 1
+.
+.
+.
+.
+.
+.
+.
+.
+.
+	
+Thus, the output of this layer before applying the activation function is [−0.15, −0.1]. If we apply a 
+ReLU activation function (which outputs 0 for negative values), the final output will be [0, 0].

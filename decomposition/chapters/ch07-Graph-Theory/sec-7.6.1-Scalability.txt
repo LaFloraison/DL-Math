@@ -1,0 +1,30 @@
+7.6.1  Scalability
+One of the significant challenges with GCNs is scalability. Deep learning models, particularly 
+those involving graphs, can be computationally intensive. As the size of the graph increases, the 
+amount of data and the number of computations required also grow, leading to high memory and 
+processing demands. Large graphs, such as social networks or biological networks with millions 
+of nodes and edges, can be particularly challenging to process efficiently. To address this issue, 
+researchers are developing methods that help manage the scalability of GCNs. One such approach 
+is graph sampling, as exemplified by techniques like GraphSAGE. This method involves sampling 
+a subset of nodes and edges to create mini-​batches for training, which reduces the computational 
+burden while preserving the graph’s structural information. Another approach is mini-​batch training,
+
+--- PDF PAGE 236 ---
+223
+Graph Theory
+FIGURE 7.4  These graphs represent various account interactions, including (a, c) legitimate loops, (b, d) potential fraud rings, (e) mixed 
+legitimate and fraudulent networks, (f) centralized fraud operations.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 237 ---
+224
+Mathematical Foundations for Deep Learning
+which processes the graph incrementally rather than all at once. This technique allows for incre-
+mental updates, making it possible to train on large graphs without exceeding memory limits. These 
+methods are crucial for enabling the use of GCNs on large-​scale data, ensuring that the models 
+remain efficient and effective even as the size and complexity of the graphs increase. Consider a 
+social network where millions of users (nodes) and billions of connections (edges) form a massive 
+graph. Processing this entire graph at once using traditional GCNs would require enormous compu-
+tational resources, making it difficult to scale effectively.

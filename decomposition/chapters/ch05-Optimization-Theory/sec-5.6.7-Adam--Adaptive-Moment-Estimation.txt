@@ -1,0 +1,95 @@
+5.6.7  Adam (Adaptive Moment Estimation)
+Adam is an optimization algorithm that combines the benefits of both Adagrad and RMSprop. 
+It leverages the advantages of adaptive learning rates and incorporates momentum to accelerate 
+convergence and stabilize updates. Adam maintains individual learning rates for each param-
+eter by computing the first and second moments of the gradients. The first moment is the mean 
+of the gradients, and the second is the gradients’ uncentered variance. These moments are used 
+to adapt the learning rates for each parameter dynamically. The updated rules for Adam are as 
+follows:
+	
+g
+f
+t
+t
+= ∇( )
+θ 	
+	
+m
+m
+g
+t
+t
+t
+=
++
+−
+(
+)
+−
+β
+β
+1
+1
+1
+1
+	
+	
+v
+v
+g
+t
+t
+t
+=
++
+−
+(
+)
+−
+β
+β
+2
+1
+2
+2
+1
+	
+	
+ˆm
+m
+t
+t
+t
+=
+−
+1
+1
+β 	
+	
+ˆv
+v
+t
+t
+t
+=
+−
+1
+2
+β 	
+	
+θ
+θ
+α
+t
+t
+t
+t
+v
+m
++ =
+−
++
+1
+ˆ
+ˆ
+

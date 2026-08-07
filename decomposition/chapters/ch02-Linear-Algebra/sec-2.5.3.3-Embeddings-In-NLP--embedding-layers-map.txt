@@ -1,0 +1,7 @@
+2.5.3.3  Embeddings
+In NLP, embedding layers map discrete words or tokens to continuous vector representations in 
+a high-​dimensional space. The transformation from a token to its corresponding vector is a linear 
+operation. Embedding lookup involves selecting a specific row (vector) from the embedding matrix, 
+which corresponds to the input token. For an embedding matrix E of size 10 × 4, where each row 
+represents a word vector of dimension 4, input token 3 corresponds to the third row of E, resulting 
+in a vector v3 .

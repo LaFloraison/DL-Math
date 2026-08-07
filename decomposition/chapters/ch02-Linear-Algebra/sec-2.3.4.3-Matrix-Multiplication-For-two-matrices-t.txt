@@ -1,0 +1,100 @@
+2.3.4.3  Matrix Multiplication
+For two matrices to be multiplied, the number of columns of the first matrix must equal the number 
+of rows of the second matrix. The resulting matrix has the number of rows of the first matrix and the 
+number of columns of the second matrix.
+Example:
+	
+Let
+and
+:
+,
+A
+B
+= 
+
+
+
+= 
+
+
+
+1
+2
+3
+4
+2
+0
+1
+3
+	
+	
+C
+A B
+=
+⋅
+= 
+
+
+⋅
+
+
+=
+⋅+
+⋅
+(
+)
+⋅+
+⋅
+(
+)
+⋅+
+⋅
+(
+)
+⋅
+1
+2
+3
+4
+2
+0
+1
+3
+1 2
+2 1
+1 0
+2 3
+3 2
+4 1
+3 0 +
+⋅
+(
+)
+
+
+
+=
++
++
++
++
+
+
+
+= 
+
+
+
+4 3
+2
+2
+0
+6
+6
+4
+0
+12
+4
+6
+10
+12 .

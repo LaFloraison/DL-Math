@@ -1,0 +1,88 @@
+2.2.1.4  Magnitude and Direction
+The magnitude of a vector 
+
+A in 2D space is given by: 
+
+A =
++
+A
+A
+x
+y
+2
+2 . The direction can be found 
+using trigonometry, typically with the tangent function:
+	
+θ =
+
+
+
+
+arctan
+.
+A
+A
+y
+x
+	
+Example: Consider a vector that terminates at the point (3, 4) on a 2D Cartesian plane. This vector can 
+be represented by its components along the x and y axes: 
+
+A
+A i
+A j
+x
+y
+=
++
+ˆ
+ˆ, where Ax = 3 and Ay = 4 
+The magnitude is: 
+
+A =
++
+=
++
+=
+=
+3
+4
+9
+16
+25
+5
+2
+2
+ and the direction is: θ =
+
+
+
+=
+°
+arctan
+.
+4
+3
+53 13 .
+FIGURE 2.6  Vector components of A.
+
+--- PDF PAGE 32 ---
+19
+Linear Algebra
+Figure 2.7 shows vector A =​ (3, 4) on a 2D plane. The red arrow represents vector A, starting 
+from the origin (0, 0) and pointing to (3, 4). The length, or magnitude, of A, is labeled as 5.00, 
+calculated from 3
+4
+5
+2
+2
++
+= . The angle between A and the x-​axis is marked as 53.13°, which is 
+found using tan−
+
+
+
+1
+4
+3 . The blue and green dashed lines show the projections of A onto the y-​axis at 
+(0, 4) and the x-​axis at (3, 0), highlighting its horizontal and vertical components.

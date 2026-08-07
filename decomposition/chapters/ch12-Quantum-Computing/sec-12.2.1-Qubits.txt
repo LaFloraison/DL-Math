@@ -1,0 +1,9 @@
+12.2.1  Qubits
+Think of qubits as the quantum version of regular bits. While regular bits can only be a 0 or a 1, 
+qubits can be both at the same time because of something called superposition. This ability allows
+
+--- PDF PAGE 357 ---
+344
+Mathematical Foundations for Deep Learning
+quantum computers look at many possibilities all at once, making them potentially much faster than 
+regular computers for certain tasks.

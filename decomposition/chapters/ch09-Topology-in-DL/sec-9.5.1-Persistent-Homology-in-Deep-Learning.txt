@@ -1,0 +1,235 @@
+9.5.1  Persistent Homology in Deep Learning
+Persistent homology is an important idea in TDA. It looks at the shapes and features of data at 
+different levels. By doing this, it helps us understand the data’s structure by finding things like 
+connected parts, loops, and empty spaces. In deep learning, persistent homology can be used in 
+several powerful ways. One key use is analyzing the loss landscape, which is the graph of the 
+loss function that the neural network tries to minimize. Persistent homology helps us study the 
+shapes of this loss function by looking at how many low points and saddle points it has. This gives 
+researchers important information about how difficult the optimization problem is. With this know-
+ledge, they can create better algorithms to optimize the network. For example, if there are many low 
+points, they can develop methods to avoid getting stuck and find better overall solutions. Another 
+major use is feature extraction. Persistent homology can pull out topological features from the data, 
+such as connected parts, holes, and higher-​dimensional empty spaces. These features capture com-
+plex information that regular methods might miss. These extracted features can be added as extra 
+inputs to neural networks, helping the model find more detailed patterns, work better on new data, 
+and be more reliable. Additionally, persistent homology helps reduce the number of dimensions 
+by highlighting the most important topological features. This makes the input data simpler for the 
+neural network to handle.
+When using persistent homology in deep learning, there are several practical things to consider. 
+First, it can be very computationally heavy. Calculating persistent homology for large or complex 
+datasets can take a lot of resources, so efficient algorithms and software are needed. To use persistent 
+homology in large-​scale deep learning, it’s important to manage the computational load carefully. 
+Next, integrating persistent homology with neural networks requires several preprocessing steps 
+to calculate the topological features and then smoothly add them to the network’s structure. It’s 
+important to make sure this process doesn’t slow down training or prediction. Also, calculating per-
+sistent homology involves setting certain parameters, like the scale for filtering, which need to be 
+carefully adjusted to capture important features without adding unnecessary noise. Finally, being 
+able to interpret and visualize the topological features is crucial. The features found by persistent 
+homology need to make sense for the specific task, and understanding how they relate to the data is 
+key for using them effectively. Imagine we have two datasets: Dataset A, points arranged in a cir-
+cular shape, and Dataset B, points scattered randomly within a square. Our goal is to train a neural 
+network to classify new data points as belonging to either Dataset A or Dataset B. To improve 
+the neural network’s performance, we will extract topological features from each dataset using 
+persistent homology and incorporate these features into the training process. Let’s represent each 
+dataset numerically. In Dataset A (circle), we have eight points evenly spaced around a unit circle:
+	
+1 0
+2 2
+2 2
+0 1
+2 2
+2 2
+1 0
+2 2
+2 2
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+/
+/
+/
+/
+/
+/
+(
+) (
+) (
+) −(
+) −
+(
+)
+−
+−
+(
+) 0
+1
+2
+2 2
+,
+,
+,
+2/
+/
+−
+(
+)
+−
+(
+)
+
+--- PDF PAGE 297 ---
+284
+Mathematical Foundations for Deep Learning
+In Dataset B (square), we have eight points randomly scattered within a unit square:
+	
+0 1 0 9
+0 4 0 7
+0 6 0 2
+0 9 0 4
+0 3 0 5
+0 7 0 8
+. , .
+,
+. , .
+,
+. , .
+,
+. , .
+,
+. , .
+,
+. , .
+(
+) (
+) (
+) (
+) (
+) (
+) (
+) (
+)
+,
+. , .
+,
+. , .
+0 5 0 1
+0 2 0 6 	
+To extract topological features, we’ll compute the persistent homology of each dataset. Persistent 
+homology studies the shape of data by analyzing features like connected components and loops 
+across different scales.
+Step 1: First, we calculate the pairwise Euclidean distances between points in each dataset. 
+For Dataset A (circle), let’s compute the distance between the first point (1, 0) and the other 
+points: The distance to 
+2 2
+2 2
+/
+/
+,
+(
+) :
+	
+d =
+−
++
+−
+≈
++ −
+≈
++
+≈
+(
+/ )
+(
+/ )
+( .
+)
+(
+.
+)
+.
+.
+1
+2 2
+0
+2 2
+0 2929
+0 7071
+0 0858
+0 5
+0
+2
+2
+2
+2
+     
+.
+.
+5858
+0 7654
+≈
+	
+And distance to (0, 1) is d =
+−
++
+−
+=
++
+=
+≈
+(
+)
+(
+)
+.
+1
+0
+0
+1
+1 1
+2
+1 4142
+2
+2
+. We repeat this for all 
+pairs, constructing a distance matrix DA for Dataset A. For Dataset B (square), We compute 
+distances between each pair of points in a similar manner, creating a distance matrix DB .
+Step 2: We construct Vietoris–​Rips complexes for each dataset at various distance thresholds 
+ϵ. A Vietoris–​Rips complex connects points that are within a distance ϵ of each other. Let’s 
+choose several ϵ values (e.g., 0.5, 1.0, 1.5) and observe how the topology changes. For Dataset 
+A (circle), at ϵ =​ 0.5, points are connected only to their immediate neighbors, forming indi-
+vidual edges and resulting in multiple connected components. As ϵ increases to 0.8, more 
+points connect, forming a loop that represents a 1D hole resembling a circular shape. When ϵ 
+reaches 1.5, all points are connected, and the loop fills in, causing the hole to disappear. For 
+Dataset B (square), at ϵ =​ 0.5, some points are connected, but no significant loops are formed. 
+As ϵ increases to 1.0, more connections appear; however, any loops that emerge are due to 
+random arrangements and are not persistent, indicating they do not represent meaningful topo-
+logical features.
+Step 3: Betti numbers quantify the topological features: β0 is a number of connected components, 
+and β1 is a number of 1D holes (loops). For each ϵ, we compute β0 and β1. For Dataset A 
+(circle), at ϵ =​ 0.5, the Betti numbers are β₀ =​ 8 (each point is a separate component) and β₁ =​ 0 
+(no loops). At ϵ =​ 0.8, β₀ becomes 1 as all points connect into one component, and β₁ becomes 
+1, indicating one persistent loop. By ϵ =​ 1.5, β₀ remains 1, and β₁ returns to 0 as the loop fills 
+in. For Dataset B (square), at ϵ =​ 0.5, β₀ varies depending on the point distribution, while β₁ 
+remains 0 (no loops). As ϵ increases, β₀ decreases as components merge, and β₁ stays at 0 or 
+shows insignificant loops that quickly disappear.
+Step 4: We plot persistence diagrams for each dataset, where each topological feature is represented 
+as a point with coordinates (birth ϵ, death ϵ). For Dataset A (circle), the persistent loop appears 
+at ϵ ≈ 0.8 and disappears at ϵ ≈ 1.5. This results in a point at (0.8, 1.5) in the persistence dia-
+gram, indicating a significant topological feature. For Dataset B (square), No significant per-
+sistent loops are observed, and features in the diagram have short lifespans (birth and death ϵ 
+values are close), indicating they are noise.
+Step 5: From the persistence diagrams, we extract features: For Dataset A, the most significant 
+β1 feature (loop) has a persistence of 1.5 –​ 0.8 =​ 0.7. For Dataset B, any β1 features have low 
+persistence, close to zero. We can define a topological feature vector for each dataset based on 
+the persistence of loops. For Dataset A, the topological feature is the persistence of the loop, 
+which is 0.7. For Dataset B, the topological feature is the persistence of the loop, which is 0, 
+indicating no significant loops persist.

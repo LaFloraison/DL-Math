@@ -1,0 +1,26 @@
+2.3.1  What Is a Matrix?
+A matrix is a rectangular array of numbers, symbols, or expressions arranged in rows and columns. 
+Matrices are denoted by capital letters (e.g., A, B, C) and are often used in systems of linear 
+equations, computer graphics, statistics, and many other areas.
+Example: Let us delve into the basics of matrices. Imagine you have a table of numbers where each 
+cell contains a value. This table can be thought of as a matrix. For instance:
+	
+A =
+
+
+
+
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+.

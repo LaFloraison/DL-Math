@@ -1,0 +1,144 @@
+5.6.4  Momentum
+Momentum is an optimization technique used to accelerate gradient descent by considering past 
+gradients in the update process. This approach helps gradient descent algorithms converge faster 
+and reduce oscillations, especially in cases where the objective function’s surface has features of 
+different scales or saddle points. The key idea behind momentum is to maintain a velocity vector 
+that accumulates the gradient of the loss function over time. This accumulated gradient is used to 
+update the model parameters, resulting in faster convergence and smoother trajectories. The velocity 
+vector is updated using a combination of the current gradient and the previous velocity. The updated 
+equations for gradient descent with momentum are as follows:
+	
+v
+v
+f
+t
+t
+t
+=
++
+∇( )
+−
+β
+α
+θ
+1
+	
+	
+θ
+θ
+t
+t
+tv
++ =
+−
+1
+	
+where:
+	•
+vt is the velocity vector at iteration t,
+	• β is the momentum term (a hyperparameter typically set between 0 and 1),
+	•
+∇( )
+f
+tθ is the gradient of the loss function with respect to the parameters at iteration t,
+	• θt are the model parameters at iteration t, and
+	•
+α is the learning rate.
+The momentum term β controls the contribution of the previous gradients to the current update. 
+A higher momentum value emphasizes the past gradients more, leading to faster convergence but
+
+--- PDF PAGE 175 ---
+162
+Mathematical Foundations for Deep Learning
+potentially overshooting the minimum if set too high. Momentum offers several advantages. It 
+accelerates convergence compared to vanilla SGD, particularly in the presence of saddle points or 
+when the features have different scales. Reducing fluctuations helps the optimization process navi-
+gate the parameter space more efficiently and reach the optimum faster. However, momentum also 
+introduces an additional hyperparameter, the momentum term β, which requires tuning. The choice 
+of β can also significantly impact the performance of the optimization algorithm, and finding the 
+optimal value often involves empirical experimentation. Assume we’re optimizing a simple quad-
+ratic function using gradient descent with momentum. The function we want to minimize is:
+	
+f x
+x
+( ) =
+−
+(
+)
+3 2	
+For example, if the parameters are:
+	•
+Learning rate (α): 0.1,
+	•
+Momentum (β): 0.9,
+	•
+Initial value of x: 0 (starting point), and
+	•
+Gradient at iteration t is gt =​ 2(xt−3)
+At iteration 1, starting from x0 =​ 0:
+	•
+Gradient is: g1 =​ 2(x0−3) =​ 2(0−3) =​ −6
+	•
+Velocity update is: v
+v
+g
+1
+0
+1
+0 9
+0
+0 1
+6
+0 6
+=
++
+=
+×
++
+× −
+(
+) = −
+β
+α
+.
+.
+.
+	•
+Parameter update is: x1 =​ x0 -​ v1 =​ 0 -​ (−0.6) =​ 0.6
+At iteration 2:
+	•
+Gradient is: g2 =​ 2(x1−3) =​ 2(−0.6 − 3) =​ −7.2
+	•
+Velocity update is: v
+v
+g
+2
+1
+2
+0 9
+0 6
+0 1
+7 2
+1 26
+=
++
+=
+× −
+(
+)+
+× −
+(
+) = −
+β
+α
+.
+.
+.
+.
+.
+	•
+Parameter update is: x2 =​ x1 -​ v2 =​ −0.6 -​ (−1.26) =​ 1.86
+Here, you can see how the momentum term accelerates the descent by considering the past vel-
+ocity v1 along with the new gradient g2, leading to a faster movement toward the minimum at x =​ 3. 
+As the iterations progress, the oscillations are reduced, allowing the algorithm to converge more 
+efficiently.

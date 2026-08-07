@@ -1,0 +1,9 @@
+4.1  INTRODUCTION
+In this chapter, we begin by exploring the fundamental role of probability distributions in 
+understanding and modeling the randomness inherent in real-​world data. From the discrete sim-
+plicity of a dice roll to the continuous variations in financial markets, probability distributions help 
+us frame our predictive models in terms that align closely with observed phenomena. As we navi-
+gate this chapter, we introduce you to various probability distributions tailored to specific data and 
+analysis requirements. We also discuss how these distributions interact with neural network (NN) 
+architectures, particularly Bayesian Neural Networks (BNNs), to provide a robust framework for 
+handling uncertainty and making informed predictions.

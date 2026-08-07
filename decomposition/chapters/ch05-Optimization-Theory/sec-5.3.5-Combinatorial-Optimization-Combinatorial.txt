@@ -1,0 +1,65 @@
+5.3.5  Combinatorial Optimization
+Combinatorial optimization is an important field within optimization that deals with problems 
+in discrete and combinatorial settings, such as finding the shortest path in a network or graph. It 
+addresses optimization challenges where the solution space consists of distinct, countable options, 
+and the number of possible solutions can be immense, often increasing exponentially as the problem 
+grows larger. A key feature of combinatorial optimization is the discrete nature of its solution space, 
+meaning solutions are separate and countable. As the size of the problem increases, the complexity 
+and the number of potential solutions expand dramatically. These problems often involve selecting 
+the best combination or sequence of elements from a set, which is a defining characteristic of this 
+type of optimization. Common examples of combinatorial optimization problems include the trav-
+eling salesman problem (TSP), where the objective is to find the shortest possible route that visits 
+each city exactly once and returns to the starting point. Another example is graph coloring, where 
+colors are assigned to the vertices of a graph so that no two adjacent vertices share the same color, 
+aiming to use the fewest colors possible. Bin packing involves efficiently packing objects of different 
+sizes into the smallest number of bins. Various techniques are used to solve combinatorial optimiza-
+tion problems. Exact algorithms, such as B&B or the Hungarian algorithm, guarantee an optimal 
+solution but are often very computationally intensive. Heuristic algorithms, like the greedy method 
+or hill climbing, aim to find a good solution quickly, though they do not guarantee the best pos-
+sible solution. Metaheuristic algorithms, such as genetic algorithms or ant colony optimization, are 
+higher-​level strategies that guide simpler heuristics toward better solutions. The main challenges in 
+combinatorial optimization include the NP-​hard nature of many of these problems, meaning there is 
+no known efficient (polynomial-​time) solution, and it is uncertain if one exists. Additionally, the vast 
+size of the solution space makes exhaustive searches impractical except for the smallest problems.
+Figure 5.6 showcases an example of the TSP, which is a classic optimization problem where the 
+objective is to determine the shortest possible route that visits each city exactly once and returns to 
+the starting point. The figure illustrates five cities, labeled A, B, C, D, and E, positioned on a 2D 
+coordinate plane. Each city is marked with a distinct shape and color to enhance clarity. The optimal 
+path connecting these cities is shown by the dark line traversing from one city to the next. The total 
+length of this optimal route is indicated in the legend as 20.06 units, representing the shortest path 
+that satisfies the TSP criteria for these specific cities. The path begins at city A (blue circle), moves 
+through city B (orange star), then continues to city E (purple plus), city C (green triangle), and 
+finally reaches city D (red diamond) before looping back to city A.
+The objective function for the TSP is:
+	
+Minimize
+i
+n
+i
+i
+d x x
+=
++
+∑(
+)
+1
+1
+,
+	
+where:
+	•
+xi is the ith city in the tour,
+	•
+d(xi, xi+​1) represents the distance between cities xi and xi+​1, and
+	•
+the solution space consists of all possible permutations of city visits, making the problem 
+combinatorial.
+
+--- PDF PAGE 155 ---
+142
+Mathematical Foundations for Deep Learning
+This formulation represents the challenge of finding the optimal sequence of cities with an enormous 
+solution space, often tackled using exact or heuristic methods. Consider the TSP with five cities. 
+The goal is to find the shortest route that visits each city exactly once and returns to the starting city. 
+If there are five cities, there are 120 possible routes (since 5! =​ 120). Using an exact algorithm like 
+B&B, the shortest route can be found by systematically evaluating and pruning possible routes.

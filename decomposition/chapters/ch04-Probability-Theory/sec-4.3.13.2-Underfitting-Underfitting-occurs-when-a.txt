@@ -1,0 +1,23 @@
+4.3.13.2  Underfitting
+Underfitting occurs when a model is too simple to capture the underlying patterns in the data effect-
+ively or when it has not been exposed to a sufficient amount of data. One cause of underfitting is 
+insufficient sampling, where the sampling method fails to gather enough data or fails to capture the 
+complexity of the underlying population. For instance, in a large and diverse dataset, sparse sam-
+pling may result in a model that struggles to generalize beyond the limited training examples it has 
+seen. Another issue that can lead to underfitting is the use of sparse sampling methods, which may 
+provide too few data points or systematically overlook key aspects of the data distribution. This risk 
+is common with systematic sampling techniques, where an overly large step size may skip important 
+variations in the data, preventing the model from learning the full range of patterns needed for 
+accurate predictions.
+Figure 4.7 demonstrates the concepts of overfitting and underfitting through two illustrative plots. 
+In subplot Figure 4.7a, the overfitting example showcases how an overly complex model, a high-​
+degree polynomial, fits the sampled data perfectly within a limited range but fails to generalize to 
+the broader dataset. The sampled data, represented by red dots, are collected from a biased portion 
+of the dataset (specifically where x < 4), and the overfitted model is depicted by a dark red curve 
+closely following these points. However, this model diverges significantly from the true underlying 
+function, indicated by the green dashed line, when extended beyond the sampled region, highlighting 
+the model’s inability to generalize. In subplot Figure 4.7b, the underfitting example illustrates how a 
+simplistic linear model fails to capture the complexity of the data due to insufficient model capacity 
+and sparse sampling. The sampled data here are blue dots sparsely scattered across the entire range 
+of x, and the underfit model is represented by a dark blue straight line that does not align well with 
+the true function’s quadratic and sinusoidal patterns.

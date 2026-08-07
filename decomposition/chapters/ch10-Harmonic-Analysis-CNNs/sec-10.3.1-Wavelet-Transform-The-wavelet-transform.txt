@@ -1,0 +1,99 @@
+10.3.1  Wavelet Transform
+The wavelet transform (WT) is an advanced analytical method that converts signals from the time 
+domain into a series of coefficients based on shifted and scaled versions of a predetermined base 
+function, known as a mother wavelet. This transformation is particularly adept at handling non-​
+stationary signals, those whose frequency content changes over time. The continuous wavelet trans-
+form (CWT) of a function f(t) is mathematically represented as:
+	
+CWT
+s
+s
+f t
+t
+s
+dt
+τ
+ψ
+τ
+,
+(
+) =
+( )
+−
+
+
+
+
+−∞
+∞
+∫
+1
+	
+Here, τ and s are parameters that control the translation (shift) and scale (compression or stretching) 
+of the wavelet, respectively. ψ(t) is the mother wavelet, a function localized in both time and fre-
+quency. The normalization factor 1
+s
+ ensures that the wavelet has the same energy at each scale. 
+Wavelets are unique in that they are localized in time and frequency, unlike the sinusoids used in 
+FTs, which extend infinitely. This localization allows wavelets to precisely capture and analyze 
+transient features and abrupt changes in a signal. The adaptability of wavelets in terms of scale 
+and translation makes them ideal for analyzing signals that exhibit features at multiple scales or 
+that have significant local variations in time or frequency. Consider an example where a heartbeat 
+signal is analyzed using the WT. A heartbeat signal, characterized by sharp spikes followed by slow 
+waves, presents challenges in identifying features like the QRS complex and the T wave when 
+using Fourier analysis due to its non-​stationary nature. Using a WT, the signal is decomposed into 
+coefficients that represent different frequency components at different times. For instance, selecting 
+a wavelet such as the Daubechies wavelet, which closely resembles the sharp spikes of a QRS com-
+plex, would allow for efficient isolation and analysis of these features without interference from 
+slower-​moving trends in the signal. This ability to customize the wavelet to match specific features 
+of the signal is a key advantage of the WT, enabling more effective signal analysis and feature detec-
+tion. Consider a simple time-​domain signal composed of two parts:
+1.	 A sharp spike (representing a transient event) lasting from t =​ 1 to t =​ 2 seconds.
+2.	 A slow sine wave with a frequency of 5 Hz active throughout the signal duration.
+The signal f(t) can be represented as:
+	
+f t
+t
+t
+( ) =
+≤
+≤
+×
+
+
+
+10
+1
+2
+5
+2
+5
+,
+sin(
+),
+π
+otherwise	
+Step 1. Choose a Mother Wavelet: Let’s use the Daubechies 4 (db4) wavelet, known for its ability 
+to handle sharp transitions effectively.
+Step 2. Apply the WT: The CWT will analyze the signal at different scales and positions. For sim-
+plicity, we’ll examine two scales: Scale 1 captures high-​frequency components, such as sharp 
+spikes, while Scale 8 captures low-​frequency components, like a slow sine wave.
+Step 3. Compute Wavelet Coefficients: At scale 1, the wavelet is narrow and highly responsive 
+to rapid changes. The sharp spike occurring between t =​ 1and t =​ 2 generates significant 
+wavelet coefficients, indicating a strong transient event. In contrast, the sine wave produces 
+minimal coefficients at this scale due to its low-​frequency nature. At Scale 8, the wavelet is 
+wider, enabling it to capture slower variations. The sine wave at 5 Hz results in prominent 
+wavelet coefficients, reflecting its sustained oscillation. The sharp spike contributes less to the 
+coefficients at this scale due to the wavelet’s lower sensitivity to high-​frequency events.
+
+--- PDF PAGE 318 ---
+305
+Harmonic Analysis for CNNs
+Step 4: Reconstruct the Signal Using Selected Scales: To reconstruct the original signal, we can 
+combine the wavelet coefficients from both scales:
+	
+f t( ) ≈
++
+Reconstruction from Scale1
+Reconstruction from Scale 8 	
+This combination captures both the transient spike and the underlying sine wave.

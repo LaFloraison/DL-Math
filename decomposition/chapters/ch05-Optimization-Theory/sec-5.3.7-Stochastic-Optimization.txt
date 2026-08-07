@@ -1,0 +1,94 @@
+5.3.7  Stochastic Optimization
+Stochastic optimization is a field that deals with problems under uncertainty. In these cases, some 
+parts of the model, such as parameters, constraints, or the objective function, include random 
+variables. This uncertainty makes the optimization process more complex but also more reflective 
+of real-​world situations. The goal in stochastic optimization is often to find a feasible and optimal 
+solution on average or with a high probability rather than one that is deterministically optimal. This 
+approach is crucial for handling scenarios where exact information about the model is unavailable 
+or when the system is subject to random fluctuations and noise. Several techniques are used in sto-
+chastic optimization. One method is sample average approximation (SAA), which involves solving 
+the problem multiple times using different samples from the probability distributions of the uncer-
+tain parameters and then averaging the results. Another technique is SGD, an extension of the trad-
+itional gradient descent method that uses a randomly selected subset of data, called a mini-​batch, 
+to perform each update. This method is commonly used in machine learning for training models on 
+large datasets. Monte Carlo simulation is also employed to assess the impact of risk and uncertainty 
+in prediction and forecasting models by simulating a wide range of possible outcomes. Stochastic 
+optimization faces several challenges. The inherent uncertainty in these problems makes solutions 
+computationally complex and difficult to obtain. The quality of the solutions heavily depends on the 
+quality and quantity of the data available about the uncertainties involved, leading to data depend-
+ency issues. Scalability becomes a concern as the size of the data and the number of uncertain 
+parameters increase, requiring significantly more computational resources to find a solution effi-
+ciently. Despite these challenges, stochastic optimization is increasingly important in industries 
+and sectors where uncertainty is a significant factor. By incorporating randomness directly into 
+the decision-​making process, organizations can develop strategies that are not only theoretically 
+optimal but also practical and robust against real-​world variability and unpredictability. This opti-
+mization approach improves decision-​making by providing frameworks that anticipate and effect-
+ively manage the inherent uncertainties of various operational environments. The general form of a 
+stochastic optimization problem is:
+	
+Minimize f x,ξ
+(
+)
+
+	
+where:
+	•
+f(x, ξ) is the objective function,
+	•
+ξ represents random variables (uncertainties), and
+	•
+ is the expectation over the random variables.
+Techniques such as SAA estimate the objective by averaging over several samples of ξ, helping 
+optimize decisions under uncertainty. Suppose a company wants to optimize its inventory man-
+agement under uncertain demand. Using SGD, they aim to minimize the cost function J(θ), where 
+θ represents the reorder point. With demand data subject to randomness, they update the reorder 
+point iteratively using small mini-​batches of demand data. If the gradient estimate at iteration 1 is 
+∇J(θ) =​ 0.6 and the learning rate is α =​ 0.05, the updated reorder point would be:
+	
+θ
+θ
+α
+θ
+θ
+new
+old
+=
+−
+∇( ) =
+−
+×
+J
+0 05
+0 6
+.
+. 	
+Figure 5.8, illustrates the process of SGD for optimizing the objective function f x
+x
+( ) =
++
+2
+noise. 
+The blue line represents the noisy objective function, f x
+x
+( ) =
++
+2
+noise, which includes random-
+ness, making the curve less smooth. The path of SGD is traced with red dashed lines, highlighting 
+the steps taken from the starting point to the final point. The green dot marks the starting point of
+
+--- PDF PAGE 159 ---
+146
+Mathematical Foundations for Deep Learning
+FIGURE 5.8  Stochastic gradient descent.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 160 ---
+147
+Optimization Theory
+x =​ 10, where the optimization process begins. The orange dot indicates the final point after 30 
+iterations, showing where the algorithm has converged. Red dots along the dashed line indicate the 
+positions visited by SGD at each iteration. To avoid clutter, every fifth step is annotated with “Step 
+X”, where X is the iteration number, showing the algorithm’s progression.

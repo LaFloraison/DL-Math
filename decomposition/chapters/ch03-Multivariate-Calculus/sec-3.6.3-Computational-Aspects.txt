@@ -1,0 +1,86 @@
+3.6.3  Computational Aspects
+In computational fields, the Jacobian is often used in numerical methods, such as Newton’s Method. 
+This technique finds the roots of equations with multiple variables, utilizing the Jacobian matrix 
+to approach the solution iteratively. The Jacobian assists in linearizing complex systems, making 
+numerical approximation methods more efficient. Newton’s Method for systems of equations uses 
+the Jacobian matrix to update guesses iteratively:
+	
+x
+x
+x
+f x
+n
+n
+n
+n
+J
++
+(
+)
+( )
+−
+( )
+( )
+=
+−
+(
+)⋅(
+)
+1
+1
+	
+where
+	•
+x( )
+n is the current guess,
+	•
+J is the Jacobian matrix of the system,
+	•
+f represents the system of equations.
+This iterative process converges to the roots, making it effective for solving non-​linear systems. 
+Suppose you want to find the roots of the system of equations:
+	
+f
+x y
+x
+y
+f
+x y
+x
+y
+1
+2
+2
+2
+4
+0
+0
+,
+,
+,
+(
+) =
++
+−
+=
+(
+) =
+−
+= 	
+Using Newton’s Method, you start with an initial guess, say (x0, y0) =​ (1, 1), and iteratively apply the 
+method to get closer to the solution. The Jacobian matrix for this system is:
+	
+J
+x
+y
+=
+−
+
+
+
+
+2
+2
+1
+1 	
+This matrix is used in the iterative formula to update the guesses for x and y.

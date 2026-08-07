@@ -1,0 +1,46 @@
+2.4.1  Tensors
+A tensor is a multi-​dimensional array of numerical values and can be seen as a generalization of 
+scalars, vectors, and matrices. In deep learning and many applications in physics, tensors are used 
+to represent many data structures.
+FIGURE 2.9  Visual representation of matrix concepts in deep learning.
+
+--- PDF PAGE 51 ---
+38
+Mathematical Foundations for Deep Learning
+	•
+Scalar (zero-​dimensional tensor): A single number. For example, c =​ 5.
+	•
+Vector (one-​dimensional tensor): An array of numbers. For example, v =​ [1, 2, 3].
+	•
+Matrix (two-​dimensional tensor): A 2D array of numbers. For example, M = 
+
+
+
+1
+2
+3
+4 .
+	•
+Higher-​dimensional Tensor: Tensors can have three or more dimensions. For instance, color 
+images can be represented as a three-​dimensional tensor (height, width, color channels), 
+such as T for an image with dimensions 100 × 100 pixels and 3 color channels (RGB): Tijk, 
+where i
+j
+k
+=
+…
+=
+…
+=
+1
+100
+1
+100
+1 2 3
+,
+,
+;
+,
+,
+;
+, , .

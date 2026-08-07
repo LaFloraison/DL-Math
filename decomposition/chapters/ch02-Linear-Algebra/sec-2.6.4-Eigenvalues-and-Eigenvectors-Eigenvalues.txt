@@ -1,0 +1,63 @@
+2.6.4  Eigenvalues and Eigenvectors
+Eigenvalues and eigenvectors are fundamental concepts in linear algebra with widespread 
+applications in various fields, including physics, engineering, and data science. Given a square 
+matrix A, if there exists a non-​zero vector v and a scalar λ such that the following equation holds:
+	
+Av
+v
+= λ .	
+Then is an eigenvector of A and is the corresponding eigenvalue.
+In Figure 2.15, the visual representation of eigenvalues and eigenvectors for a given square 
+matrix A is displayed. The matrix A is defined as:A = 
+
+
+
+4
+2
+1
+3 . The plot begins with the original 
+eigenvectors, which are represented in green. Each eigenvector is plotted starting from the origin (0, 
+0) and pointing to the coordinates defined by its components. Labels, such as v1 and v2, are placed 
+at the endpoints of these eigenvectors to clearly identify them. Next, the transformed eigenvectors 
+are shown in red. These vectors are obtained by multiplying the original eigenvectors by matrix A, 
+demonstrating how A transforms its eigenvectors.
+In Figure 2.16, the SVD of a matrix M is visualized by transforming a grid of points. The matrix 
+M is defined as:
+	
+M =
+
+
+
+
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+--- PDF PAGE 64 ---
+51
+Linear Algebra
+The SVD decomposes M into three matrices: U, Σ, and VT, where U contains the left singular 
+vectors, Σ is a diagonal matrix of singular values, and VT contains the right singular vectors. It 
+presents the effects of these matrices on a grid of points, allowing for a visual understanding of 
+the SVD components. The original grid is plotted in blue, representing the initial arrangement of 
+points before any transformation. These points form a regular grid centered around the origin. The 
+U matrix (left singular vectors) is visualized by transforming the original grid using the U matrix. 
+This transformation primarily represents a rotation. The green lines and points show how the left 
+singular vectors of M rotate the grid. The Sigma matrix (singular values) illustrates the scaling effect 
+of the singular values. The red lines and points depict the grid after being scaled by the diagonal 
+matrix Σ. This scaling adjusts the lengths of the vectors but does not change their directions. The VT 
+matrix (right singular vectors) is visualized by transforming the original grid using the VT matrix. 
+The orange lines and points show the effect of applying the right singular vectors to the grid, which 
+typically involves another rotation.
+FIGURE 2.14  Visual representation of LU decomposition, QR decomposition, and singular value 
+decomposition.

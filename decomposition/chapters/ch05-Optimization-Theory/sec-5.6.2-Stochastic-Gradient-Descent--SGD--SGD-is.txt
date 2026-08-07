@@ -1,0 +1,192 @@
+5.6.2  Stochastic Gradient Descent (SGD)
+SGD is an optimization algorithm used to minimize the loss function by iteratively adjusting the 
+model parameters. Unlike BGD, which computes the gradient using the entire dataset, SGD computes 
+the gradient using only a single sample (or a small batch) at each iteration. SGD is known for its 
+faster convergence compared to BGD, especially when dealing with large datasets. As it updates the 
+parameters more frequently, it often reaches a good solution faster. Additionally, the noisy updates 
+from using individual samples can help SGD escape local optima, providing a better chance of 
+finding a global optimum in non-​convex optimization problems. The algorithm works by first initial-
+izing the parameters randomly. For each iteration, it selects a random sample from the dataset and 
+computes the gradient of the loss function with respect to each parameter. The parameters are then 
+updated by subtracting the product of the learning rate and the gradient. This process is repeated, 
+and a new random sample is selected at each iteration until convergence. However, the high vari-
+ance in updates can cause SGD to oscillate around the minimum, making convergence harder to 
+control. This variability means that while SGD can quickly reach the vicinity of the optimal solu-
+tion, it might struggle to settle precisely at the minimum. Techniques such as learning rate decay, 
+momentum, and mini-​batching are often employed to mitigate these issues and stabilize conver-
+gence. The update rule for SGD is:
+	
+θ
+θ
+α
+θ
+new
+old
+=
+−
+∇(
+)
+( )
+( )
+J
+x
+y
+i
+i
+;
+,
+	
+where:
+	•
+θ is the parameter vector,
+	•
+α is the learning rate, and
+	•
+∇(
+)
+( )
+( )
+J
+x
+y
+i
+i
+θ;
+,
+ is the gradient of the loss function computed for the single sample x
+y
+i
+i
+( )
+( )
+(
+)
+,
+.
+This process repeats, updating the model for each random sample, allowing faster convergence in 
+large datasets. Suppose you are training a model to predict stock prices with a dataset of 10,000 
+samples. In each iteration, SGD randomly selects one sample and updates the parameters based on 
+that sample. If the learning rate α=​0.001 and the gradient for a specific iteration is 0.5, the parameter 
+θ is updated as:
+	
+θ
+θ
+θ
+new
+old
+old
+=
+−
+×
+=
+−
+0 001
+0 5
+0 0005
+.
+.
+.
+	
+5.6.3  Mini-​Batch Gradient Descent
+Mini-​batch gradient descent is an optimization algorithm that offers a compromise between BGD 
+and SGD. It updates the model parameters based on smaller subsets, or “mini-​batches,” of the 
+dataset. Mini-​batch gradient descent combines the advantages of both BGD and SGD. By using 
+mini-​batches, it reduces the variance in parameter updates compared to SGD, leading to more stable 
+convergence. At the same time, it does not require processing the entire dataset in each iteration, 
+making it more efficient than BGD. This approach can also benefit from parallelized hardware, such 
+as Graphics Processing Units (GPUs), which can process mini-​batches concurrently. The algorithm 
+works by first initializing the parameters randomly. Each iteration randomly selects a mini-​batch 
+of samples from the dataset and computes the gradient of the loss function with respect to the 
+parameters using only this mini-​batch. The parameters are then updated by subtracting the product 
+of the learning rate and the gradient. This process is repeated for each mini-​batch until the entire 
+dataset has been processed, completing one epoch. The procedure is iterated over multiple epochs 
+until convergence. One of the key considerations in mini-​BGD is the choice of batch size. The batch
+
+--- PDF PAGE 174 ---
+161
+Optimization Theory
+size can significantly impact performance and convergence speed. A smaller batch size offers noisier 
+updates and may benefit from the regularization effects similar to those of SGD. In contrast, a larger 
+batch size provides a more accurate estimate of the gradient, leading to more stable updates, but at 
+the cost of computational efficiency. The update rule for mini-​BGD is:
+	
+θ
+θ
+α
+θ
+new
+old
+=
+−
+∇(
+)
+=
+( )
+( )
+∑
+1
+1
+m
+J
+x
+y
+i
+m
+i
+i
+;
+,
+	
+where:
+	•
+θ is the parameter vector,
+	•
+α is the learning rate,
+	•
+m is the mini-​batch size, and
+	•
+∇(
+)
+( )
+( )
+J
+x
+y
+i
+i
+θ;
+,
+ is the gradient of the loss function computed for the mini-​batch samples 
+x
+y
+i
+i
+( )
+( )
+(
+)
+,
+.
+This method strikes a balance between the computational efficiency of BGD and the frequent 
+updates of SGD. Suppose you are training a neural network with 10,000 samples, and you decide 
+to use a mini-​batch size of 100. In each iteration, you randomly select 100 samples from the dataset 
+and compute the gradient. If the learning rate α =​ 0.01 and the average gradient for the mini-​batch 
+is 0.4, the parameter θ is updated as:
+	
+θ
+θ
+θ
+new
+old
+old
+=
+−
+×
+=
+−
+0 01
+0 4
+0 004
+.
+.
+.

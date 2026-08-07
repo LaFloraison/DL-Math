@@ -1,0 +1,9 @@
+11.2.2  Differential Equations
+Differential equations, often called the language of change, let us model how systems behave. These 
+equations describe the state of a system and tell how it changes by using derivatives, which measure 
+how quickly things are changing.
+FIGURE 11.1  Comparison of continuous and discrete dynamical systems.
+
+--- PDF PAGE 337 ---
+324
+Mathematical Foundations for Deep Learning

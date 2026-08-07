@@ -1,0 +1,9 @@
+2.3.6.4  Activation Functions
+After matrix multiplication in a layer, the resulting matrix is often passed through an activation 
+function element-​wise, such as ReLU, sigmoid, or tanh.
+(a)	 ReLU: Returns x if x > 0; otherwise, it returns 0. It is commonly used in CNNs and deep 
+feedforward networks.
+(b)	 Sigmoid: Squeezes the output between 0 and 1. It is helpful in early NNs but less common 
+due to limitations like vanishing gradients.
+(c)	 Tanh (Hyperbolic Tangent): Output values between –​1 and 1. Similar to sigmoid but 
+zero-​centered.

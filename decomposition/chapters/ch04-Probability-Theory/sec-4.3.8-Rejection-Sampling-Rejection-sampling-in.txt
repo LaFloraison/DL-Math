@@ -1,0 +1,26 @@
+4.3.8  Rejection Sampling
+Rejection sampling involves sampling from a simple distribution and then accepting or rejecting 
+each sample based on a predefined criterion. This method is particularly useful for sampling from 
+complex distributions, as it allows for the generation of samples that meet specific criteria even 
+when direct sampling from the desired distribution is challenging. Given a target distribution p(x) 
+and a simpler proposal distribution q(x), you accept a sample x if:
+	
+u
+p x
+M
+x
+q
+≤
+( )
+( )
+	
+where:
+	•
+u is a random uniform number between 0 and 1,
+	•
+M is a constant such that Mq(x) ≥ p(x) for all x.
+Suppose you want to sample from a distribution with a complex shape, like a Gaussian distribution, 
+but instead, you sample from a uniform distribution between 0 and 1. You generate 10,000 points 
+uniformly, and for each point, you compute its likelihood under the target distribution. If the ratio 
+of the likelihood to the maximum is greater than a random number, you accept the point; otherwise, 
+you reject it. After performing this process, you are left with 2,500 valid samples.

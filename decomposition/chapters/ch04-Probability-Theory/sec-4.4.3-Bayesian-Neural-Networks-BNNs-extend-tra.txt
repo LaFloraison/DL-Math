@@ -1,0 +1,38 @@
+4.4.3  Bayesian Neural Networks
+BNNs extend traditional NN architectures by incorporating probabilistic inference into their frame-
+work. This involves placing a prior distribution on the network weights, fundamentally changing 
+how learning and prediction are approached. In BNNs, the use of priors acts as a natural form of 
+regularization. By imposing prior beliefs about the distribution of weights, BNNs inherently reduce 
+the risk of overfitting. These priors can penalize weights that stray too far from zero (or some other 
+prior assumption), much like L1 or L2 regularization in traditional networks. Unlike traditional NNs 
+that output single-​point estimates, BNNs distribute possible outputs for each input. This probabilistic 
+output is crucial for applications where understanding the uncertainty of predictions is important, such 
+as in medical diagnosis, where it is essential to quantify confidence in diagnostic decisions. The prob-
+abilistic nature of BNNs contributes to their robustness, particularly in handling adversarial attacks 
+or responding to shifts in data distribution. BNNs can maintain performance even when conditions 
+change or when faced with deliberately misleading input data by considering a range of possible 
+weight configurations rather than a single fixed set. Bayesian methods are known for their data effi-
+ciency. In the context of NNs, BNNs can often achieve comparable or superior performance to trad-
+itional NNs with less data. This is because they effectively leverage prior knowledge and the inherent 
+uncertainty in their parameters to make more informed predictions. The major drawback of BNNs is 
+their computational cost. The process of maintaining and updating distributions over weights is com-
+putationally intensive.
+Figure 4.11 compares a traditional NN prediction and a BNN prediction for a synthetic dataset. 
+The gray dots represent the original data points generated using a polynomial function with added 
+noise. These points are the actual observations from which predictions are made. The red dashed 
+line, marked with circles, represents the prediction made by a traditional NN. This line is fitted 
+to the data using a polynomial regression as a proxy for the traditional NN. The red circles indi-
+cate specific prediction points along the red dashed line, making it easier to see the line’s trajec-
+tory. The solid blue line represents the mean prediction made by the BNN. This line is also fitted 
+using the same polynomial regression but incorporates Bayesian inference to estimate the mean 
+FIGURE 4.11  Comparison of traditional NN and BNN predictions.
+
+--- PDF PAGE 132 ---
+119
+Probability Theory and Statistics
+prediction. The light blue shaded area around the blue line represents the uncertainty in the BNN 
+predictions. This region is defined by an upper and lower bound, calculated as the mean prediction 
+plus or minus a constant uncertainty value. The shaded area highlights the range within which 
+the true values are expected to fall with a certain confidence level, reflecting the model’s uncer-
+tainty in its predictions. The red arrow points to the red dashed line, representing the traditional 
+NN prediction.

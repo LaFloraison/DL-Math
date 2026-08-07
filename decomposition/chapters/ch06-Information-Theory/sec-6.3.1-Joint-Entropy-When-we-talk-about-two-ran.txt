@@ -1,0 +1,149 @@
+6.3.1  Joint Entropy
+When we talk about two random variables, let us say X and Y, their combined uncertainty can be 
+represented by what we term “Joint Entropy.” The joint entropy of X and Y measures the uncer-
+tainty (or unpredictability) associated with the pair (X, Y) when they are considered together. 
+FIGURE 6.1  Probability distributions of a fair coin and a biased coin.
+
+--- PDF PAGE 194 ---
+181
+Information Theory
+Mathematically, for discrete random variables X and Y with joint probability distribution P(x, y), 
+the joint entropy H(X, Y) is defined as:
+	
+H X Y
+P x y
+P x y
+x X y Y
+,
+,
+log
+,
+(
+) = −
+(
+)
+(
+)
+∈
+∈
+∑∑
+	
+where:
+	•
+H(X, Y) is the joint entropy of the random variables X and Y,
+	•
+P(x, y) is the joint probability of the outcomes x and y,
+Here, the sum runs over all possible combinations of outcomes x from X and y from Y. Joint entropy 
+provides a more general view of the system’s unpredictability when both random variables are 
+considered together. For instance, if we have two correlated variables, knowing the outcome of one 
+might reduce the unpredictability of the other, leading to a joint entropy that is less than the sum of 
+their entropies. Suppose we have two random variables, X and Y, where X represents the outcome of 
+a coin toss (Heads or Tails), and Y represents the outcome of rolling a six-​sided die (numbers 1–​6). 
+Let’s assume that X has two possible outcomes: Heads (H) and Tails (T), each with a probability of 
+P(X =​ H) =​ 0.5 and P(X =​ T) =​ 0.5. Y has six possible outcomes: Y =​ {1, 2, 3, 4, 5, 6}, with each 
+outcome having a probability P Y
+y
+=
+(
+) = 1
+6 (fair die). The joint probability distribution P(X, Y) 
+would give the probability of each combination of X and Y. As X and Y are independent, the joint 
+probability P(X =​ x, Y =​ y) =​ P(X =​ x) ⋅ P(Y =​ y). For example:
+	
+P X
+H Y
+P X
+T Y
+=
+=
+(
+) =
+×
+=
+=
+=
+(
+) =
+×
+=
+,
+.
+,
+,
+.
+1
+0 5
+1
+6
+1
+12
+2
+0 5
+1
+6
+1
+12
+and
+	
+and so on for all other combinations. Let’s compute joint entropy H(X, Y) for this example:
+	
+H X Y
+P x y
+P x y
+x H y
+,
+,
+,
+(
+) = −
+(
+)
+(
+)
+∈
+=
+∑∑
+1
+6
+2
+log
+	
+As P x y
+,
+(
+) = 1
+12 for each combination, the joint entropy will be:
+	
+H X Y
+( , )
+log
+(
+.
+)
+.
+= −
+× 
+
+
+= −
+×
+× −
+
+
+
+=
+12
+1
+12
+1
+12
+12
+1
+12
+3 585
+3 585
+2
+ bits	
+This value, 3.585 bits, represents the total uncertainty in the system when considering both the coin 
+toss and die roll together. The joint entropy is smaller than the sum of the individual entropies of X 
+and Y, reflecting the combined unpredictability of both variables.

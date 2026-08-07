@@ -1,0 +1,6 @@
+3.1  INTRODUCTION
+In this chapter, we delve into the calculus that underpins key processes such as backpropagation and 
+optimization. We begin by introducing derivatives and gradients, which are crucial for optimizing 
+neural networks through methods like gradient descent. Each mathematical concept discussed here 
+directly impacts how models are built, trained, and optimized, making this chapter an important step 
+in your journey through deep learning.

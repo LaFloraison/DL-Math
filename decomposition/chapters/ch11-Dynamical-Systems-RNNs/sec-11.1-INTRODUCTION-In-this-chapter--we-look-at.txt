@@ -1,0 +1,8 @@
+11.1  INTRODUCTION
+In this chapter, we look at how recurrent neural networks (RNNs) are connected to the math ideas of 
+dynamical systems and differential equations. RNNs are especially good at working with sequences 
+and remembering information over time, which makes them important for many real-​life uses. By 
+understanding the basic ideas behind RNNs, we can better see how they function. Here, we’ll go 
+beyond the simple concepts of neural networks and use ideas from dynamical systems to understand 
+how RNNs handle and process data that come in a sequence. The goal is to give a clearer picture of 
+how these networks work and how their functions are similar to those of dynamical systems.

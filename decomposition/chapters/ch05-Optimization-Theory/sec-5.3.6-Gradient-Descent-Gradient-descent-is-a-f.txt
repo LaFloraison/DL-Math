@@ -1,0 +1,137 @@
+5.3.6  Gradient Descent
+Gradient descent is a foundational optimization technique in machine learning, essential for solving 
+complex problems where analytical solutions are either unavailable or computationally prohibitive. 
+This iterative method is adept at navigating multi-​dimensional data landscapes to find the local min-
+imum of a function, typically a loss function in machine learning contexts. The primary objective 
+of gradient descent is to minimize the loss function, which measures the discrepancy between the 
+predicted outputs of a model and the actual outcomes. The principle behind gradient descent is 
+analogous to descending a hill. Mathematically, this is achieved by moving in the direction opposite 
+to the function’s gradient at the current point, which points toward the steepest ascent. Let us go to 
+the detailed mechanics of it:
+	•
+Gradient: For a function f x( ), where x is a vector of parameters, the gradient ∇( )
+f x is a 
+vector of partial derivatives. It indicates the direction and rate of the steepest increase.
+FIGURE 5.6  Traveling salesman problem.
+
+--- PDF PAGE 156 ---
+143
+Optimization Theory
+	•
+Update Rule: The parameter vector x is updated iteratively using the rule:x
+x
+f x
+x
+new
+old
+old
+=
+−
+∇
+(
+)
+α
+ 
+where α is the learning rate.
+	•
+Convergence: Properly tuning the learning rate, and under certain conditions (e.g., con-
+vexity of the function), gradient descent can converge to the global minimum. In non-​convex 
+scenarios, it may settle at a local minimum or a saddle point.
+Gradient descent comes in several variations, each designed to enhance efficiency, stability, or con-
+vergence when solving optimization problems. Stochastic gradient descent (SGD) uses a single 
+randomly selected data point to estimate the gradient, which speeds up each iteration and can help 
+avoid getting stuck in local minima. Mini-​batch gradient descent uses a small subset of data to com-
+pute the gradient, offering a middle ground between the speed of SGD and the stability of using 
+the full dataset. The momentum method adds a portion of the previous update to the current step. 
+This approach aims to accelerate convergence and reduce oscillations, especially in areas where the 
+loss function changes sharply. Adaptive learning rate methods, like Adagrad, RMSprop, and Adam, 
+adjust the learning rate based on previous gradients. This allows for more precise convergence and 
+improved stability during training. Setting the learning rate too high can cause the algorithm to 
+diverge, while setting it too low might lead to slow convergence or getting stuck in suboptimal points. 
+With non-​convex functions, there’s a risk of converging to local minima or saddle points instead of 
+the global minimum. As gradient descent is sensitive to the scale of the features, normalizing or 
+standardizing them is often necessary for effective optimization. Despite these challenges, gradient 
+descent remains a fundamental tool in optimization, especially in machine learning. It supports a 
+wide range of applications, from simple regression tasks to complex deep learning algorithms. Its 
+flexibility and efficiency make it indispensable for researchers and practitioners.
+The updated rule for gradient descent is given by:
+	
+θ
+θ
+α
+θ
+new
+old
+=
+−
+∇( )
+J
+	
+where:
+	•
+θ is the parameter vector,
+	•
+α is the learning rate, and
+	•
+∇J(θ) is the gradient of the cost function with respect to θ.
+This iterative process continues until the gradient converges, minimizing the loss function and 
+finding the optimal parameters for the model. Suppose you are training a linear regression model 
+to predict house prices. The cost function J
+m
+h
+x
+y
+i
+i
+θ
+θ
+( ) =
+∑
+( ) −
+1
+2
+2
+(
+) needs to be minimized, where 
+θ represents the model parameters. Let the initial value of θ =​ 0.5, and the gradient at this point be 
+calculated as ∇J(θ) =​ 1.2. Using a learning rate α =​ 0.01, the update rule would adjust θ as follows:
+	
+θ
+θ
+α
+θ
+new =
+−
+∇( ) =
+−
+×
+=
+J
+0 5
+0 01 1 2
+0 488
+.
+.
+.
+.
+	
+Figure 5.7 shows the trajectory of gradient descent on the quadratic function f(x) =​ x2. The plot starts 
+with a high initial value (the “Starting Point”) and iteratively updates based on the gradient, moving 
+toward the function’s minimum. The objective is to reach the lowest point of the function, which is 
+at x =​ 0, also marked as the “Final Point.” Each red dashed line and crimson scatter point represents 
+a step in the gradient descent process, with every fifth step labeled for clarity. The goal is to illus-
+trate how the gradient descent algorithm takes steps proportional to the negative of the gradient to 
+minimize the function. The plot helps visualize the optimization process, showing how the gradient 
+descent path narrows down towards the optimal solution.
+
+--- PDF PAGE 157 ---
+144
+Mathematical Foundations for Deep Learning
+FIGURE 5.7  Gradient descent on a quadratic function.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 158 ---
+145
+Optimization Theory

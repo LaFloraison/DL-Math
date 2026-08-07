@@ -1,0 +1,72 @@
+4.2.2.1  Uniform Distribution (Continuous)
+It is applied when any value within a specified range is equally likely. This distribution is typically 
+used to model situations where every outcome in an interval is equally probable, such as randomly 
+selecting a number between two values. Here is its general formula:
+	
+f x
+b
+a
+a
+x
+b
+( ) =
+−
+≤
+≤
+1
+,
+for
+	
+where:
+	•
+a is the lower bound of the interval,
+	•
+b is the upper bound of the interval,
+	•
+f(x) is the probability density function (PDF).
+This distribution is “flat,” meaning every outcome between a and b has the same probability density. 
+The total area under the PDF equals 1, ensuring it is a valid distribution. Suppose you want to model 
+the probability of selecting a random number between 0 and 1. The PDF would be:
+	
+f x
+x
+( ) =
+−
+=
+≤
+≤
+1
+1
+0
+1
+0
+1
+,
+for
+
+--- PDF PAGE 107 ---
+94
+Mathematical Foundations for Deep Learning
+Thus, the probability of any specific range (e.g., between 0.2 and 0.8) can be calculated as:
+	
+P
+X
+0 2
+0 8
+0 8
+0 2 1
+0 6
+.
+.
+.
+.
+.
+≤
+≤
+(
+) =
+−
+(
+)⋅=
+	
+This means the probability of selecting a number between 0.2 and 0.8 is 60%.

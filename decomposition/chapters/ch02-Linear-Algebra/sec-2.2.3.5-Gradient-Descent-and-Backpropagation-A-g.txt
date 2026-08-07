@@ -1,0 +1,81 @@
+2.2.3.5  Gradient Descent and Backpropagation
+A gradient is a vector that contains the partial derivatives of the loss function with respect to each 
+parameter of the network (weights and biases). During training, the gradient of the loss function 
+is computed with respect to these parameters, providing insights into how the loss changes as the 
+parameters are adjusted. The parameters are then updated by moving in the opposite direction of the 
+gradient, a method known as gradient descent. This iterative process helps the network reduce loss 
+and improves its performance over time. The backpropagation algorithm is used to efficiently com-
+pute the gradients. It works by applying the chain rule of calculus to propagate the error backward 
+through the network, layer by layer, calculating the gradient of the loss function with respect to each 
+parameter. By updating the parameters step-​by-​step, backpropagation enables the network to learn 
+from data and improve its accuracy. Suppose we have a simple NN with one parameter (weight) 
+w =​ 2.0 and a loss function L w
+w
+( ) =
+−
+(
+)
+5 2. The goal is to minimize the loss using gradient descent.
+Step 1: Compute the gradient of the loss function with respect to w:
+	
+∂( )
+∂
+=
+−
+(
+)
+L w
+w
+w
+2
+5 .	
+Step 2: Update the parameter using gradient descent. Let the learning rate be α =​ 0.1:
+	
+w
+w
+L w
+w
+new
+old
+=
+−
+× ∂( )
+∂
+α
+.	
+	
+wnew =
+−
+×
+−
+(
+) =
+−
+×
+−
+(
+) =
++
+=
+2 0
+0 1
+2 2 0
+5
+2 0
+0 1
+2
+3
+2 0
+0 6
+2 6
+.
+.
+.
+.
+.
+.
+.
+. .	
+Step 3: Repeat the process. After the first update, the new weight is w =​ 2.6, which brings the 
+loss function closer to its minimum. Over multiple iterations, the weight will converge toward the 
+optimal value of w =​ 5, minimizing the loss.

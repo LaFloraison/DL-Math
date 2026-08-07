@@ -1,0 +1,109 @@
+2.2.3.4  Dot Product in Neural Network
+The dot product is a core mathematical operation in NNs, playing a critical role in how information is 
+processed and propagated through layers. When an input vector is passed into a layer, it is multiplied 
+by the weight matrix of that layer. This multiplication involves calculating the dot product between the 
+input vector and each column (or row, depending on the network’s architecture) of the weight matrix. 
+The result is a transformed output that is passed on to the next layer, making the dot product essential for 
+updating the network’s activations and learning patterns from the data. Let us take a simple example of an 
+NN with an input vector x =​ [2, 3] and a weight matrix W for a layer with two neurons:
+	
+W = 
+
+
+
+0 1
+0 4
+0 2
+0 5
+.
+.
+.
+.
+.	
+To calculate the dot product, we multiply the input vector by the weight matrix:
+	
+z
+W x
+=
+⋅
+= 
+
+
+⋅
+
+
+
+0 1
+0 4
+0 2
+0 5
+2
+3
+.
+.
+.
+.
+.	
+This results in:
+	
+z =
+×
+(
+)+
+×
+(
+)
+×
+(
+)+
+×
+(
+)
+
+
+
+
+
+=
++
++
+
+
+
+
+0 1
+2
+0 4
+3
+0 2
+2
+0 5
+3
+0 2
+1 2
+0 4
+1 5
+.
+.
+.
+.
+.
+.
+.
+. = 
+
+
+
+1 4
+1 9
+.
+.
+.	
+In this example, the dot product produces a new vector [1.4, 1.9], which serves as the output of this 
+layer before applying any activation functions. This process enables the network to combine the 
+input data with the learned weights, transforming the input into a new representation that is then 
+passed to the next layer for further processing.
+
+--- PDF PAGE 37 ---
+24
+Mathematical Foundations for Deep Learning

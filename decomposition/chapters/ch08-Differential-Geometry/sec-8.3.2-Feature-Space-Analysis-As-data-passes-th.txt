@@ -1,0 +1,229 @@
+8.3.2  Feature Space Analysis
+As data passes through a neural network, it changes form, moving from raw input to increasingly 
+abstract representations. Early layers pick up on simple features, like edges in an image, while 
+deeper layers capture more complex patterns, shapes, objects, or even higher-​level concepts. This 
+transformation shifts the data into what’s called a “feature space,” a high-​dimensional space where 
+each point represents the processed version of the original input. Understanding this feature space 
+gives us important insights into what the network has learned. In this space, data points that are 
+similar to one another are mapped closer together, while points that are different are pushed apart. 
+This is crucial for tasks like classification, where the goal is to group similar items and separate 
+those that belong to different categories. By studying how data is arranged in this feature space, 
+we can get a sense of how well the model is performing its task. A key tool in understanding the 
+feature space is the concept of a metric tensor, which essentially measures the distances between 
+points in the space. By calculating these distances, we can tell how well the network can differ-
+entiate between different classes of data. For instance, if points from the same class are grouped 
+tightly together, it means the network has learned to recognize important features of that class. If 
+points from different classes are well-​separated, it suggests the network is good at distinguishing 
+between categories. Here are some practical uses for feature space analysis. Techniques like t-​SNE 
+and Uniform Manifold Approximation and Projection (UMAP) can simplify the high-​dimensional 
+feature space into a 2D or 3D map, making it easier to see how the network is organizing the data. 
+This lets us check whether the network is correctly grouping similar data points (such as different 
+images of the same object) and separating different classes. By analyzing how far apart the clusters 
+of data from different classes are, we can evaluate the network’s ability to separate categories. If the 
+clusters overlap, it might indicate problems with the model, while large separations suggest strong 
+performance. Looking at misclassified points in the feature space can help pinpoint where the model 
+is going wrong and how to improve it. When a network has learned features that generalize well, 
+they can be reused for other tasks. By analyzing the feature space, we can figure out if the network’s 
+learned features can be transferred to new problems or datasets, saving time and effort by avoiding 
+retraining from scratch. Adversarial examples, intentionally crafted inputs designed to trick a model, 
+can be studied in the feature space. A robust model should keep real and adversarial examples far
+
+--- PDF PAGE 264 ---
+251
+Differential Geometry
+apart in this space. By examining how these inputs are mapped, we can develop strategies to protect 
+against such attacks. Let us have an example for better understanding. Consider a simple image clas-
+sification task using the MNIST dataset of handwritten digits. Each input image is a 28 × 28 pixel 
+grid, resulting in a high-​dimensional input space (784 dimensions). As the data moves through the 
+layers of a neural network, it is transformed into different representations, with each layer extracting 
+increasingly complex features. In the earlier layers, the network might focus on low-​level features 
+such as edges, while in the deeper layers, it learns more abstract features like digit shapes. By the 
+time the data reaches the final layer, each input image is represented as a point in a high-​dimensional 
+feature space, where similar digits (e.g., “1”s) are mapped closer together, and dissimilar digits (e.g., 
+“1”s and “8”s) are pushed farther apart. Let’s define the feature space mathematically. Suppose x 
+∈ Rn is the input (an image), and fθ(x) is the neural network that transforms this input into a high-​
+dimensional feature vector. After several layers of transformation, the feature vector z =​ fθ (x) lies 
+in a high-​dimensional space Rd, where d ≪ n. The distance between two feature vectors z1 and z2 
+(representing two different images) can be computed using the Euclidean distance:
+	
+Distance z z
+z
+z
+z
+z
+i
+d
+i
+i
+1
+2
+1
+2 2
+1
+1
+2
+2
+,
+(
+)
+,
+,
+(
+) =
+−
+=
+−
+=∑
+	
+This distance quantifies how similar or dissimilar the representations of two images are in the fea-
+ture space. If the network has learned good features, images of the same digit (e.g., “1”) will have 
+smaller distances between their feature vectors, while images of different digits (e.g., “1” and “8”) 
+will have larger distances. Suppose we have a simple neural network trained to classify two types of 
+data points: Class A: Points clustered around [2, 2] and Class B: Points clustered around [−2, −2]. 
+The Class A data points are [2, 2], [2.1, 1.9], [1.9, 2.2], and Class B data points are: [−2, −2], [−1.8, 
+−2.1], and [−2.2, −1.9]. The neural network structure is as follows:
+	•
+Input layer: 2 neurons (features x1 and x2)
+	•
+Hidden layer: 2 neurons with ReLU activation
+	•
+Output layer: 1 neuron with sigmoid activation (for binary classification)
+The weights and biases are as follows:
+	•
+Weights from input to hidden layer (W1): W1
+1
+0
+0
+1
+= 
+
+
+
+	•
+Biases for hidden layer (b1): b1
+0
+0
+= 
+
+
+
+	•
+Weights from hidden to output layer (W2): W2
+1
+1
+= 
+
+
+
+	•
+Bias for output layer (b2): 0
+Here is a forward pass example. Let’s compute the network’s output for a data point from Class A, 
+say [2, 2]:
+	•
+Hidden layer activation (h):
+	
+h
+W
+x
+b
+=
+⋅
++
+(
+) =
+
+
+
+⋅
+
+
++ 
+
+
+
+
+
+
+=
+ReLU
+ReLU
+ReL
+1
+1
+1
+0
+0
+1
+2
+2
+0
+0
+U
+2
+2
+2
+2
+
+
+
+
+
+
+
+= 
+
+
+
+
+--- PDF PAGE 265 ---
+252
+Mathematical Foundations for Deep Learning
+	•
+Output layer activation (ˆy):
+	
+ˆ
+.
+,
+y
+W
+h
+b
+=
+⋅+
+(
+) =
+[
+]⋅
+
+
++
+
+
+
+=
+( ) ≈
+σ
+σ
+σ
+2
+2
+1 1
+2
+2
+0
+4
+0 982
+
+	
+where σ z
+z
+( ) =
++
+−
+1
+1
+e
+ is the sigmoid function. The output ˆ
+.
+y ≈0 982 indicates a high probability that 
+the input belongs to Class A.

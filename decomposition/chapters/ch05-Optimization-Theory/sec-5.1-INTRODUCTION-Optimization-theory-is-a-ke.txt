@@ -1,0 +1,10 @@
+5.1  INTRODUCTION
+Optimization theory is a key part of mathematics and applied sciences, and it takes a deep look 
+into how we make decisions. At its core, optimization is about finding the best solution from many 
+possible options. It’s focused on accuracy, blending logic and function to achieve the most effective 
+results. Whenever we seek knowledge or try to solve a problem, we’re quietly pursuing perfection, 
+and optimization guides us on this journey toward excellence. From dividing up resources in an 
+economy to improving the algorithms that run our digital world, the search for the best choice is 
+always ongoing. Optimization theory provides the tools and viewpoints we need to navigate this 
+area, offering solutions and a deeper understanding of how we reach them. This chapter explores 
+some of the most popular optimization methods in deep learning.

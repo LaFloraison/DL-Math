@@ -1,0 +1,124 @@
+2.3.6.5  Backpropagation
+(a)	 Gradient Matrices: In the process of training an NN, backpropagation computes the gradients 
+(partial derivatives) of the loss function with respect to each network parameter, including 
+weights and biases. These gradients are represented as matrices, where each element cor-
+responds to the partial derivative of the loss with respect to a specific weight. The gra-
+dient matrix indicates how much the loss function would change if a small change were 
+made to the corresponding weights. These gradients are crucial for updating the parameters 
+to minimize the loss and improve model performance. Suppose we have a weight matrix 
+W = 
+
+
+
+0 5
+0 1
+0 3
+0 7
+.
+.
+.
+.
+, and during backpropagation, the gradient matrix with respect to the loss is 
+computed as:G =
+−
+
+
+
+
+0 02
+0 01
+0 03
+0 04
+.
+.
+.
+.
+. This gradient matrix informs us how the loss will change 
+based on small adjustments to each corresponding weight.
+(b)	 Weight Update: Once the gradient matrix is calculated, the weights are updated to reduce the 
+loss by moving in the opposite direction of the gradient. This process involves subtracting 
+a fraction of the gradient matrix from the current weight matrix. The fraction is determined 
+by the learning rate, a hyperparameter that controls how large the weight updates should be. 
+Let’s assume a learning rate α =​ 0.1. The updated weight matrix Wnew is computed as:
+W
+W
+G
+new =
+−
+⋅
+= 
+
+
+−
+⋅
+−
+
+
+
+
+=
+α
+0 5
+0 1
+0 3
+0 7
+0 1
+0 02
+0 01
+0 03
+0 04
+.
+.
+.
+.
+.
+.
+.
+.
+.
+0 5
+0 002
+0 1
+0 001
+0 3
+0 003
+0 7
+0 004
+0 498
+0 101
+0 29
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+−
++
+−
+−
+
+
+
+=
+7
+0 696
+.
+
+
+
+
+After updating, the weight matrix is slightly adjusted in a way that reduces the loss. This 
+iterative process of calculating gradients and updating weights continues until the model
+
+--- PDF PAGE 47 ---
+34
+Mathematical Foundations for Deep Learning
+converges to an optimal set of weights, minimizing the loss function. Backpropagation 
+ensures that each weight and bias in the network is gradually adjusted to improve perform-
+ance, allowing the network to learn complex patterns from the data.

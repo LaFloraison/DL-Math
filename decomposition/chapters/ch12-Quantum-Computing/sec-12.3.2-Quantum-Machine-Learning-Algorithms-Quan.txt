@@ -1,0 +1,32 @@
+12.3.2  Quantum Machine Learning Algorithms
+Quantum machine learning combines quantum computing with regular machine learning, opening 
+up new possibilities for tasks like grouping data (clustering), sorting it into categories (classifica-
+tion), and making predictions (regression). Quantum clustering methods, like the Quantum k-​means 
+algorithm, improve how we group items by using quantum properties like superposition to calculate 
+distances between data points all at once. For example, imagine you have 10 apples and want to 
+group them by weight. With quantum clustering, the computer can compare all the apples simul-
+taneously, making the process much faster than traditional methods that handle comparisons one at 
+a time. Quantum classification algorithms, such as Quantum Support Vector Machines (QSVM), 
+enhance how we classify data by mapping features into a higher-​dimensional quantum space. Think 
+of it like sorting animals based on size, habitat, and diet. A QSVM can make it easier to find clear 
+differences, even between animals with similar traits, uncovering patterns that regular methods 
+might miss. Quantum regression algorithms, like quantum linear regression, offer faster predictions 
+by solving complex equations more efficiently. For instance, when predicting future temperatures 
+from past data, quantum regression can quickly spot trends and create accurate forecasts, saving 
+time compared to classical methods.
+While quantum machine learning holds great promise, it is still in its early stages. One major 
+challenge is converting regular data into quantum states, a process that can be complicated and 
+time-​consuming, sometimes canceling out the speed advantages. Additionally, current quantum 
+computers are prone to errors and can only hold quantum states for a limited time, which can affect 
+the accuracy of calculations. For example, suppose you’re using a quantum machine learning algo-
+rithm to predict stock prices based on the last 10 days’ closing prices: $150, $152, $148, $155, 
+$160, $158, $162, $165, $167, and $170. First, you need to convert these numbers into quantum 
+states, which is tricky. Even if the data is successfully encoded, errors might occur because the 
+quantum computer may struggle to maintain its state, potentially leading to incorrect predictions. 
+Instead of forecasting a rise to $175, the computer might mistakenly predict a drop to $140 due to 
+the instability of the quantum system.
+FIGURE 12.1  Qubit states on the Bloch sphere.
+
+--- PDF PAGE 359 ---
+346
+Mathematical Foundations for Deep Learning

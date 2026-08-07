@@ -1,0 +1,7 @@
+10.4  CONVOLUTION IN THE FREQUENCY DOMAIN FOR CNNS
+CNNs are very important in deep learning, especially for tasks like processing images and videos. 
+The key part of CNNs is the convolution operation. In this operation, a filter (or kernel) moves over 
+an input (like an image) to calculate sums of products for each area it covers. When we look at 
+convolution in the frequency domain, it has big computational benefits, especially for large filters 
+or specific tasks. It can change the convolution process into simple multiplications, which makes 
+computations faster in some situations.

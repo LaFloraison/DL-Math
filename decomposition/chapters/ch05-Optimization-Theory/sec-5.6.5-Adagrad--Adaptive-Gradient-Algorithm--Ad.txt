@@ -1,0 +1,339 @@
+5.6.5  Adagrad (Adaptive Gradient Algorithm)
+Adagrad is an optimization algorithm that adapts the learning rates of all model parameters by 
+scaling them inversely proportional to the square root of the sum of all historical squared gradients. 
+This method is particularly useful for dealing with sparse data and features that have varying degrees 
+of informativeness. The key idea behind Adagrad is to adjust the learning rate for each parameter 
+individually, allowing for larger updates for infrequent parameters and smaller updates for frequent 
+ones. This is achieved by accumulating the squared gradients over time and using this accumulated 
+value to adjust the learning rates. The update rule for Adagrad is as follows:
+	
+g
+g
+f
+t i
+t
+i
+t i
+,
+,
+,
+(
+)
+=
++ ∇(
+)
+−1
+2
+θ
+	
+	
+θ
+θ
+α
+θ
+t i
+t
+i
+t i
+t
+i
+g
+f
+,
+,
+,
+,
+=
+−
++
+∇(
+)
+−
+−
+1
+1
+
+
+--- PDF PAGE 176 ---
+163
+Optimization Theory
+where:
+	•
+∇(
+)
+f
+t i
+θ ,
+ is the gradient of the loss function with respect to parameter i at iteration t,
+	•
+gt,i is the sum of the squares of the gradients with respect to parameter i up to iteration t,
+	•
+α is the global learning rate, and
+	•
+is a small constant added to prevent division by zero.
+Adagrad is particularly advantageous for dealing with sparse data, where some features are much 
+more informative than others. By scaling the learning rate based on historical gradients, Adagrad 
+ensures that infrequent but informative features receive larger updates, improving the model’s ability 
+to learn from these features. However, one of the main drawbacks of Adagrad is that the learning 
+rate can decrease significantly over time, causing the algorithm to stop learning prematurely. As the 
+sum of squared gradients grows, the effective learning rate diminishes, which can hinder further 
+progress, especially in non-​convex optimization problems or over long training periods. Assume we 
+are optimizing a simple function:
+	
+f x y
+x
+y
+,
+(
+) =
++
+2
+2
+2
+	
+For example, if the parameters are:
+	•
+Global learning rate (α): 0.1
+	•
+Small constant (ϵ): 10−8
+	•
+Initial values of x0 =​ 2, y0 =​ 2
+At iteration 1, we calculate the gradients for x and y:
+	•
+Gradient of x: gx1 =​ 2x0 =​ 2 × 2 =​ 4
+	•
+Gradient of y: gy1 =​ 4y0 =​ 4 × 2 =​ 8
+	•
+Accumulated squared gradients for x and y: G
+g
+G
+g
+x
+x
+y
+y
+1
+1
+2
+2
+1
+1
+2
+2
+4
+16
+8
+64
+=
+=
+=
+=
+=
+=
+,
+	•
+Update rule for x1: x
+x
+G
+g
+x
+x
+1
+0
+1
+1
+8
+2
+0 1
+16
+10
+4
+2
+0 1 1
+1 9
+=
+−
++
+×
+=
+−
++
+×
+=
+−
+× =
+−
+α
+
+.
+.
+.
+	•
+Update rule for y1: y
+y
+G
+g
+y
+y
+1
+0
+1
+1
+8
+2
+0 1
+64
+10
+8
+2
+0 1 1
+1 9
+=
+−
++
+×
+=
+−
++
+×
+=
+−
+× =
+−
+α
+
+.
+.
+.
+At iteration 2:
+	•
+Gradients at new values x1 =​ 1.9, y1 =​ 1.9: 
+.
+. ,
+.
+.
+g
+g
+x
+y
+2
+2
+2
+1 9
+3 8
+4
+1 9
+7 6
+=
+×
+=
+=
+×
+=
+	•
+Accumulated squared gradients:
+	
+G
+G
+g
+G
+G
+g
+x
+x
+x
+y
+y
+y
+2
+1
+2
+2
+2
+2
+1
+2
+2
+2
+16
+3 8
+30 44
+64
+7 6
+121 76
+=
++
+=
++
+=
+=
++
+=
++
+=
+.
+.
+,
+.
+.
+	
+	•
+Update rule for x2: x2
+8
+1 9
+0 1
+30 44
+10
+3 8
+1 9
+0 069
+1 831
+=
+−
++
+×
+≈
+−
+=
+−
+.
+.
+.
+.
+.
+.
+.
+	•
+Update rule for y2: y2
+8
+1 9
+0 1
+121 76
+10
+7 6
+1 9
+0 069
+1 831
+=
+−
++
+×
+≈
+−
+=
+−
+.
+.
+.
+.
+.
+.
+.
+As you can see, the learning rate for both x and y decreased slightly at the second iteration due to 
+the accumulation of squared gradients. This helps balance the learning, allowing more updates to
+
+--- PDF PAGE 177 ---
+164
+Mathematical Foundations for Deep Learning
+infrequent parameters while slowing down updates to frequent ones. However, over many iterations, 
+the learning rate will continue to diminish.

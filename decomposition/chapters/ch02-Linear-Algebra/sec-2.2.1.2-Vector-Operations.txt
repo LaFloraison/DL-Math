@@ -1,0 +1,321 @@
+2.2.1.2  Vector Operations
+Vectors are fundamental in various fields, and understanding their operations is crucial. Here are 
+some essential vector operations with examples.
+(a)	 Addition: Adding two vectors involves adding their respective components. Geometrically, 
+you place the tail of one vector at the head of the other and then draw a vector from the tail of 
+the first to the head of the second. This new vector is the resultant or sum of the two vectors.
+Example: Let a and b be defined as follows:
+	
+a
+b
+= [
+]
+= [
+]
+1 2
+3 4
+,
+,
+.
+and
+	
+To add these vectors:
+	
+c
+a
+b
+=
++
+= [1, 2] + [3, 4]  = [1 + 3, 2 + 4] = [4, 6]. 	
+In Figure 2.2, the red arrow represents a, the blue arrow represents b, and the green arrow c 
+represents the resultant vector c =​ a +​ b.
+(b)	 Scalar Multiplication: Multiplying a vector by a scalar changes its magnitude without chan-
+ging its direction unless the scalar is negative, in which case the direction is reversed. To 
+scale a vector by a scalar k, multiply each component of the vector by k.
+Example: Let v and scalar k be defined as follows:
+v = 
+
+
+
+=
+3
+4
+2
+,
+k
+  The scaled vector is:
+	
+v =
+
+
+
+= 
+
+
+
+2 3
+4
+6
+8 	
+In Figure 2.3, the red arrow represents v as (a), and the blue arrow represents the scaled 
+vector kv as (3a). It illustrates the concept of vector scaling on a 2D plane. It shows two 
+vectors, a and 3a, originating from the origin (0, 0) and extending in the same direction. The 
+vector a, with coordinates (2, 1), is marked in red, and its magnitude (or length) is labeled as 
+approximately 2.24, calculated as 2
+1
+5
+2
+2
++
+=
+. The second vector, 3a, represents a scaled 
+version of a by a factor of 3, extending further along the same direction. Its length is shown 
+as 6.71, three times the magnitude of a (since 3
+3
+a
+a
+=
+×
+). This blue vector demonstrates 
+the effect of scalar multiplication on a vector’s length, keeping the direction unchanged 
+while proportionally increasing the magnitude.
+(c)	 Dot Product: The dot product is an operation that multiplies two vectors to obtain a scalar. It 
+helps determine the angle between two vectors and is calculated as the sum of the products 
+of their respective components.
+Example: Let a and b be defined as follows:
+a
+b
+= 
+
+
+
+= 
+
+
+
+1
+2
+3
+4
+,
+
+--- PDF PAGE 27 ---
+14
+Mathematical Foundations for Deep Learning
+The dot product of a and b is:
+	
+a b
+⋅
+= ( )( )+( )( ) =
++
+=
+1 3
+2
+4
+3
+8
+11.	
+The dot product is 11, and this scalar value is crucial in various applications, such as calcu-
+lating the cosine of the angle between the two vectors:
+	
+cos
+.
+θ =
+⋅
+a b
+a
+b
+ 
+	
+Figure 2.4 shows two vectors, a (red) and b (blue), with the green vector representing the 
+projection of a onto b. This projection shows how much of a aligns with b. The projection 
+length depends on the cosine of the angle between a and b, indicating the part of a that points 
+in b’s direction. The “Dot Product: 11” label represents the dot product, a measure of this 
+alignment.
+FIGURE 2.2  Vector addition: a +​ b.
+
+--- PDF PAGE 28 ---
+15
+Linear Algebra
+(d)	 Cross-​Product: The cross-​product between two vectors in three-​dimensional space produces 
+another vector that is perpendicular to the plane formed by the two original vectors. The 
+cross-​product of vectors a and b produces a third vector, c, that is perpendicular to both a  
+and b.
+Example: Let a and b be defined as follows:
+a
+b
+=
+
+
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+1
+0
+,
+.
+The cross-​product is calculated using the determinant of a matrix composed of unit vectors 
+and the components of a and b:
+FIGURE 2.3  Scalar multiplication: 3a.
+
+--- PDF PAGE 29 ---
+16
+Mathematical Foundations for Deep Learning
+	
+a
+b
+a
+b
+×
+=
+
+
+
+
+
+
+
+
+
+
+=
+×
+=
+−
++
+x
+y
+z
+c
+x
+y
+z
+1
+0
+0
+0
+1
+0
+0
+0
+1
+0
+1
+0
+0
+0
+1
+0
+0
+1
+, then
+or 	
+	
+c
+a
+b
+=
+×
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+
+
+
+
+a b
+a b
+a b
+a b
+a b
+a b
+y
+z
+z
+y
+z
+x
+x
+z
+x
+y
+y
+x
+	
+Substituting the components:
+	
+c =
+( )( ) −( )( )
+( )( ) −( )( )
+( )( ) −( )( )
+
+
+
+
+
+
+
+
+
+
+=
+
+
+
+0 0
+0 1
+0 0
+1 0
+1 1
+0 0
+0
+0
+1
+
+
+
+
+
+
+
+	
+FIGURE 2.4  Dot product interpretation.
+
+--- PDF PAGE 30 ---
+17
+Linear Algebra
+Figure 2.5 demonstrates the concept of the cross-​product between two vectors, a (red) and b (blue). 
+The cross-​product, shown as the green vector labeled a × b, represents a new vector that is perpen-
+dicular to both a and b. This perpendicular direction follows the right-​hand rule, meaning if you 
+point your right-​hand’s fingers along a and curl them toward b, your thumb points in the direction of 
+a × b. The length of the green vector reflects the magnitude of the cross-​product, which corresponds 
+to the area of the parallelogram covered by a and b.

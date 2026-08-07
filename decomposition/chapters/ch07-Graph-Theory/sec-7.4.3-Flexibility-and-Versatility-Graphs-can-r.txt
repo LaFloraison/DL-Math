@@ -1,0 +1,10 @@
+7.4.3  Flexibility and Versatility
+Graphs can represent diverse data types and relationships, making them suitable for various 
+applications. They can include weighted edges with numerical values like strength or cost, useful in 
+transportation networks (distances and travel times) and communication networks (bandwidth and 
+latency). Directed edges indicate one-​way relationships, essential for modeling web links, citation 
+networks, and social media interactions. Graphs can also represent heterogeneous relationships, 
+modeling different types of connections in complex systems like biological networks or recom-
+mendation systems. For instance, in transportation networks, cities are nodes, and roads are edges 
+with weights representing distances to calculate efficient routes; in airline networks, directed edges 
+represent one-​way flights.

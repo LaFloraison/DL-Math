@@ -1,0 +1,234 @@
+7.5.2  Graph Classification
+GCNs can predict labels for entire graphs, a task known as graph classification. This is particu-
+larly valuable in fields where the overall graph structure determines its classification. In fraud 
+detection, for instance, financial transactions can be represented as graphs, where the nodes 
+are bank accounts or individuals, and the edges represent transactions between these accounts. 
+GCNs classify these graphs as either “Fraudulent” or “Legitimate.” The methodology involves 
+representing each graph with nodes, edges, and features. GCNs aggregate features from all nodes 
+and edges to capture the graph’s global structure. After multiple convolutional layers, a global 
+pooling operation generates a fixed-​size representation of the entire graph. This pooled represen-
+tation is then fed into a classifier to predict the graph’s label. Let’s consider an example of finan-
+cial transaction data for fraud detection. Each transaction network is represented as a graph. 
+The nodes represent bank accounts, and the edges represent the transactions between them. Our 
+goal is to classify these networks as either “Fraudulent” or “Legitimate” based on the graph 
+structure. Let us work with a small dataset consisting of three transaction networks: Network A, 
+Network B, and Network C. Network A is a legitimate transaction network (Label 0), Network 
+B is fraudulent (Label 1), and Network C is legitimate (Label 0). The graph structures for these 
+networks are as follows: In Network A, there are three nodes representing three accounts. Account 
+1 has transactions with Account 2 and Account 3. In Network B, Account 1 is linked to a poten-
+tially fraudulent account (Account 4), which in turn transacts with Account 3. Lastly, Network C 
+consists of four nodes, with Account 1 connected to Accounts 2 and 3, and Account 2 connected 
+to Account 4. The graph structure allows us to represent the relationships between accounts. We 
+begin by representing each account using a one-​hot encoding based on its type: regular accounts 
+are encoded as [1, 0], and potentially fraudulent accounts are encoded as [0, 1]. The initial node 
+features for each network are as follows:
+	•
+Network A: Account 1, Account 2, and Account 3 are regular accounts, so their initial features 
+are [1, 0].
+	•
+Network B: Account 1 is regular [1, 0], Account 4 is potentially fraudulent [0, 1], and Account 
+3 is regular [1, 0].
+	•
+Network C: Accounts 1, 2, 3, and 4 are all regular accounts, so their initial features are [1, 0].
+Next, we define the adjacency matrices to represent the connectivity between nodes. For Network 
+A, the adjacency matrix would look like this:
+	
+ANetwork A =
+
+
+
+
+
+
+
+
+
+
+0
+1
+1
+1
+0
+0
+1
+0
+0
+	
+This matrix shows that Account 1 is connected to both Account 2 and Account 3, while Account 
+2 and Account 3 are not directly connected to each other. Similarly, the adjacency matrices 
+for Networks B and C would represent their respective connections. We then perform graph 
+convolutions to update the node features. A GCN layer aggregates the feature vectors of each 
+node’s neighbors. The aggregation function we use here is mean aggregation, where each node’s 
+feature is updated by averaging its own features and those of its neighboring nodes. The GCN 
+layer equation for Node v at layer k +​ 1 is:
+	
+h
+N v
+W
+h
+v
+k
+u N v
+k
+u
+k
++
+(
+)
+∈( )
+( ) ( )
+=
+( )
+
+
+
+
+
+
+∑
+1
+1
+σ
+
+--- PDF PAGE 234 ---
+221
+Graph Theory
+where:
+	•
+hv
+k
+( ) is the feature vector of Node v at layer k,
+	•
+W(k) is the weight matrix for layer k,
+	•
+N(v) is the set of neighbors of Node v, and
+	•
+σ is the activation function (ReLU).
+We start with Network A, where the initial node features for all nodes are [1, 0]. We use the following 
+weight matrix for the first GCN layer:
+	
+W 0
+0 5
+0 1
+0 3
+0 7
+( ) = 
+
+
+
+.
+.
+.
+.
+	
+Step 1: Initial Node Features for Network A: Account 1: [1, 0], Account 2: [1, 0], and Account 
+3: [1, 0].
+Step 2: Linear Transformation: Using the weight matrix W(0), we perform the linear transform-
+ation for each node:
+Account 1: [1, 0]⋅W(0) =​ [0.5, 0.1],
+Account 2: [1, 0]⋅W(0) =​ [0.5, 0.1],
+Account 3: [1, 0]⋅W(0) =​ [0.5, 0.1].
+Step 3: Mean Aggregation: Now, we aggregate the node features using the mean of the neighbors’ 
+features (including self-​loops). For Account 1, its neighbors are Account 2 and Account 3. The 
+aggregated feature for Account 1 is:
+	
+0 5 0 1
+0 5 0 1
+0 5 0 1
+3
+0 5 0 1
+. , .
+. , .
+. , .
+. , .
++] [
++] [
+
+= [
+] 	
+Similarly, for Accounts 2 and 3, the aggregation process results in the same feature: [0.5, 0.1].
+Step 4: Apply Activation Function (ReLU): The ReLU activation function keeps the features 
+unchanged as they are all positive. The updated node features after this GCN layer remain [0.5, 
+0.1] for all nodes in Network A.
+We repeat this process for Network B and Network C by applying the same linear transformation 
+and aggregation steps and adjusting for the different adjacency structures. After updating the node 
+features, we use global pooling to generate graph-​level representations. We apply sum pooling, 
+which adds the feature vectors of all nodes in a graph. Here is the sum of the features of all three 
+nodes, known as the graph-​level representation:
+	•
+For Network A, the graph-​level representation is: gA =​ [1.5, 0.3].
+	•
+For Network B, the graph-​level representation is: gB =​ [1.3, 0.9].
+	•
+For Network C, the graph-​level representation is: gC =​ [2.0, 0.4].
+Finally, we classify the graphs using a simple classification layer. We define a weight vector 
+Wc =​ [−1.0, 1.0] and a bias b =​ 0. We compute the logits for each network:
+	•
+Network A: logit A
+c
+A
+W
+g
+b
+=
+⋅
++
+= −1 2.
+	•
+Network B: logit B = −0 4.
+
+--- PDF PAGE 235 ---
+222
+Mathematical Foundations for Deep Learning
+Applying the sigmoid function to get probabilities:
+	•
+Probability of Fraud for Network A: P Fraud
+e
+(
+) =
++
+≈
+1
+1
+0 23
+1 2
+.
+.
+ (predicted as legitimate).
+	•
+Probability of Fraud for Network B: P Fraud
+e
+(
+) =
++
+≈
+1
+1
+0 40
+0 4
+.
+.
+ (predicted as legitimate).
+If these predictions don’t match the actual labels, the model needs further training to adjust the 
+weights and improve accuracy.
+Figure 7.4 illustrates different network structures, distinguishing between legitimate and fraudulent 
+patterns through node interactions and configurations. In Figure 7.4a, the graph shows a variety of node 
+colors, each indicating different account types or groups within a network of legitimate interactions. 
+Nodes are connected in a way that suggests diverse, healthy exchanges with no apparent signs of 
+suspicious clustering. Figure 7.4b depicts a linear, chain-​like structure where each node connects to 
+the next in a sequence. This pattern is often associated with fraudulent activity as it may signify a 
+controlled sequence of interactions or transactions, a common tactic in creating synthetic behavior 
+that mimics legitimate patterns. Figure 7.4c shows a fully connected triangle, where each node is 
+interconnected with others in a balanced and symmetrical manner. Figure 7.4d presents a quadrilateral 
+structure, suggesting a looped pattern where nodes engage in orchestrated interactions. The symmetry 
+and closed shape indicate a coordinated fraud ring, which could be used to manipulate interactions, 
+such as forming closed loops to hide the origin and destination of transactions. Figure 7.4e highlights 
+a combination of legitimate and fraudulent nodes. The red nodes (A, B, C, and D) represent fraudu-
+lent entities embedded within a chain of blue nodes, which may be legitimate. This setup shows how 
+fraudulent actors could leverage legitimate accounts to facilitate fraudulent transactions or disguise 
+their activities, creating a mixed network where legitimate and fraudulent behaviors are intertwined. 
+Figure 7.4f illustrates a scenario where a central node (B1) serves as a hub, connected to various other 
+nodes that represent legitimate accounts (green nodes). This central hub potentially manages fraudu-
+lent operations by utilizing these connections to distribute activities or transactions, making it harder 
+to trace. The presence of the central fraud node indicates a strategic attempt to leverage legitimate 
+connections for malicious purposes, a hallmark of organized fraud operations.

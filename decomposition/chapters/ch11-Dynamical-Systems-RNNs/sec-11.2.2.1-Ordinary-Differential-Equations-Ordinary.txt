@@ -1,0 +1,78 @@
+11.2.2.1  Ordinary Differential Equations
+Ordinary differential equations (ODEs) describe how a function and its rates of change are related 
+using one variable, usually time. These equations are often used to model natural things, like how a 
+pendulum swings or how diseases spread. ODEs help us explain how a system’s state changes over 
+time based on its current state. An ODE is typically expressed in the form:
+	
+dy
+dt
+f t y
+=
+(
+)
+,
+	
+where y represents the dependent variable (the state of the system), t is the independent variable 
+(often representing time), and f(t,y) is a function that describes the rate of change of y with respect to 
+t. A classic example of an ODE is the simple harmonic oscillator, which models the motion of systems 
+such as a pendulum or a mass-​spring system. The equation for a harmonic oscillator is given by:
+	
+d y
+dt
+y
+2
+2
+2
+0
++
+=
+ω
+	
+where y(t) represents the position of the object over time, and ω is the angular frequency of the 
+oscillation. This second-​order ODE describes how the position of the object changes as it oscillates 
+back and forth under the influence of a restoring force proportional to its displacement. The general 
+solution to this equation is:
+	
+y t
+A
+t
+B
+t
+( ) =
++
+cos(
+)
+sin(
+)
+ω
+ω 	
+where A and B are constants determined by the initial conditions of the system, such as the initial 
+position and velocity of the object. For instance, if the system begins at y(0) =​ 1 with an initial vel-
+ocity of zero, the solution simplifies to y(t) =​ cos(2t), assuming an angular frequency ω =​ 2 rad/​s. 
+This equation describes an object oscillating with a frequency of 2 rad/​s, moving smoothly between 
+its maximum and minimum positions over time. In this way, ODEs serve as a powerful tool for mod-
+eling dynamic behaviors in various fields, providing insights into how systems evolve continuously 
+over time based on their initial conditions and the laws that govern them.
+Figure 11.2 depicts the displacement of a simple harmonic oscillator, modeled as a mass-​spring 
+system, over time. The x-​axis represents time in seconds, while the y-​axis indicates the displacement 
+in meters from the equilibrium position. The blue curve follows the equation x(t) =​ Acos(ωt +​ θ), 
+where A is the amplitude, ω is the angular frequency, and θ is the phase angle. The graph highlights 
+several key aspects of the oscillator’s behavior. The maximum displacement, marked by a green 
+dot, shows the furthest point the mass reaches above the equilibrium. At this point, the energy in the 
+system is entirely potential, with zero velocity. The minimum displacement, marked by a red dot, 
+indicates the lowest point the mass reaches, showing a similar state where the velocity is zero and 
+the potential energy is maximized. The purple dot represents the phase angle, illustrating how the 
+initial position and timing of the oscillator’s motion are influenced, shifting the curve horizontally. 
+The differential equation d x t
+dt
+x t
+2
+2
+2
+0
+( ) +
+( ) =
+ω
+, displayed at the bottom left, governs this harmonic 
+motion. It indicates that the acceleration of the system is directly proportional and opposite to the 
+displacement, a characteristic of simple harmonic oscillators.

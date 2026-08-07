@@ -1,0 +1,55 @@
+5.2  OPTIMIZATION THEORY
+Optimization theory is basically about making choices and picking the best option from a set of 
+available alternatives based on specific, measurable criteria. At its core, it sheds light on the prin-
+ciple of selection: when faced with many options, how do we identify the most suitable or advan-
+tageous one? This field provides systematic and analytical methods to determine the “best” choice, 
+where “best” could mean minimizing costs, maximizing efficiency, reducing waste, or achieving 
+any other measurable goal. For example, imagine a business evaluating different marketing strat-
+egies to find the most cost-​effective one, an engineer choosing the most durable material for a new 
+design, or a traveler planning the quickest route to their destination. Constraints are an essential 
+part of optimization problems. They define the feasible solutions and ensure that these solutions are 
+practical and applicable to real-​world scenarios. Constraints limit the decision variables and set the 
+boundaries for the optimal solution. They are restrictions or limitations placed on decision variables 
+and can be equality constraints (e.g., x +​ y =​ 10) or inequality constraints (e.g., x +​ y ≤ 10). These 
+constraints shape the feasible region in the decision variable space, within which the optimal solu-
+tion must be found. There are different types of constraints:
+	•
+Equality constraints must be satisfied exactly, such as the total weight of items in a knapsack 
+problem.
+	•
+Inequality constraints set an upper or lower limit, like a budget constraint where total costs 
+must not exceed a specific value.
+	•
+Bound constraints directly limit the range of decision variables, such as a percentage that 
+must be between 0 and 100.
+
+--- PDF PAGE 147 ---
+134
+Mathematical Foundations for Deep Learning
+Feasible solutions are those that meet all the constraints, while infeasible solutions violate one 
+or more constraints. Active constraints are those that, if slightly changed, would alter the optimal 
+solution. Binding constraints are specific inequality constraints that are exactly met at the optimal 
+solution and directly influence it. Many optimization algorithms are initially designed for problems 
+without constraints. However, there are several effective methods to handle constraints. Penalty 
+methods convert a constrained problem into an unconstrained one by adding penalties to the 
+objective function for any violations of the constraints.
+Figure 5.1 features two primary constraint lines: the green line represents the inequality x
+x
+1
+2
+4
++
+≤, 
+while the orange line corresponds to 2
+6
+1
+2
+x
+x
++
+≤. These lines present the boundaries within which 
+the variables x1 and x2 must lie to satisfy both constraints simultaneously. The area where these 
+constraints overlap is a shaded area, highlighting the feasible region where potential solutions exist. 
+At the core of this feasible region lies the optimal solution, marked prominently with a large purple 
+scatter point. This point, situated at the coordinates (x1, x2), represents the values of x1 and x2 that 
+maximize the objective function 3x1 +​ 2x2 while adhering to the defined constraints.

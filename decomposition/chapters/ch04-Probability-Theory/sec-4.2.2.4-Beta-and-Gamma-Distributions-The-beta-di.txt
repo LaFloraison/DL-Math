@@ -1,0 +1,72 @@
+4.2.2.4  Beta and Gamma Distributions
+The beta distribution is useful for modeling probabilities and proportions for values bounded 
+between 0 and 1, while the gamma distribution is often used for modeling waiting times or life 
+durations and can be seen as a generalization of the exponential distribution. The general formula 
+for beta distribution is:
+	
+f x
+x
+x
+B
+x
+( ) =
+−
+(
+)
+≤
+≤
+−
+−
+α
+β
+α β
+1
+1
+1
+0
+1
+(
+)
+,
+,
+	
+where:
+	•
+α and β are shape parameters,
+	•
+B(α, β) is the beta function.
+The beta distribution is highly flexible and can take on various shapes depending on α and β. It is 
+particularly useful when modeling events that have an inherent probability or proportion. Suppose 
+you want to model the distribution of success probabilities in a series of experiments with α =​ 2 and 
+β =​ 3, the beta distribution models the probabilities, for example, by getting a success rate between 
+0.2 and 0.8, using the CDF. The general formula for gamma distribution is:
+	
+f x
+x
+e
+x
+x
+( ) =
+( )
+≥
+−
+−
+λ
+α
+α
+α
+λ
+1
+0
+Γ
+,
+	
+where:
+α is the shape parameter,
+λ is the rate parameter,
+Γ(α) is the Gamma function.
+The gamma distribution is a generalization of the exponential distribution (when α =​ 1) and is used 
+for modeling waiting times when there is more than one event occurring. If the average lifespan of 
+a device is modeled by a Gamma distribution with shape parameter α =​ 2 and rate parameter λ =​ 1/​
+3 (representing 3 units of time on average), you can calculate the probability of a device lasting less 
+than 5 units of time.

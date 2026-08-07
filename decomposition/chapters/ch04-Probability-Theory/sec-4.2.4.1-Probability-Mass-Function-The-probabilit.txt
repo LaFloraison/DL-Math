@@ -1,0 +1,41 @@
+4.2.4.1  Probability Mass Function
+The probability mass function (PMF) represents the probability that a discrete random variable is 
+exactly equal to a specific value. It is used for discrete distributions, where the random variable takes 
+on a finite or countably infinite number of values. Its general formula is as follows:
+	
+P(X =​ x) =​ p(x)	
+where:
+	•
+P(X =​ x) is the probability that the random variable X takes on the value x,
+	•
+p(x) represents the PMF for the discrete variable X.
+Consider a discrete random variable representing the number of heads when flipping two coins. 
+The possible outcomes for the number of heads are 0, 1, or 2. The PMF would give the following 
+probabilities:
+	
+P X
+P X
+P X
+=
+(
+) =
+=
+(
+) =
+=
+(
+) =
+0
+1
+4
+1
+2
+4
+2
+1
+4
+,
+,
+	
+This shows that there is a 25% probability of getting 0 heads, a 50% probability of getting 1 head, 
+and a 25% probability of getting 2 heads.

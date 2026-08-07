@@ -1,0 +1,378 @@
+12.4.1  Quantum Neural Networks (QNNs)
+QNNs combine quantum computing with artificial neural networks to boost their performance, 
+especially for complex tasks like high-​dimensional data analysis and pattern recognition. QNNs are 
+built using quantum bits (qubits) instead of classical binary units, allowing them to take advantage 
+of quantum mechanics, like superposition and entanglement. This gives them a huge computational 
+advantage over traditional neural networks. Here’s how QNNs work:
+1.	 Quantum Gates as Neurons: Each quantum neuron acts like a quantum gate, performing 
+operations on input qubits while preserving quantum information.
+2.	 Superposition and Parallelism: QNNs use superposition, allowing quantum neurons to pro-
+cess multiple calculations at once, making the network much faster.
+3.	 Entanglement for Feature Correlation: Entanglement links quantum neurons, helping QNNs 
+detect and relate complex data patterns more effectively than classical networks.
+Suppose we have a binary classification task where we want to classify inputs into two classes based 
+on a single binary feature. There are class 0 and class 1, and the two inputs are as follows: Input 0, 
+with a binary value of 0, should be classified as class 0, and Input 1, with a binary value of 1, should 
+be classified as class 1. To perform this classification, we will design a simple QNN using one qubit 
+and basic quantum gates. Before we proceed, let’s review some fundamental quantum computing 
+concepts. Qubit is the basic unit of quantum information, analogous to a bit in classical computing. 
+A qubit can be in a superposition of states ∣0⟩ and ∣1⟩: ψ
+α
+β
+=
++
+0
+1 , where α and β are complex 
+numbers satisfying α
+β
+|
+|
+2
+2
+1
++
+= . Quantum Gates are operations that change the state of qubits. 
+Examples include:
+	•
+Hadamard Gate (H): H =
+−
+
+
+
+
+1
+2
+1
+1
+1
+1
+	•
+Pauli-​X Gate (X) (analogous to the NOT gate): X = 
+
+
+
+0
+1
+1
+0
+	•
+Rotation Gate around the y-​axis (Ry): Ry θ
+θ
+θ
+θ
+θ
+( ) =
+
+
+
+
+−
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cos
+sin
+sin
+cos
+2
+2
+2
+2
+
+
+
+
+
+Measurement is observing a qubit collapse of its state to either ∣0⟩ or ∣1⟩ with certain probabilities. 
+Let us go to the computation steps:
+Step 1. We need to encode our classical binary inputs into quantum states. Input 0, represented by 
+the quantum state ∣0⟩, and Input 1, represented by the quantum state ∣1⟩, which we obtain by 
+applying the Pauli-​X gate to ∣0⟩: ∣1⟩=​X∣0⟩. Quantum states for Inputs are as follows: For Input 
+0, ψinput =
+= 
+
+
+
+0
+1
+0 and for Input 1, ψinput =
+= 
+
+
+
+1
+0
+1 .
+Step 2. Our QNN consists of one Qubit to represent the quantum state and one Quantum Gate 
+with a trainable parameter. We’ll use the rotation gate Ry(θ) as our quantum neuron.
+Step 3. We apply the rotation gate Ry(θ) to the input qubit. The angle θ is our trainable parameter 
+(analogous to weights in classical neural networks).
+
+--- PDF PAGE 360 ---
+347
+Quantum Computing
+	•
+Rotation Gate Ry(θ): Ry θ
+θ
+θ
+θ
+θ
+( ) =
+
+
+
+
+−
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cos
+sin
+sin
+cos
+2
+2
+2
+2
+
+
+
+
+
+ Let’s choose θ
+π
+= 2 for 
+demonstration:
+	•
+Compute Ry
+π
+2
+
+
+
+: cos
+,
+sin
+.
+π
+π
+4
+2
+2
+4
+2
+2
+
+
+
+=
+
+
+
+=
+ So,
+,
+Ry
+π
+2
+2
+2
+2
+2
+2
+2
+2
+2
+
+
+
+=
+−
+
+
+
+
+
+
+
+
+
+
+
+
+	•
+Process Input 0: ψ
+π
+output =
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+
+
+Ry
+2
+0
+2
+2
+2
+2
+,
+	•
+Process Input 1: ψ
+π
+output =
+
+
+
+
+=
+−
+
+
+
+
+
+
+
+
+
+
+
+
+Ry
+2
+1
+2
+2
+2
+2
+.
+Step 4. When we measure the qubit, the probability of getting ∣0⟩ or ∣1⟩ is given by the square of 
+the amplitudes. For a state ψ
+α
+β
+=
++
+0
+1 , probability of ∣0⟩ is P 0
+2
+( ) =|
+|
+α and probability 
+of ∣1⟩ is P 1
+2
+( ) =|
+|
+β .
+	•
+Calculate probabilities for Input 0: ψoutput =
++
+2
+2
+0
+2
+2
+1 , P 0
+2
+2
+1
+2
+2
+( ) =
+=
+ and 
+P 1
+1
+2
+( ) =
+,
+	•
+Calculate probabilities for Input 1: ψoutput = −
++
+2
+2
+0
+2
+2
+1 , P 0
+1
+2
+( ) =
+ and P 1
+1
+2
+( ) =
+.
+The probabilities are the same for both inputs, so the QNN cannot distinguish between the 
+classes with θ
+π
+= 2.
+Step 5. Our goal is to find a θ that allows the QNN to classify the inputs correctly. The desired 
+probabilities are as follows: For Input 0 (should be Class 0), Maximize P(0), and for Input 1 
+(should be Class 1): Maximize P(1). Try θ =​ 0 and compute Ry(0): Ry 0
+1
+0
+0
+1
+( ) = 
+
+
+.
+Process Input 0: | ψoutput =
+( )
+=
+Ry 0
+0
+0 : P(0) =​ 1 and P(1) =​ 0,
+Process Input 1: | ψoutput =
+( )
+=
+Ry 0
+1
+1 : P(0) =​ 0 and P(1) =​ 1,
+Input 0: High probability of ∣0⟩ ⇒ Class 0 (correct),
+Input 1: High probability of ∣1⟩ ⇒ Class 1 (correct).

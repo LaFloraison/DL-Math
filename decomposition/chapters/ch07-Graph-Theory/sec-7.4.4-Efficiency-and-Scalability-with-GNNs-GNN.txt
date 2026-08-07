@@ -1,0 +1,9 @@
+7.4.4  Efficiency and Scalability with GNNs
+GNNs excel at efficiently propagating information through graphs, capturing both local and global 
+structures. They allow nodes to aggregate information from neighbors, learning features from imme-
+diate connections and distant nodes, resulting in a complete representation of the graph. Unlike 
+traditional methods that struggle with scalability due to complex connections, GNNs reduce com-
+putational complexity by focusing on neighborhood aggregation. This makes them well-​suited for 
+processing large-​scale datasets like social networks or biological networks without compromising 
+speed or accuracy. Their ability to capture intricate relationships enhances performance in tasks like 
+node classification, link prediction, and recommendation systems.

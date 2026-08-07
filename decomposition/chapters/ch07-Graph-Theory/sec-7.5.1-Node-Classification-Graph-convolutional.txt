@@ -1,0 +1,1363 @@
+7.5.1  Node Classification
+Graph convolutional networks (GCNs) effectively predict labels for nodes within a graph by lever-
+aging both the features of each node and the attributes of its neighbors, a task known as node classi-
+fication. This application is crucial across many domains, offering valuable insights and enhancing 
+predictive capabilities. For example, in social networks, GCNs can categorize users based on 
+behavior and connections, distinguishing between influencers, regular users, or potential spammers 
+and predicting user interests for personalized recommendations and targeted advertising. The clas-
+sification process involves aggregating features from a node’s neighbors and combining them with 
+its own features to capture the local structure and context within the graph. Through multiple layers 
+of convolution, GCNs learn meaningful representations of nodes that encode both their attributes 
+and relational context. These representations are then used by a classifier to predict the label or 
+category of each node. Imagine a small social network where we want to classify users into two 
+categories: “Regular Users” or “Influencers” based on their connections and attributes. Assume, we 
+have a graph with five nodes representing users: Node A, Node B, Node C, Node D, and Node E. 
+The connections (edges) are as follows:
+	•
+Node A is connected to Node B and Node C.
+	•
+Node B is connected to Node A, Node C, and Node D.
+	•
+Node C is connected to Node A, Node B, and Node E.
+	•
+Node D is connected to Node B.
+	•
+Node E is connected to Node C.
+The adjacency list is as follows: N(A) =​ {B, C}, N(B) =​ {A, C, D}, N(C) =​ {A, B, E}, N(D) =​ {B}, 
+and N(E) =​ {C}. Each node has a two-​dimensional feature vector representing user attributes (e.g., 
+activity level and content quality):
+	•
+hA
+0
+0 9 0 1
+( ) = [
+]
+. , . (high activity and low content quality)
+	•
+hB
+0
+0 8 0 2
+( ) = [
+]
+. , .
+
+--- PDF PAGE 227 ---
+214
+Mathematical Foundations for Deep Learning
+FIGURE 7.3  (a) Undirected graph, (b) directed graph, (c) weighted graph, (d) information propagation, (e) community detection, and (f) influential nodes.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 228 ---
+215
+Graph Theory
+	•
+hC
+0
+0 3 0 7
+( ) = [
+]
+. , .
+ 
+	•
+hD
+0
+0 2 0 8
+( ) = [
+]
+. , . 
+	•
+hE
+0
+0 1 0 9
+( ) = [
+]
+. , .
+ (low activity and high content quality).
+Node labels are as follows:
+	•
+Labeled Nodes: Node A: Regular user (Label 0) and Node D: Influencer (Label 1)
+	•
+Unlabeled Nodes: Node B:?, Node C:?, Node E:?.
+Our goal is to predict the labels for Nodes B, C, and E. GCN layer equation is as follows:
+	
+H
+D
+AD
+H
+W
+k
+k
+k
++
+(
+)
+−
+−
+( )
+( )
+= (
+)
+1
+1 2
+1 2
+σ 
+
+/
+/
+	
+where:
+	•
+H(k): Node features at layer k,
+	•
+A
+A
+I
+=
++ : Adjacency matrix with self-​loops (I is the identity matrix),
+	•
+D: Diagonal node degree matrix of A,
+	•
+W(k): Weight matrix at layer k,
+	•
+σ: Activation function (e.g., ReLU).
+We’ll perform one GCN layer (k =​ 0 to k =​ 1) and use ReLU as the activation function: σ(x) =​ max(0,x). 
+For simplicity, we will use the mean aggregation instead of normalized adjacency and the same 
+weight matrix W for all nodes. Here are the step-​by-​step computations:
+1.	 Build the Adjacency Matrix with Self-​Loops: The adjacency matrix (A) is:
+	
+A =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0
+1
+1
+0
+0
+1
+0
+1
+1
+0
+1
+1
+0
+0
+1
+0
+1
+0
+0
+0
+0
+0
+1
+0
+0
+	
+A is Adjacency matrix (without self-​loops) and With self-​loops added (Ã =​ A +​ I):
+	
+A
+A
+I
+=
++
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+1
+1
+0
+0
+1
+1
+1
+1
+0
+1
+1
+1
+0
+1
+0
+1
+0
+1
+0
+0
+0
+1
+0
+1
+	
+2.	 Compute Degree Matrix: Calculate the degree (number of connections) for each node, 
+including self-​loops.
+	•
+Node A: Degree =​ 1 (self-​loop) +​ 2 (B and C) =​ 3,
+	•
+Node B: Degree =​ 1 (self-​loop) +​ 3 (A, C, D) =​ 4,
+	•
+Node C: Degree =​ 1 (self-​loop) +​ 3 (A, B, E) =​ 4,
+	•
+Node D: Degree =​ 1 (self-​loop) +​ 1 (B) =​ 2,
+	•
+Node E: Degree =​ 1 (self-​loop) +​ 1(C) =​ 2.
+
+--- PDF PAGE 229 ---
+216
+Mathematical Foundations for Deep Learning
+Degree matrix ( D) is as follows:
+	
+	
+D =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3
+0
+0
+0
+0
+0
+4
+0
+0
+0
+0
+0
+4
+0
+0
+0
+0
+0
+2
+0
+0
+0
+0
+0
+2
+	
+(3)	 Compute Normalized Adjacency Matrix: Using mean aggregation (simplified here), we’ll 
+divide each row of A by the degree of the node. The normalized adjacency matrix ˆA is:
+	
+ˆA
+A
+D
+ij
+ij
+ii
+=
+
+	
+Compute each element:
+	•
+For Node A (Row 1): ˆ
+,
+AA A = 1
+3, ˆ
+,
+AA B = 1
+3, and ˆ
+,
+AA C = 1
+3.
+	•
+For Node B (Row 2): ˆ
+,
+AB A = 1
+4, ˆ
+,
+AB B = 1
+4, ˆ
+,
+AB C = 1
+4, and ˆ
+,
+AB D = 1
+4.
+Continue similarly for other nodes. For shortness, we’ll represent ˆAas a matrix:
+	
+ˆA =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+3
+1
+3
+1
+3
+0
+0
+1
+4
+1
+4
+1
+4
+1
+4
+0
+1
+4
+1
+4
+1
+4
+0
+1
+4
+0
+1
+2
+0
+1
+2
+0
+0
+0
+1
+2
+0
+1
+2
+
+
+
+
+
+
+
+
+
+
+
+
+	
+4.	 Define Weight Matrix: Assume a weight matrix W for transforming features:
+	
+W = 
+
+
+
+0 5
+0 1
+0 3
+0 7
+.
+.
+.
+.
+	
+As our initial features are two-​dimensional and we aim to obtain two-​dimensional outputs, 
+W should be a 2 × 2 matrix.
+5.	 Compute Updated Node Features: Compute H
+AH
+W
+1
+0
+( )
+( )
+= (
+)
+σ ˆ
+. Let’s compute this step by 
+step for each node. Compute the product H
+W
+0( )
+ for each node:
+	•
+For Node A: h W
+A
+0
+0 9 0 1
+0 5
+0 1
+0 3
+0 7
+0 9 0 5
+0 1 0 3
+0
+( )
+= [
+]
+
+
+
+= (
+)(
+)+(
+)(
+)
+. , .
+.
+.
+.
+.
+.
+.
+.
+.
+,
+.
+.
+.
+.
+.
+, .
+9 0 1
+0 1 0 7
+0 48 0 16
+(
+)(
+)+(
+)(
+) =] [
+
+
+.
+
+--- PDF PAGE 230 ---
+217
+Graph Theory
+	•
+For Node B: h W
+W
+B
+0
+0 8 0 2
+0 44 0 22
+( )
+=
+=
+]
+[
+
+
+. , .
+.
+, .
+.
+	•
+For Node C: h W
+W
+C
+0
+0 3 0 7
+0 36 0 52
+( )
+=
+=
+[ . ,
+. ]
+[ .
+,
+.
+]
+ 
+ 
+.
+	•
+For Node D: h W
+W
+D
+0
+0 2 0 8
+0 34 0 58
+( )
+=
+=
+]
+[
+
+
+. , .
+.
+, .
+.
+	•
+For Node E: h W
+W
+E
+0
+0 1 0 9
+0 32 0 64
+( )
+=
+=
+[ . , . ]
+[ .
+, .
+] .
+Assemble H
+W
+0( )
+ matrix:
+	
+H
+W
+0
+0 48
+0 16
+0 44
+0 22
+0 36
+0 52
+0 34
+0 58
+0 32
+0 64
+( )
+=
+
+
+
+
+
+
+
+
+
+
+
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+
+
+
+
+
+
+
+	
+Compute ˆAH
+W
+0( )
+: Compute the weighted sum of neighbor features for each node. For 
+Node A:
+	
+h
+A
+h W
+A
+j N A
+A
+A j
+j
+1
+0
+( )
+∈( )∪{ }
+( )
+=
+⋅
+
+
+
+
+∑
+σ
+ˆ
+,
+	
+Compute the contributions:
+	•
+Self-​loop contribution: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+A A
+A
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+3
+0 48 0 16
+0 16 0 053 .
+	•
+From Node B: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+A B
+B
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+3
+0 44 0 22
+0 147 0 073 .
+	•
+From Node C: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+A C
+C
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+3
+0 36 0 52
+0 12 0 173 .
+Sum them up:
+	
+hA
+1
+0 16 0 053
+0 147 0 073
+0 12 0 173
+0 427
+( ) =
++
+]
+[
++
+]
+[
+
+
+(
+)
+=
+σ
+σ
+.
+, .
+.
+, .
+.
+, .
+.
+, 0 299
+0 427 0 299
+.
+.
+, .
+[
+]
+(
+) = [
+]
+	
+For Node B, the contributions are:
+	•
+Self-​loop: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+B B
+B
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+4
+0 44 0 22
+0 11 0 055 .
+	•
+From Node A: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+B A
+A
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+4
+0 48 0 16
+0 12 0 04 .
+	•
+From Node C: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+B C
+C
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+4
+0 36 0 52
+0 09 0 13 .
+	•
+From Node D: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+B D
+D
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+4
+0 34 0 58
+0 085 0 145 .
+
+--- PDF PAGE 231 ---
+218
+Mathematical Foundations for Deep Learning
+Sum them up:
+hB
+1
+0 11 0 055
+0 12 0 04
+0 09 0 13
+0 085 0 145
+( ) =
++
+] [
++
+] [
++
+] [
+
+
+σ
+.
+, .
+.
+, .
+.
+, .
+.
+, .
+
+(
+)
+=
+[
+]
+(
+) = [
+]
+σ 0 405 0 37
+0 405 0 37
+.
+, .
+.
+, .
+For Node C, the contributions are:
+	•
+Self-​loop: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+C C
+C
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+4
+0 36 0 52
+0 09 0 13 .
+	•
+From Node A: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+C A
+A
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+4
+0 48 0 16
+0 12 0 04 .
+	•
+From Node B: ˆ
+.
+, .
+,
+A
+h W
+C B
+B
+⋅
+= [
+]
+( )
+0
+0 11 0 055 .
+	•
+From Node E: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+C E
+E
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+4
+0 32 0 64
+0 08 0 16 .
+Sum them up:
+hC
+1
+0 09 0 13
+0 12 0 04
+0 11 0 055
+0 08 0 16
+( ) =
++] [
++] [
++] [
+
+
+(
+σ
+.
+, .
+.
+, .
+.
+, .
+.
+, .
+)
+=
+[
+]
+(
+) = [
+]
+σ 0 4 0 385
+0 4 0 385
+. , .
+. , .
+For Node D, the contributions are:
+	•
+Self-​loop: A
+h W
+D D
+D
+
+,
+.
+, .
+.
+, .
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+2
+0 34 0 58
+0 17 0 29 .
+	•
+From Node B: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+D B
+B
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+2
+0 44 0 22
+0 22 0 11 .
+Sum them up:
+	
+hD
+1
+0 17 0 29
+0 22 0 11
+0 39 0 4
+0 39 0 4
+( ) =
++] [
+
+
+(
+) =
+[
+]
+(
+) = [
+σ
+σ
+.
+, .
+.
+, .
+.
+, .
+.
+, . ]	
+For Node E, the contributions are:
+	•
+Self-​loop: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+E E
+E
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+2
+0 32 0 64
+0 16 0 32 .
+	•
+From Node C: ˆ
+.
+, .
+.
+, .
+,
+A
+h W
+E C
+C
+⋅
+=
+⋅
+=] [
+
+
+( )
+0
+1
+2
+0 36 0 52
+0 18 0 26 .
+Sum them up:
+	
+hE
+1
+0 16 0 32
+0 18 0 26
+0 34 0 58
+0 34
+( ) =
++] [
+
+
+(
+) =
+[
+]
+(
+) =
+σ
+σ
+.
+, .
+.
+, .
+.
+, .
+.
+, 0 58
+.
+[
+]	
+6.	 Classification: Now, we’ll use the updated node features H(1) to classify the unlabeled nodes. 
+We’ll use a simple linear classifier:
+Logits
+c
+=
+( )
+H W
+1
+, where Wc is a weight matrix mapping node features to class scores.
+
+--- PDF PAGE 232 ---
+219
+Graph Theory
+Assume:
+	
+Wc =
+−
+−
+
+
+
+
+1 0
+1 0
+1 0
+1 0
+.
+.
+.
+.
+	
+This is a simple weight matrix for illustrative purposes. Compute logits for each node.
+	•
+Node B: LogitsB
+B
+c
+h W
+=
+= [
+]
+−
+−
+
+
+
+=
+(
+)
+( )1
+0 405 0 37
+1 0
+1 0
+1 0
+1 0
+0 405
+.
+, .
+.
+.
+.
+.
+.
+1 0
+0 37
+1 0
+0 405
+1 0
+0 37 1 0
+0 035
+0 0
+.
+.
+.
+,
+.
+.
+.
+.
+.
+,
+.
+(
+)+(
+) −
+(
+) (
+) −
+(
+)+(
+)(
+) =] [
+−
+35
+
+
+.
+	•
+Node C: LogitsC
+C
+c
+c
+h W
+W
+=
+= [
+]
+=
+−
+[
+]
+( )1
+0 4 0 385
+0 015
+0 015
+. , .
+.
+,
+.
+.
+	•
+Node E: LogitsE
+E
+c
+c
+h W
+W
+=
+= [
+]
+= −[
+]
+( )1
+0 34 0 58
+0 24 0 24
+.
+, .
+.
+, .
+.
+Apply SoftMax to get probabilities:
+	
+Softmax z
+e
+e
+i
+z
+j
+z
+i
+j
+( ) = ∑
+	
+Compute for Node B:
+	•
+z =​ [0.035, −0.035].
+	•
+Exponentials: e0.035 ≈ 1.0357, e−0.035 ≈ 0.9658.
+	•
+Sum: 1.0357 +​ 0.9658 =​ 2.0015.
+	•
+Probabilities: Class 0 (regular user): 1 0357
+2 0015
+0 5178
+.
+.
+.
+≈
+, Class 1 (Influencer): 
+0 9658
+2 0015
+0 4822
+.
+.
+.
+≈
+.
+Similarly, compute for Nodes C and E. For Node C, the probabilities are similar to Node B 
+due to close logits. These probabilities will be around 0.5075 for Class 0 and 0.4925 for class 
+1. The Node E probabilities are:
+	•
+z =​ [−0.24, 0.24]
+	•
+Exponentials: e−0.24 ≈ 0.7866, e0.24 ≈ 1.2712
+	•
+Sum: 0.7866 +​ 1.2712 =​ 2.0578
+The probability of class 0 is 0 7866
+2 0578
+0 3823
+.
+.
+.
+≈
+ 0 and that of class 1 is 1 2712
+2 0578
+0 6177
+.
+.
+.
+≈
+.
+Assign predicted labels:
+	•
+Node B: Class 0 (regular user) with probability ~51.78%
+	•
+Node C: Class 0 (regular user) with probability ~50.75%
+	•
+Node E: Class 1 (influencer) with probability ~61.77%
+Here, Node B and Node C are predicted to be regular users, which aligns with their 
+connections to Node A, a regular user. Node E is predicted to be an influencer due 
+to its strong feature vector, which reflects high content quality, and its connection to 
+Node C.
+
+--- PDF PAGE 233 ---
+220
+Mathematical Foundations for Deep Learning

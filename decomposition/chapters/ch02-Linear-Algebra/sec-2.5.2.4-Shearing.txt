@@ -1,0 +1,22 @@
+2.5.2.4  Shearing
+Shearing involves “sliding” vectors along a fixed line or plane. A shear transformation can be 
+represented by:
+	
+A
+k
+shear = 
+
+
+
+1
+0
+1 ,	
+where k is the shear factor.
+Figure 2.12 visualizes various linear transformations applied to an original vector. The ori­
+ginal vector, shown in blue, represents the vector before any transformation. The scaled vector, 
+depicted in red, is the result of scaling the vector by different factors along the x and y directions, 
+which stretches or shrinks the vector. The rotated vector, shown in green, demonstrates the effect of 
+rotating the vector by 45° around the origin. The reflected vector, represented in magenta, illustrates 
+the transformation of reflecting the vector across the x-​axis, flipping it over the x-​axis. Lastly, the 
+sheared vector, shown in yellow, represents the vector after being sheared along the x-​direction, 
+sliding the vector along the x-​axis while changing its shape without altering its area.

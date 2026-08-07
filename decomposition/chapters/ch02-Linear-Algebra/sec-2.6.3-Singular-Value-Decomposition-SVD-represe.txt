@@ -1,0 +1,122 @@
+2.6.3  Singular Value Decomposition
+SVD represents a matrix as the product of three matrices: an orthogonal matrix U, a diagonal matrix 
+∑, and the transpose of an orthogonal matrix VT
+Example: If the matrix A in the image is something like this:
+	
+A =
+
+
+
+
+
+
+
+
+1
+0
+0
+0
+4
+0
+0
+0
+0
+.	
+Its SVD would be: A
+U V
+=
+Σ
+,
+where
+	•
+A is the original matrix,
+	•
+U is an orthogonal matrix (with orthonormal columns),
+	•
+Σ is a diagonal matrix containing the singular values of A,
+	• V is the transpose of an orthogonal matrix V,
+
+--- PDF PAGE 63 ---
+50
+Mathematical Foundations for Deep Learning
+where
+	
+U
+V
+=
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+0
+1
+0
+1
+0
+0
+0
+0
+1
+4
+0
+0
+0
+1
+0
+0
+0
+0
+0
+1
+0
+1
+0
+0
+0
+0
+1
+,
+,
+Σ
+
+
+.	
+Each decomposition technique has specific applications and provides unique insights into the matrix 
+structure. LU decomposition is particularly useful for solving systems of linear equations, QR 
+decomposition is widely used in numerical linear algebra for solving most minor squares problems, 
+and SVD is fundamental in applications like principal component analysis (PCA), data compres-
+sion, and signal processing.
+In Figure 2.14, the results of three different matrix decompositions (LU, QR, and SVD) are 
+visualized. For the LU decomposition, the L matrix shows the lower triangular matrix obtained from 
+the decomposition of matrix A, featuring non-​zero elements below the main diagonal and zeros above 
+it. The U matrix displays the upper triangular matrix, which has non-​zero elements on and above the 
+main diagonal, with zeros below it. The third heatmap shows the reconstructed matrix A obtained 
+by multiplying the L and U matrices, confirming the accuracy of the decomposition. For the QR 
+decomposition, the Q matrix is an orthogonal matrix with orthonormal columns, obtained from the 
+decomposition of matrix A. The R matrix is an upper triangular matrix with non-​zero elements on and 
+above the main diagonal and zeros below it. The reconstructed matrix A, shown in the third heatmap, 
+is obtained by multiplying the Q and R matrices, demonstrating the correctness of the QR decompos-
+ition. Finally, for the SVD, the U matrix represents the left singular vectors of matrix A, forming an 
+orthogonal matrix. The Sigma matrix is a diagonal matrix of singular values, which are non-​negative 
+and sorted in descending order. The last heatmap shows the reconstructed matrix A, obtained by multi-
+plying the U, Sigma, and Vt (transpose of V) matrices, validating the SVD process.

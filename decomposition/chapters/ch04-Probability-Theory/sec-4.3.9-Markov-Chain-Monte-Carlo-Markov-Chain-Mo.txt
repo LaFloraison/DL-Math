@@ -1,0 +1,67 @@
+4.3.9  Markov Chain Monte Carlo
+Markov Chain Monte Carlo (MCMC) constructs a Markov chain that reaches the desired distribution 
+as its balance. This approach is widely used for sampling from complex probability distributions.
+
+--- PDF PAGE 120 ---
+107
+Probability Theory and Statistics
+Key algorithms within MCMC include Metropolis–​Hastings, Gibbs sampling, and Hamiltonian 
+Monte Carlo, each offering different strategies for constructing and navigating the Markov chain 
+to efficiently explore the sample space and achieve accurate results. In Metropolis–​Hastings, the 
+acceptance probability for moving from the current state x to a proposed state x′ is:
+	
+α x
+x
+p x
+q x x
+p x q x
+x
+→
+(
+) =
+( ) (
+)
+( ) (
+)
+
+
+
+
+′
+′
+′
+′
+min
+,
+|
+1
+|
+	
+where:
+	•
+p(x) is the target distribution,
+	•
+q(x′ | x) is the proposal distribution for transitioning between states.
+Suppose you want to estimate the posterior distribution of a parameter in a Bayesian model. Using 
+MCMC, specifically the Metropolis–​Hastings algorithm, you generate a Markov chain of 100,000 
+samples. The first 10,000 samples are discarded as burn-​in to ensure the chain has reached equilib-
+rium, and the remaining 90,000 samples represent the parameter’s posterior distribution.
+Figure 4.4 demonstrates the results of a Metropolis–​Hastings MCMC simulation targeting a 
+standard normal distribution. It illustrates the dynamics of the MCMC algorithm and its ability to 
+sample from complex probability distributions. Here, the trace plot illustrates the progression of 
+sampled values over 1,000 iterations. The blue line represents the MCMC chain, showing how the 
+sampled values evolve as the algorithm explores the distribution. A vertical red dashed line marks 
+the end of the burn-​in period at iteration 200, after which the samples are considered to have reached 
+a stable distribution. An annotation highlights the burn-​in period, emphasizing its importance in 
+allowing the chain to converge toward the target distribution before collecting samples for analysis.
+Figure 4.5 displays the posterior distribution of the samples collected after the burn-​in period. 
+The green histogram depicts the density of the sampled values, providing a visual approximation of 
+the target distribution based on the MCMC samples. Overlaid on the histogram is a black dashed line 
+representing the true standard normal distribution. The close alignment between the histogram and 
+the target distribution indicates that the MCMC sampler has effectively approximated the standard 
+normal distribution through the sampling process.
+FIGURE 4.4  MCMC trace plot: convergence to target distribution.
+
+--- PDF PAGE 121 ---
+108
+Mathematical Foundations for Deep Learning

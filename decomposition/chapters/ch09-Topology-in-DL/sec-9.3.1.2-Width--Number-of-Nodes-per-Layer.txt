@@ -1,0 +1,47 @@
+9.3.1.2  Width (Number of Nodes per Layer)
+The width of a layer in a neural network refers to how many nodes or neurons are in that layer. The 
+width affects how well the network can learn from data and recognize complex patterns. Making 
+the network wider can sometimes mean you don’t need to make it deeper, but it also brings its own 
+challenges. One of the main benefits of having wider neural networks is that they have a better ability 
+to learn. Wider layers have more parameters, which allows the network to learn more features and 
+handle more complicated tasks. This increased capacity can help the network fit the training data 
+better. Sometimes, a wider network can perform just as well as a deeper one while being simpler 
+in design. Another advantage of wider layers is that they enable the model to learn a more diverse 
+set of features from the data. This variety helps the model work better with different types of data, 
+especially complex datasets, and can improve performance without needing to add more layers. 
+However, there are also challenges when increasing the width of neural networks. One major issue 
+is overfitting. Wider layers can make the network too complex, causing it to memorize the training 
+data instead of learning to work well with new, unseen data. This can lead to poor performance 
+when the network is tested with real-​world data. Making the network wider also means there are 
+more parameters, which requires more computing power and longer training times. This can slow 
+down the training process and may need stronger hardware like GPUs or TPUs. Additionally, more 
+parameters use more memory, which can be a problem for very wide networks. Lastly, there comes 
+a point where making the network wider won’t significantly improve its performance. Adding more 
+nodes might not make the network more accurate or effective. It’s important to balance the width 
+of the network with how efficiently it uses resources. Finding the right design is often better than 
+simply adding more nodes. For example, imagine a neural network that classifies images into 10 
+categories, such as handwritten digits from 0 to 9. In this case, adjusting the width of the network 
+can help it learn to recognize the different digits more effectively without necessarily making the 
+network deeper. Let’s look at two different situations: In the first situation, called a narrow network, 
+the hidden layer has 50 nodes. If the input layer has 784 nodes, which represent a 28 by 28 image, 
+then the number of connections between the input layer and the hidden layer is 784 multiplied by 50.
+
+--- PDF PAGE 287 ---
+274
+Mathematical Foundations for Deep Learning
+FIGURE 9.2  Hierarchical feature learning across network depths, (a) initial layers, (b) intermediate layers, (c) deep layers.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 288 ---
+275
+Topology in Deep Learning
+This equals 39,200 connections. In the second situation, called a wide network, the hidden layer has 
+500 nodes instead of 50. With the same input layer of 784 nodes, the number of connections between 
+the input and hidden layers becomes 784 multiplied by 500, which is 392,000 connections. In this 
+example, the wider network has ten times more connections than the narrow network. This larger 
+number of connections allows the network to recognize more detailed and complex patterns in the 
+training data. However, having so many connections also increases the chance that the network will 
+overfit. Overfitting happens when the network learns the training data too well, including any noise 
+or specific details, which makes it perform poorly when it encounters new, unseen data.

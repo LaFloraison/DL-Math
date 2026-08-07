@@ -1,0 +1,107 @@
+2.2.3.6  Batch Processing
+Learning models, particularly in machine learning and deep learning, often process data in batches 
+to accelerate training and make more efficient use of computational resources. When handling a 
+batch of data, each input, activation, gradient, and other intermediate values are represented as 
+matrices or higher-​dimensional tensors. This extends the concept of single input vectors to multiple 
+dimensions, allowing the model to process multiple examples simultaneously. By doing so, the 
+model can leverage efficient computation and parallel processing, speeding up training and making 
+better use of available hardware, such as GPUs. Suppose we are training an NN with a batch size 
+of 3, and each input is a vector of 4 features. Instead of processing each input separately, the model 
+processes the batch as a whole by organizing the data into a matrix:
+	
+X =
+
+
+
+
+
+
+
+
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+1 1
+1 2
+1 3
+1 4
+2 1
+2 2
+2 3
+2 4
+3 1
+3 2
+3 3
+3 4
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+1 0
+2 0
+3 0
+4 0
+5 0
+6 0
+7 0
+8 0
+9 0
+10 0
+11 0
+12 0
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+	
+Here, each row represents a single input vector, and the network processes all three input vectors in 
+parallel. The same applies to activations and gradients, which are now computed for the entire batch 
+in one step, making the training process much faster compared to handling one input at a time. In
+
+--- PDF PAGE 38 ---
+25
+Linear Algebra
+addition to speeding up training, batch processing helps stabilize learning by averaging gradients 
+across multiple examples, which reduces the noise in parameter updates. This is particularly useful 
+in stochastic gradient descent (SGD), where updating the model based on a single example can lead 
+to noisy and inefficient convergence.

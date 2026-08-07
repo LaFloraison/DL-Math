@@ -1,0 +1,7 @@
+2.5.1  Matrix Representation of Linear Transformations
+A matrix can represent every linear transformation. Given a vector space V and a basis for that 
+space, a linear transformation can be associated with a matrix A. When you multiply this matrix 
+by a column vector (representing a point in space), you get a new column vector representing the 
+transformed point. When you have a linear transformation defined by a matrix and want to apply this 
+transformation to a vector V, you perform the matrix–​vector multiplication to obtain the transformed 
+vector.

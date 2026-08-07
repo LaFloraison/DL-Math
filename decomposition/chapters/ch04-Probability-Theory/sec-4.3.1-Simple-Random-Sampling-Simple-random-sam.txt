@@ -1,0 +1,34 @@
+4.3.1  Simple Random Sampling
+Simple random sampling (SRS) is a sampling method where each member of the population has 
+an equal chance of being selected, ensuring no selection bias. This method is straightforward and 
+easy to implement, making it a popular choice for many studies. However, its simplicity can be a 
+drawback when dealing with heterogeneous populations, as it may not be efficient in such cases 
+and could lead to the underrepresentation of certain subgroups. Suppose you have a population of 
+1,000 people, and you want to select a sample of 100 individuals. Using SRS, each person has a 
+1 in 10 chance of being selected, ensuring that everyone has an equal probability of inclusion in 
+the sample. The probability of selecting any individual in SRS from a population N with a sample 
+size n is:
+	
+P
+n
+N
+selection
+(
+) =
+	
+FIGURE 4.3  Bayesian ridge regression with uncertainty.
+
+--- PDF PAGE 117 ---
+104
+Mathematical Foundations for Deep Learning
+If N =​ 1000 and n =​ 100, the probability of selecting any individual is:
+	
+P selection
+(
+) =
+=
+100
+1 000
+0 1
+,
+.

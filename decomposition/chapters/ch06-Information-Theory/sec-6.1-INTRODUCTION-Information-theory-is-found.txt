@@ -1,0 +1,9 @@
+6.1  INTRODUCTION
+Information theory is foundational in various areas, including communication, data compression, 
+cryptography, etc. Information is paramount in our rapidly evolving technological landscape, 
+bridging the gap between abstract thought and tangible computation. It defines how we communi-
+cate, store, and process data. The theory’s ability to measure uncertainty, optimize data encoding, 
+and ensure reliable communication even in noisy environments underpins today’s digital infrastruc-
+ture. As we delve into this subject, you will be introduced to foundational concepts such as entropy, 
+which quantifies the unpredictability of information content, and mutual information, which reveals 
+the shared knowledge between variables.

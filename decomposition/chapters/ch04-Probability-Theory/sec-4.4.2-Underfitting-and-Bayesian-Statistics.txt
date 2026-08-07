@@ -1,0 +1,49 @@
+4.4.2  Underfitting and Bayesian Statistics
+Underfitting in statistical modeling occurs when a model is too simplistic, failing to capture the data’s 
+complexities or underlying distribution. Bayesian statistics offer robust tools to tackle underfitting, 
+enhancing model complexity appropriately without overcomplicating the model. Bayesian statistics 
+allow for constructing hierarchical models, which is particularly useful for managing model 
+complexity. One model’s parameters can be modeled in hierarchical models, creating layers of 
+parameters, each with its priors. By allowing parameters to vary across groups or contexts within a 
+structured framework, hierarchical models can introduce complexity dynamically, adapting to the 
+data’s structure. This helps capture underlying patterns without needing an overly complex global 
+model that could lead to overfitting. Hierarchical modeling facilitates borrowing strength across 
+groups, improving estimation accuracy, especially in cases where data for certain groups might be 
+sparse. One common reason for underfitting is overly restrictive priors that must adequately reflect 
+the data’s reality or variability. Bayesian statistics provide:
+1.	 Adaptability: The flexibility to adjust and choose priors based on updated knowledge or new 
+data. If initial assumptions lead to underfitting, priors can be revised to be less informative 
+or adjusted to capture the data’s distribution better.
+2.	 Incorporation of Expert Knowledge: Bayesian methods allow the integration of expert 
+knowledge through the selection of priors, which can be particularly beneficial in fields 
+where prior research or domain expertise can inform model parameters.
+Figure 4.10 illustrates the differences between an underfitted model, and a Bayesian model 
+applied to a synthetic dataset. The orange line represents the underfitted model, a low-​degree poly-
+nomial that is too simplistic to capture the true underlying function of the data (dashed green line). 
+This model fails to represent the complexity of the data, leading to poor performance. In contrast, 
+the blue lines represent samples from a Bayesian model, which introduces uncertainty around the 
+mean prediction (solid blue line) by incorporating priors. This allows the model to balance com-
+plexity and uncertainty, improving its ability to generalize to new data. The true underlying function 
+is shown by the dashed green line, and the observed noisy data points are plotted in gray. Figure 4.10 
+demonstrates how Bayesian regularization can avoid the issues of underfitting by dynamically 
+adjusting model complexity to better capture the underlying patterns in the data.
+
+--- PDF PAGE 129 ---
+116
+Mathematical Foundations for Deep Learning
+FIGURE 4.9  Comparison of overfitting vs. Bayesian regularization.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 130 ---
+117
+Probability Theory and Statistics
+FIGURE 4.10  Comparison of underfitting and Bayesian regularization.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 131 ---
+118
+Mathematical Foundations for Deep Learning

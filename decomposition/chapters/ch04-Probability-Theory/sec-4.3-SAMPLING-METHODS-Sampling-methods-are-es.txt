@@ -1,0 +1,6 @@
+4.3  SAMPLING METHODS
+Sampling methods are essential in statistics, especially in fields like Bayesian statistics, where 
+they approximate distributions that are otherwise too complex or costly to compute directly. These 
+methods are vital in various applications, including surveys and statistical model fitting, particularly 
+in scenarios involving large or inaccessible full datasets due to constraints such as time, cost, or 
+accessibility.

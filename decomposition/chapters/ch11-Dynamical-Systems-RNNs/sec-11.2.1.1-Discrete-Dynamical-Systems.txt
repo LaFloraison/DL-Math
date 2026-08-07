@@ -1,0 +1,35 @@
+11.2.1.1  Discrete Dynamical Systems
+Not all changes occur continuously; some happen in a distinct, step-​wise fashion. In discrete dynam-
+ical systems, state changes are quantized and occur in well-​defined steps. A function, commonly 
+denoted as f, governs these steps. If we know the system’s state at a particular step n, we can apply f 
+to determine the state at the next step, n +​ 1. This type of system is particularly useful for modeling 
+processes that evolve in stages, such as population growth in generations or iterative algorithms in 
+computer science. Consider the discrete dynamical system represented by:
+	
+x
+f x
+n
+n
++ = ( )
+1
+
+--- PDF PAGE 335 ---
+322
+Mathematical Foundations for Deep Learning
+where xn is the state at step n, and f is the function defining the rule of evolution. This framework 
+allows for the analysis and prediction of future states based on the initial condition. Let us con-
+sider a simple population growth model with an initial population of 100 individuals. The growth 
+function, given as f(x) =​ 1.2x, indicates a 20% growth per generation. The population size in the next 
+generation can be calculated using this growth function. For example, starting with 100 individuals, 
+the population after the first generation would be 100 × 1.2 =​ 120. After the second generation, the 
+population would be 120 × 1.2 =​ 144, and so on, increasing by 20% with each generation. Let’s con-
+sider a simple population growth model. Here are the steps:
+1.	 Generation 0: x0 =​ 100
+2.	 Generation 1: x1 =​ 1.2 × 100 =​ 120
+3.	 Generation 2: x2 =​ 1.2 × 120 =​ 144
+4.	 Generation 3: x3 =​ 1.2 × 144 =​ 172.8
+5.	 Generation 4: x4 =​ 1.2 × 172.8 =​ 207.36
+6.	 Generation 5: x5 =​ 1.2 × 207.36 =​ 248.83
+After five generations, the population grows from 100 to approximately 249 individuals. This 
+example shows how discrete dynamical systems predict fut ure states through repeated application 
+of a growth function.

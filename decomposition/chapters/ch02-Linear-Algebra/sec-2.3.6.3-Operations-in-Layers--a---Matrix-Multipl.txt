@@ -1,0 +1,230 @@
+2.3.6.3  Operations in Layers
+(a)	 Matrix Multiplication: In fully connected (dense) layers of an NN, matrix multiplication 
+is the fundamental operation. The input data, represented as a matrix, is multiplied by the 
+weight matrix to produce the output, which is then shifted by adding the bias vector. This 
+operation transforms the input data and propagates it to the next layer. The matrix multi-
+plication allows the network to combine features from the input data based on the learned 
+weights. Suppose we have an input vector x =​ [1, 2], a weight matrix W = 
+
+
+
+0 5
+0 1
+0 3
+0 7
+.
+.
+.
+.
+, and a 
+bias vector b =​ [0.2, 0.3]. The output of this fully connected layer is computed as:
+	
+z
+W x
+b
+=
+⋅
++
+= 
+
+
+⋅
+
+
++ 
+
+
+=
+× +
+0 5
+0 1
+0 3
+0 7
+1
+2
+0 2
+0 3
+0 5 1
+0 1
+.
+.
+.
+.
+.
+.
+.
+. ×
+× +
+×
+
+
+
++ 
+
+
+= 
+
+
++ 
+
+
+
+2
+0 3 1
+0 7
+2
+0 2
+0 3
+0 7
+1 7
+0 2
+0 3
+.
+.
+.
+.
+.
+.
+.
+. = 
+
+
+
+0 9
+2 0
+.
+.
+	
+(b)	 Convolution: In convolutional layers, commonly used in CNNs, the input matrix (or tensor, 
+for color images) is convolved with a filter (or kernel) matrix to produce feature maps. The 
+filter slides across the input, and at each position, a dot product is computed between the 
+filter and the input patch. This operation allows CNNs to detect local patterns, such as edges 
+or textures, in the input data. Consider a 3 × 3 filter applied to a 4 × 4 input image:
+	
+I
+F
+=
+
+
+
+
+
+
+
+
+
+
+
+
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+
+
+1
+0
+2
+1
+0
+1
+0
+2
+1
+2
+1
+0
+0
+1
+0
+1
+1
+0
+1
+1
+0
+1
+1
+0
+1
+,
+
+--- PDF PAGE 46 ---
+33
+Linear Algebra
+The convolution operation slides the filter over the input, performing a dot product at each 
+position. For example, when the filter is applied to the top-​left corner (the first 3 × 3 patch), 
+the result is:
+	
+1 1
+0
+0
+2
+1
+0
+1
+1
+0
+0
+1
+1 1
+2
+0
+1
+1
+1
+×
+(
+)+
+×
+(
+)+
+× −
+(
+)+
+×
+(
+)+
+×
+(
+)+
+× −
+(
+)+
+×
+(
+)+
+×
+(
+)+
+× −
+(
+)
+= +
+−
++
++
++
++ +
+−= −
+0
+2
+0
+0
+0
+1
+0
+1
+1
+	
+Sliding the filter over the rest of the input produces a feature map that highlights specific patterns 
+in the image. This convolution process enables CNNs to focus on local features in the data and is 
+crucial for tasks like image recognition.

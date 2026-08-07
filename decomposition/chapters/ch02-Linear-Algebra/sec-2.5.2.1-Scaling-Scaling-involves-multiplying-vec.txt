@@ -1,0 +1,16 @@
+2.5.2.1  Scaling
+Scaling involves multiplying vectors by a scalar, stretching or shrinking them but not changing their 
+direction unless the scalar is negative. A vector can be scaled using a diagonal matrix where each 
+diagonal entry corresponds to a scaling factor along each dimension.
+
+--- PDF PAGE 56 ---
+43
+Linear Algebra
+FIGURE 2.11  Visual representation of key Tensor Operations in deep learning.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 57 ---
+44
+Mathematical Foundations for Deep Learning

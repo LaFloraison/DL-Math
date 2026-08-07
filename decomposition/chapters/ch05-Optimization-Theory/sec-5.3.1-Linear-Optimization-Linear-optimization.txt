@@ -1,0 +1,284 @@
+5.3.1  Linear Optimization
+Linear optimization, also known as linear programming, focuses on finding the best outcome, like 
+maximizing profit or minimizing cost, in models where all relationships are linear. The main com-
+ponent is the objective function that you want to optimize. For example, if you’re trying to maximize 
+profit from selling two products, A and B, the objective function could be written as P
+aA
+bB
+=
++
+, 
+where a and b represent the profit per unit of products A and B, respectively. In linear optimization, 
+FIGURE 5.1  Feasible region and constraints in linear programming.
+
+--- PDF PAGE 148 ---
+135
+Optimization Theory
+you have limits called constraints, which are expressed as linear equations or inequalities. Using 
+the example above, constraints might include limitations on available resources like raw materials 
+or labor, represented in linear terms. These constraints define the set of all feasible solutions that 
+meet the requirements. The optimal solution is the one that maximizes or minimizes the objective 
+function within this feasible set. In two-​dimensional cases, this optimal point is often found at a 
+vertex of the feasible polygon, the corner points of the area defined by the constraints. The sim-
+plex method is the most recognized technique for solving linear optimization problems, but other 
+methods, like interior point methods, are also effective, especially in specific situations. However, 
+linear optimization assumes that both the objective function and the constraints are linear, which 
+might not be true in more complex, real-​world scenarios. Nonetheless, some non-​linear problems 
+can be approximated as linear to make use of linear optimization methods, broadening their applic-
+ability. The general form of a linear optimization problem is:
+	
+Maximize or minimize Z
+c x
+c x
+c x
+n
+n
+=
++
++…+
+1
+1
+2
+2
+	
+Subject to:
+	
+a x
+a x
+a x
+b
+n
+n
+11
+1
+12
+2
+1
+1
++
++…+
+≤
+	
+	
+a x
+a x
+a x
+b
+n
+n
+21
+1
+22
+2
+2
+2
++
++…+
+≤
+	
+	
+x x
+xn
+1
+2
+0
+,
+,
+,
+…
+≥	
+Suppose a company produces two products, A and B, with profit margins of $3 per unit for product 
+A and $4 per unit for product B. The objective function for maximizing profit is:
+	
+Maximize P
+A
+B
+=
++
+3
+4 	
+Subject to the following constraints: A +​ 2B ≤ 14 (raw material constraint), 3A +​ B ≤ 18 (labor con-
+straint), and A, B ≥ 0.
+Figure 5.2 features two primary constraint lines: the light blue line represents the inequality 
+A
+B
++
+≤
+2
+14, while the blue line corresponds to A
+B
++
+≤18. These lines present the boundaries within 
+which the variables A and B must reside to satisfy both constraints simultaneously. The intersection 
+of these constraints forms the vertices of the feasible region, which is shaded to visually demarcate 
+the area where potential solutions lie. At the core of this feasible region is the optimal solution, 
+marked prominently with a large green point. This point, situated at approximately (4, 3), represents 
+the values of A and B which maximize the objective function P =​ 3A +​ 4B while adhering to the 
+defined constraints. Additionally, the red dashed line represents the objective function at its optimal 
+value, P =​ 24, illustrating the level curve of the objective function that intersects the feasible region 
+at the optimal point. This line serves as a visual cue, demonstrating how the objective function 
+interacts with the constraints to determine the optimal solution.
+5.3.2  Non-​linear Optimization
+Non-​linear optimization deals with situations where the objective function, the constraints, or both 
+involve non-​linear relationships. Unlike linear relationships, which are represented by straight lines 
+or flat surfaces, non-​linear interactions add complexity, making these problems more challenging 
+and more reflective of real-​world dynamics. This flexibility is crucial in many scientific and indus-
+trial applications because it models complex relationships. In non-​linear optimization, the objective 
+function includes non-​linear expressions of the decision variables. For example, consider the
+
+--- PDF PAGE 149 ---
+136
+Mathematical Foundations for Deep Learning
+function P
+A
+B
+AB
+=
++
+−
+2
+3
+3
+4
+, where the goal is to maximize or minimize P. This creates a dynamic 
+landscape of possible solutions, making the optimization process more complicated. Constraints can 
+also be non-​linear, such as A
+B
+2
+2
+9
++
+≤, which represents a circular boundary in a two-​dimensional 
+space for variables A and B. This geometric constraint shapes the feasible solution space into forms 
+that are not just flat or polyhedral. The solution techniques include:
+(a)	 Gradient-​Based Methods: These include gradient descent, Newton’s method, and quasi-​
+Newton methods, which utilize derivatives to guide the optimization process.
+(b)	 Direct Search Methods: For instance, the Nelder–​Mead method operates without derivative 
+information and is suitable for problems where derivatives are infeasible to calculate.
+(c)	 Evolutionary and Genetic Algorithms: Inspired by natural selection, these methods use 
+heuristic approaches to explore the solution space, which is especially useful in complex 
+landscapes.
+A general non-​linear optimization problem can be formulated as:
+	
+Maximize or minimize f x x
+xn
+1
+2
+,
+,
+,
+…
+(
+)	
+Subject to:
+	
+g
+x x
+x
+b
+g
+x x
+x
+b
+g
+x x
+x
+b
+n
+n
+m
+n
+m
+1
+1
+2
+1
+2
+1
+2
+2
+1
+2
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+…
+(
+) ≤
+…
+(
+) ≤
+…
+…
+(
+) ≤
+	
+FIGURE 5.2  Linear optimization: feasible region and objective function.
+
+--- PDF PAGE 150 ---
+137
+Optimization Theory
+In this case, f(x1, x2) represents the non-​linear objective function, and g(x1, x2) represents the non-​
+linear constraints, shaping the feasible region. Techniques like gradient descent would be used to find 
+optimal solutions. Suppose you aim to maximize the non-​linear objective function P A B
+A
+B
+,
+(
+) =
++
+2
+2, 
+subject to the non-​linear constraint A
+B
+2
+2
+9
++
+≤, which represents a circular boundary with a radius 
+of 3. The feasible solution space is the interior of this circle, and the maximum value of P occurs at 
+the boundary where P
+A
+B
+AB
+=
++
+−
+2
+3
+3
+4
+, producing a maximum value of P(3, 0)=​9.
+Figure 5.3 features a vibrant contour map of the objective function P
+A
+B
+AB
+=
++
+−
+2
+3
+3
+4
+, rendered 
+using the perceptually uniform colormap. Central to the visualization is the constraint A
+B
+2
+2
+9
++
+≤
+, depicted as a prominent dashed black circle with a radius of 3. This boundary defines the feasible 
+region in which optimization must occur. The area inside the circle, where both constraints are sat-
+isfied, is subtly highlighted with a semitransparent overlay of the same colormap, reinforcing the 
+feasible region’s significance without overwhelming the objective function’s contours. Additionally, 
+a specific point within the feasible region, such as (1, 1), is marked with a large red scatter point.

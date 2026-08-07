@@ -1,0 +1,78 @@
+3.5.1  Gradient Descent
+Gradient descent is an optimization algorithm that minimizes the loss function in neural networks. 
+The idea is simple, iteratively adjust each parameter in the opposite direction of its corresponding 
+gradient component, aiming to reduce the loss function. The update rule for gradient descent is:
+	
+θ
+θ
+η
+θ
+θ
+t
+t
+t
+J
++
+(
+)
+( )
+( )
+=
+−
+∇
+(
+)
+1
+
+--- PDF PAGE 86 ---
+73
+Multivariate Calculus
+where
+	•
+θ is the parameter vector,
+	•
+η is the learning rate,
+	•
+∇
+(
+)
+( )
+θ
+θ
+J
+t is the gradient of the loss function with respect to θ at iteration t.
+The variations differ in how much data is used to compute the gradient, affecting the speed and 
+efficiency of the optimization process. Suppose you are training a neural network with 100,000 
+parameters, and the goal is to minimize the loss function. The dataset contains 1,000 training 
+samples. Variations of gradient descent include:
+(a)	 Stochastic Gradient Descent (SGD): In this case, after processing each individual data 
+sample, the network updates its parameters. So, if you process the first sample, calculate the 
+loss, and compute the gradient, the parameters are updated immediately, and then you pro-
+ceed to the next sample. For example, if the current parameter value is θ(t) =​ 0.5, the learning 
+rate is η =​ 0.01, and the gradient for a particular parameter is ∇θ =​ 0.2, the update would be: 
+.
+.
+.
+.
+θ t+
+(
+) =
+−
+×
+=
+1
+0 5
+0 01
+0 2
+0 498.
+(b)	 Mini-​Batch Gradient Descent: In mini-​batch gradient descent, the model updates its 
+parameters after processing small, manageable batches of data. For example, if the batch 
+size is 32 samples, the model processes these 32 samples, computes the average gradient 
+for the batch, and updates the parameters accordingly. This approach balances the trade-​off 
+between the efficiency of SGD and the stability of batch gradient descent, leading to faster 
+convergence and smoother updates.
+(c)	 Batch Gradient Descent: In batch gradient descent, the model processes the entire dataset 
+(e.g., all 1,000 samples) before updating the parameters. After computing the gradient for 
+the entire dataset, the parameters are updated in one large step. This method provides a more 
+stable gradient estimate, but it is computationally expensive, especially for large datasets, as 
+it requires going through all data points before making an update.

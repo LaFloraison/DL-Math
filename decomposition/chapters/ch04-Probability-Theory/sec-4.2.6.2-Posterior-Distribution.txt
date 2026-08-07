@@ -1,0 +1,36 @@
+4.2.6.2  Posterior Distribution
+It represents the updated distribution of the model’s parameters after observing the data. The pos-
+terior distribution combines the prior beliefs with the likelihood of the observed data to give an 
+updated belief about the parameters. After observing the data, the posterior distribution of weights is:
+	
+P w
+P
+w P w
+P
+| data
+data|
+data
+(
+) =
+(
+) ( )
+(
+)
+	
+where:
+w are the weights,
+data is the observed data,
+P(data | w) is the likelihood of the data  the weights,
+P(w) is the prior distribution,
+P(data) is the evidence (normalizing constant).
+The posterior distribution adjusts the prior belief based on the data observed. The more data you 
+have, the more the posterior distribution reflects the influence of the data rather than the prior. After 
+observing data (e.g., historical house prices and the number of rooms), the BNN updates its belief 
+about the weight of the number of rooms. Now, instead of assuming a fixed value for this weight 
+(e.g., 0.5), the posterior distribution could be refined to something like N 0 55 0 052
+.
+, .
+(
+), which means 
+the model now believes the number of rooms has a slightly higher impact on price, but with reduced 
+uncertainty (variance of 0.0025).

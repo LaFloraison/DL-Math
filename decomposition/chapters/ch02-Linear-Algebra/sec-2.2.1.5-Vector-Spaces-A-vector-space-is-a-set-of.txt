@@ -1,0 +1,141 @@
+2.2.1.5  Vector Spaces
+A vector space is a set of vectors combined with two operations (vector addition and scalar multi-
+plication) that satisfy specific properties. The space itself can be in any dimension, and the vectors 
+do not necessarily have to be geometric; they can be functions, polynomials, or other mathematical 
+entities as long as they follow the defined rules of a vector space. A vector space V over a field F 
+(often the field of real numbers) must satisfy the following properties:
+FIGURE 2.7  Vector magnitude and direction.
+
+--- PDF PAGE 33 ---
+20
+Mathematical Foundations for Deep Learning
+(a)	 Vector Addition
+1.	 Commutativity: u
+v
+v
+u
+u v
++
+=
++
+∈
+forall
+,
+Vs
+2.	 Associativity:u
+v
+w)
+u
+v
+w
+u v,
++
++
+=
++
++
+∈
+(
+(
+)
+forall
+,
+w
+V
+3.	 Identity: There exists a vector
+such that v
+v forallv
+V
+0
+0
+∈
++
+=
+∈
+V
+4.	 Additive Inverse: For every
+thereexistsa vector
+such that
+v
+V
+v
+V
+v
+v
+∈
+−
+∈
++ −
+(
+) =
+,
+0
+(b)	 Scalar Multiplication
+1.	 Distributivity over Vector Addition:
+a
+a
+a
+a
+V
+u
+v
+u
+v
+u v
++
+(
+) =
++
+∈
+for allscalars and vectors ,
+2.	 Distributivity over Scalar Addition:
+a
+b
+a
+a
+a b
+V
++
+(
+)
+=
++
+∈
+u
+u
+v
+u
+for allscalars
+and vectors
+,
+ 
+3.	 Associativity: a b
+ab
+a b
+V
+u
+u
+u
+(
+) = (
+)
+∈
+for allscalars
+and vectors
+,
+4.	 Identity: 1⋅
+=
+∈
+v
+vfor all
+where1is the multiplicativeidentityin the f
+v
+V,
+ield F
+Figure 2.8 shows different operations on two vectors, v1 =​ (1, 2) and v2 =​ (2, 3), on a 2D plane. 
+The red vector represents v1, starting from the origin and pointing to (1, 2), while the blue vector 
+represents v2, pointing to (2, 3). The pink vector, 3 × v1 =​ (3, 6), is a scaled version of v1 by a 
+factor of 3, extending in the same direction but with three times the length. The green vector, v1 
++​ v2 =​ (3, 5), shows the result of adding v1 and v2 together, combining their directions to reach 
+the point (3, 5). Finally, the cyan vector, −v1 =​ (−1, −2), is v1 reversed in direction, pointing to 
+(−1, −2).

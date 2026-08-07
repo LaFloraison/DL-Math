@@ -1,0 +1,38 @@
+4.3.12  Resampling Methods
+Techniques like bootstrapping estimate properties of estimators by sampling from an approximating 
+distribution. These methods are commonly used to assess the variability or stability of statistical 
+models, providing insights into the accuracy and reliability of the model’s predictions by repeatedly 
+sampling with replacement from the dataset to create numerous simulated samples. For each boot-
+strap sample B, drawn with replacement from the original dataset D:
+	
+ˆ*
+θB =
+(
+)
+statistic resample 	
+The empirical distribution of ˆ*
+θ (e.g., the sample mean) across many resamples provides an esti-
+mate of the variability and confidence intervals for θ, the population parameter. Suppose you have a 
+dataset with 500 observations and want to estimate the mean of the population. Using bootstrapping, 
+you generate 1,000 resampled datasets by randomly selecting 500 observations with replacements 
+from the original dataset. For each of the 1,000 resamples, you calculate the mean, and the distri-
+bution of these means provides an estimate of the variability and confidence intervals for the popu-
+lation mean.
+Figure 4.6 illustrates three distinct sampling methods, SRS, stratified random sampling, and 
+cluster sampling, through a series of subplots, each providing a visual representation of how samples 
+are drawn from a population. In subplot Figure 4.6a, the SRS method is depicted, where 15 samples 
+are randomly selected from the entire population without replacement. The population data is 
+represented by light gray dots spread uniformly along the index axis, while the SRS samples are 
+highlighted with red dots edged in black, scattered randomly across the index range. Figure 4.6b 
+showcases stratified random sampling, where the population is divided into three distinct strata. 
+Each stratum is sampled separately, with five samples drawn randomly from each. The sampled data 
+points are colored differently, green, blue, and purple, to represent each stratum, and are also edged 
+in black for emphasis. In Figure 4.6c, cluster sampling is presented, where the population is divided 
+into five clusters, and two clusters (specifically clusters 2 and 5) are entirely selected for sampling. 
+The sampled clusters are depicted with orange and purple dots, again edged in black, and an anno-
+tation points to one of the sampled clusters to illustrate that entire groups, rather than individual 
+random samples, are included.
+4.3.13  Sampling Methods and Overfitting/​Underfitting
+Sampling methods are pivotal in how well a statistical model can learn and generalize from data. 
+Improper sampling can lead to overfitting and underfitting, each affecting model performance 
+significantly.

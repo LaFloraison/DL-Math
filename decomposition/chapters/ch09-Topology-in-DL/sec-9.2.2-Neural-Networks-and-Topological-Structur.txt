@@ -1,0 +1,13 @@
+9.2.2  Neural Networks and Topological Structure
+In deep learning, when we talk about the topology of a neural network, we mean its structure or 
+design. This includes how many nodes (or neurons) there are, how they are arranged into layers, 
+and how they are connected to each other. This “structure” acts like a plan that guides how the net-
+work works. However, comparing the topology of neural networks to mathematical topology is not 
+straightforward. In mathematics, topology is about properties that stay the same even when shapes 
+are stretched or bent. In deep learning, topology is more about the basic setup of the network, such 
+as the number of layers and how the neurons are linked. The “shape” of the network affects how 
+powerful it is, how it processes information, and the types of problems it can solve. There is also a 
+deeper link between them. The way you design the topology of a neural network can affect how well 
+it learns and how it can apply what it has learned to new situations. In some ways, the network’s 
+design and the way it learns work, like the rules in mathematical topology, deciding what parts can 
+change and what parts stay the same as the network learns from data.

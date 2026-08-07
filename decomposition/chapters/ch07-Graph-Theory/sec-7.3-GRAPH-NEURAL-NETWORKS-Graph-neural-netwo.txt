@@ -1,0 +1,399 @@
+7.3  GRAPH NEURAL NETWORKS
+Graph neural networks (GNNs) seamlessly blend classical graph algorithms with deep learning 
+techniques, showcasing neural networks’ incredible flexibility and adaptability. They represent a 
+promising future where diverse data types are naturally integrated into AI models. Unlike images or 
+sequences with structured formats, graph data is inherently irregular. GNNs rise to this challenge, 
+offering a class of neural networks designed explicitly for graph-​structured data. At the heart of 
+GNNs lies the principle of neighborhood aggregation, also known as message passing. Each node
+
+--- PDF PAGE 221 ---
+208
+Mathematical Foundations for Deep Learning
+FIGURE 7.1  (a) Undirected graph, (b) directed graph, and (c) ss weighted graph.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 222 ---
+209
+Graph Theory
+aggregates information from its immediate neighbors to update its representation in this process. 
+This iterative approach allows information to flow through the graph, ensuring each node gains con-
+textual knowledge about its broader neighborhood. The update rule is mathematically expressed as:
+	
+h
+W
+h
+u
+N v
+v
+k
+k
+u
+k
+( )
+( )
+−
+(
+)
+=
+⋅
+∈
+( )
+{
+}
+(
+)
+(
+)
+σ
+AGGREGATE
+1 :
+	
+where:
+	•
+hv
+k( ) is the representation of Node v at the kth iteration,
+	•
+σ is a nonlinear activation function,
+	•
+W is a learnable weight matrix,
+	•
+N(v) denotes the neighbors of Node v, and
+	•
+AGGREGATE is an aggregation function, such as sum, mean, or max.
+Consider a simple graph with four nodes: A, B, C, and D. The connections are as follows:
+	•
+Node A is connected to Node B and Node C,
+	•
+Node B is connected to Node A and Node D,
+	•
+Node C is connected to Node A, and
+	•
+Node D is connected to Node B.
+The adjacency list representation is N(A) =​ {B, C}, N(B) =​{A, D}, N(C) =​{A}, and N(D) =​ {B}, and 
+each node has an initial feature vector (representation): hA
+0
+1
+( ) = [ ], hB
+0
+2
+( ) = [ ], hC
+0
+3
+( ) = [ ], and hD
+0
+4
+( ) = [ ]; 
+for example, the parameters are as follows:
+	•
+Aggregation function: Sum
+	•
+Activation function (σ): ReLU (Rectified Linear Unit), defined as σ(x) =​ max(0, x)
+	•
+Weight matrix (W): For simplicity, use a scalar W =​ [0.5].
+Here, we’ll perform one iteration (k =​ 0 to k =​ 1).
+1.	 Aggregate Neighbor Features: For each node, sum the features of its neighbors.
+	•
+Node A:
+a.	 Neighbors: N(A) =​ {B, C}
+b.	 Neighbor features: h
+h
+B
+C
+0
+0
+2
+3
+( )
+( )
+= [ ]
+= [ ]
+,
+c.	 Aggregated features: AGGA
+B
+C
+h
+h
+=
++
+=
++] [
+=] [
+
+
+( )
+( )
+0
+0
+2
+3
+5 .
+	•
+Node B:
+a.	 Neighbors: N(B) =​ {A, D}
+b.	 Neighbor features: h
+h
+A
+D
+0
+0
+1
+4
+( )
+( )
+= [ ]
+= [ ]
+,
+c.	 Aggregated features: AGGB
+A
+D
+h
+h
+=
++
+=
++] [
+=] [
+
+
+( )
+( )
+0
+0
+1
+4
+5 .
+	•
+Node C:
+a.	 Neighbors: N(C) =​ {A}
+b.	 Neighbor features: hA
+0
+1
+( ) = [ ]
+c.	 Aggregated features: AGGC
+A
+h
+=
+= [ ]
+( )
+0
+1 .
+	•
+Node D:
+a.	 Neighbors: N(D) =​ {B}
+b.	 Neighbor features: hB
+0
+2
+( ) = [ ]
+c.	 Aggregated features: AGGD
+B
+h
+=
+= [ ]
+( )
+0
+2 .
+
+--- PDF PAGE 223 ---
+210
+Mathematical Foundations for Deep Learning
+2.	 Apply Weight Matrix and Activation Function: Compute the new representation for each node.
+	•
+Node A:
+a.	 Before activation: W
+A
+⋅
+= [
+]⋅
+=] [
+
+
+AGG
+0 5
+5
+2 5
+.
+.
+b.	 After activation: hA
+1
+2 5
+0 2 5
+2 5
+( ) =
+[
+]
+(
+) =
+[
+] = [
+]
+σ
+.
+max( ,
+.
+)
+. .
+	•
+Node B:
+a.	 Before activation: W
+B
+⋅
+=
+⋅][
+=] [
+
+
+AGG
+0 5
+5
+2 5
+.
+.
+b.	 After activation: hB
+1
+2 5
+2 5
+( ) =
+[
+]
+(
+) = [
+]
+σ
+.
+.
+.
+	•
+Node C:
+a.	 Before activation: W
+C
+⋅
+=
+⋅][
+=] [
+
+
+AGG
+0 5
+1
+0 5
+.
+.
+b.	 After activation: hC
+1
+0 5
+0 5
+( ) =
+[
+]
+(
+) = [
+]
+σ
+.
+.
+.
+	•
+Node D:
+a.	 Before activation: W
+D
+⋅
+=
+⋅][
+=] [
+
+
+AGG
+0 5
+2
+1 0
+.
+.
+b.	 After activation:
+.
+.
+hD
+1
+1 0
+1 0
+( ) =
+[
+]
+(
+) = [
+]
+σ
+.
+Updated node features after one iteration: hA
+1
+2 5
+( ) = [
+]
+.
+, hB
+1
+2 5
+( ) = [
+]
+.
+, hC
+1
+0 5
+( ) = [
+]
+.
+, and hD
+1
+1 0
+( ) = [
+]
+.
+. Node 
+A and Node B now have the same updated feature, reflecting the influence of their neighbors. Node 
+C has a lower updated feature because it is only connected to Node A, which had an initial lower 
+feature. Finally, Node D’s updated feature reflects its connection to Node B.
+Figure 7.2 depicts a graph with 20 nodes and 40 edges. Each node is represented as a circle, 
+with its color indicating the predicted class determined by the GNN. The layout uses a spring-​ 
+based algorithm, ensuring an even distribution of nodes for better visualization. The dashed edges 
+FIGURE 7.2  Graph neural network (GNN).
+
+--- PDF PAGE 224 ---
+211
+Graph Theory
+connect related nodes and emphasize the graph’s topology. A color bar on the side maps the colors 
+to corresponding node classes, making each node’s class after classification clear. The node classi-
+fication relies on node features and numerical attributes specific to each node. These features are 
+processed through the GNN layers, which learn patterns based on both the node features and their 
+connections in the graph. After the second layer of the GNN, each node is assigned to one of two 
+classes (class 0 or class 1), visualized by distinct colors in the figure. The process demonstrates how 
+GNNs capture structural information and use it for classification tasks. Here are the node features 
+after GNN propagation:
+	
+[[–​1.2524378, –​0.33660233], [–​1.3791587, –​0.29007196], [–​1.0469463, –​0.43233487]	
+	
+[–​0.92821044, –​0.5029573], [–​0.73885995, –​0.6494331], [–​0.9682473, –​0.47762945]	
+	
+[–​2.123791, –​0.12735331], [–​1.6736698, –​0.2077101], [–​0.6209714, –​0.7709404]	
+	
+[–​0.5346627, –​0.88156784], [–​1.7315028, –​0.19482112], [–​0.51204944, –​0.91445786]	
+	
+[–​0.5225032, –​0.89902604], [–​0.90361524, –​0.5193661], [–​2.2530715, –​0.11101644]	
+	
+[–​2.3229516, –​0.10312293], [–​0.5895047, –​0.80878687], [–​0.6153719, –​0.77748555]	
+	
+[–​1.3487849, –​0.30050445], [–​0.92802536, –​0.50307834]]	
+The output numbers represent the transformed node features after passing through the GNN. Each pair 
+corresponds to a specific node, with two values indicating the log probabilities of the node belonging to 
+two different classes (class 0 and class 1). Below is an example of how nodes are classified:
+	•
+Example 1 (Node 0): The output is [−1.2524378, −0.33660233]. The first value (−1.2524378) 
+corresponds to class 0, and the second value (−0.33660233) corresponds to class 1. 
+As −0.33660233 is greater (less negative) than −1.2524378, Node 0 is assigned to class 1.
+	•
+Example 2 (Node 4): The output is [−0.73885995, −0.6494331]. The first value (−0.73885995) 
+corresponds to class 0, and the second value (−0.6494331) corresponds to class 1. 
+As −0.6494331 is greater (less negative) than −0.73885995, Node 4 is also assigned to class 1.
+The classification process determines the class of each node by selecting the class with the higher 
+log probability value. These assignments are visualized in Figure 7.2, where nodes are color coded 
+according to their respective class.

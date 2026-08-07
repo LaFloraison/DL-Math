@@ -1,0 +1,30 @@
+9.2.1  Continuous Transformations and Invariance
+A key idea in topology is the concept of homeomorphism: a continuous, one-​to-​one, onto map 
+whose inverse is also continuous. Intuitively, a homeomorphism lets you bend or stretch one shape 
+into another without cutting or attaching new pieces. If two shapes are connected by a homeo-
+morphism, they are considered the same in topology, or “homeomorphic.” This concept ignores 
+measures like distances or angles, focusing instead on the fundamental properties that remain 
+unchanged under continuous deformations. For example, topologically, a circle can be deformed 
+into an ellipse without breaking or merging parts, so they are homeomorphic. A classic illustration 
+is the coffee mug and the donut, each has exactly one hole, making them topologically equivalent 
+despite looking quite different in everyday terms.
+Figure 9.1a shows a circle (solid blue line) and an ellipse (dashed green line), which can be 
+stretched or compressed into each other without cutting or gluing. This ability to transform smoothly 
+shows that the circle and ellipse are topologically equivalent, they share the same fundamental struc-
+ture in topology. Figure 9.1b illustrates a 3D view of a torus (donut shape) characterized by a single 
+hole. This hole is a key topological feature that distinguishes it from shapes like the circle or ellipse, 
+which have none. Together, these plots demonstrate how topology focuses on properties like con-
+nectedness and the number of holes rather than exact shapes.
+
+--- PDF PAGE 284 ---
+271
+Topology in Deep Learning
+FIGURE 9.1  (a) Circle and ellipse, topologically equivalent due to smooth transformations. (b) Torus, highlighting its single hole as a distinct topological 
+feature.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 285 ---
+272
+Mathematical Foundations for Deep Learning

@@ -1,0 +1,22 @@
+4.3.13.1  Overfitting
+Overfitting occurs when a model learns the specific details and noise within the training data, which 
+can ultimately reduce its performance on new, unseen data. One contributing factor to overfitting 
+is biased sampling, where non-​representative sampling techniques lead to training on a skewed 
+subset of the population. For example, if a model is trained primarily on data from a particular 
+demographic due to sampling biases, it may struggle to generalize to data from other demographics. 
+Another factor is the overuse of resampling techniques. While bootstrapping can be useful for esti-
+mating model accuracy, excessive use without proper cross-​validation can result in overly optimistic
+
+--- PDF PAGE 123 ---
+110
+Mathematical Foundations for Deep Learning
+FIGURE 4.6  Comparison of sampling methods. (a) Simple random, (b) stratified random, (c) cluster sampling.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 124 ---
+111
+Probability Theory and Statistics
+performance evaluations. This can create a false impression of a model’s effectiveness, leading to 
+overly complex models that are prone to overfitting the training data.

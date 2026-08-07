@@ -1,0 +1,6 @@
+11.2  THEORY OF DYNAMICAL SYSTEMS AND DIFFERENTIAL EQUATIONS
+Dynamical systems and differential equations help us understand how things change, grow, or 
+decrease over time, both in nature and in human-​made systems. These math ideas let us study and 
+predict how complex systems behave as they develop. By learning about them, we can see the 
+patterns that shape the world around us and use these principles in different areas, including tech-
+nology and neural networks.

@@ -1,0 +1,43 @@
+4.3.7  Importance Sampling
+Importance sampling focuses on sampling more frequently from important but rare regions of the 
+sample space. This method is particularly effective in scenarios where certain outcomes are rare, as 
+it allows for more efficient and accurate estimation of probabilities and expectations by emphasizing 
+the critical regions of the distribution. The expected value f X
+( )
+
+ is estimated as:
+	
+f X
+N
+f X
+p X
+q X
+i
+N
+i
+i
+i
+( )
+
+≈
+(
+) (
+)
+(
+)
+=∑
+1
+1
+	
+where:
+	•
+p(X) is the original probability distribution,
+	•
+q(X) is the importance sampling distribution, and
+	•
+N is the number of samples.
+Suppose you want to estimate the probability of an event that occurs rarely, like a tail risk in finance. 
+Instead of uniformly sampling from the entire space, you sample more frequently from the tail of 
+the distribution. If you perform 10,000 simulations with a focus on the tail, and 200 events fall in the 
+rare region, you can adjust the estimates based on the importance of this region, improving accuracy 
+over random sampling.

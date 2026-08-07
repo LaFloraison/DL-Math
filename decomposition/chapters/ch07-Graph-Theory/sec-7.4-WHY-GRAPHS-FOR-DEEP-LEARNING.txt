@@ -1,0 +1,6 @@
+7.4  WHY GRAPHS FOR DEEP LEARNING?
+Data in many real-​world applications, such as social networks, transportation systems, and biological 
+networks, is inherently graph-​structured. Traditional neural networks aren’t designed to handle this 
+type of data effectively. Graph-​based deep learning methods, like GNNs, address this challenge by 
+modeling relationships and interactions between entities, capturing underlying structures that trad-
+itional methods cannot. Here, we discuss why graphs are crucial for deep learning in these contexts.

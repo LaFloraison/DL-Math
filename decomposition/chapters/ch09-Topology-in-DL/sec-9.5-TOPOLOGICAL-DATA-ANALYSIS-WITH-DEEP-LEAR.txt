@@ -1,0 +1,4 @@
+9.5  TOPOLOGICAL DATA ANALYSIS WITH DEEP LEARNING
+Combining TDA with deep learning is becoming more popular and provides new ways to under-
+stand and improve neural network models. TDA helps us examine and use the natural shape and 
+structure of data, which can lead to stronger and more efficient learning methods.

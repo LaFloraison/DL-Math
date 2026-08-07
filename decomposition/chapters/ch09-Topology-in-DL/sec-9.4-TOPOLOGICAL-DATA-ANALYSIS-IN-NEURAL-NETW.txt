@@ -1,0 +1,7 @@
+9.4  TOPOLOGICAL DATA ANALYSIS IN NEURAL NETWORKS
+Integrating Topological Data Analysis (TDA) with neural networks is a new and promising area that 
+can lead to many discoveries and improvements. TDA  provides tools and methods to examine and 
+understand the shape and structure of datasets. This helps us gain deep insights into how data are 
+organized and how different parts of the data are related. When TDA is used with neural networks 
+that are learning intensively, it offers a unique way to understand both the data and how the network 
+behaves.

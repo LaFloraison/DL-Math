@@ -1,0 +1,121 @@
+5.3.8  Simplex Method
+The Simplex method is a fundamental algorithm in linear optimization, widely used to solve linear 
+programming problems. In linear programming, the primary objective is to maximize or minimize 
+a linear function while satisfying a set of linear equality or inequality constraints. These constraints 
+define the feasible region, which is typically a polyhedron or polytope where the solution must lie. 
+If an optimal solution exists, it will be found at one of the vertices (corner points) of this feasible 
+region. The algorithm starts at a vertex of the feasible region and moves from one vertex to another, 
+checking at each step whether the move improves the value of the objective function. This process 
+continues until it reaches a vertex where no adjacent vertex offers a better value, indicating that the 
+optimal solution has been found. The Simplex method is generally very efficient in practice, even 
+though its worst-​case time complexity can be exponential. This means that while it could theoretic-
+ally take a very long time for some problems, it usually performs exceptionally well in real-​world 
+scenarios. Sometimes, the method might cycle between the same vertices without making progress. 
+To prevent this, strategies like Bland’s Rule are used to ensure that the algorithm moves toward a 
+solution without getting stuck in a loop. Every linear programming problem has a corresponding 
+dual problem. Understanding the relationship between the original (primal) problem and its dual can 
+provide deeper insights and can sometimes simplify finding the solution. The Simplex method has 
+been adapted into various forms to handle more complex situations, such as the Two-​Phase Simplex 
+method and the Revised Simplex method. While the Simplex method remains a dominant technique 
+in linear programming, it faces competition from interior-​point methods, which can be more suit-
+able for solving very large-​scale linear programming problems. The linear programming problem 
+in standard form is:
+	
+Maximize Z
+c x
+c x
+c x
+n
+n
+=
++
++…+
+1
+1
+2
+2
+	
+Subject to:
+	
+Ax
+b
+x
+≤
+≥
+,
+0	
+where:
+	•
+c c
+cn
+1
+2
+,
+,
+,
+…
+ are the coefficients of the objective function,
+	•
+A is the matrix of constraint coefficients,
+	•
+x is the vector of decision variables, and
+	•
+b is the vector of constraint bounds.
+This formulation represents the optimization problem, where the Simplex method navigates the 
+feasible region defined by the constraints to find the optimal solution. Consider a linear program-
+ming problem to maximize the objective function Z =​ 3x1 +​ 2x2, subject to the constraints:
+	
+x
+x
+x
+x
+x x
+1
+2
+1
+2
+1
+2
+4 2
+6
+0
++
+≤
++
+≤
+≥
+,
+,
+,
+	
+The Simplex method starts at one vertex of the feasible region, say (0, 0), and iteratively moves 
+to adjacent vertices, checking for improvement in the objective function. The method eventually 
+reaches the optimal solution at x1 =​ 2, where Z =​ 10.
+
+--- PDF PAGE 161 ---
+148
+Mathematical Foundations for Deep Learning
+Figure 5.9 demonstrates the application of the Simplex method in solving a linear programming 
+problem. The objective is to find the optimal solution that maximizes or minimizes a linear 
+objective function subject to constraints. In this illustration, the constraints are represented by the 
+lines: x
+x
+1
+2
+4
++
+≤ (blue line) and 2
+6
+1
+2
+x
+x
++
+≤ (green line). These constraints define the feasible 
+region, shaded in light gray. The feasible region is the set of all points that satisfy both inequalities 
+simultaneously, and it represents all possible solutions to the linear programming problem. The 
+Simplex path is marked in brown and shows the sequence of steps taken by the Simplex algorithm 
+as it moves from one vertex of the feasible region to another, improving the objective function 
+value at each step. The path culminates at the optimal point (2, 2), highlighted in yellow, which 
+represents the optimal solution that maximizes (or minimizes) the objective function under the 
+given constraints.

@@ -1,0 +1,84 @@
+2.3.4.1  Addition and Subtraction
+Matrices can be added or subtracted element-​wise if they have the exact dimensions.
+Example:
+	
+Let
+and
+: A
+B
+= 
+
+
+
+= 
+
+
+
+1
+2
+3
+4
+2
+0
+1
+3 	
+	
+Addition : A
+B
++
+=
++
++
++
++
+
+
+
+= 
+
+
+
+1
+2
+2
+0
+3
+1
+4
+3
+3
+2
+4
+7 	
+	
+Subtraction :
+.
+A
+B
+−
+=
+−
+−
+−
+−
+
+
+
+=
+−
+
+
+
+
+1
+2
+2
+0
+3
+1
+4
+3
+1
+2
+2
+1

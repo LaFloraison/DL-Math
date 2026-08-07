@@ -1,0 +1,205 @@
+4.2.1  Discrete Probability Distributions
+These types of distributions apply discrete random variables with many possible outcomes. For 
+example, when you roll a dice, the outcomes are discrete numbers ranging from 1 to 6. Another 
+instance is counting the number of heads when you flip three coins. Here are a few widely used dis-
+crete probability distributions.
+1.	 Binomial Distribution: It measures the number of successes in a fixed set of independent yes/​
+no trials, each with the same probability of success. For instance, it can predict the likelihood 
+of flipping heads 10 times out of 20 coins’ tosses. Here is the mathematical representation 
+for binomial distribution:
+	
+P X
+k
+n
+k p
+p
+k
+n k
+=
+(
+) = 
+
+
+
+−
+−
+(
+)
+1
+
+--- PDF PAGE 105 ---
+92
+Mathematical Foundations for Deep Learning
+where:
+	•
+n is the number of trials,
+	•
+p is the probability of success, and
+	•
+k is the number of successes.
+For binomial distribution, suppose you flip a coin 20 times, and the probability of heads 
+is 0.5. The binomial distribution can predict the likelihood of getting exactly 10 heads. 
+Using the binomial formula:
+	
+P X =
+(
+) = 
+
+
+
+=
+10
+20
+10
+0 5
+0 5
+0 176
+10
+10
+( . ) ( . )
+.
+2.	
+Poisson Distribution: It is ideal for estimating the probability of a particular number of 
+events occurring within a fixed interval; this distribution is often used for rare events, such 
+as the frequency of earthquakes in a specific area over a year. Here is the mathematical 
+representation for Poisson distribution:
+P X
+k
+e
+k
+k
+=
+(
+) =
+−
+λ
+λ
+!
+where:
+	•
+λ is the average rate of occurrence,
+	•
+k is the number of events.
+For the Poisson distribution, if, on average, two earthquakes occur per year in a region, 
+the Poisson distribution can estimate the probability of having exactly three earthquakes 
+in a year, with λ =​ 2:
+P X
+e
+=
+(
+) =
+=
+−
+3
+2
+3
+0 18
+3
+2
+!
+.
+3.	
+Geometric Distribution: It shows the probability of achieving the first success on the nth trial.
+Here is the general formula for geometric distribution:
+P X
+k
+p
+p
+k
+=
+(
+) =
+−
+⋅
+−
+(
+)
+1
+1
+  
+where:
+	•
+X is the random variable representing the number of trials until the first success,
+	•
+p is the probability of success on any given trial,
+	•
+k is the trial number where the first success occurs, and
+	•
+(1 − p) is the probability of failure on a given trial.
+The formula calculates the probability that the first success happens on the kth trial. The 
+term (
+)
+1
+1
+−
+−
+p k represents the probability of failing k –​ 1 times before achieving success 
+on the kth trial. Suppose you are flipping a coin, and the probability of getting heads 
+(success) is 0.5. You want to calculate the probability that the first heads appear on the 
+fifth flip. Using the formula:
+
+--- PDF PAGE 106 ---
+93
+Probability Theory and Statistics
+P X =
+(
+) =
+−
+⋅
+=
+⋅
+=
+−
+5
+1
+0 5
+0 5
+0 5
+0 5
+0 03125
+5 1
+4
+(
+. )
+.
+( . )
+.
+.
+  
+		
+The probability of getting the first heads on the fifth flip is 0.03125, or 3.125%.
+4.	 Uniform Distribution: In uniform distribution (discrete), all outcomes have an equal prob-
+ability of occurring, such as rolling any number from 1 to 6 on a fair die. Here is the general 
+formula for discrete uniform distribution:
+	
+P X
+k
+n
+=
+(
+) = 1	
+where:
+	•
+X is the random variable representing the outcome,
+	•
+k is a specific outcome, and
+	•
+n is the number of equally likely outcomes.
+	
+The formula is used to calculate the probability of any specific outcome k when all outcomes 
+are equally probable. For example, rolling any number on a fair six-​sided die would have the 
+same probability because the die is fair, and each face is equally likely. Suppose you roll a fair 
+six-​sided die. The probability of rolling any specific number (like rolling a 3) is equal for all 
+outcomes. As there are six possible outcomes, the probability is:
+	
+P X =
+(
+) =
+≈
+3
+1
+6
+0 1667
+.
+	
+The probability of rolling a 3, or any other specific number, is 0.1667, or 16.67%.

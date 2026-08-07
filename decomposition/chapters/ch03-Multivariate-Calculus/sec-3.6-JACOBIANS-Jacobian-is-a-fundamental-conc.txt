@@ -1,0 +1,151 @@
+3.6  JACOBIANS
+Jacobian is a fundamental concept in various branches of mathematics, including calculus, differen-
+tial equations, and geometry. It is essential in multivariate calculus and has numerous applications in 
+theoretical and applied mathematics. The Jacobian matrix of a system of transformation equations is 
+a matrix of the first-​order partial derivatives of the functions involved. For a vector-​valued function/​
+mapping it can be f
+f
+:
+,
+( )
+( )
+( )
+( )
+R
+R
+⋮
+n
+m
+m
+x
+f x
+f
+x
+f
+x
+→
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+2
+ 
+
+n
+m
+to
+, the Jacobian matrix is m × n, defined as 
+follows:
+	
+J
+f
+x
+f
+x
+f
+x
+f
+x
+f
+x
+f
+x
+f
+x
+f
+x
+n
+n
+m
+m
+f( ) =
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+∂
+1
+1
+1
+2
+1
+2
+1
+2
+2
+2
+1
+…
+…
+⋮
+⋮
+⋱
+⋮
+2
+…
+∂
+∂
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f
+x
+m
+n
+
+--- PDF PAGE 88 ---
+75
+Multivariate Calculus
+FIGURE 3.4  (a) Loss function and gradient descent path, (b) gradient of the loss function.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 89 ---
+76
+Mathematical Foundations for Deep Learning
+Here, Fi represents the ith component of the vector-​valued function F. The Jacobian matrix has sev-
+eral critical applications. In optimization, the Jacobian provides information about the gradient and 
+direction to move toward or away from a local optimum, aiding in the optimization process.

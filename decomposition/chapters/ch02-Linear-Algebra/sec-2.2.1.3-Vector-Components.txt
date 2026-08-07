@@ -1,0 +1,31 @@
+2.2.1.3  Vector Components
+In a 2D space, any vector can be decomposed into its components along the axes of the coordinate 
+system.
+Example: Consider a vector that terminates at the point (3, 4) on a 2D Cartesian plane. This vector 
+can be represented by its components along the x and y axes: 
+
+A
+A i
+A j
+x
+y
+=
++
+ˆ
+ˆ
+Figure 2.6 illustrates the components of the vector 
+
+A on a 2D Cartesian plane, where Ax and Ay 
+are unit vectors along the x and y directions, respectively. For vector, 
+
+A, Ax is 3, and Ay is 4. The 
+FIGURE 2.5  The cross-​product of vectors a and b.
+
+--- PDF PAGE 31 ---
+18
+Mathematical Foundations for Deep Learning
+red arrow shows the vector 
+
+A ending at point (3, 4). The green arrow represents the x-​component 
+extending along the x-​axis to 3, and the blue arrow indicates the y-​component extending along the 
+y-​axis to 4.

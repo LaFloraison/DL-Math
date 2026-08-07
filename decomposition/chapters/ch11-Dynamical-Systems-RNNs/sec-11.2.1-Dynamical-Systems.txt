@@ -1,0 +1,7 @@
+11.2.1  Dynamical Systems
+A dynamical system is a way to describe how something changes over time using a set of rules. 
+These systems are used in many areas of science and engineering to track things like how planets 
+move or how populations grow. The strength of dynamical systems is their ability to show how 
+different states change, making them useful for understanding and predicting behavior over time. In 
+math, they are shown by maps that illustrate how one state changes to another, allowing us to follow 
+paths and predict future states in a certain space.

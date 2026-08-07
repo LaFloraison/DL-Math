@@ -1,0 +1,47 @@
+9.3.4  Activation Functions
+Activation functions add non-​linearity to the network, which helps it learn complex patterns. ReLU is 
+a popular activation function used in neural networks. It doesn’t get stuck at certain values, which often 
+makes the network train faster. However, ReLU can cause some neurons to stop working, meaning 
+they never activate. To fix this, variations like LeakyReLU and ParametricReLU have been created. 
+Other common activation functions are Sigmoid and Tanh. Sigmoid functions are usually used in the 
+output layer for tasks that have two possible outcomes because they produce values between 0 and 
+1. Tanh functions are used when the output needs to be between −1 and 1, which is useful for certain 
+hidden layers. However, both Sigmoid and Tanh can cause a problem called the vanishing gradient 
+because they can make the values very small. This makes it hard to train deep networks effectively.
+Figure 9.4 presents six subplots, each representing the training process of neural network models 
+with different depths and activation functions. The x-​axis represents the number of epochs, while 
+the y-​axis displays the loss and accuracy values. The red line indicates the loss, and the blue line 
+shows the accuracy.
+Depth: 1, Activation: relu: This subplot shows the training results for a neural network with a 
+single hidden layer using the ReLU activation function. Initially, the loss decreases rapidly, and 
+the accuracy increases, indicating that the model is learning. As training progresses, both metrics 
+stabilize, suggesting the model has reached a plateau. Depth: 1, Activation: tanh: This subplot 
+represents a neural network with one hidden layer using the Tanh activation function. The loss
+
+--- PDF PAGE 291 ---
+278
+Mathematical Foundations for Deep Learning
+FIGURE 9.4  Effect of depth and activation functions on convergence.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 292 ---
+279
+Topology in Deep Learning
+decreases steadily over the epochs, while the accuracy improves. Compared to the ReLU activation, 
+the Tanh function shows a more gradual learning curve, reflecting different dynamics in how the 
+network converges. Depth: 3, Activation: relu: This subplot corresponds to a neural network with 
+three hidden layers and the ReLU activation function. Initially, the model showed rapid improve-
+ment in both loss and accuracy. The increased depth allows the network to capture more complex 
+patterns, leading to higher accuracy than the single-​layer models. Depth: 3, Activation: tanh: Here, 
+the neural network with three hidden layers uses the Tanh activation function. The training process 
+shows a steady decrease in loss and an increase in accuracy. The multiple layers with Tanh acti-
+vation help the network learn effectively, with the training curves indicating smooth convergence. 
+Depth: 5, Activation: relu: This subplot shows the performance of a deeper neural network with 
+five hidden layers using ReLU. The training curves indicate rapid initial learning, with both loss 
+and accuracy reaching stable values. The depth of the network provides the capacity to model com-
+plex relationships, reflected in the training metrics. Depth: 5, Activation: tanh: This final subplot 
+represents a neural network with five hidden layers and Tanh activation. The loss decreases, and 
+accuracy increases steadily, similar to other Tanh-​activated models. The depth combined with Tanh 
+activation allows the network to converge smoothly, capturing intricate patterns in the data.

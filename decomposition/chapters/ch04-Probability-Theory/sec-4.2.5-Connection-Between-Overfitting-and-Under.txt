@@ -1,0 +1,30 @@
+4.2.5  Connection Between Overfitting and Underfitting to Probability   
+Distributions
+From a probabilistic standpoint, overfitting can be seen as maximizing the likelihood of the 
+parameters given the training data excessively to the point where the model is improbable to 
+perform well on new data. This is similar to tuning a musical instrument so precisely to a spe-
+cific environment that it sounds out of tune in any other setting. Regularization techniques, such 
+as L1 and L2, address these issues by adding a penalty term to the complexity of the model. This 
+approach can be conceptualized through Bayesian statistics: the penalty term acts as a prior distri-
+bution that inherently favors simpler models, reducing the likelihood of overfitting by penalizing 
+complexity.
+Figure 4.2 demonstrates the concepts of underfitting, good fit, and overfitting using polyno­
+mial regression models of varying complexity. The dataset consists of 30 data points generated 
+using the function y
+x
+x
+=
+sin( ) with some added Gaussian noise. These data points are represented 
+as black dots on the plot in Figure 4.2, providing a visual reference for the underlying pattern in 
+the data. Three models with varying degrees of complexity are fitted to the data. The first model, 
+represented by the blue dashed line, uses simple linear regression. This model fails to capture the 
+underlying pattern of the data, resulting in a poor fit. This underfitting is characterized by a high 
+bias and low variance, indicating that the model is too simple to represent the data accurately. The 
+second model, represented by the green solid line, uses a cubic polynomial (degree 3). This model 
+accurately captures the underlying pattern of the data, providing a good balance between bias and 
+variance. This good fit is characterized by an appropriate level of complexity that models the data 
+well without overfitting. The third model, represented by the red dash-​dot line, uses a polynomial 
+of degree 10. This high-​degree polynomial model fits the training data almost perfectly, capturing 
+both the underlying pattern and the noise in the data. This overfitting is characterized by a low bias 
+and high variance, indicating that the model is too complex and is likely to perform poorly on new, 
+unseen data.

@@ -1,0 +1,32 @@
+7.2.4  Weighted Graph
+A weighted graph is a type of graph in which each edge has an associated weight. These weights 
+typically represent some quantitative attribute of the connection between nodes, such as cost, length, 
+capacity, or strength. Weighted graphs provide a more detailed representation of relationships by 
+incorporating the magnitude of the connections. One of the key characteristics of weighted graphs is 
+the presence of edge weights. Each edge in the graph has a numerical value, or weight, that quanti-
+fies the strength, cost, or capacity of the connection between the nodes. These weights play a crucial 
+role in determining the significance of relationships within the graph. Weighted graphs are particu-
+larly useful in scenarios where the strength or cost of connections needs to be considered. Consider 
+a transportation network where cities are nodes and roads between them are edges. A weighted 
+graph is defined as G =​ (V, E, w), where V is the set of vertices (or nodes), E ⊆ V × V is the set of 
+edges, and w: E → R is a function that assigns a weight to each edge. In this case, the weight w(e) 
+represents the quantitative value associated with edge e. For example, consider a transportation net-
+work with three cities: A, B, and C. Let the distances between the cities be: A to B: 200 km, A to 
+C: 150 km, and B to C: 300 km. This weighted graph can be represented as follows: V =​ {A, B, C}, 
+E =​ {(A, B), (A, C), (B, C)}, w(A, B) =​ 200, w(A, C) =​ 150, and w(B, C) =​ 300.
+Figure 7.1 illustrates the structure and transformation of graphs under different configurations. 
+In Figure 7.1a, an undirected graph is displayed, where nodes A through E are connected by edges 
+that do not have any directional information. This layout is useful for modeling scenarios where the 
+relationship between entities is bidirectional or symmetrical, such as social connections or mutual 
+collaborations. Figure 7.1b shows the same set of nodes in a directed graph configuration. In this 
+graph, the edges are directed, indicated by arrows pointing from one node to another, demonstrating 
+that the relationship now has directionality. This change is essential in cases where the flow of infor-
+mation or influence is one way, such as in citation networks or communication pathways. Nodes A 
+through E are connected in a manner that shows the direction of influence or dependency among 
+them, providing insights into the asymmetry of these relationships. The third Figure 7.1c introduces 
+a weighted directed graph, where both the direction and the magnitude of influence are represented. 
+The edges not only show the direction (as indicated by arrows) but also have associated weights, 
+which are indicated by the thickness of the edges and labeled numbers along the arrows. These 
+weights quantify the strength or significance of the connections, which is crucial for understanding 
+the intensity of relationships or the capacity of flows between nodes, such as in transportation 
+networks or neural connections in brain models.

@@ -1,0 +1,286 @@
+8.3.3  Neural Network Generalization
+Generalization refers to how well a trained model performs on new, unseen data. It’s a measure of 
+the model’s usefulness; if it can’t generalize beyond the data it was trained on, it won’t be effective 
+in real-​world applications. Improving generalization is a key goal when building machine learning 
+models. Interestingly, the shape of the loss landscape, which reflects how the model’s performance 
+changes with different parameter settings, has a strong link to generalization. Research shows that 
+models tend to generalize better when the loss landscape has wide, flat regions (minima). In con-
+trast, sharp, narrow minima often lead to models that perform well on the training data but struggle 
+with new data. Here’s how the geometry of the loss landscape relates to generalization. Flat regions 
+in the loss landscape indicate that small changes in the model’s parameters don’t drastically affect 
+its predictions. This stability means the model is less sensitive to slight variations in the data, making 
+it more robust for new inputs. Models that find flat minima are better at capturing general patterns 
+in the data rather than overfitting to specific examples in the training set. In practice, this results in 
+better performance when the model encounters unseen data. Sharp, narrow minima suggest that the 
+model is highly sensitive to its parameters. In these regions, the model’s parameters are finely tuned 
+to the training data, which may lead to excellent performance during training but poor results on 
+new data. In these cases, even small changes in the input or the parameters can cause the model’s 
+output to vary dramatically, making it less reliable when faced with unfamiliar data. This is often a 
+sign that the model has overfitted, memorizing the training data rather than learning general patterns. 
+Let’s have an example for better understanding. Consider two neural networks trained on the same 
+dataset for a classification task. Network A converges to a flat minimum, while network B converges 
+to a sharp minimum on the loss landscape. Network A might not achieve the lowest possible training 
+error but performs well on unseen test data, indicating strong generalization. In contrast, network B 
+achieves near-​perfect performance on the training set but struggles with test data due to overfitting. 
+Flat minima correspond to regions in the loss landscape where the loss function remains relatively 
+constant over a broad range of parameter values. This implies that the model’s predictions are stable 
+and not overly sensitive to small changes in the parameters. Mathematically, this flatness can be 
+captured by the eigenvalues of the Hessian matrix H, which is the second derivative of the loss 
+function with respect to the model parameters:
+	
+H
+L
+θ
+θ
+θ
+( ) = ∂
+( )
+∂
+2
+2
+.	
+For flat minima, the eigenvalues of the Hessian are small, indicating low curvature. This suggests 
+that the model has found a stable set of parameters, making it more robust to small perturbations 
+in the input or noise in the data. A model that converges to a flat minimum is likely to have better 
+generalization because it has learned general patterns in the data rather than memorizing the training 
+examples. In contrast, sharp minima are regions where the loss function changes rapidly with small 
+parameter adjustments. This is characterized by large eigenvalues of the Hessian matrix, indicating
+
+--- PDF PAGE 266 ---
+253
+Differential Geometry
+high curvature. A model that converges to a sharp minimum is typically more sensitive to small 
+variations in the data, meaning that a slight change in the input can lead to significant changes in 
+the model’s predictions. This sensitivity is often a sign of overfitting, where the model has learned 
+specific details of the training data that do not generalize well to new, unseen data. Let L(θ) represent 
+the loss function, where θ is the vector of model parameters. Generalization can be influenced by 
+the sharpness of the minimum found during training, which is often measured by the Hessian matrix 
+H(θ). If the Hessian’s eigenvalues are small, we are in a flat region, which is beneficial for general-
+ization. Conversely, large eigenvalues indicate sharp regions:
+	
+λ
+λ
+max
+max
+flat region
+vs.
+sharp region
+H
+H
+( ) ≈
+(
+)
+( )
+(
+)
+0
+0
+
+, 	
+where λmax H
+( ) is the largest eigenvalue of the Hessian. Suppose we are training a simple neural 
+network to perform binary classification on a small dataset. We want to classify whether a number 
+is even or odd.
+Training Data                                                    Validation Data
+Input (x)
+Label (y)
+1
+1
+2
+0
+3
+1
+4
+0
+Input (x)
+Label (y)
+5
+1
+6
+0
+We will compare two models with the same architecture but different training outcomes: Model A 
+to find a flat minimum in the loss landscape and Model B to Find a sharp minimum in the loss land-
+scape. The loss function is mean squared error (MSE) and the architecture is as follows: input layer; 
+1 neuron and output layer; 1 neuron with Sigmoid activation (outputs probability). Let do train the 
+models:
+1.	 Model A (Flat Minimum): Uses L2 regularization to prevent overfitting. The training 
+outcomes are weight (w): 0.5 and bias (b): 0.
+2.	 Model B (Sharp Minimum): No regularization; the model may overfit the training data and 
+the training outcomes are weight (w): 10 and bias (b): –​25.
+Now, let us do model predictions
+1.	 Model A Predictions: Using ˆy
+wx
+b
+=
++
+(
+)
+σ
+, where σ is the sigmoid function.
+a.	 Training Data:
+	•
+For x =​ 1: ˆ
+.
+.
+.
+y =
+× +
+(
+) =
+(
+) ≈
+σ
+σ
+0 5 1
+0
+0 5
+0 622
+	•
+For x =​ 2: 
+.
+.
+.
+ˆy =
+×
++
+(
+) =
+(
+) ≈
+σ
+σ
+0 5
+2
+0
+1 0
+0 731
+Predictions are around 0.6–​0.7, not exactly matching labels but reasonable.
+b.	 Validation Data:
+	•
+For x =​ 5: ˆ
+.
+.
+.
+y =
+×
++
+(
+) =
+(
+) ≈
+σ
+σ
+0 5
+5
+0
+2 5
+0 924
+	•
+For x =​ 6: 
+.
+.
+.
+y=
+×
++
+(
+) =
+(
+) ≈
+σ
+σ
+0 5
+6
+0
+3 0
+0 953
+Predictions are high, indicating even numbers, which may not perfectly match validation 
+labels.
+
+--- PDF PAGE 267 ---
+254
+Mathematical Foundations for Deep Learning
+2.	 Model B Predictions:
+a.	 Training Data:
+	•
+For x =​ 1: ˆy =
+× −
+(
+) =
+−
+(
+) ≈
+×
+−
+σ
+σ
+10
+1
+25
+15
+3 10 7
+	•
+For x =​ 2: 
+.
+y=
+×
+−
+(
+) =
+−
+(
+) ≈
+σ
+σ
+10
+2
+25
+5
+0 0067
+The model outputs are extremely low or high, closely matching labels.
+b.	 Validation Data:
+	•
+For x =​ 5: ˆ
+.
+y =
+×
+−
+(
+) =
+(
+) ≈
+σ
+σ
+10
+5
+25
+25
+1 0
+	•
+For x =​ 6: ˆ
+.
+y =
+×
+−
+(
+) =
+(
+) ≈
+σ
+σ
+10
+6
+25
+35
+1 0
+Predictions are very high, indicating odd numbers, which is incorrect for x =​ 6.
+In flat minimum (Model A), the loss doesn’t change drastically with small changes in weights, and 
+the model is not overly sensitive to exact weight values. In sharp minimum (Model B), small changes in 
+weights cause a significant loss increase, and the model memorizes training data but doesn’t generalize 
+well. But for generalization performance, Model A, the training loss is slightly higher due to less precise 
+fitting, and validation accuracy is better, as the model makes reasonable predictions on unseen data on 
+Model B, the training loss is very low, almost zero, the model fits training data perfectly, and validation 
+accuracy is poor, as the model fails to predict correct labels on new data (e.g., misclassifies x =​ 6). The 
+model’s performance is stable under small data or parameter changes and gives better generalization as 
+handling unseen data more effectively. On sharp minima, sensitivity, and minor variations can lead to 
+large errors and overfitting, and it performs well on training data but poorly on new data.

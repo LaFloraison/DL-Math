@@ -1,0 +1,95 @@
+2.3.6.6  Regularization
+(a)	 L2 Regularization: It, also known as weight decay, adds a penalty to the loss function for 
+large weights, discouraging the model from relying too heavily on any particular parameter. 
+This penalty helps prevent overfitting by encouraging the network to keep the weights small, 
+making the model simpler and more generalizable. The loss function with L2 regularization 
+is given by:
+Loss
+Loss
+L2
+original
+=
++
+∑
+λ
+2
+2
+w  
+		
+where Lossoriginal is the original loss (e.g., mean squared error (MSE)), w represents the 
+weights, and λ is the regularization coefficient. A larger λ increases the penalty for larger 
+weights, thus enforcing stronger regularization. Consider a simple network with two weights, 
+w1=​0.5 and w2=​0.8, and an original loss of 1.0. If the regularization coefficient λ =​ 0.1, the L2 
+regularized loss is:
+LossL2 =
++
+×
++
+(
+) =
++
+×
++
+(
+) =
++
+×
+1 0
+0 1
+2
+0 5
+0 8
+1 0
+0 05
+0 25
+0 64
+1 0
+0 05
+2
+2
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+0 89
+1 0
+0 0445
+1 0445
+.
+.
+.
+.
+=
++
+=
+The additional term penalizes large weights, encouraging the model to learn simpler patterns.
+(b)	 Dropout: Dropout is a regularization technique used to prevent overfitting by randomly 
+“dropping out” or turning off neurons during each forward and backward pass with a prob-
+ability p. During training, at each iteration, a fraction of neurons (typically p =​ 0.5) are set to 
+zero, which forces the network to rely on multiple pathways for learning. This helps make the 
+network more robust and prevents neurons from co-​adapting too strongly to specific features. 
+Suppose we have a layer with four neurons and the following activations during training:
+	
+a = [
+]
+0 9 0 8 0 4 0 7
+. , . , . , .
+	
+With a dropout probability of p =​ 0.5, two neurons might randomly be dropped, resulting in:
+	
+adropout = [
+]
+0 9 0 0 4 0
+. , , . ,
+.	
+The network then continues training with these modified activations. At test time, dropout 
+is turned off, but the output is scaled by a factor of 1 − p to account for the dropped neurons 
+during training, making the network’s predictions more robust. Both L2 regularization and 
+dropout are essential techniques for preventing overfitting and ensuring that NNs generalize 
+well to unseen data.

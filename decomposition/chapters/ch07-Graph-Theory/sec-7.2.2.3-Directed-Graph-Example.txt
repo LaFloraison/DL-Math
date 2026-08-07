@@ -1,0 +1,11 @@
+7.2.2.3  Directed Graph Example
+Consider a citation network in academia. Each research paper is represented as a node, and a citation 
+from one paper to another forms a directed edge. For instance, if Paper A cites Paper B, we have a 
+directed edge from Node A to Node B. This means that the influence flows in one direction—​Paper 
+A is influenced by Paper B. However, this does not imply the reverse relationship (i.e., Paper B may 
+not cite Paper A). A directed graph is defined as G =​ (V, E), where V is a set of vertices (or nodes), 
+and E ⊆ V × V is a set of directed edges. Each edge (u, v) ∈ E represents a directed connection from 
+Node u to Node v. This directionality distinguishes directed graphs from undirected graphs. For 
+instance, let’s define a small citation network with three papers: Paper A cites Paper B and Paper C, 
+and Paper B cites Paper C. This directed graph can be represented as: V =​ {A, B, C} and E =​ {(A, 
+B), (A, C), (B, C)}.

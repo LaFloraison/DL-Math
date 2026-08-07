@@ -1,0 +1,5 @@
+2.5.3.4  Regularization Techniques
+While normalization techniques like batch normalization are not linear by nature, they include learn-
+able parameters (gamma and beta) that apply a linear transformation to the normalized output. 
+Specifically, after normalization, the output is scaled by γ and shifted by β, introducing a linear 
+transformation that adjusts the normalization effect based on the data.

@@ -1,0 +1,126 @@
+2.3.6.2  Parameters of the Network
+(a)	 Weights: In an NN, the weights connecting two layers are represented as a matrix. Each 
+element of this matrix corresponds to a connection between a neuron in the first layer and a 
+neuron in the subsequent layer. For example, if the first layer has n neurons and the second 
+layer has m neurons, the weight matrix will have dimensions m × n. These weights are 
+learned during training, as they define how the input data is transformed and passed through 
+the network. Consider an NN with 3 input neurons and 2 output neurons. The weights 
+between the input and output layers are represented by a 2 × 3 matrix:
+	
+W = 
+
+
+
+0 1
+0 2
+0 3
+0 4
+0 5
+0 6
+.
+.
+.
+.
+.
+.
+
+--- PDF PAGE 45 ---
+32
+Mathematical Foundations for Deep Learning
+		
+Here, the value 0.1 connects the first input neuron to the first output neuron, 0.2 connects 
+the second input neuron to the first output neuron, and so on. These weights determine how 
+much influence each input has on the outputs.
+(b)	 Biases: Biases are typically represented as a vector, with each element corresponding to a 
+neuron in the output layer. Bias values allow the network to shift the activation function and 
+provide additional flexibility in learning. In the case of batch processing, bias values are 
+often broadcast across the entire batch during computation, meaning the same bias is applied 
+to each example in the batch. The bias vector is added to the result of the matrix multipli-
+cation between the input data and the weight matrix, ensuring that each output neuron has 
+a corresponding bias term. For the previous example with 2 output neurons, the bias vector 
+might look like this:
+	
+b = 
+
+
+
+0 1
+0 2
+.
+.
+.	
+If we are processing a batch of three input samples, each input will be multiplied by the 
+weight matrix, and the same bias vector will be added to the result. For instance, given an 
+input vector x =​ [1, 0, −1], the output calculation would be:
+	
+z
+W x
+b
+=
+⋅
++
+= 
+
+
+⋅
+−
+
+
+
+
+
+
+
+
+
+
++ 
+
+
+0 1
+0 2
+0 3
+0 4
+0 5
+0 6
+1
+0
+1
+0 1
+0 2
+.
+.
+.
+.
+.
+.
+.
+. =
+−
++
+−
++
+
+
+
+= −
+
+
+
+
+0 1
+0 3
+0 1
+0 4
+0 6
+0 2
+0 1
+0 0
+.
+.
+.
+.
+.
+.
+.
+.

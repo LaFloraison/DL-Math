@@ -1,0 +1,22 @@
+2.3.2  Dimensions
+The size or dimension of a matrix is defined by the number of rows and columns it contains. A matrix 
+with m rows and n columns is called a matrix, often read as “m by n.”
+Example: Consider a matrix B:
+	
+B =
+
+
+
+
+
+
+
+
+1
+2
+3
+4
+5
+6
+,	
+where B is a matrix which has three rows and two columns.

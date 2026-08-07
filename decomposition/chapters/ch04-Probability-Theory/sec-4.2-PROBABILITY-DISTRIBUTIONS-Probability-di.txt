@@ -1,0 +1,6 @@
+4.2  PROBABILITY DISTRIBUTIONS
+Probability distributions are fundamental statistical tools, offering mathematical models that predict 
+the likelihood of various outcomes. These outcomes could be as simple as a dice roll or as complex 
+as forecasting investment returns. Each type of probability distribution is tailored to specific kinds 
+of data and assumptions, making them necessary for analyzing patterns, making predictions, and 
+drawing meaningful conclusions about data.

@@ -1,0 +1,35 @@
+4.2.3.1  Mean (Expected Value)
+The mean (or expected value) represents the average or central value of the distribution. It is 
+calculated as the weighted average of all possible values, with the weights being the probabilities 
+associated with those values. The mathematical representation is as follows:
+	
+µ =
+( ) =
+⋅( )
+∑
+E X
+x
+P x
+i
+i
+i
+
+--- PDF PAGE 109 ---
+96
+Mathematical Foundations for Deep Learning
+For a continuous distribution:
+	
+µ =
+( ) =
+⋅( )
+−∞
+∞
+∫
+E X
+x f x dx	
+where:
+μ is the mean,
+xi represents the possible values,
+f(x) is the PDF (for continuous distributions).
+For a normal distribution with a mean of μ =​ 50, the mean represents the center of the distribution. 
+Most of the data will be centered around 50, with equal probabilities on either side of the mean.

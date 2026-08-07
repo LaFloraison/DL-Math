@@ -1,0 +1,100 @@
+2.3.3.7  Symmetric Matrix
+AT =​ A where AT is the transpose of A.
+Example: A
+AT
+=
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+1
+2
+3
+2
+4
+5
+3
+5
+6
+1
+2
+3
+2
+4
+5
+3
+5
+6
+,
+2.3.3.8  Skew-​Symmetric Matrix
+A skew-​symmetric matrix is a square matrix A that satisfies A
+A
+T = −, meaning each element 
+a
+a
+ij
+ij
+= −
+ and all diagonal elements are zero.
+Example: A
+AT
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+=
+−
+−
+−
+
+
+
+
+
+
+
+
+0
+2
+3
+2
+0
+5
+3
+5
+0
+0
+2
+3
+2
+0
+5
+3
+5
+0
+,
+
+--- PDF PAGE 41 ---
+28
+Mathematical Foundations for Deep Learning

@@ -1,0 +1,184 @@
+5.3.9  Lagrangian Multipliers
+Lagrange multipliers are a robust optimization method used to find a function’s local maxima 
+and minima subject to equality constraints. Named after Joseph-​Louis Lagrange, this technique 
+transforms constrained optimization problems into unconstrained ones, facilitating their solu-
+tion. Consider the problem of finding the extremum (maximum or minimum) of a function/​
+subject to a constraint g x x
+xn
+1
+2
+0
+,
+,
+,
+…
+(
+) = . The method introduces an auxiliary variable, λ (the 
+Lagrange multiplier), to incorporate the constraint into the objective function. The Lagrangian, 
+L, is formulated as:
+	
+x x
+x
+f x x
+x
+g x x
+x
+n
+n
+n
+1
+2
+1
+2
+1
+2
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+…
+(
+) =
+…
+(
+)+
+…
+(
+)
+λ
+λ
+	
+FIGURE 5.9  Simplex method.
+
+--- PDF PAGE 162 ---
+149
+Optimization Theory
+To find the extremum of f subject to g, we solve for the points where the gradient of the Lagrangian 
+is zero:
+	
+∇
+= ∇+ ∇=
+L
+f
+g
+λ
+0	
+This results in a system of equations that, when solved, provide the values of the variables and 
+the Lagrange multiplier. The Lagrange multiplier, has a meaningful interpretation. Generally, it 
+measures the rate of change in the maximum or minimum value of the objective function as the 
+constraint varies. Lagrange multipliers are applied across various fields. In economics, they are 
+used for utility maximization and cost minimization problems. In machine learning, algorithms 
+like support vector machines use Lagrange multipliers for optimization with constraints. While 
+robust, Lagrange multipliers are primarily suited for equality constraints. For problems involving 
+inequality constraints, methods like the Karush–​Kuhn–​Tucker (KKT) conditions are more appro-
+priate. Consider maximizing the function f(x, y) =​ xy, subject to the constraint x +​ y =​ 10. Using the 
+Lagrange multiplier λ, we form the Lagrangian:
+	
+x y
+xy
+x
+y
+, ,λ
+λ
+(
+) =
++
+−
+−
+(
+)
+10
+	
+To find the extremum, we take the partial derivatives with respect to x, y, and λ and set them equal 
+to zero:
+	
+∂
+∂
+=
+−
+=
+∂
+∂
+=
+−
+=
+∂
+∂
+=
+−
+−
+=
+
+
+
+x
+y
+y
+x
+x
+y
+λ
+λ
+λ
+0
+0
+10
+0
+,
+,
+	
+Solving this system yields x =​ y =​ 5, giving the maximum value of f(x, y) =​ 25. The Lagrange multi-
+plier method transforms a constrained optimization problem into an unconstrained one by introdu-
+cing a new variable λ. The Lagrangian is defined as:
+	
+x
+f x
+g x
+c
+,λ
+λ
+(
+) =
+( )+
+( ) −
+
+	
+where:
+	•
+f(x) is the objective function,
+	•
+g(x) =​ c is the constraint,
+	•
+λ is the Lagrange multiplier.
+The solution is found by solving the system of equations obtained from setting the gradients of the 
+Lagrangian to zero:
+	
+∇(
+) =
+x,λ
+0	
+Figure 5.10 displays a contour plot of the function f(x, y)=​ xy, with contour lines representing levels 
+of constant function values. The color gradient indicates the objective function’s values, transitioning 
+from blue (lower values) to red (higher values), giving a visual sense of how f(x, y) changes across 
+the plane. The dashed blue circle represents the constraint x
+y
+2
+2
+1
++
+= , which defines the feasible 
+region for this optimization problem. This constraint forms a circle of radius 1 centered at the origin, 
+encompassing all points that satisfy the equation. The red dots marked as optimal points (0.71, 0.71 
+and −0.71, −0.71) indicate where the function reaches its maximum and minimum values within the 
+constrained region. These points are located on the circle where the product xy is maximized and 
+minimized, showing how the constraint influences the objective function’s optimization.
+
+--- PDF PAGE 163 ---
+150
+Mathematical Foundations for Deep Learning

@@ -1,0 +1,70 @@
+3.5.2  Backpropagation
+The backpropagation algorithm is essential for determining the gradient of the loss function relative 
+to each network parameter. It operates through two primary phases:
+1.	 Forward Propagation: Input data is processed layer by layer to produce the network’s output.
+2.	 Reverse Propagation: By applying the chain rule, the gradient of the loss function concerning 
+each parameter is calculated, starting from the output layer and working backward to the 
+input layer.
+The gradient of the loss function L with respect to a weight w in layer l is computed using the 
+chain rule:
+	
+∂
+∂
+= ∂
+∂
+⋅∂
+∂
+⋅∂
+∂
+L
+w
+L
+a
+a
+z
+z
+w
+l
+l
+l
+l
+l
+l
+	
+where:
+	•
+al is the activation at layer l,
+	•
+zl is the pre-​activation (linear combination of weights and inputs) at layer l.
+
+--- PDF PAGE 87 ---
+74
+Mathematical Foundations for Deep Learning
+Backpropagation efficiently computes gradients for all parameters in the network, making it funda-
+mental for training deep neural networks. Suppose you’re training a neural network with three layers 
+to classify images. During forward propagation, a sample image passes through the network, and 
+the model predicts a class based on its current parameters. For example, if the true class label is 2 
+and the network predicts class 3, a loss function (such as cross-​entropy) is used to measure the error 
+between the predicted class and the true class. During reverse (backward) propagation, the algo-
+rithm calculates the gradient of the loss with respect to the parameters (weights and biases), starting 
+from the output layer and propagating back through the three layers to the input. Using the chain 
+rule of calculus, backpropagation computes how each weight and bias contributes to the loss. These 
+gradients are then used to update the parameters in the opposite direction of the gradient (through 
+gradient descent), reducing the loss and improving the model’s predictions. This process is repeated 
+for multiple samples in the training set, gradually fine-​tuning the network’s parameters.
+Figure 3.4 illustrates the behavior of a quadratic loss function and the corresponding gradient 
+descent optimization process used to minimize it. In the subplot (a), the loss function L(w) =​ (w 
+− 3)2 +​ 2 is displayed as a smooth blue curve. This parabolic curve depicts how the loss varies with 
+different weight values w, reaching its minimum at the optimal weight w =​ 3. The Gradient Descent 
+Path is illustrated with a dashed orange line and highlighted with large red markers, tracing the itera-
+tive steps taken from an initial weight of w =​ 0 toward the minimum. Each red marker represents 
+an updated weight after applying the gradient descent update rule with a learning rate of 0.1, show-
+casing the step-​by-​step approach toward minimizing the loss. A vertical dashed green line marks 
+the optimal weight (w =​ 3), providing a clear reference point for the goal of the optimization. The 
+subplot (b) focuses on the gradient of the loss function ∇L(w) =​ 2(w − 3) depicted as a robust orange 
+line. This linear function illustrates how the gradient changes with different values of w, crossing 
+zero precisely at the optimal weight of 3. The gradient steps are marked with purple scatter points, 
+corresponding to the gradient values at each step of the gradient descent process. These points visu-
+ally demonstrate how the gradient diminishes as the weight approaches the optimal value, guiding 
+the descent toward the minimum loss. A horizontal dashed gray line indicates the zero gradient level, 
+providing a reference for where the gradient equals zero, signifying the optimal point.

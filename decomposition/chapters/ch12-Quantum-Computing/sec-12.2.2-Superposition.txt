@@ -1,0 +1,5 @@
+12.2.2  Superposition
+Imagine a spinning coin that’s both heads and tails at the same time, only deciding which side it 
+is when you stop it. Superposition works like that; it lets a qubit be in multiple states at once. This 
+ability to hold and consider many possibilities all at once gives quantum computers incredible power 
+for certain calculations.

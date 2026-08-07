@@ -1,0 +1,30 @@
+2.4.3  Tensors in Deep Learning
+At a high level, deep learning involves building and training NNs, which can be thought of as 
+a composition of functions. These functions are applied to data to make predictions or create 
+representations. In this paradigm, tensors are the primary data structure for various operations and 
+transformations.
+(a)	 Input Data: In deep learning, input data is typically multi-​dimensional. For example, 
+in Image Data, Images are represented as 3D tensors with dimensions corresponding to 
+height, width, and channels (RGB). For instance, an RGB image of size 32 × 32 pixels 
+can be represented as a tensor of shape, and for Sequential Data, Text or time series data 
+can be represented as 2D tensors, where one dimension represents the sequence length, 
+and the other represents features or embedding dimensions. For example, a sequence of 
+50 words, each represented by a 300-​dimensional embedding, would be a tensor of shape 
+(50, 300).
+(b)	 Weights and Biases: The parameters of NNs, including weights and biases, are stored as 
+tensors. The architecture of the network and the connections between neurons dictate the 
+shape of these tensors. For example, for a convolutional layer in an NN with 16 filters of size 
+3 × 3 applied to an input with 3 channels (such as RGB images), the weights would be stored 
+in a 4D tensor of shape (16, 3, 3, 3), representing the number of filters, input channels, and 
+the spatial dimensions of each filter. Biases would be stored in a 1D tensor of shape (16), 
+representing one bias per filter.
+(c)	 Intermediate Values: As data progresses through an NN, it gets transformed at each layer. 
+These transformations yield new tensors, representing the intermediate outputs. For example, 
+applying a convolutional layer to input images of shape (32, 32, 3) with 16 filters can produce 
+intermediate tensors of shape (32, 32, 16), where each filter produces a separate feature map 
+of the same spatial dimensions as the input image.
+(d)	 Final Outputs: The predictions or classifications made by an NN are also represented as 
+tensors. For example, after passing the intermediate tensor through an activation function 
+like ReLU and a final dense layer with 10 output neurons (for a classification task with 10 
+classes), we get the final outputs as a 1D tensor of shape (10), representing the predicted 
+probabilities for each class.

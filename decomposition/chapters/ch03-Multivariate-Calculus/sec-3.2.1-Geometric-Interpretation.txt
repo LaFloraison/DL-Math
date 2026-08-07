@@ -1,0 +1,171 @@
+3.2.1  Geometric Interpretation
+Imagine a three-​dimensional surface described by z
+f x y
+=
+(
+)
+,
+. The partial derivative ∂
+∂
+f
+x represents 
+the slope of the tangent line to the curve obtained by slicing the surface along the plane where y 
+is constant. Similarly, ∂
+∂
+f
+y provides the slope of the tangent line to the slice given by x =​ constant. 
+Consider the surface z
+x
+y
+=
++
+2
+2, which represents a paraboloid. At the point (x, y) =​ (1, 2), the par-
+tial derivatives are as follows:
+	
+∂
+∂
+=
+= ( ) =
+∂
+∂=
+= ( ) =
+z
+x
+x
+z
+y
+y
+2
+2 1
+2
+2
+2 2
+4
+,
+
+--- PDF PAGE 79 ---
+66
+Mathematical Foundations for Deep Learning
+This means that at point (1, 2), the slope of the tangent line in the x-​direction is 2, and in the y-​
+direction, it is 4.
+3.2.2  Higher-​Order Partial Derivatives
+Like single-​variable functions, we can have higher-​order partial derivatives for multivariable 
+functions. For example, the second partial derivative of f concerning x is denoted ∂
+∂
+2
+2
+f
+x and represents 
+the rate of change ∂
+∂
+f
+x about x. We can also have mixed partial derivatives, denoting the change rate 
+relating to y. Consider the function f x y
+x y
+xy
+,
+(
+) =
++
+2
+2
+3
+. The first partial derivatives are as follows:
+	
+∂
+∂
+=
++
+∂
+∂=
++
+f
+x
+xy
+y
+f
+y
+x
+xy
+2
+3
+6
+2
+2
+,
+	
+The second-​order partial derivatives are as follows:
+	
+∂
+∂
+=
+∂
+∂
+=
+∂
+∂∂=
++
+2
+2
+2
+2
+2
+2
+6
+2
+6
+f
+x
+y
+f
+y
+x
+f
+x y
+x
+y
+,
+,
+	
+The mixed partial derivative ∂
+∂∂=
++
+2
+2
+6
+f
+x y
+x
+y tells us how the change in f with respect to x is affected 
+by changes in y.
+Figure 3.1 shows the visualization of the mathematical function and its partial derivatives through 
+a combination of 3D surface and 2D contour plots. The left subplot features a 3D surface plot, illus-
+trating how the function ∂
+∂
+=
++
+f
+x
+xy
+y
+2
+2 values change over a grid of x and y values ranging from –​2 
+to 2. The surface, colored using the colormap, transitions from blue to yellow to represent different 
+function values, with black edges highlighting the surface ∂
+∂=
++
+f
+y
+x
+xy
+2
+2
+ for better visual distinction. 
+The right subplot is a 2D contour plot showing the partial derivatives of the function concerning 
+x and y. The filled contours represent the partial derivative with respect to x, using the colormap, 
+which spans from cool (blue) to warm (red) colors, indicating the magnitude of the derivative. The 
+black contour lines represent the partial derivative with respect to y. The color bar beside the filled 
+contours provides a reference for the values of the partial derivative with respect to x. The plot 
+includes three sample points marked in red with their coordinates labeled for additional reference: 
+(–​1, 1), (1, –​1), and (1, 1).

@@ -1,0 +1,58 @@
+4.2.2.3  Exponential Distribution
+It is used to model the time between continuous, independent events that occur at a constant average 
+rate. It is frequently used in scenarios like waiting times, such as the time between incoming calls at 
+a call center. Here is its general formula:
+	
+f x
+e
+x
+x
+( ) =
+≥
+−
+λ
+λ ,
+0	
+where:
+	•
+λ is the rate parameter (the inverse of the mean time between events), and f(x) is the PDF.
+The rate parameter λ describes how frequently events occur. The exponential distribution has the 
+“memoryless” property, meaning the probability of an event occurring in the future is independent 
+of how much time has already passed. If the average time between incoming calls at a call center is 
+2 minutes, the rate parameter is λ
+.
+=
+=
+1
+2
+0 5per minute. The probability of waiting less than 1 minute 
+for the next call is:
+
+--- PDF PAGE 108 ---
+95
+Probability Theory and Statistics
+	
+P X
+e
+e
+(
+)
+.
+.
+<
+=
+−
+=
+−
+≈
+−⋅
+−
+1
+1
+1
+0 3935
+1
+0 5
+λ
+	
+Thus, there is a 39.35% probability of receiving the next call within 1 minute.

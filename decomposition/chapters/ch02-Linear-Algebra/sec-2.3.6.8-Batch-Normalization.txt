@@ -1,0 +1,92 @@
+2.3.6.8  Batch Normalization
+Batch normalization is a technique used to normalize the activations of a layer in an NN. This helps 
+maintain a consistent mean and variance across different batches during training, improving the 
+model’s stability and performance. Batch normalization works in the following steps:
+1.	 Calculate the mean (μ) and variance (σ2) of the input X over the batch:
+	
+µ
+σ
+µ
+B
+i
+m
+i
+B
+i
+m
+i
+B
+m
+X
+m
+X
+=
+=
+−
+=
+=
+∑
+∑
+1
+1
+1
+2
+1
+2
+and
+(
+) ,	
+where m is the number of samples in the batch, and Xi represents each input in the batch.
+2.	 Normalize the input X by subtracting the mean and dividing by the standard deviation:
+	
+ˆ
+.
+X
+X
+i
+i
+B
+B
+=
+−
++
+µ
+σ2
+
+	
+Here, ϵ is a small constant added for numerical stability to avoid division by zero.
+3.	 Scale and shift the normalized input using two learnable parameters, γ (scale) and β (shift):
+	
+Y
+X
+i
+i
+=
++
+γ
+β
+ˆ
+	
+The parameters γ and β are learned during training and allow the network to restore the rep-
+resentational power that might be lost due to normalization.
+Figure 2.9 provides a visualization of the forward and backward pass in an NN layer, represented 
+through a series of matrices. The input data matrix illustrates the initial data fed into the NN, with each 
+element representing feature values across rows and columns. Following this, the Batch Data (Sample 
+1) matrix shows how a single sample from the batch is processed, demonstrating the model’s handling 
+of data during training in smaller chunks, known as mini-​batches. Moving to the Weights Matrix, this 
+highlights the learned weights, which connect the input data to the neurons in the layer. Complementing 
+the weights, the Biases Vector is shown, which contains bias values added to the weighted sum of 
+inputs for each neuron, providing additional flexibility in shifting the neuron’s output. The Output 
+Matrix shows the raw result after multiplying the input data by the weights and adding the biases, yet 
+before any activation function is applied. The ReLU Activation Output matrix then demonstrates the 
+effect of applying the ReLU activation function, which zeros out any negative values while keeping 
+positive values the same. This step introduces non-​linearity into the model, making it more capable of
+
+--- PDF PAGE 50 ---
+37
+Linear Algebra
+learning complex patterns. Following the forward pass, the Gradients Matrix represents the calculated 
+gradients during backpropagation, where the network computes how much the weights should be 
+adjusted to minimize the loss function. These gradients are then used to adjust the model’s parameters, 
+as illustrated in the weight updates matrix. Finally, the Batch Normalization Output matrix presents the 
+normalized output values after applying batch normalization.

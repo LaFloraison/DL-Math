@@ -1,0 +1,4 @@
+4.2.2  Continuous Probability Distributions
+They are used for continuous random variables, assuming any value within a specified range. A typ-
+ical example is the height of individuals in a population, which can vary continuously. Some of the 
+standard continuous probability distributions are as follows.

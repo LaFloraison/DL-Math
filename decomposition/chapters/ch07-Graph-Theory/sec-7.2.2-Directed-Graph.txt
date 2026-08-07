@@ -1,0 +1,7 @@
+7.2.2  Directed Graph
+A directed graph is a type of graph in which the edges have a specific direction. This means each edge 
+points from one node to another, indicating a one-​way relationship. Directed graphs are represented 
+visually by arrows that show the direction of the connection between nodes. Directed graphs provide 
+a clear and effective way to model and analyze systems where directionality is a critical component 
+of the relationships between entities. They enable the study of influence, flow, and hierarchy within 
+a network. Its key characteristics are directional edges and asymmetry.

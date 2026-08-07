@@ -1,0 +1,31 @@
+4.2.6.1  Prior Distribution
+It represents the distribution of the model’s parameters (e.g., weights) before any data is observed. 
+In Bayesian inference, this reflects our initial belief or assumptions about the model’s parameters. 
+The distribution of weights before observing the data:
+	
+P w
+( )
+(
+)
+~
+,
+0
+2
+σ
+	
+where:
+w represents the weights of the NN,
+P(w) is the prior distribution of the weights, which could follow a certain distribution (e.g., 
+normal distribution).
+Suppose you are using a BNN to predict house prices, and you initially believe the weight (or 
+impact) of the number of rooms on house price follows a normal distribution N 0 5 0 12
+. , .
+(
+). This 
+means that before seeing any data, you assume the effect of the number of rooms on house price is 
+centered around 0.5, but with some uncertainty (variance of 0.01).
+FIGURE 4.2  Demonstration of underfitting, good fit, and overfitting.
+
+--- PDF PAGE 115 ---
+102
+Mathematical Foundations for Deep Learning

@@ -1,0 +1,5 @@
+10.2.1  Fundamentals of Fourier Analysis
+The strength of Fourier analysis is that it can break any complex signal into simple sine and cosine 
+waves. This separation lets us look closely at the signal’s different frequencies. Understanding these 
+frequencies is important in many areas, from engineering to science. It helps us design filters, study 
+waveforms, and process data more effectively.

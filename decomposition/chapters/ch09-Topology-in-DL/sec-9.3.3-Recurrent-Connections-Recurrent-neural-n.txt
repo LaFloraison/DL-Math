@@ -1,0 +1,103 @@
+9.3.3  Recurrent Connections
+Recurrent neural networks (RNNs) are built to work with data that comes in a sequence by using 
+loops that let information carry over from one step to the next. This setup allows RNNs to handle 
+sequences of different lengths and understand how things change over time and depend on each 
+other in order. The main benefits of these looping connections in neural networks are seen when pro-
+cessing sequential data and keeping information over time. First, the loops let RNNs handle data in
+
+--- PDF PAGE 289 ---
+276
+Mathematical Foundations for Deep Learning
+the order it happens, making them great for tasks like analyzing time-​based data, understanding lan-
+guage, and recognizing speech. These networks can work with input sequences that vary in length, 
+which is important for tasks where the size of the input can change a lot, such as predicting the next 
+word in a sentence or processing spoken words. Second, the looping connections give the network a 
+kind of memory because information can stay available across different steps. This means the model 
+can use what it learned before to make better predictions now, giving it a deeper understanding of 
+how things are related in the sequence. For example, think about trying to predict the next word in 
+a sentence. Suppose we have the sequence: “The cat is on the.” The goal is to guess the next word, 
+which is likely “mat.” An RNN looks at this sequence one word at a time, using the words that came 
+before to help predict the next one. In this case, each word is treated as a separate step. At each step 
+t, the RNN takes in an input xt (like the word “The,” “cat,” “is,” etc.) and updates its hidden state ht 
+based on the current word and the hidden state from the previous step ht−1. For example:
+	•
+At t =​ 1, the RNN processes “The,” and updates its hidden state h1.
+	•
+At t =​ 2, it processes “cat,” using both x2 (“cat”) and the hidden state h1 (from “The”).
+This continues until the RNN processes “the” at t =​ 4, using all previous context to predict the next 
+word, “mat.” The RNN’s recurrent connections allow information from earlier time steps to influ-
+ence later predictions. In the example above, knowing “The cat is on the” helps the model predict 
+“mat” because of the context it has accumulated over the sequence. At each time step t, the RNN 
+updates its hidden state using the following equations:
+	
+h
+f W
+h
+W
+x
+b
+t
+h
+t
+x
+t
+=
+⋅
++
+⋅
++
+(
+)
+−1
+	
+where:
+	•
+ht is the hidden state at time t,
+	•
+ht-​1 is the hidden state from the previous time step,
+FIGURE 9.3  Impact of skip connections on gradient flow in deep networks.
+
+--- PDF PAGE 290 ---
+277
+Topology in Deep Learning
+	•
+xt is the input at time t,
+	•
+Wh and Wx are weight matrices,
+	•
+b is the bias term, and
+	•
+f is the activation function (typically a non-​linear function like tanh or ReLU).
+The hidden state ht stores information from previous time steps, enabling the RNN to “remember” 
+the context as it processes new data. Finally, the output at each time step, yt, is given by:
+	
+y
+f W
+h
+c
+t
+y
+t
+=
+⋅
++
+(
+)	
+where:
+	•
+Wy is the output weight matrix,
+	•
+c is the output bias.
+For example, if we want to guess the next word in a sentence, yt would show the chances of different 
+words coming next. The word with the highest chance is chosen as the next word. Recurrent 
+connections in neural networks have some problems, such as vanishing and exploding gradients, 
+and slow training. First, when training the network, the information (called gradients) is sent 
+back through time. In long sequences, these gradients can either become very small (vanishing 
+gradients) or very large (exploding gradients). When gradients vanish, the network struggles to learn 
+connections that are far apart in the sequence. When gradients explode, the training can become 
+unstable. These problems can make training slow or ineffective, especially for tasks that need to 
+understand long-​term relationships. Second, RNNs handle data one step at a time, with each step 
+depending on the one before it. This makes training slower compared to other types of networks like 
+convolutional neural networks (CNNs), which can handle many parts of the data at the same time. 
+Because RNNs work step by step, they require more computing power and memory, making the 
+training process take longer and use more resources.

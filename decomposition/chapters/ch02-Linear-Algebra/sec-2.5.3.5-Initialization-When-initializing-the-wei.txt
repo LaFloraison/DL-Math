@@ -1,0 +1,4 @@
+2.5.3.5  Initialization
+When initializing the weights of an NN, the initial linear transformations applied to the data must 
+be carefully chosen. Proper initialization helps ensure that the transformations do not excessively 
+shrink or expand the data, preventing issues like vanishing or exploding gradients during training.

@@ -1,0 +1,8 @@
+7.2  GRAPH THEORY FOR DEEP LEARNING
+Understanding the basic types of graphs and their properties is fundamental for modeling and 
+solving problems in various domains, including computer science, biology, social sciences, 
+and more. Graphs provide a useful and powerful way to represent and analyze the relationships and 
+structures within data.
+7.2.1  Graph
+A graph is a fundamental mathematical structure consisting of a set of nodes (vertices) and edges. 
+The key components of the graph are nodes and edges.

@@ -1,0 +1,4 @@
+5.6  OPTIMIZATION METHODS IN DEEP LEARNING
+Optimization in deep learning is crucial because the goal is to minimize (or sometimes maximize) 
+a loss function. This loss function measures how far our predictions are from the actual values. By 
+optimizing this function, we ensure that our model generalizes well to new, unseen data.

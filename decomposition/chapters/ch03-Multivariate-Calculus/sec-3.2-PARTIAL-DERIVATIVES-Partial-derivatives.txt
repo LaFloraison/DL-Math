@@ -1,0 +1,39 @@
+3.2  PARTIAL DERIVATIVES
+Partial derivatives help us understand how a multivariable function changes to each independent 
+variable, assuming all other variables remain constant. This concept is fundamental in multivariable 
+calculus and finds applications across various fields. When dealing with functions of multiple 
+variables, the rate at which the function changes concerning one variable while keeping other 
+variables constant is known as the partial derivative. Consider the function f x y
+,
+(
+), when taking 
+the partial derivative of f to x, treat y as a constant and usually differentiate it to x. The same logic 
+applies when taking the partial derivative to y. Let: f x y
+x y
+xy
+,
+(
+) =
++
+2
+2, the partial derivative of f to 
+x is ∂
+∂
+=
++
+f
+x
+xy
+y
+2
+2, here, treat y as a constant and differentiate to x. The partial derivative of f for y is 
+∂
+∂=
++
+f
+y
+x
+xy
+2
+2
+ here, treat x as a constant and differentiate concerning y.

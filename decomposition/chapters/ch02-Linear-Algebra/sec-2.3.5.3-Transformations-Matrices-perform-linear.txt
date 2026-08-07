@@ -1,0 +1,110 @@
+2.3.5.3  Transformations
+Matrices perform linear transformations in geometry and computer graphics, such as scaling, rota-
+tion, and translation.
+Example:
+	•
+Scaling: S =​ 
+s
+s
+x
+y
+0
+0
+
+
+
+
+	•
+Rotation: R =​ cos
+sin
+sin
+cos
+θ
+θ
+θ
+θ
+−
+
+
+
+
+	•
+Translation: This is typically handled in homogeneous coordinates, involving an additional 
+dimension for translation vectors. In homogeneous coordinates, a 2D point (x, y) becomes 
+(x, y, 1), allowing translation by a vector(tx, ty) using the matrix
+1
+0
+0
+1
+0
+0
+1
+t
+t
+x
+y
+
+
+
+
+
+
+
+
+
+
+ . This matrix is 
+applied to the point (x, y, 1) to produce the translated point (x′, y′):
+	
+′
+′
+
+
+
+
+
+
+
+
+
+
+=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+x
+y
+t
+t
+x
+y
+x
+y
+1
+1
+0
+0
+1
+0
+0
+1
+1
+,	
+where x′ =​ x +​ tx and y′ =​ y +​ ty.

@@ -1,0 +1,30 @@
+4.3.3  Cluster Sampling
+Cluster sampling divides the population into clusters, randomly selects certain clusters, and studies 
+all members within these chosen clusters. This method is particularly efficient for geographically 
+dispersed populations, reducing the costs and logistical challenges of data collection. However, it 
+can be potentially less precise than SRS of an equivalent size, as the variability within clusters might 
+not fully represent the entire population. Suppose a city has 50 schools, and you want to sample 
+students. Using cluster sampling, you divide the population by schools (each school is a cluster). 
+You randomly select 10 schools and study all the students in these selected schools. If each school 
+has 200 students, you end up with a sample size of 2,000 students from the selected clusters. The 
+probability of selecting a cluster is:
+	
+P cluster selected
+Number of clusters selected
+Total number of cl
+(
+) =
+usters 	
+If 10 clusters are selected from 50 schools, the probability of selecting any specific school is:
+	
+P cluster selected
+(
+) =
+=
+10
+50
+0 2.
+
+--- PDF PAGE 118 ---
+105
+Probability Theory and Statistics

@@ -1,0 +1,17 @@
+7.2.3.3  Undirected Graph Example
+Undirected graphs are ideal for modeling scenarios where the relationships are inherently mutual. 
+Consider a social network. In this network, each person is represented by a node, and each friendship 
+is represented by an undirected edge between two nodes. For example, if Alice and Bob are friends, 
+there is an undirected edge between the nodes representing Alice and Bob. This edge implies a 
+mutual relationship, meaning Alice is connected to Bob, and Bob is equally connected to Alice. An
+
+--- PDF PAGE 220 ---
+207
+Graph Theory
+undirected graph is defined as G =​ (V, E), where V is a set of vertices (or nodes), and E ⊆ {{u, v} ∣ 
+u, v ∈ V} is a set of edges, where each edge {u, v} connects Node u and Node v, with no direction 
+implied. For example, consider a simple social network with three people: Alice (A), Bob (B), and 
+Carol (C). Suppose Alice is friends with both Bob and Carol, and Bob is friends with Carol. The 
+undirected graph representing this network can be expressed as: V =​ {A, B, C} and E =​ {{A, B}, {A, 
+C}, {B, C}}. In this graph, the edge {A, B} means that Alice and Bob are friends, and the relation-
+ship is bidirectional.

@@ -1,0 +1,125 @@
+11.2.1.2  Continuous Dynamical Systems
+Unlike discrete systems, continuous dynamical systems change smoothly over time, with each tiny 
+moment affecting the system’s state. These systems are usually modeled with differential equations, 
+which explain how the system changes continuously. Continuous dynamical systems are important 
+in areas like physics and engineering, where processes such as fluid flow, electrical circuits, and 
+mechanical motion change smoothly over time. A continuous dynamical system is represented by a 
+differential equation:
+	
+dx t
+dt
+f x t
+( ) =
+( )
+(
+)	
+where:
+	•
+x(t) is the system’s state at time t,
+	•
+f describes how the state changes over time.
+Let’s model a simple exponential growth system:
+	
+dx t
+dt
+x t
+( ) =
+( )
+0 5.
+	
+This equation describes a system where the growth rate is proportional to the current state, with a 
+growth rate of 0.5. Initial Condition: x 0
+100
+( ) =
+. In this equation:
+	
+x t
+x
+e
+t
+( ) = ( )⋅
+0
+0 5. 	
+Substitute the initial condition x 0
+100
+( ) =
+:
+	
+x t
+e
+t
+( ) =
+⋅
+100
+0 5.
+
+--- PDF PAGE 336 ---
+323
+Dynamical Systems and Differential Equations for RNNs
+For different time values, we can calculate various states of the system:
+	•
+At t
+x
+e
+=
+( ) =
+⋅
+≈
+1
+1
+100
+164 87
+0 5
+:
+.
+.
+,
+	•
+At t
+x
+e
+=
+( ) =
+⋅
+≈
+2
+2
+100
+271 83
+1
+:
+.
+,
+	•
+At t
+x
+e
+=
+( ) =
+⋅
+≈
+3
+3
+100
+448 17
+1 5
+:
+.
+.
+.
+The system grows continuously, with the population increasing exponentially over time.
+Figure 11.1 presents a comparison between continuous and discrete dynamical systems, illus­
+trating their behavior over a specified time interval. The x-​axis denotes time, while the y-​axis 
+represents the state of the system. The continuous system is depicted by a smooth blue curve, thus 
+highlighting the uninterrupted, smooth evolution of the state as time progresses. This smooth curve 
+signifies that in continuous systems, changes occur gradually and are tracked at every infinitesimal 
+point in time, providing a view of the state dynamics. On the other hand, the discrete system is 
+shown as a red line connecting markers at specific time intervals. The markers represent the state 
+values captured at each discrete time step, reflecting how the system’s state is updated only at these 
+discrete points. This piecewise linear representation indicates that in discrete systems, time and 
+state changes are not continuously tracked but rather approximated at selected intervals. In sections 
+where the state changes gradually (e.g., between time steps 0 to 2 and 6 to 8), both the continuous 
+and discrete trajectories closely align. However, at regions where the state exhibits rapid changes 
+(e.g., around time steps 3 and 9), slight discrepancies emerge. These differences illustrate how dis-
+crete systems might approximate the continuous system’s behavior but may miss finer details or 
+introduce minor deviations when the state changes abruptly.

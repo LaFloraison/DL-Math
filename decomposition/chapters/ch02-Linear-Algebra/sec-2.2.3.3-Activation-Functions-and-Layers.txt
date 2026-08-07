@@ -1,0 +1,74 @@
+2.2.3.3  Activation Functions and Layers
+In an NN, the output from each layer, known as the activations, is represented as a vector. These 
+activations are computed by first multiplying the input vector by the layer’s weights, adding the 
+biases, and then applying an activation function to introduce non-​linearity. The activation function
+
+--- PDF PAGE 36 ---
+23
+Linear Algebra
+transforms the output in such a way that the network can model complex relationships within the 
+data. The resulting activation vector from one layer serves as the input to the next layer, allowing 
+the network to progressively learn more intricate data representations. Consider an NN layer with a 
+single input value x =​ 1.0, a weight w =​ 0.5, and a bias b =​ 0.2. The layer applies the ReLU activation 
+function, which outputs the input value if it is positive and returns 0 otherwise.
+Step 1: Compute the linear combination of input, weight, and bias:
+	
+z
+wx
+b
+=
++
+=
+×
+(
+)+
+=
++
+=
+0 5 1 0
+0 2
+0 5
+0 2
+0 7
+.
+.
+.
+.
+.
+. 	
+Step 2: Apply the ReLU activation function:
+ReLU z
+z
+( ) =
+=
+=
+max( , )
+max( , . )
+. .
+0
+0 0 7
+0 7
+In this example, the activation output is 0.7, which becomes the input to the next layer. If we used a 
+different activation function, like the sigmoid function, the output would have been:
+	
+Sigmoid z
+e
+e
+z
+( ) =
++
+=
++
+≈
+−
+−
+1
+1
+1
+1
+0 668
+0 7.
+.
+.	
+By applying different activation functions, the network can handle various kinds of data patterns, 
+enabling it to learn more complex representations as it passes data through multiple layers.

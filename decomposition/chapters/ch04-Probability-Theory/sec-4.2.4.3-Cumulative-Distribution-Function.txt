@@ -1,0 +1,71 @@
+4.2.4.3  Cumulative Distribution Function
+It gives the probability that a random variable X is less than or equal to a specific value x. The CDF 
+is used for both discrete and continuous random variables and is defined as the integral (for con-
+tinuous) or sum (for discrete) of the PMF or PDF. The general formula for discrete random variables 
+is as follows:
+	
+F x
+P X
+x
+P X
+t
+t x
+( ) =
+≤
+(
+) =
+=
+(
+)
+≤∑
+	
+The general formula for continuous random variables is as follows:
+	
+F x
+P X
+x
+f t dt
+x
+( ) =
+≤
+(
+) =
+( )
+−∞∫
+	
+where:
+	•
+F(x) is the CDF,
+	•
+f(x) is the PDF for continuous variables, or P(X =​ t) for discrete variables.
+For a normal distribution with μ =​ 0 and σ =​ 1, the CDF gives the probability that the random vari-
+able is less than or equal to a particular value. For example:
+	
+P X ≤
+(
+) ≈
+1 96
+0 975
+.
+.
+	
+This means that approximately 97.5% of the values in this distribution are less than or equal to 1.96.
+Figure 4.1 shows four common probability distributions: binomial, Poisson, normal, and uni­
+form. In subplot Figure 4.1a (binomial distribution), represented by blue bars, the probability of 
+achieving a specific number of successes in a fixed number of trials is clearly illustrated. An anno-
+tation labeled “Peak at n*p” points to the most probable number of successes, emphasizing the
+
+--- PDF PAGE 112 ---
+99
+Probability Theory and Statistics
+distribution’s central tendency around the expected value n × p. Adjacent to it, Figure 4.1b (Poisson 
+distribution) showcases orange bars depicting the probability of a given number of events occurring 
+within a fixed interval. The annotation “Peak at λ” highlights the mode of the distribution, where 
+the expected number of events λ occurs with the highest probability. Moving to Figure 4.1c (normal 
+distribution), a smooth green curve with a shaded area beneath it represents the continuous PDF. An 
+annotation labeled “Mean (μ)” points to the center of the distribution, underscoring the concept of 
+the mean as the peak of the bell curve. Finally, Figure 4.1d (uniform distribution) is depicted with a 
+solid purple line and a filled area, illustrating a constant probability density across the interval from 
+0 to 1. The x-​axis covers the range of possible values, and the y-​axis shows the uniform probability 
+density. The annotation “Constant Probability” succinctly conveys the essence of the uniform distri-
+bution, where every outcome within the specified interval is equally likely.

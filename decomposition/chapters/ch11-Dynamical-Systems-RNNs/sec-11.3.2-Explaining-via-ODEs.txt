@@ -1,0 +1,24 @@
+11.3.2  Explaining via ODEs
+RNNs, especially those built with continuous changes, can be easily understood using ODEs. Using 
+ODEs helps us model how the system changes over time, giving us a better understanding of how 
+the network behaves. One important idea in this approach is stationary states, or fixed points, which 
+are states where the system stays the same and does not change over time. A fixed point x* occurs 
+when the ODE governing the system reaches a state where:
+	
+dx t
+dt
+f x t
+( ) =
+( )
+(
+) = 0	
+In the context of RNNs, these fixed points represent the long-​term behavior of the network, where 
+the internal state stays the same over time. For example, if an RNN reaches a stable fixed point, it 
+will give consistent outputs for sequences, making its performance reliable. Another important idea 
+is stability analysis, which looks at whether the fixed points of the system are stable or unstable. 
+A stable fixed point means that if the system’s state is slightly changed, it will eventually go back to 
+the fixed point. On the other hand, an unstable fixed point means that any small change will make 
+the system move away from that point. This analysis helps us understand if the RNN will settle into 
+a stable state, show repeating patterns, or even behave unpredictably over time. To explain this with 
+a numerical example, consider a simple ODE describing the continuous evolution of a state x(t) 
+over time:

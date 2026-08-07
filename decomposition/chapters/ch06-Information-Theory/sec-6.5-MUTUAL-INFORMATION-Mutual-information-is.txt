@@ -1,0 +1,420 @@
+6.5  MUTUAL INFORMATION
+Mutual information is a fundamental quantity in information theory that quantifies the information 
+obtained about one random variable by observing another. It measures the dependence between two 
+variables and has wide applications in feature selection, machine learning, and data analysis. Mutual 
+information provides a quantitative measure of the relationship between two random variables. In 
+contexts like feature selection, it can help determine which features (variables) carry the most infor-
+mation about the target variable, thereby being most relevant for tasks like classification or regres-
+sion. There are three main basic properties of mutual information:
+1.	 Symmetry: Mutual information is symmetric. This means that the amount of information 
+gained about X by knowing Y is the same as the amount of information gained about Y by 
+knowing X. It can be shown as: I(X; Y) =​ I(Y; X)
+2.	 Non-​Negative: Mutual information is always non-​negative. If I(X; Y) =​ 0, it implies that the 
+two random variables are independent, and knowing the value of one does not provide any 
+information about the other.
+3.	 Range: Mutual information can take a value between 0 (when the variables are independent) and 
+the entropy of one of the variables (when one variable is a deterministic function of the other).
+Here are the brief explanations of the mutual information formula:
+	
+I(X; Y) =​ H(X) –​ H(X | Y)	
+This formula means that the mutual information between X and Y is the difference between the 
+entropy of X (the uncertainty in X) and the conditional entropy of X given Y (the remaining uncer-
+tainty in X when we know Y):
+	
+I(X; Y) =​ H(Y) –​ H(Y | X)	
+Similarly, this formula shows that the mutual information between X and Y is the difference between 
+the entropy of Y (the total uncertainty in Y) and the conditional entropy H(Y ∣ X) (the remaining 
+uncertainty in Y given that X is known).
+
+--- PDF PAGE 199 ---
+186
+Mathematical Foundations for Deep Learning
+Mutual information is a powerful tool because it captures non-​linear dependencies between 
+variables, unlike other measures, such as correlation, which capture only linear dependencies. If 
+the mutual information between two variables is high, the variables are strongly related. Suppose 
+we have two random variables: X represents the outcome of flipping a fair coin, with possible 
+outcomes: Heads (H) or Tails (T), each with a probability P(X =​ H) =​ 0.5 and P(X =​ T) =​ 0.5. Y 
+represents whether or not a person decides to walk based on the weather, with possible outcomes: Walk 
+(W) or Stay (S), each with a probability dependent on the coin flip (to simulate a correlation).
+Let’s assume the probabilities based on the coin flip are:
+If X =​ H (Heads), the person decides to walk with probability P(Y =​ W ∣ X =​ H) =​ 0.8 and stays 
+with P(Y =​ S ∣ X =​ H) =​ 0.2.
+If X =​ T (Tails), the person decides to stay with probability P(Y =​ S ∣ X =​ T) =​ 0.9, and walks 
+with P(Y =​ W ∣ X =​ T) =​ 0.1.
+Step 1: Calculate the individual entropies H(X) and H(Y):
+H(X): Since X is a fair coin flip, the entropy of X is:
+H X
+P X
+x
+P X
+x
+x
+( )
+(
+)log
+(
+)
+( . log
+.
+. log
+. )
+= −
+=
+=
+= −
++
+=
+∑
+2
+2
+2
+0 5
+0 5
+0 5
+0 5
+1 bit
+H(Y): To calculate the entropy of Y, we first need the marginal probabilities for Y. These are:
+	
+P Y
+W
+P Y
+W X
+H
+P X
+H
+P Y
+W X
+T
+P X
+T P
+=
+(
+) =
+=
+=
+⋅
+=
+(
+)+
+=
+=
+⋅
+=
+(
+)
+(
+|
+)
+(
+|
+)
+	
+	
+P Y
+W
+=
+(
+) =
+⋅
+(
+)+
+⋅
+(
+) =
++
+=
+0 8 0 5
+0 1 0 5
+0 4
+0 05
+0 45
+.
+.
+.
+.
+.
+.
+.
+	
+	
+P Y
+S
+P Y
+W
+.
+=
+(
+)= −
+=
+(
+)=
+1
+0 55	
+Now, we can calculate H(Y):
+H Y
+( )
+( .
+log
+.
+.
+log
+.
+)
+( .
+.
+.
+.
+= −
++
+= −
+× −
++
+× −
+0 45
+0 45
+0 55
+0 55
+0 45
+1 152
+0 55
+0 86
+2
+2
+3
+1 027
+)
+.
+=
+ bits
+Step 2: Calculate the conditional entropy H(X ∣ Y):
+We need the conditional probabilities P(X ∣ Y), but it’s easier to calculate H(X ∣ Y) using the joint 
+probabilities of X and Y:
+	
+P X
+H Y
+W
+P Y
+W X
+H
+P X
+H
+=
+=
+(
+) =
+=
+=
+⋅
+=
+(
+) =
+×
+=
+,
+(
+|
+)
+.
+.
+.
+0 8
+0 5
+0 4	
+	
+P X
+H Y
+S
+P Y
+S X
+H
+P X
+H
+=
+=
+(
+) =
+=
+=
+⋅
+=
+(
+) =
+×
+=
+,
+(
+|
+)
+.
+.
+.
+0 2
+0 5
+0 1	
+	
+P X
+T Y
+W
+P Y
+W X
+T
+P X
+T
+=
+=
+(
+) =
+=
+=
+⋅
+=
+(
+) =
+×
+=
+,
+(
+|
+)
+.
+.
+.
+0 1
+0 5
+0 05	
+	
+P X
+T Y
+S
+P Y
+S X
+T
+P X
+T
+=
+=
+(
+) =
+=
+=
+⋅
+=
+(
+) =
+×
+=
+,
+(
+|
+)
+.
+.
+.
+0 9
+0 5
+0 45	
+Using the joint probabilities, we calculate the conditional entropy H(X ∣ Y):
+	
+H X Y
+P X
+x Y
+y
+P X
+x Y
+y
+P Y
+y
+x y
+(
+|
+)
+,
+,
+,
+= −
+=
+=
+(
+)
+=
+=
+(
+)
+=
+(
+)
+∑
+log2
+
+--- PDF PAGE 200 ---
+187
+Information Theory
+	
+H X Y
+(
+|
+)
+. log
+.
+.
+.
+log
+.
+.
+. log
+.
+.
+.
+= −
++
++
++
+0 4
+0 4
+0 45
+0 05
+0 05
+0 45
+0 1
+0 1
+0 55
+0 4
+2
+2
+2
+5
+0 45
+0 55
+0 56
+2
+log
+.
+.
+.
+
+
+
+≈
+ bits	
+Step 3: Calculate mutual information I(X; Y):
+Finally, mutual information I(X; Y) is the difference between the entropy of X and the conditional 
+entropy H(X ∣ Y):
+I(X; Y) =​ H(X) − H(X ∣ Y) =​ 1 − 0.56 =​ 0.44 bits
+This result tells us that knowing Y provides 0.44 bits of information about X, meaning there is 
+some dependency between the two variables (but not complete dependence). The mutual infor-
+mation quantifies this relationship and can be used to assess the strength of the dependency 
+between X and Y.
+Figure 6.3 provides a view of the relationship between variables X and Y using information-​
+theoretic concepts. In subplot Figure 6.3a, the joint probability distribution P(X, Y) is visualized 
+as a heatmap. The distribution shows the probability values for combinations of X (with values X1, 
+X2, X3) and Y (with values Y1, Y2, Y3). Each cell in the matrix displays the probability associated 
+with a particular combination of X and Y. For example, P(X2, Y2) has a higher probability value 
+(0.20), highlighted in yellow, compared to other combinations. This heatmap provides insight into 
+how the two variables interact, showing the likelihood of different outcomes. Subplot Figure 6.3b 
+illustrates the conditional entropy H(Y ∣ X), which measures the uncertainty in Y given that X is 
+known. The bar plot presents the conditional entropy values for each category of X. The values are 
+1.522 for X1, 1.379 for X2, and 1.500 for X3, indicating how much uncertainty remains in Y when 
+each corresponding value of X is observed. Subplot Figure 6.3c shows the mutual information I(X; 
+Y), which quantifies the amount of information shared between X and Y. It is represented as a single 
+bar with a value of 0.059 bits, indicating that there is some degree of dependency between X and Y, 
+although it is relatively small.

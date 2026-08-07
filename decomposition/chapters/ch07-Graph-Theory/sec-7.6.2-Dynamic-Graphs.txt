@@ -1,0 +1,16 @@
+7.6.2  Dynamic Graphs
+Many real-​world graphs are not static but dynamic, with nodes and edges frequently being added 
+or removed. Handling such dynamic graphs poses a significant challenge because the model must 
+continuously update its structure and parameters to accommodate these changes. This requires 
+algorithms that can adapt to changes in the graph in real time without necessitating a complete 
+retraining of the model. One key approach to addressing this challenge is incremental learning. This 
+method involves developing techniques that update the model incrementally as new data arrives, 
+allowing the GCN to adapt to changes without starting from scratch. Another approach is processing 
+graph data in a streaming fashion, known as streaming graphs. This allows for real-​time updates and 
+ensures that the model maintains its accuracy over time as the graph evolves. These approaches are 
+essential for effectively managing dynamic graphs, enabling the models to remain responsive and 
+accurate as the underlying data changes. Consider a social network where new users (nodes) are 
+constantly joining, existing users are unfollowing or following others, and posts (edges) are continu-
+ously being posted or deleted. This creates a dynamic graph that evolves over time. To ensure that 
+the GCN handling this data remains accurate and up-​to-​date, it must be capable of adjusting to these 
+changes without needing to be retrained from scratch every time the graph changes.

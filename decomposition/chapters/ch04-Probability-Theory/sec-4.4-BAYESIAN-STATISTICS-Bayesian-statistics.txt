@@ -1,0 +1,73 @@
+4.4  BAYESIAN STATISTICS
+Bayesian statistics is a branch of statistics that employs probability to represent all forms of uncer-
+tainty. After Thomas Bayes formulated the fundamental theorem underpinning this method, Bayesian 
+statistics offered a robust framework for making inferences. At the core of Bayesian statistics lies 
+Bayes’ theorem, which provides a method for updating probabilities as new evidence is introduced. 
+The theorem is expressed as:
+	
+P A B
+P B A P A
+P B
+( |
+( |
+)
+)
+=
+( )
+( )
+	
+where:
+	•
+P(A | B) is the posterior probability,
+	•
+P(B | A) is the likelihood,
+	•
+P(A) is the prior probability, and
+	•
+P(B) is the evidence (the marginal likelihood).
+The prior represents initial beliefs about an event or model parameters before any new evidence 
+is considered. It sets the baseline from which Bayesian inference starts. Likelihood measures how 
+probable the observed data are, given the model parameters. It plays a crucial role in updating the 
+prior into the posterior. The posterior is the result of combining the prior and the likelihood of 
+the observed data. It represents updated beliefs after considering new evidence. Often acting as a
+
+--- PDF PAGE 125 ---
+112
+Mathematical Foundations for Deep Learning
+FIGURE 4.7  Impact of sampling methods on model. (a) Overfitting scenario and (b) underfitting.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 126 ---
+113
+Probability Theory and Statistics
+normalization constant, the evidence ensures that the posterior probabilities sum to one. It integrates 
+the likelihood over all possible values of the unknown parameters. The advantages of Bayesian 
+statistics are:
+1.	 Flexibility: Incorporates both new data and prior knowledge.
+2.	 Interpretability: Results are expressed as probabilities, making them intuitively 
+understandable.
+3.	 Full Distribution: Provides a complete probabilistic description of model parameters, not 
+just point estimates.
+Given the complexity of deriving posterior distributions analytically, computational methods 
+like MCMC and variational inference are crucial for approximating these distributions. Bayesian 
+methods are employed across various fields, including machine learning, genetics, medicine, eco-
+nomics, and astronomy. There are still some challenges like:
+1.	 Choice of Prior: The subjective nature of selecting a prior can lead to biases.
+2.	 Computational Intensity: Bayesian methods can require significant computational resources, 
+particularly for complex models.
+Unlike frequentist statistics, which often focuses on likelihoods and provides point estimates and 
+confidence intervals without incorporating prior beliefs, Bayesian statistics integrate prior know-
+ledge with observed data to offer a probabilistic view of model parameters.
+Figure 4.8 illustrates the Bayesian updating of beliefs regarding the probability of heads in a 
+coin flip. It compares the prior belief with the posterior belief after observing the outcome of 50 
+coin’s flips. Initially, the prior belief is represented by a beta distribution with parameters α =​ 2 and 
+β =​ 2, reflecting an assumption that the coin is fair. The blue dashed line shows this prior distribu-
+tion, which is symmetric around 0.5. The prior mean, indicated by a vertical blue dashed line, is 
+0.5. After conducting 50 coin’s flips with an observed true probability of heads being 0.7, the data 
+yields 35 heads and 15 tails. This observed data updates the prior distribution to form the posterior 
+distribution, depicted by the red solid line. The updated posterior parameters are α =​ 37 and β =​ 17. 
+The posterior mean, shown by a vertical red dashed line, shifts towards the observed probability of 
+heads and is approximately 0.69, reflecting the new belief after incorporating the evidence from the 
+coin flips.

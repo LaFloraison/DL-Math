@@ -1,0 +1,113 @@
+5.3.11  Evolutionary Algorithms
+Evolutionary algorithms (EAs) are optimization techniques inspired by natural selection. They 
+simulate the biological principles of evolution, including survival of the fittest, to solve complex 
+problems in various fields such as computer science and engineering. These are the basic concepts:
+	•
+Population: A group of potential solutions.
+	•
+Chromosomes: Each potential solution.
+	•
+Genes: Elements of a solution.
+	•
+Fitness: The quality or suitability of a solution.
+
+--- PDF PAGE 165 ---
+152
+Mathematical Foundations for Deep Learning
+FIGURE 5.11  Branch and Bound tree for knapsack problem.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 166 ---
+153
+Optimization Theory
+The major steps in EAs are:
+	•
+Initialization: Generate an initial population of possible solutions randomly.
+	•
+Selection: Choose solutions based on fitness to contribute to the next generation. Higher 
+fitness increases the likelihood of selection.
+	•
+Crossover (Recombination): Combine selected solutions to create new ones, mimicking 
+reproduction.
+	•
+Mutation: Introduce small changes to new solutions with a certain probability to ensure gen-
+etic diversity.
+	•
+Replacement: Replace the old population with the new one.
+	•
+Termination: Repeat the process until a stopping criterion is met, such as a maximum number 
+of generations or a satisfactory fitness level.
+The types of EAs include genetic algorithms (GAs), which are the most popular type and use muta-
+tion, crossover, and selection to evolve potential solutions. Genetic programming evolves computer 
+programs as solutions, while differential evolution is used for real-​valued function optimization. 
+Evolution strategies focus on strategy parameters such as mutation strength, and evolutionary pro-
+gramming focuses on the mutation of finite-​state machines. The main applications of EAs include 
+function optimization, where they are used to find the maximum or minimum of functions. In machine 
+learning, they are used for feature selection, hyperparameter tuning, and neural network training. 
+The advantages of EAs include flexibility, as they can be applied to a wide range of problems, and 
+global search capabilities, as they have a higher likelihood of finding global optima than many trad-
+itional methods. They also support parallelism, allowing for the simultaneous evaluation of many 
+FIGURE 5.12  Cutting plane method.
+
+--- PDF PAGE 167 ---
+154
+Mathematical Foundations for Deep Learning
+solutions, which can be done in parallel with modern hardware. However, the limitations include 
+being computationally intensive, as the required computational resources can grow significantly 
+with problem size and complexity. Additionally, they do not provide certainty, often offering rea-
+sonable solutions without guaranteeing the global optimum. In GAs, the fitness function evaluates 
+each solution x:
+	
+Fitness x
+f x
+( ) =
+( )	
+The process involves applying selection, where individuals are chosen based on fitness scores. This 
+is followed by crossover, which generates new offspring by combining traits from selected individ-
+uals. Finally, mutation is applied by randomly altering some genes to maintain diversity within the 
+population and prevent premature convergence. This iterative process continues until the stopping 
+criteria are met, typically optimizing the objective function. Suppose you are optimizing a function 
+f(x) =​ −x2 +​ 4x. You initialize a population of 10 potential solutions (chromosomes) for the variable 
+x, each with random values between 0 and 5. The fitness of each solution is calculated using the 
+objective function f(x), and after selection, crossover, and mutation steps, the best solution x =​ 2, 
+with a fitness value of f(2) =​ 4, is found after 100 generations.
+Figure 5.13, demonstrates the application of a GA to optimize the Rastrigin function, a common 
+benchmark problem in evolutionary computation. The Rastrigin function, known for its large search 
+space and many local minima, is defined as f
+d
+x
+x
+i
+d
+i
+i
+x
+( ) =
+⋅
++
+−
+(
+)
+=∑
+10
+10
+2
+1
+2
+cos(
+)
+π
+, where d is the 
+FIGURE 5.13  Genetic algorithm optimization of Rastrigin function.
+
+--- PDF PAGE 168 ---
+155
+Optimization Theory
+number of dimensions. This example plots the function in two dimensions over the range [−5.12, 
+5.12] for x and y. The contours are filled using the colormap, visually representing the function’s 
+values across the grid. A color bar on the side indicates the corresponding function values. The GA 
+is executed to find the minimum value of the Rastrigin function over 50 generations with a popula-
+tion size of 100, selecting 20 parents in each generation and applying a mutation rate of 0.1. The best 
+solution the GA finds is highlighted with a red dot on the contour map, indicating the optimal point.

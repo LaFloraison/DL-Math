@@ -1,0 +1,50 @@
+4.2.4.2  Probability Density Function
+It is used for continuous random variables and describes the relative likelihood of the random vari-
+able taking on a particular value. Unlike the PMF, the PDF does not give the probability of the
+
+--- PDF PAGE 111 ---
+98
+Mathematical Foundations for Deep Learning
+random variable being exactly equal to a value (because for continuous variables, that probability 
+is zero), but rather the likelihood of it falling within a small interval around that value. The general 
+formula is as follows:
+	
+f x
+P x
+X
+x
+x
+x
+x
+( ) =
+≤
+≤
++
+(
+)
+→
+lim
+∆
+∆
+∆
+0
+	
+where:
+f(x) is the PDF for the continuous variable X,
+X is the continuous random variable.
+For a normal distribution with a mean μ =​ 0 and standard deviation σ =​ 1, the PDF is given by:
+	
+f x
+e
+x
+( ) =
+−
+1
+2
+2
+2
+π
+	
+This PDF describes the likelihood of values around the mean μ =​ 0. The value of f(x) is highest at 
+the mean and decreases symmetrically as x moves away from the mean. For instance, around x =​ 0, 
+the PDF will have its peak, and as you move toward x =​ ±1, the likelihood of these values decreases.

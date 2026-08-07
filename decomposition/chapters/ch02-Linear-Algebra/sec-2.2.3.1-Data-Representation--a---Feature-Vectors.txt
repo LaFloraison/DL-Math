@@ -1,0 +1,117 @@
+2.2.3.1  Data Representation
+(a)	 Feature Vectors: In machine learning and deep learning, data is typically represented as 
+vectors, where each component (or dimension) of the vector corresponds to a specific fea-
+ture of the data. For instance, consider an image from the MNIST dataset, which contains 
+images of handwritten digits, each with a resolution of 28 × 28 pixels. This image can be 
+flattened into a feature vector with 784 dimensions (since 28 × 28 =​ 784). Also, each dimen-
+sion in this vector represents the intensity of a specific pixel, ranging from 0 (black) to 255 
+(white). For example, a pixel value of 0 represents a completely black pixel, and a value of 
+255 represents a fully white pixel. This representation transforms the image into a manage-
+able vector format for machine learning models to process. Suppose we have a 3 × 3 image 
+for simplicity, with the following pixel intensity values:
+255
+128
+0
+64
+255
+32
+0
+128
+64
+
+
+
+
+
+
+
+
+
+
+Flattening this 3 × 3 image into a vector results in a nine-​dimensional feature vector:
+	
+[255, 128, 0, 64, 255, 32, 0, 128, 64]	
+This flattened vector can now be used as input to a machine learning model.
+
+--- PDF PAGE 34 ---
+21
+Linear Algebra
+(b)	 Word Embeddings: In natural language processing (NLP), words or phrases are mapped to 
+vectors of real numbers, known as word embeddings. These embeddings place words in a 
+high-​dimensional vector space, where the distance between words reflects their semantic 
+relationships. For example, word embeddings might position “king” and “queen” close 
+to each other because of their similar meanings, while “apple” and “banana” might be 
+positioned close due to their shared category as fruits. Consider two words, “king” and 
+“queen,” represented by three-​dimensional embeddings as follows: “king” =​ [0.8, 0.2, 0.7] 
+and “queen” =​ [0.75, 0.3, 0.65]. The values for “king” and “queen” are just examples of 
+values that illustrate how word embeddings work. For example, “king” and “queen” have 
+similar vectors because they share common features like royalty, but small differences in 
+their numbers capture distinctions like gender. In practice, the actual numbers would come 
+from a trained model like Word2Vec, based on analyzing large text corpora. To measure their 
+similarity, we can compute the cosine similarity between the two vectors:
+cosine similarity
+king queen
+king queen
+=
+⋅
+=
+×
+(
+)+
+×
+(
+)+
+0 8
+0 75
+0 2
+0 3
+.
+.
+.
+.
+0 7
+0 65
+0 8
+0 2
+0 7
+0 75
+0 3
+0 65
+2
+2
+2
+2
+2
+2
+.
+.
+.
+.
+.
+.
+.
+.
+×
+(
+)
++
++
+×
++
++
+FIGURE 2.8  Vector operations in 2.
+
+--- PDF PAGE 35 ---
+22
+Mathematical Foundations for Deep Learning
+cosine similarity =
+≈
+1 115
+1 1215
+0 9942
+.
+.
+.
+.
+The resulting value (0.994 and close to 1) indicates a strong similarity between “king” and “queen,” 
+reflecting their semantic connection.

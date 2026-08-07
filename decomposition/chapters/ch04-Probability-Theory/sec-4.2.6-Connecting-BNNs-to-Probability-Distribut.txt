@@ -1,0 +1,31 @@
+4.2.6  Connecting BNNs to Probability Distributions
+BNNs incorporate principles of Bayesian probability into traditional neural network (NN) 
+architectures. This integration allows BNNs to provide a measure of uncertainty in their predictions, 
+enhancing decision-​making processes in scenarios where certainty is crucial. Unlike traditional NNs 
+that use fixed weights, BNNs treat weights as probability distributions. This approach means that 
+a single fixed number does not represent each weight but a distribution that reflects our beliefs or 
+uncertainties about the values of these weights. This probabilistic treatment allows BNNs to express 
+and manage uncertainty more effectively. In Bayesian statistics, prior distributions represent our 
+initial beliefs about the parameters before observing any data. As data is observed and processed
+
+--- PDF PAGE 113 ---
+100
+Mathematical Foundations for Deep Learning
+FIGURE 4.1  Common probability distributions.
+ 
+ 
+newgenrtpdf
+
+--- PDF PAGE 114 ---
+101
+Probability Theory and Statistics
+by a BNN, these prior beliefs are updated to form posterior distributions, which reflect new 
+understandings gained from the data. This dynamic updating mechanism, absent in traditional NNs, 
+allows BNNs to adapt their beliefs based on incoming information continuously. BNNs generate 
+a distribution over possible outcomes when making predictions rather than producing a single-​ 
+point estimate. This output provides a detailed spectrum of potential results and their associated 
+probabilities. In Bayesian frameworks like BNNs, regularization is naturally incorporated through 
+prior distributions. These priors can act as constraints or regularizes, penalizing deviations from 
+established beliefs or biases. This regularization helps prevent overfitting by smoothing the learning 
+process, ensuring that the model adheres to the training data at the expense of its generalization 
+ability. The mathematical representations for the distributions are as follows.

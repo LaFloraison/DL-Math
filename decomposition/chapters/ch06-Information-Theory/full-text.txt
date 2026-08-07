@@ -1,15 +1,26 @@
 
 --- PDF PAGE 179 ---
-166 Mathematical Foundations for Deep Learning
+166
+Mathematical Foundations for Deep Learning
 where:
- •gt is the gradient of the loss function with respect to the parameters at iteration t
- •m vttand  are the first-  moment (mean) and second-  moment (uncentered variance) estimates, 
+	•
+gt is the gradient of the loss function with respect to the parameters at iteration t
+	•
+m
+v
+t
+t
+and
+ are the first-​moment (mean) and second-​moment (uncentered variance) estimates, 
 respectively
- •β1and β2 are the decay rates for the moment estimates (commonly set to 0.9 and 0.999, 
+	• β1 and β2 are the decay rates for the moment estimates (commonly set to 0.9 and 0.999, 
 respectively)
- •ˆmtand ˆvt are the bias-  corrected moment estimates
- •α is the learning rate
- • is a small constant added to prevent division by zero
+	•
+ˆmt and ˆvt are the bias-​corrected moment estimates
+	•
+α is the learning rate
+	•
+ is a small constant added to prevent division by zero
 Adam combines the adaptive learning rate benefits of Adagrad and the exponentially decaying 
 average of squared gradients from RMSprop while also incorporating momentum to smooth out 
 the updates. This results in a robust and efficient optimization algorithm that performs well across 
@@ -17,320 +28,1285 @@ various problems. The main advantages of Adam are its suitability for problems w
 data and parameter spaces and its general effectiveness in practice. Adam typically converges faster 
 and more reliably than other optimization algorithms, making it a popular choice for training deep 
 neural networks and other complex models. However, Adam also has some drawbacks. The choices 
-of hyperparameters, such as learning and decay rates, can be critical and require fine-  tuning. The 
+of hyperparameters, such as learning and decay rates, can be critical and require fine-​tuning. The 
 default values for these hyperparameters often work well, but for specific problems, manual tuning 
 may be necessary to achieve optimal performance. Assume we are optimizing a simple quadratic 
 function:
- f xx()=−() 32 
+	
+f x
+x
+( ) =
+−
+(
+)
+3 2	
 For example, if the parameters are:
- •Global learning rate ( α): 0.1,
- •Decay rates for the first moment ( β1): 0.9,
- •Decay rates for the second moment ( β2): 0.999,
- •Small constant ( ϵ): 10−8,
- •Initial value of x0 =  0,
- •Gradient at iteration t: gt =  2(xt−3).
+	•
+Global learning rate (α): 0.1,
+	•
+Decay rates for the first moment (β1): 0.9,
+	•
+Decay rates for the second moment (β2): 0.999,
+	•
+Small constant (ϵ): 10−8,
+	•
+Initial value of x0 =​ 0,
+	•
+Gradient at iteration t: gt =​ 2(xt−3).
 At iteration 1:
- •Gradient is: g1 =  2(x0−3) =   2(0−3) =   −6
- •First-  moment estimate ( m1): m mg11 01 110 9001 60 6=+ − () =× +× − ()=− ββ .. .
- •Second-  moment estimate ( v1): vv g12 02 12210 999 00 001 60 036 =+ − () =× +× −= ββ .. () .
- •Bias-  corrected first moment ( ˆm1): ˆ.
-.mm
-11
-11106
-10 96=−=−
-−=−β
- •Bias-  corrected second moment ( ˆv1): ˆ.
-.vv
-11
-2110 036
-10 99936 =−=−=β
- •Parameter update: xx
-vm10
-118001
-36 1060 01 01 =−
-+×= −
-+×−()=+ =
-−α
-ˆˆ...
-  
+	•
+Gradient is: g1 =​ 2(x0−3) =​ 2(0−3) =​ −6
+	•
+First-​moment estimate (m1): m
+m
+g
+1
+1
+0
+1
+1
+1
+0 9
+0
+0 1
+6
+0 6
+=
++
+−
+(
+)
+=
+×
++
+× −
+(
+) = −
+β
+β
+.
+.
+.
+	•
+Second-​moment estimate (v1): v
+v
+g
+1
+2
+0
+2
+1
+2
+2
+1
+0 999
+0
+0 001
+6
+0 036
+=
++
+−
+(
+)
+=
+×
++
+× −
+=
+β
+β
+.
+.
+(
+)
+.
+	•
+Bias-​corrected first moment ( ˆm1): ˆ
+.
+.
+m
+m
+1
+1
+1
+1
+1
+0 6
+1
+0 9
+6
+=
+−
+= −
+−
+= −
+β
+	•
+Bias-​corrected second moment (ˆv1): ˆ
+.
+.
+v
+v
+1
+1
+2
+1
+1
+0 036
+1
+0 999
+36
+=
+−
+=
+−
+=
+β
+	•
+Parameter update: x
+x
+v
+m
+1
+0
+1
+1
+8
+0
+0 1
+36
+10
+6
+0
+0 1
+0 1
+=
+−
++
+×
+=
+−
++
+× −
+(
+) =
++
+=
+−
+α
+ˆ
+ˆ
+.
+.
+.
+
 
 --- PDF PAGE 180 ---
-167 Optimization Theory
+167
+Optimization Theory
 At iteration 2:
- •Gradient at x1 =  0.1: g2 =  2(0.1−3) =   −5.8
- •First-  moment estimate ( m2): m209 06 01 58 11 2=× −( )+× − ( )=−.. .. .
- •Second-  moment estimate ( v2): v220 999 0 036 0 001 58 0 068=×+× −=...( .) .
- •Bias-  corrected first moment ( ˆm2): ˆ
-.. mm
-22
-210 9589 =−=−
- •Bias-  corrected second moment ( ˆv2): ˆ
-.. vv
-22
-210 9993406 =−=
- •Parameter update: xx2101
-34 0658 90 10 10 2 =−
-+×−( )≈+=.
-... ..
+	•
+Gradient at x1 =​ 0.1: g2 =​ 2(0.1−3) =​ −5.8
+	•
+First-​moment estimate (m2): m2
+0 9
+0 6
+0 1
+5 8
+1 12
+=
+× −
+(
+)+
+× −
+(
+) = −
+.
+.
+.
+.
+.
+	•
+Second-​moment estimate (v2): v2
+2
+0 999
+0 036
+0 001
+5 8
+0 068
+=
+×
++
+× −
+=
+.
+.
+.
+(
+. )
+.
+	•
+Bias-​corrected first moment ( ˆm2): ˆ
+.
+.
+m
+m
+2
+2
+2
+1
+0 9
+5 89
+=
+−
+= −
+	•
+Bias-​corrected second moment (ˆv2): ˆ
+.
+.
+v
+v
+2
+2
+2
+1
+0 999
+34 06
+=
+−
+=
+	•
+Parameter update: x
+x
+2
+1
+0 1
+34 06
+5 89
+0 1
+0 1
+0 2
+=
+−
++
+× −
+(
+) ≈
++
+=
+.
+.
+.
+.
+.
+.
 
 In this example, you can see how Adam combines the first and second moments (mean and variance) 
 to adjust the learning rate dynamically. The algorithm benefits from both momentum (accelerating 
 convergence) and adaptive learning rates (preventing small updates), making it highly effective for 
 optimizing complex functions.
-5.6.8   a damax
+5.6.8  AdaMax
 AdaMax is an Adam optimization algorithm variant based on the infinity norm (maximum norm) 
 rather than the L2 norm used in Adam. By using the infinity norm, AdaMax provides a different way 
 of adapting the learning rates, often leading to more stable and robust performance. The update rules 
 for AdaMax are like Adam but with modifications to incorporate the infinity norm:
- gftt=∇()θ 
- m mgtt t=+ − ()−ββ11 11  
- u ugtt t=−max( ,) β21 
- ˆmm
-tt
-t=−11β 
-θ θα
-tt
-ttum+=−1ˆ
+	
+g
+f
+t
+t
+= ∇( )
+θ 	
+	
+m
+m
+g
+t
+t
+t
+=
++
+−
+(
+)
+−
+β
+β
+1
+1
+1
+1
+	
+	
+u
+u
+g
+t
+t
+t
+=
+−
+max(
+,
+)
+β2
+1
+	
+	
+ˆm
+m
+t
+t
+t
+=
+−
+1
+1
+β 	
+θ
+θ
+α
+t
+t
+t
+t
+u m
++ =
+−
+1
+ˆ
 where:
- •gt is the gradient of the loss function with respect to the parameters at iteration t,
- •mt is the first-  moment (mean) estimate,
- •ut is the exponentially weighted infinity norm,
- •β1and β2 are the decay rates for the moment estimates (commonly set to 0.9 and 0.999, 
+	•
+gt is the gradient of the loss function with respect to the parameters at iteration t,
+	•
+mt is the first-​moment (mean) estimate,
+	• ut is the exponentially weighted infinity norm,
+	• β1 and β2 are the decay rates for the moment estimates (commonly set to 0.9 and 0.999, 
 respectively),
- •ˆmt is the bias-  corrected first-  moment estimate, and
- •α is the learning rate. 
- 
- 
- 
-  
+	•
+ˆmt is the bias-​corrected first-​moment estimate, and
+	•
+α is the learning rate.
 
 --- PDF PAGE 181 ---
-168 Mathematical Foundations for Deep Learning
+168
+Mathematical Foundations for Deep Learning
 The key difference between AdaMax and Adam lies in the estimation of the second moment. Instead 
 of using the uncentered variance, AdaMax uses the gradients’ infinity norm. This change simplifies 
 the denominator of the parameter update rule, leading to potentially more stable updates.
 The main advantage of AdaMax is its stability and robustness compared to Adam. Using the 
 infinity norm helps control the learning rate more effectively, especially in scenarios where the 
-gradients can vary significantly. This can lead to more consistent performance and faster conver -
+gradients can vary significantly. This can lead to more consistent performance and faster conver-
 gence in some cases. Assume we are optimizing a simple quadratic function:
- f xx()=−() 32 
+	
+f x
+x
+( ) =
+−
+(
+)
+3 2	
 For example, if the parameters are:
- •Global learning rate ( α): 0.1,
- •Decay rates for the first moment ( β1): 0.9,
- •Decay rates for the second moment ( β2): 0.999,
- •Initial value of x0 =  0, and
- •Gradient at iteration t: gt =  2(xt−3).
+	•
+Global learning rate (α): 0.1,
+	•
+Decay rates for the first moment (β1): 0.9,
+	•
+Decay rates for the second moment (β2): 0.999,
+	•
+Initial value of x0 =​ 0, and
+	•
+Gradient at iteration t: gt =​ 2(xt−3).
 At iteration 1:
- •Gradient: g1 =  2(x0−3) =   2(0−3)  =   −6
- •First-  moment estimate ( m1): m mg11 01 110 9001 60 6=+ − () =× +× − ()=− ββ .. .
- •Infinity norm (maximum gradient value) ( u1): u ug12 010 999 06 6 == ×−=max( ,) max( ., )β
- •Bias-  corrected first moment ( ˆm1): ˆ.
-.mm
-11
-11106
-10 96=−=−
-−=−β
- •Parameter update: xxum10
-11001
-660 01 01 =−×= −× − ()=+ =αˆ...
+	•
+Gradient: g1 =​ 2(x0−3) =​ 2(0−3)  =​ −6
+	•
+First-​moment estimate (m1): m
+m
+g
+1
+1
+0
+1
+1
+1
+0 9
+0
+0 1
+6
+0 6
+=
++
+−
+(
+)
+=
+×
++
+× −
+(
+) = −
+β
+β
+.
+.
+.
+	•
+Infinity norm (maximum gradient value) (u1): u
+u
+g
+1
+2
+0
+1
+0 999
+0
+6
+6
+=
+=
+×
+−
+=
+max(
+,
+)
+max( .
+,
+)
+β
+	•
+Bias-​corrected first moment ( ˆm1): ˆ
+.
+.
+m
+m
+1
+1
+1
+1
+1
+0 6
+1
+0 9
+6
+=
+−
+= −
+−
+= −
+β
+	•
+Parameter update: x
+x
+u
+m
+1
+0
+1
+1
+0
+0 1
+6
+6
+0
+0 1
+0 1
+=
+−
+×
+=
+−
+× −
+(
+) =
++
+=
+α
+ˆ
+.
+.
+.
 At iteration 2:
- •Gradient at x1 =  0.1: g2 =  2(0.1−3) =   −5.8
- •First-  moment estimate (m2): m209 06 01 58 11 2=× −( )+× − ( )=−.. .. .
- •Infinity norm update ( u2): u20 999 65 86=× −=max( ., .)
- •Bias-  corrected first moment ( ˆm2): ˆ
-.. mm
-22
-210 9589 =−=−
- •Parameter update: xx2101
-658 90 10 098 0 198 =− ×− ( )≈+ =... ..
+	•
+Gradient at x1 =​ 0.1: g2 =​ 2(0.1−3) =​ −5.8
+	•
+First-​moment estimate (m2): m2
+0 9
+0 6
+0 1
+5 8
+1 12
+=
+× −
+(
+)+
+× −
+(
+) = −
+.
+.
+.
+.
+.
+	•
+Infinity norm update (u2): u2
+0 999
+6
+5 8
+6
+=
+×
+−
+=
+max( .
+,
+. )
+	•
+Bias-​corrected first moment ( ˆm2): ˆ
+.
+.
+m
+m
+2
+2
+2
+1
+0 9
+5 89
+=
+−
+= −
+	•
+Parameter update: x
+x
+2
+1
+0 1
+6
+5 89
+0 1
+0 098
+0 198
+=
+−
+× −
+(
+) ≈
++
+=
+.
+.
+.
+.
+.
 In this example, AdaMax uses the infinity norm (maximum value) of the gradient, which makes the 
 denominator stable over iterations. This ensures smoother and more stable parameter updates, even 
 when gradients fluctuate. AdaMax’s stability can lead to more consistent performance, particularly 
 in problems where the gradients vary significantly.
-5.6.9   n adam (neSterov - accelerated  adaptive  moment  eStimation )
+5.6.9  Nadam (Nesterov-​accelerated Adaptive Moment Estimation)
 Nadam is an optimization algorithm combining RMSprop’s and Nesterov momentum’s benefits. By 
-integrating the adaptive learning rate mechanism of RMSprop with the momentum-  accelerated gra -
-dient updates of Nesterov momentum, Nadam aims to achieve faster and more reliable convergence  
-  
+integrating the adaptive learning rate mechanism of RMSprop with the momentum-​accelerated gra-
+dient updates of Nesterov momentum, Nadam aims to achieve faster and more reliable convergence
 
 --- PDF PAGE 182 ---
-169 Optimization Theory
+169
+Optimization Theory
 in various optimization tasks. Nadam modifies the standard Adam update rules by incorporating 
-Nesterov momentum. The key difference is in how the gradients are calculated, with Nadam com -
+Nesterov momentum. The key difference is in how the gradients are calculated, with Nadam com-
 puting the gradients at the predicted future position of the parameters. The updated rules for Nadam 
 are as follows:
- gftt=∇()θ 
- m mgtt t=+ − ()−ββ11 11  
- vv gtt t=+ − ()−ββ21 221  
- ˆmm
-tt
-t=−11β 
- ˆvv
-tt
-t=−12β 
- gg mtt t=+ β1ˆ 
- θ θα
-tt
-ttvg+=−
-+1ˆ 
+	
+g
+f
+t
+t
+= ∇( )
+θ 	
+	
+m
+m
+g
+t
+t
+t
+=
++
+−
+(
+)
+−
+β
+β
+1
+1
+1
+1
+	
+	
+v
+v
+g
+t
+t
+t
+=
++
+−
+(
+)
+−
+β
+β
+2
+1
+2
+2
+1
+	
+	
+ˆm
+m
+t
+t
+t
+=
+−
+1
+1
+β 	
+	
+ˆv
+v
+t
+t
+t
+=
+−
+1
+2
+β 	
+	
+g
+g
+m
+t
+t
+t
+=
++ β1 ˆ 	
+	
+θ
+θ
+α
+t
+t
+t
+t
+v
+g
++ =
+−
++
+1
+ˆ
+
+	
 where:
- •gt is the gradient of the loss function with respect to the parameters at iteration t,
- •m vttand  are the first-  moment (mean) and second-  moment (uncentered variance) estimates, 
+	•
+gt is the gradient of the loss function with respect to the parameters at iteration t,
+	•
+m
+v
+t
+t
+and
+ are the first-​moment (mean) and second-​moment (uncentered variance) estimates, 
 respectively,
- •β1and β2 are the decay rates for the moment estimates (commonly set to 0.9 and 0.999, 
+	• β1 and β2 are the decay rates for the moment estimates (commonly set to 0.9 and 0.999, 
 respectively),
- •ˆmtand ˆvt are the bias-  corrected moment estimates,
- •α is the learning rate, and
- • is a small constant added to prevent division by zero.
-Nadam enhances the standard Adam algorithm by incorporating the look-  ahead mechanism of 
+	•
+ˆmt and ˆvt are the bias-​corrected moment estimates,
+	•
+α is the learning rate, and
+	•
+ is a small constant added to prevent division by zero.
+Nadam enhances the standard Adam algorithm by incorporating the look-​ahead mechanism of 
 Nesterov momentum. This mechanism anticipates the future position of the parameters based on 
 their current velocity, leading to more informed and potentially more effective updates. The main 
 advantage of Nadam is that it can converge faster than Adam in some scenarios due to the added 
 momentum. By leveraging the predictive capability of Nesterov momentum, Nadam can accelerate 
 the optimization process, especially in cases where the objective function has complex or noisy 
 gradients. Assume we are optimizing a simple quadratic function:
- f xx()=−() 32 
+	
+f x
+x
+( ) =
+−
+(
+)
+3 2	
 For example, if the parameters, be:
- •Global learning rate ( α): 0.1,
- •Decay rates for the first moment ( β1): 0.9, 
- 
- 
- 
- 
- 
- 
-  
+	•
+Global learning rate (α): 0.1,
+	•
+Decay rates for the first moment (β1): 0.9,
 
 --- PDF PAGE 183 ---
-170 Mathematical Foundations for Deep Learning
- •Decay rates for the second moment ( β2): 0.999,
- •Small constant ( ϵ): 10−8,
- •Initial value of x0 =  0, and
- •Gradient at iteration t: gt =  2(xt−3).
+170
+Mathematical Foundations for Deep Learning
+	•
+Decay rates for the second moment (β2): 0.999,
+	•
+Small constant (ϵ): 10−8,
+	•
+Initial value of x0 =​ 0, and
+	•
+Gradient at iteration t: gt =​ 2(xt−3).
 At iteration 1:
- •Gradient: g1 =  2(x0−3) =   2(0−3) =   −6
- •First-  moment estimate ( m1): m mg11 01 110 9001 60 6=+ − () =× +× − ()=− ββ .. .
- •Second-  moment estimate ( v1): vv g12 02 12210 999 00 001 60 036 =+ − () =× +× −= ββ .. () .
- •Bias-  corrected first moment ( ˆm1): ˆ.
-.mm
-11
-11106
-10 96=−=−
-−=−β
- •Bias-  corrected second moment ( ˆv1): ˆvv
-11
-21136=−=β
- •Look-  ahead gradient adjustment using Nesterov momentum: gg m11 1160 9 =+ =− +× βˆ .
-−()=−61 14 .
- •Parameter update: xx
-vg10
-118001
-36 1011 40 01 90 19 =−
-+×= −
-+×−( )=+ =
-−α
-ˆ... .
-
+	•
+Gradient: g1 =​ 2(x0−3) =​ 2(0−3) =​ −6
+	•
+First-​moment estimate (m1): m
+m
+g
+1
+1
+0
+1
+1
+1
+0 9
+0
+0 1
+6
+0 6
+=
++
+−
+(
+)
+=
+×
++
+× −
+(
+) = −
+β
+β
+.
+.
+.
+	•
+Second-​moment estimate (v1): v
+v
+g
+1
+2
+0
+2
+1
+2
+2
+1
+0 999
+0
+0 001
+6
+0 036
+=
++
+−
+(
+)
+=
+×
++
+× −
+=
+β
+β
+.
+.
+(
+)
+.
+	•
+Bias-​corrected first moment ( ˆm1): ˆ
+.
+.
+m
+m
+1
+1
+1
+1
+1
+0 6
+1
+0 9
+6
+=
+−
+= −
+−
+= −
+β
+	•
+Bias-​corrected second moment (ˆv1): ˆv
+v
+1
+1
+2
+1
+1
+36
+=
+−
+=
+β
+	•
+Look-​ahead gradient adjustment using Nesterov momentum: g
+g
+m
+1
+1
+1
+1
+6
+0 9
+=
++
+= −+
+×
+β ˆ
+.
+−
+(
+) = −
+6
+11 4.
+	•
+Parameter update: x
+x
+v
+g
+1
+0
+1
+1
+8
+0
+0 1
+36
+10
+11 4
+0
+0 19
+0 19
+=
+−
++
+×
+=
+−
++
+× −
+(
+) =
++
+=
+−
+α
+ˆ
+.
+.
+.
+.
+
+
 At iteration 2:
- •Gradient at x1 =  0.19: g2 =  2(0.19−3) =   −5.62
- •First-  moment estimate ( m2): m209 06 01 56 21 1=× −( )+× − ( )=−.. .. .
- •Second-  moment estimate ( v2): v220 999 0 036 0 001 56 20 067=×+× −=...( .) .
- •Bias-  corrected first moment ( ˆm2): ˆ
-.. mm
-22
-210 9589 =−=−
- •Bias-  corrected second moment ( ˆv2): ˆ
-.. vv
-22
-210 999335 =−=
- •Look-  ahead gradient adjustment: gg2209 58 95 62 53 10 92=+ ×−( )=− +− ( )=−.. ...
- •Parameter update: xx21801
-33 51 010 92 01 90 19 03 8 =−
-+×−( )=+=
-−.
-... ..
-In this example, Nadam combines the adaptive learning rate of Adam and the look-  ahead mech -
+	•
+Gradient at x1 =​ 0.19: g2 =​ 2(0.19−3) =​ −5.62
+	•
+First-​moment estimate (m2): m2
+0 9
+0 6
+0 1
+5 62
+1 1
+=
+× −
+(
+)+
+× −
+(
+) = −
+.
+.
+.
+.
+.
+	•
+Second-​moment estimate (v2): v2
+2
+0 999
+0 036
+0 001
+5 62
+0 067
+=
+×
++
+× −
+=
+.
+.
+.
+(
+.
+)
+.
+	•
+Bias-​corrected first moment ( ˆm2): ˆ
+.
+.
+m
+m
+2
+2
+2
+1
+0 9
+5 89
+=
+−
+= −
+	•
+Bias-​corrected second moment (ˆv2): ˆ
+.
+.
+v
+v
+2
+2
+2
+1
+0 999
+33 5
+=
+−
+=
+	•
+Look-​ahead gradient adjustment: g
+g
+2
+2
+0 9
+5 89
+5 62
+5 3
+10 92
+=
++
+× −
+(
+) = −
++ −
+(
+) = −
+.
+.
+.
+.
+.
+	•
+Parameter update: x
+x
+2
+1
+8
+0 1
+33 5
+10
+10 92
+0 19
+0 19
+0 38
+=
+−
++
+× −
+(
+) =
++
+=
+−
+.
+.
+.
+.
+.
+.
+In this example, Nadam combines the adaptive learning rate of Adam and the look-​ahead mech-
 anism of Nesterov momentum. By anticipating the future position of the parameters, Nadam can 
-accelerate convergence, especially when dealing with noisy gradients. The look-  ahead adjustment 
-helps make more informed updates, potentially improving performance over Adam in some opti -
+accelerate convergence, especially when dealing with noisy gradients. The look-​ahead adjustment 
+helps make more informed updates, potentially improving performance over Adam in some opti-
 mization tasks.
-5.6.10   l earning  rate annealing  or decay
-Limited-  memory Broyden–  Fletcher–  Goldfarb–  Shanno (L-  BFGS) is an optimization algorithm 
-approximating the BFGS process using limited computer memory. It is a quasi-  Newton method 
+5.6.10  Learning Rate Annealing or Decay
+Limited-​memory Broyden–​Fletcher–​Goldfarb–​Shanno (L-​BFGS) is an optimization algorithm 
+approximating the BFGS process using limited computer memory. It is a quasi-​Newton method 
 that is particularly efficient for smaller datasets and certain types of optimization problems where 
 memory usage is a concern. Unlike the standard BFGS algorithm, which requires storing and 
-updating a full approximation of the Hessian matrix, L-  BFGS maintains only a limited number of 
-vectors representing the approximation. This makes it more memory-  efficient while still benefiting   
+updating a full approximation of the Hessian matrix, L-​BFGS maintains only a limited number of 
+vectors representing the approximation. This makes it more memory-​efficient while still benefiting
 
 --- PDF PAGE 184 ---
-171 Optimization Theory
-from the quasi-  Newton approach, which leverages curvature information to accelerate convergence. 
-The key steps of L-  BFGS include initialization, iteration, and updating. Initially, the parameters 
-are set, and initial values for the limited-  memory vectors are established. For each iteration, the 
-parameters are updated using a direction derived from the limited-  memory approximation of the 
-inverse Hessian. The limited-  memory vectors are then updated based on the latest parameter values 
+171
+Optimization Theory
+from the quasi-​Newton approach, which leverages curvature information to accelerate convergence. 
+The key steps of L-​BFGS include initialization, iteration, and updating. Initially, the parameters 
+are set, and initial values for the limited-​memory vectors are established. For each iteration, the 
+parameters are updated using a direction derived from the limited-​memory approximation of the 
+inverse Hessian. The limited-​memory vectors are then updated based on the latest parameter values 
 and gradients. The algorithm repeats these steps until convergence, using a small set of historical 
-gradients and parameter updates to approximate the curvature information. L-  BFGS is efficient 
+gradients and parameter updates to approximate the curvature information. L-​BFGS is efficient 
 for smaller datasets and certain types of optimization problems where memory usage is a concern. 
-It leverages curvature information to potentially accelerate convergence compared to first-  order 
-methods like gradient descent. It is well-  suited for optimization problems with a relatively small 
-number of parameters or when the full Hessian is impractical to compute and store. However, L-  
-BFGS is less commonly used for very large-  scale deep learning tasks due to memory constraints 
-and the complexity of maintaining the limited-  memory approximation in high-  dimensional spaces. 
+It leverages curvature information to potentially accelerate convergence compared to first-​order 
+methods like gradient descent. It is well-​suited for optimization problems with a relatively small 
+number of parameters or when the full Hessian is impractical to compute and store. However, L-​
+BFGS is less commonly used for very large-​scale deep learning tasks due to memory constraints 
+and the complexity of maintaining the limited-​memory approximation in high-​dimensional spaces. 
 It may not perform as well as some specialized optimization algorithms designed for deep learning 
 tasks, which can handle the unique challenges of training large neural networks. Suppose you are 
 optimizing a function with 50 parameters and storing a full Hessian matrix (which would require 50 
-× 50 =   2500 elements) is too memory-  intensive. Using L-  BFGS, you limit the storage to only the 
-five most recent updates, significantly reducing memory usage while still approximating the curva -
+× 50 =​ 2500 elements) is too memory-​intensive. Using L-​BFGS, you limit the storage to only the 
+five most recent updates, significantly reducing memory usage while still approximating the curva-
 ture information. After initializing the parameters, each iteration updates the parameters using the 
-stored five vectors, allowing for faster convergence with minimal memory overhead. The L-  BFGS 
+stored five vectors, allowing for faster convergence with minimal memory overhead. The L-​BFGS 
 update rule is derived from the BFGS update but uses limited memory. The direction pk at iteration 
 k is calculated as:
- pH fkk k=− ∇  
+	
+p
+H
+f
+k
+k
+k
+= −
+∇	
 where:
- •Hk is the inverse Hessian approximation,
- •∇∇fk is the gradient of the function at iteration k.
-L- BFGS stores a small number of past gradients and updates to approximate Hk efficiently, updating 
-the inverse Hessian approximation iteratively. This allows for memory-  efficient optimization while 
-still leveraging second-  order information. Suppose you are optimizing the function:
- f xy xy,()( )()=− ++2322 
+	•
+Hk is the inverse Hessian approximation,
+	•
+∇fk is the gradient of the function at iteration k.
+L-​BFGS stores a small number of past gradients and updates to approximate Hk efficiently, updating 
+the inverse Hessian approximation iteratively. This allows for memory-​efficient optimization while 
+still leveraging second-​order information. Suppose you are optimizing the function:
+	
+f x y
+x
+y
+,
+(
+)
+(
+)
+(
+) =
+−
++
++
+2
+3
+2
+2	
 For example, if the parameters are:
- •The function has two parameters, x and y, to minimize.
- •Let’s assume you are using L-  BFGS with a memory size of 2, meaning you store the 2 most 
+	•
+The function has two parameters, x and y, to minimize.
+	•
+Let’s assume you are using L-​BFGS with a memory size of 2, meaning you store the 2 most 
 recent gradient updates.
- •Initial values: x0 =  0, y0 =  0.
+	•
+Initial values: x0 =​ 0, y0 =​ 0.
 Iteration 1 (Initial Setup):
- 1Gradient is: ∇() =−() +() () =−( ) +( ) ( )=−( ) fx yx y00 0022 23 20 22 03 46 ,, ,, . This gradient 
+	1 Gradient is: ∇(
+) =
+−
+(
+)
++
+(
+)
+(
+) =
+−
+(
+)
++
+(
+)
+(
+) = −
+(
+)
+f x
+y
+x
+y
+0
+0
+0
+0
+2
+2 2
+3
+2 0
+2 2 0
+3
+4 6
+,
+,
+,
+,
+. This gradient 
 will be stored as the first historical gradient.
- 2Initialize Hessian approximation H0 =  I (the identity matrix, as L-  BFGS starts with no curva -
-ture information). 
-  
+	2 Initialize Hessian approximation H0 =​ I (the identity matrix, as L-​BFGS starts with no curva-
+ture information).
 
 --- PDF PAGE 185 ---
-172 Mathematical Foundations for Deep Learning
- 3Direction calculation: pH fx yI00 0046 46=− ∇ () =− ×− ( )=−( ) ,, ,
- 4Parameter update: xy xy p11 00 000 01 46 04 06 ,, ,. ,. ,. () =() += ()+× − ( )=−( ) α
+172
+Mathematical Foundations for Deep Learning
+	3 Direction calculation: p
+H
+f x
+y
+I
+0
+0
+0
+0
+4 6
+4
+6
+= −
+∇(
+) = −× −
+(
+) =
+−
+(
+)
+,
+,
+,
+	4 Parameter update: x y
+x
+y
+p
+1
+1
+0
+0
+0
+0 0
+0 1
+4
+6
+0 4
+0 6
+,
+,
+,
+.
+,
+. ,
+.
+(
+) = (
+)+
+= (
+)+
+×
+−
+(
+) =
+−
+(
+)
+α
 Iteration 2:
-1. Gradient is: ∇() =−( )−+( ) ( )=−( ) fxy1120 42 20 63 3248 ,. ,. ., . . This gradient is stored as the 
+1.	 Gradient is: ∇(
+) =
+−
+(
+)
+−
++
+(
+)
+(
+) = −
+(
+)
+f x y
+1
+1
+2 0 4
+2 2
+0 6
+3
+3 2 4 8
+,
+.
+,
+.
+. , .
+. This gradient is stored as the 
 second historical gradient.
-2. Approximate Hessian update: Using the difference between gradients and parameter updates 
+2.	 Approximate Hessian update: Using the difference between gradients and parameter updates 
 from iteration 1 to iteration 2, the Hessian inverse approximation H1 is updated using limited 
 memory (only the last two updates are stored).
-3. Direction calculation: pH fxy11 11=− ∇ (),
-  The direction now incorporates curvature information from the stored gradients, allowing for 
+3.	 Direction calculation: p
+H
+f x y
+1
+1
+1
+1
+= −
+∇(
+)
+,
+		
+The direction now incorporates curvature information from the stored gradients, allowing for 
 a more efficient update.
-4. Parameter update: xy xy p22 11 1,,() =() +α
+4.	 Parameter update: x
+y
+x y
+p
+2
+2
+1
+1
+1
+,
+,
+(
+) = (
+)+ α
 The updated parameter values after this step will move toward the minimum more efficiently than 
 gradient descent. Instead of storing the full Hessian matrix (which for two parameters would be 2 × 
-2), L-  BFGS only stores the most recent two gradients and updates, making it much more memory-  
-efficient. In a higher-  dimensional example with 50 parameters, L-  BFGS would store only a few 
+2), L-​BFGS only stores the most recent two gradients and updates, making it much more memory-​
+efficient. In a higher-​dimensional example with 50 parameters, L-​BFGS would store only a few 
 historical gradients and parameter updates (e.g., 5 or 10), rather than the full Hessian, which would 
-require 50 × 50 =   2500 elements. This reduction in memory allows for optimization in cases where 
-the full Hessian is impractical to compute and store. This memory efficiency makes L-  BFGS suit -
-able for smaller-  scale problems or problems with limited memory resources while still benefiting 
-from second-  order information for faster convergence.
-5.7  REAL-  WORLD APPLICATIONS AND EXAMPLES
-5.7.1   Supply chain optimization
+require 50 × 50 =​ 2500 elements. This reduction in memory allows for optimization in cases where 
+the full Hessian is impractical to compute and store. This memory efficiency makes L-​BFGS suit-
+able for smaller-​scale problems or problems with limited memory resources while still benefiting 
+from second-​order information for faster convergence.
+5.7  REAL-​WORLD APPLICATIONS AND EXAMPLES
+5.7.1  Supply Chain Optimization
 Optimization techniques are extensively used in supply chain management to streamline operations 
 and reduce costs. For instance, linear programming is often employed to optimize the distribution 
 of goods from warehouses to various retail outlets. The goal is to minimize transportation costs 
@@ -338,49 +1314,47 @@ while meeting demand at each location. This involves solving a linear optimizati
 constraints include transportation capacities, demand requirements, and available inventory. The 
 Simplex method is particularly effective here, providing an optimal solution that balances these 
 factors and ensures efficient resource allocation across the supply chain.
-5.7.2   p ortfolio  optimization  in finance
+5.7.2  Portfolio Optimization in Finance
 In finance, optimization theory plays a crucial role in portfolio management, where the objective is 
-to maximize returns while minimizing risk. Portfolio optimization typically involves solving a non-  
+to maximize returns while minimizing risk. Portfolio optimization typically involves solving a non-​
 linear optimization problem where the return on investment is maximized under constraints such as 
-budget limitations and risk tolerance. Techniques such as quadratic programming are used to allo -
+budget limitations and risk tolerance. Techniques such as quadratic programming are used to allo-
 cate assets in a way that optimizes the expected return for a given level of risk, taking into account 
 the covariance between different assets. This approach helps investors make informed decisions, 
 balancing potential gains with associated risks.
-5.7.3   t elecommunication S network  deSign
+5.7.3  Telecommunications Network Design
 Designing efficient telecommunications networks requires solving complex optimization problems 
-to ensure reliable and cost-  effective service delivery. Integer programming is frequently used to  
- 
- 
-  
+to ensure reliable and cost-​effective service delivery. Integer programming is frequently used to
 
 --- PDF PAGE 186 ---
-173 Optimization Theory
+173
+Optimization Theory
 determine the optimal placement of network nodes and the routing of data across the network. This 
-involves minimizing the overall cost of the network infrastructure while ensuring sufficient cap -
+involves minimizing the overall cost of the network infrastructure while ensuring sufficient cap-
 acity and coverage to meet user demand. The B&B method is particularly useful for these types of 
 problems, where decision variables are often binary (e.g., whether to install a particular piece of 
 equipment or not).
-5.7.4   e nergy  management  and power grid optimization
+5.7.4  Energy Management and Power Grid Optimization
 The management of power grids is a complex optimization problem that involves balancing supply 
 and demand while minimizing operational costs and ensuring stability. Convex optimization is often 
 applied to optimize the generation and distribution of electricity across the grid. The objective is 
 to minimize the cost of power generation while meeting the demand and adhering to operational 
 constraints, such as transmission limits and generation capacities. This is crucial for maintaining a 
 reliable power supply and reducing energy costs.
-5.7.5   t ranSportation  and logiSticS
+5.7.5  Transportation and Logistics
 Combinatorial optimization is widely used in transportation and logistics to solve problems like 
 vehicle routing and scheduling. The TSP is a classic example where the goal is to find the shortest 
 possible route that visits a set of locations and returns to the starting point. Solutions to this problem 
 are crucial for delivery companies that need to minimize fuel costs and delivery times. Advanced 
-algorithms like genetic algorithms or ant colony optimization are employed to find near-  optimal 
-solutions to these NP-  hard problems, enabling companies to optimize their logistics operations.
-5.8  HANDS-  ON EXAMPLE
-In this hands-  on example, we’ll explore advanced optimization techniques for deep learning, 
+algorithms like genetic algorithms or ant colony optimization are employed to find near-​optimal 
+solutions to these NP-​hard problems, enabling companies to optimize their logistics operations.
+5.8  HANDS-​ON EXAMPLE
+In this hands-​on example, we’ll explore advanced optimization techniques for deep learning, 
 focusing on gradient descent and its variants.
 Step 1: Import necessary libraries
 In this step, we are importing the necessary libraries to build and train a neural network using 
 TensorFlow’s Keras API. First, we import the TensorFlow library and essential components from 
-TensorFlow.Keras, which is an easy-  to- use API for building deep learning models. The sequential 
+TensorFlow.Keras, which is an easy-​to-​use API for building deep learning models. The sequential 
 class is used to create a linear stack of layers for the model, while dense layers are fully connected 
 layers, commonly used in neural networks. We also import three popular optimizers: SGD, Adam, 
 and RMSprop, each of which offers different strategies for adjusting the model’s weights during 
@@ -392,17 +1366,15 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import SGD, Adam, RMSprop
 import matplotlib.pyplot as plt
 5.7.2 Step 2: Prepare the dataset
-In this step, we are loading and preprocessing the MNIST  dataset, which is a widely used dataset of 
-handwritten digits (0–  9) for training and evaluating machine learning models. The tf.keras.datasets. 
- 
- 
-  
+In this step, we are loading and preprocessing the MNIST dataset, which is a widely used dataset of 
+handwritten digits (0–​9) for training and evaluating machine learning models. The tf.keras.datasets.
 
 --- PDF PAGE 187 ---
-174 Mathematical Foundations for Deep Learning
-mnist is a built-  in function in TensorFlow that provides easy access to this dataset. The dataset is 
-split into training (x_  train, y_  train) and testing (x_  test, y_  test) sets. Each image is represented as a 
-28 × 28-  pixel grayscale image, where the pixel values range from 0 to 255. To simplify the model’s 
+174
+Mathematical Foundations for Deep Learning
+mnist is a built-​in function in TensorFlow that provides easy access to this dataset. The dataset is 
+split into training (x_​train, y_​train) and testing (x_​test, y_​test) sets. Each image is represented as a 
+28 × 28-​pixel grayscale image, where the pixel values range from 0 to 255. To simplify the model’s 
 learning process, the images are normalized by dividing each pixel value by 255, resulting in pixel 
 values within the range [0, 1]. This normalization step ensures that all input values are on the same 
 scale, which improves convergence during training. Finally, the images are flattened from 2D arrays 
@@ -410,641 +1382,1499 @@ scale, which improves convergence during training. Finally, the images are flatt
 neural network. This preprocessing step transforms the dataset into a suitable format for training 
 neural networks.
 # Load the MNIST dataset
-mnist =  tf.keras.datasets.mnist
-(x_ train, y_  train), (x_  test, y_  test) =  mnist.load_  data()
+mnist =​ tf.keras.datasets.mnist
+(x_​train, y_​train), (x_​test, y_​test) =​ mnist.load_​data()
 # Normalize the images to the range [0, 1]
-x_ train, x_  test =  x_ train /  255.0, x_  test /  255.0
+x_​train, x_​test =​ x_​train /​ 255.0, x_​test /​ 255.0
 # Flatten the images
-x_ train =  x_ train.reshape(-  1, 28 * 28)
-x_ test =  x_ test.reshape(-  1, 28 * 28)
+x_​train =​ x_​train.reshape(-​1, 28 * 28)
+x_​test =​ x_​test.reshape(-​1, 28 * 28)
 5.7.3 Step 3: Build a simple neural network model
-In this step, we define the function build_  model that creates a simple neural network model using 
+In this step, we define the function build_​model that creates a simple neural network model using 
 the Keras Sequential API. The model consists of two layers: the first is a dense layer with 128 
 neurons and the Rectified Linear Unit (ReLU) activation function, which processes the flattened 
-784- dimensional input (representing each 28 × 28 pixel MNIST  image), and the second layer is a 
-dense output layer with 10 neurons (one for each digit class, 0–  9) and a softmax activation function. 
+784-​dimensional input (representing each 28 × 28 pixel MNIST image), and the second layer is a 
+dense output layer with 10 neurons (one for each digit class, 0–​9) and a softmax activation function. 
 The softmax function converts the outputs into probability distributions, making it suitable for 
-multi-  class classification tasks. The model is compiled with the specified optimizer, the sparse cat -
-egorical crossentropy loss function, which is used for multi-  class classification, and the accuracy 
+multi-​class classification tasks. The model is compiled with the specified optimizer, the sparse cat-
+egorical crossentropy loss function, which is used for multi-​class classification, and the accuracy 
 metric to monitor performance during training. The function returns the compiled model, ready to 
-be trained on the MNIST dataset. This model is a simple feed-  forward neural network designed to 
+be trained on the MNIST dataset. This model is a simple feed-​forward neural network designed to 
 classify the handwritten digits.
-def build_  model(optimizer):
-model =  Sequential([
-Dense(128, activation=  ‘relu ’, input_  shape= (784,)),
-Dense(10, activation=  ‘softmax ’)
+def build_​model(optimizer):
+model =​ Sequential([
+Dense(128, activation=​‘relu’, input_​shape=​(784,)),
+Dense(10, activation=​‘softmax’)
 ])
-model.compile(optimizer=  optimizer,
-loss= ‘sparse_ categorical_  crossentropy ’,
-metrics=  [‘accuracy ’])
+model.compile(optimizer=​optimizer,
+loss=​‘sparse_​categorical_​crossentropy’,
+metrics=​[‘accuracy’])
 return model
 5.7.4 Step 4: Train the model with different optimizers
 In this step, we are defining a dictionary of three different optimizers (SGD, RMSprop, and Adam), 
 each with specified learning rates. These optimizers control how the model updates its weights 
-during training. The goal is to compare how different optimization algorithms perform on the same  
-  
+during training. The goal is to compare how different optimization algorithms perform on the same
 
 --- PDF PAGE 188 ---
-175 Optimization Theory
+175
+Optimization Theory
 task. The for loop goes through each optimizer in the dictionary and builds a new model using the 
-build_  model function with that optimizer. For each model, training is carried out for 10 epochs 
-on the MNIST  dataset with an 80–  20 split between training and validation data. The model.fit() 
+build_​model function with that optimizer. For each model, training is carried out for 10 epochs 
+on the MNIST dataset with an 80–​20 split between training and validation data. The model.fit() 
 function is responsible for training the model, and the training history, which includes details about 
 the loss and accuracy over each epoch, is stored in the histories dictionary. This setup allows us to 
 compare the performance of different optimization algorithms on the same model and dataset. The 
-progress of each optimizer is printed out, although the training output is set to be quiet with ver -
-bose=  0 to avoid cluttering the console.
-optimizers =   {
-‘SGD’: SGD(learning_  rate= 0.01),
-‘RMSprop ’: RMSprop(learning_  rate= 0.001),
-‘Adam ’: Adam(learning_  rate= 0.001)
+progress of each optimizer is printed out, although the training output is set to be quiet with ver-
+bose=​0 to avoid cluttering the console.
+optimizers =​ {
+‘SGD’: SGD(learning_​rate=​0.01),
+‘RMSprop’: RMSprop(learning_​rate=​0.001),
+‘Adam’: Adam(learning_​rate=​0.001)
 }
-histories =   {}
+histories =​ {}
 for name, optimizer in optimizers.items():
-print(f “Training with {name}... ”)
-model =  build_ model(optimizer)
-history =   model.fit(x_  train, y_  train, epochs=  10, validation_  
-split= 0.2, verbose=  0)
-histories[name] =   history
+print(f“Training with {name}...”)
+model =​ build_​model(optimizer)
+history =​ model.fit(x_​train, y_​train, epochs=​10, validation_​
+split=​0.2, verbose=​0)
+histories[name] =​ history
 5.7.5 Step 5: Evaluate the models
 In this step, we are evaluating the performance of models trained with different optimizers on the 
-test set. For each optimizer in the optimizers dictionary, a new model is created using the build_  
-model function, and the model is trained for 10 epochs on the MNIST  dataset. The validation_  
-split=  0.2 ensures that 20% of the training data is used for validation during training. After training, 
-the model is evaluated on the test set (x_  test, y_  test) using the model.evaluate() function, which 
+test set. For each optimizer in the optimizers dictionary, a new model is created using the build_​
+model function, and the model is trained for 10 epochs on the MNIST dataset. The validation_​
+split=​0.2 ensures that 20% of the training data is used for validation during training. After training, 
+the model is evaluated on the test set (x_​test, y_​test) using the model.evaluate() function, which 
 computes the test loss and test accuracy. The accuracy on the test set is printed for each optimizer, 
-allowing us to compare how well each optimization algorithm generalizes to unseen data. The ver -
-bose=  0 option ensures that the output is minimal, focusing on the final test accuracy results for each 
+allowing us to compare how well each optimization algorithm generalizes to unseen data. The ver-
+bose=​0 option ensures that the output is minimal, focusing on the final test accuracy results for each 
 optimizer, formatted to four decimal places for clarity.
 for name, optimizer in optimizers.items():
-model =  build_ model(optimizer)
-model.fit(x_  train, y_  train, epochs=  10, validation_  split= 0.2, 
-verbose=  0)
-test_ loss, test_  acc =  model.evaluate(x_  test, y_  test, verbose=  0)
-print(f ’Test accuracy with {name}: {test_  acc:.4f} ’)
-5.9  COMMON MISTAKES AND TROUBLESHOOTING TIPS IN OPTIMIZATION
-5.9.1   l inear optimization
- •Mistake:  Misinterpreting the feasible region in linear programming problems.
- •Tip: Always clearly define and plot the constraints. Ensure the feasible region is correctly 
-identified as the intersection of all constraint regions. 
- 
- 
-  
+model =​ build_​model(optimizer)
+model.fit(x_​train, y_​train, epochs=​10, validation_​split=​0.2, 
+verbose=​0)
+test_​loss, test_​acc =​ model.evaluate(x_​test, y_​test, verbose=​0)
+print(f’Test accuracy with {name}: {test_​acc:.4f}’)
+5.9  COMMON MISTAKES AND TROUBLESHOOTING TIPS IN OPTIMIZATION
+5.9.1  Linear Optimization
+	•
+Mistake: Misinterpreting the feasible region in linear programming problems.
+	•
+Tip: Always clearly define and plot the constraints. Ensure the feasible region is correctly 
+identified as the intersection of all constraint regions.
 
 --- PDF PAGE 189 ---
-176 Mathematical Foundations for Deep Learning
-5.9.2   n on- linear  optimization
- •Mistake:  Ignoring the potential for multiple local optima.
- •Tip: Use multiple starting points or global optimization techniques to increase the likelihood 
+176
+Mathematical Foundations for Deep Learning
+5.9.2  Non-​linear Optimization
+	•
+Mistake: Ignoring the potential for multiple local optima.
+	•
+Tip: Use multiple starting points or global optimization techniques to increase the likelihood 
 of finding the global optimum.
- •Mistake:  Assuming that gradient-  based methods will always converge to the global optimum.
- •Tip: Recognize that gradient-  based methods can get stuck in local optima. Consider using 
-hybrid methods that combine gradient-  based approaches with heuristic or metaheuristic 
+	•
+Mistake: Assuming that gradient-​based methods will always converge to the global optimum.
+	•
+Tip: Recognize that gradient-​based methods can get stuck in local optima. Consider using 
+hybrid methods that combine gradient-​based approaches with heuristic or metaheuristic 
 methods.
-5.9.3   integer  optimization
- •Mistake:  Treating integer variables as continuous.
- •Tip: Ensure that the optimization algorithm respects the integer constraints. Use specific 
+5.9.3  Integer Optimization
+	•
+Mistake: Treating integer variables as continuous.
+	•
+Tip: Ensure that the optimization algorithm respects the integer constraints. Use specific 
 integer programming solvers like B&B or cutting plane methods.
- •Mistake:  Using standard linear programming methods for integer problems.
- •Tip: Employ algorithms designed for integer programming, such as the Simplex method 
+	•
+Mistake: Using standard linear programming methods for integer problems.
+	•
+Tip: Employ algorithms designed for integer programming, such as the Simplex method 
 combined with B&B, to handle integer constraints effectively.
-5.9.4  c onvex  optimization
- •Mistake:  Misidentifying non-  convex problems as convex.
- •Tip: Verify the convexity of the objective function and the feasible region. Only convex 
+5.9.4  Convex Optimization
+	•
+Mistake: Misidentifying non-​convex problems as convex.
+	•
+Tip: Verify the convexity of the objective function and the feasible region. Only convex 
 problems guarantee that any local minimum is a global minimum.
- •Mistake:  Neglecting the role of constraints in defining convexity.
- •Tip: Ensure that both the objective function and all constraints are convex so that convex opti -
+	•
+Mistake: Neglecting the role of constraints in defining convexity.
+	•
+Tip: Ensure that both the objective function and all constraints are convex so that convex opti-
 mization techniques can be applied correctly.
-5.9.5  c omBinatorial  optimization
- •Mistake:  Expecting exact solutions from heuristic methods.
- •Tip: Understand that heuristic and metaheuristic methods provide good approximations 
+5.9.5  Combinatorial Optimization
+	•
+Mistake: Expecting exact solutions from heuristic methods.
+	•
+Tip: Understand that heuristic and metaheuristic methods provide good approximations 
 but not necessarily exact solutions. Use them when exact methods are computationally 
 infeasible.
-5.9.6  Stocha Stic optimization
- •Mistake:  Ignoring the impact of randomness on convergence.
- •Tip: Use multiple runs with different random seeds to ensure robustness. Average the results 
+5.9.6  Stochastic Optimization
+	•
+Mistake: Ignoring the impact of randomness on convergence.
+	•
+Tip: Use multiple runs with different random seeds to ensure robustness. Average the results 
 to get a more reliable solution.
- •Mistake:  Failing to model uncertainty accurately.
- •Tip: Incorporate accurate probabilistic models for uncertainty. Use methods such as SGD and 
+	•
+Mistake: Failing to model uncertainty accurately.
+	•
+Tip: Incorporate accurate probabilistic models for uncertainty. Use methods such as SGD and 
 SAA appropriately.
-5.9.7  g radient  deScent
- •Mistake:  Using an inappropriate learning rate.
- •Tip: Tune the learning rate carefully. A too-  high learning rate can cause divergence, while a 
-too- low rate can lead to slow convergence. 
- 
- 
- 
- 
-  
+5.9.7  Gradient Descent
+	•
+Mistake: Using an inappropriate learning rate.
+	•
+Tip: Tune the learning rate carefully. A too-​high learning rate can cause divergence, while a 
+too-​low rate can lead to slow convergence.
 
 --- PDF PAGE 190 ---
-177 Optimization Theory
- •Mistake:  Not normalizing input features.
- •Tip: Normalize or standardize input features to ensure that gradient descent converges more 
+177
+Optimization Theory
+	•
+Mistake: Not normalizing input features.
+	•
+Tip: Normalize or standardize input features to ensure that gradient descent converges more 
 efficiently.
-5.9.8   Simplex  method
- •Mistake:  Misinterpreting degeneracy and cycling.
- •Tip: Use anti-  cycling rules like Bland’s rule to handle degeneracy and ensure convergence.
- •Mistake:  Ignoring the potential for large numbers of iterations in complex problems.
- •Tip: For significant problems, consider alternative methods like Interior Point Methods that 
+5.9.8  Simplex Method
+	•
+Mistake: Misinterpreting degeneracy and cycling.
+	•
+Tip: Use anti-​cycling rules like Bland’s rule to handle degeneracy and ensure convergence.
+	•
+Mistake: Ignoring the potential for large numbers of iterations in complex problems.
+	•
+Tip: For significant problems, consider alternative methods like Interior Point Methods that 
 may be more efficient.
-5.9.9  l agrangian  multiplier S
- •Mistake:  Misapplying Lagrangian multipliers to inequality constraints.
- •Tip: Use Karush–  Kuhn–  Tucker (KKT) conditions for problems involving inequality 
+5.9.9  Lagrangian Multipliers
+	•
+Mistake: Misapplying Lagrangian multipliers to inequality constraints.
+	•
+Tip: Use Karush–​Kuhn–​Tucker (KKT) conditions for problems involving inequality 
 constraints.
-5.9.10   B&B and cutting  plane method S
- •Mistake:  Underestimating the computational effort required.
- •Tip: Use hybrid and heuristic methods to reduce computational effort in large-  scale problems.
- •Mistake:  Ignoring the importance of initial bounds.
- •Tip: Start with reasonable initial bounds to enhance the efficiency of B&B methods.
-5.9.11   e volutionary  algorithm S
- •Mistake:  Overfitting to the training data in GAs.
- •Tip: Use techniques like cross-  validation and regularization to ensure the generalizability of 
+5.9.10  B&B and Cutting Plane Methods
+	•
+Mistake: Underestimating the computational effort required.
+	•
+Tip: Use hybrid and heuristic methods to reduce computational effort in large-​scale problems.
+	•
+Mistake: Ignoring the importance of initial bounds.
+	•
+Tip: Start with reasonable initial bounds to enhance the efficiency of B&B methods.
+5.9.11  Evolutionary Algorithms
+	•
+Mistake: Overfitting to the training data in GAs.
+	•
+Tip: Use techniques like cross-​validation and regularization to ensure the generalizability of 
 the solutions.
- •Mistake:  Neglecting parameter tuning.
- •Tip: Tune parameters such as population size, mutation rate, and crossover rate to balance 
+	•
+Mistake: Neglecting parameter tuning.
+	•
+Tip: Tune parameters such as population size, mutation rate, and crossover rate to balance 
 exploration and exploitation effectively.
-5.10  REVIEW QUESTIONS
-1. What are the critical differences between linear and non-  linear optimization?
-2. How do objective functions and constraints define an optimization problem?
-3. What is the Simplex method, and how is it used to solve linear optimization problems?
-4. How are feasible regions, constraints, and objective functions represented in linear 
+5.10  REVIEW QUESTIONS
+1.	 What are the critical differences between linear and non-​linear optimization?
+2.	 How do objective functions and constraints define an optimization problem?
+3.	 What is the Simplex method, and how is it used to solve linear optimization problems?
+4.	 How are feasible regions, constraints, and objective functions represented in linear 
 programming?
-5. What challenges are associated with non-  linear optimization compared to linear optimization?
-6. What standard methods are used to solve non-  linear optimization problems, such as    
-gradient-  based and direct search methods?
-7. What is integer programming, and in what scenarios is it advantageous?
-8. How do B&B and cutting plane methods work, and what problems do they solve?
-9. How do techniques like SAA and SGD handle uncertainty in optimization problems?
-10. In what types of optimization problems are GAs particularly effective? 
- 
- 
- 
-  
+5.	 What challenges are associated with non-​linear optimization compared to linear optimization?
+6.	 What standard methods are used to solve non-​linear optimization problems, such as 
+gradient-​based and direct search methods?
+7.	 What is integer programming, and in what scenarios is it advantageous?
+8.	 How do B&B and cutting plane methods work, and what problems do they solve?
+9.	 How do techniques like SAA and SGD handle uncertainty in optimization problems?
+10.	 In what types of optimization problems are GAs particularly effective?
 
 --- PDF PAGE 191 ---
-178 Mathematical Foundations for Deep Learning
-5.11  PROGRAMMING QUESTIONS
-5.11.1  e aSy
+178
+Mathematical Foundations for Deep Learning
+5.11  PROGRAMMING QUESTIONS
+5.11.1  Easy
 Implement a simple linear regression model using gradient descent to fit a line to a set of data points.
-1. Generate or load a dataset with a single feature and target variable.
-2. Set initial values for the slope ( m) and intercept ( b) of the line.
-3. Calculate the predictions using the current values of m and b.
-4. Calculate the gradients of the loss function with respect to m and b.
-5. Repeat the gradient descent steps for the specified number of iterations.
-5.11.2  m edium
-Build a neural network to classify handwritten digits from the MNIST  dataset.
-1. Load the MNIST  dataset. Normalize the images to the range [0, 1].
-2. Split the dataset into training and testing sets.
-3. Define a sequential model with input, hidden, and output layers.
-4. Select an optimizer, loss function, and evaluation metric.
-5. Include a validation split to monitor validation accuracy and loss.
-5.11.3  h ard proBlem
-Create a CNN  to classify images from the CIFAR-  10 dataset.
-1. Load the CIFAR-  10 dataset. Normalize the images to the range [0, 1].
-2. Define a sequential model with convolutional, pooling, and dense layers.
-3. Select an optimizer, loss function, and evaluation metrics.
-4. Train the model on the training data with validation.
-5. Evaluate the model’s performance on the test set.
-6. Experiment with different architectures, hyperparameters, and regularization techniques 
+1.	 Generate or load a dataset with a single feature and target variable.
+2.	 Set initial values for the slope (m) and intercept (b) of the line.
+3.	 Calculate the predictions using the current values of m and b.
+4.	 Calculate the gradients of the loss function with respect to m and b.
+5.	 Repeat the gradient descent steps for the specified number of iterations.
+5.11.2  Medium
+Build a neural network to classify handwritten digits from the MNIST dataset.
+1.	 Load the MNIST dataset. Normalize the images to the range [0, 1].
+2.	 Split the dataset into training and testing sets.
+3.	 Define a sequential model with input, hidden, and output layers.
+4.	 Select an optimizer, loss function, and evaluation metric.
+5.	 Include a validation split to monitor validation accuracy and loss.
+5.11.3  Hard Problem
+Create a CNN to classify images from the CIFAR-​10 dataset.
+1.	 Load the CIFAR-​10 dataset. Normalize the images to the range [0, 1].
+2.	 Define a sequential model with convolutional, pooling, and dense layers.
+3.	 Select an optimizer, loss function, and evaluation metrics.
+4.	 Train the model on the training data with validation.
+5.	 Evaluate the model’s performance on the test set.
+6.	 Experiment with different architectures, hyperparameters, and regularization techniques 
 to improve performance. Use techniques such as grid search or random search for 
-hyperparameter optimization. 
- 
- 
-  
+hyperparameter optimization.
 
 --- PDF PAGE 192 ---
-179 DOI: 10.1201/9781032690742-66 Information Theory
-6.1  INTRODUCTION
+179
+DOI: 10.1201/9781032690742-6
+6	 Information Theory
+6.1  INTRODUCTION
 Information theory is foundational in various areas, including communication, data compression, 
 cryptography, etc. Information is paramount in our rapidly evolving technological landscape, 
-bridging the gap between abstract thought and tangible computation. It defines how we communi -
+bridging the gap between abstract thought and tangible computation. It defines how we communi-
 cate, store, and process data. The theory’s ability to measure uncertainty, optimize data encoding, 
-and ensure reliable communication even in noisy environments underpins today’s digital infrastruc -
+and ensure reliable communication even in noisy environments underpins today’s digital infrastruc-
 ture. As we delve into this subject, you will be introduced to foundational concepts such as entropy, 
 which quantifies the unpredictability of information content, and mutual information, which reveals 
 the shared knowledge between variables.
-6.2  ENTROPY
+6.2  ENTROPY
 Entropy, in the context of information theory, can be considered a measure of unpredictability or 
 uncertainty. Regarding data or messages, entropy scales the average level of “surprise” contained 
 in the potential outcomes. This might seem abstract but consider the flip of a fair coin. As it has an 
 equal probability of landing heads or tails, the result is very uncertain, leading to higher entropy. 
 In contrast, if you had a biased coin that almost always landed heads, its outcome’s entropy (or 
-uncertainty) would be much lower. For a discrete random variable x with a given probability distri -
-bution P(x), where x is an outcome and P(x) is the probability of that outcome, the entropy H(x)  is 
+uncertainty) would be much lower. For a discrete random variable x with a given probability distri-
+bution P(x), where x is an outcome and P(x) is the probability of that outcome, the entropy H(x) is 
 calculated as:
- HX Px Px
-xX()=− () ()
-∈∑ log  
+	
+H X
+P x
+P x
+x X
+( ) = −
+( )
+( )
+∈∑
+log
+	
 where:
- •H(X) is the entropy of the discrete random variable X,
- •P(x) is the probability of outcome x,
- •The summation runs over all possible outcomes x in the set X.
-Here, the sum spans over all possible outcomes of x. The logarithm base often used in information  
-theory is base 2, which means the entropy is measured in bits. However, natural or logarithms to the  
-base 10 can also be used, resulting in entropy being measured in nats (when the logarithm base is  
-e (natural logarithm)) or dits (or Hartleys (when the logarithm base is 10)), respectively. The main  
-question is: Why does entropy matter? When considering transmitting messages or data, we want   
- 
- 
-  
+	•
+H(X) is the entropy of the discrete random variable X,
+	•
+P(x) is the probability of outcome x,
+	•
+The summation runs over all possible outcomes x in the set X.
+Here, the sum spans over all possible outcomes of x. The logarithm base often used in information 
+theory is base 2, which means the entropy is measured in bits. However, natural or logarithms to the 
+base 10 can also be used, resulting in entropy being measured in nats (when the logarithm base is 
+e (natural logarithm)) or dits (or Hartleys (when the logarithm base is 10)), respectively. The main 
+question is: Why does entropy matter? When considering transmitting messages or data, we want
 
 --- PDF PAGE 193 ---
-180 Mathematical Foundations for Deep Learning
-to use as few bits as possible. Entropy gives us a lower bound on the average number of bits needed  
-to represent symbols from x. If symbols are encoded optimally, a more frequent symbol should  
-be assigned a shorter code, while a rare symbol might get a more extended code. This principle is  
-leveraged in data compression techniques like Huffman coding. Entropy H(x)  tells us the minimum  
-average number of bits we would need per symbol if we could design our encoding most efficiently.  
-Entropy quantifies the uncertainty or unpredictability in a set of outcomes, guiding efficient data  
+180
+Mathematical Foundations for Deep Learning
+to use as few bits as possible. Entropy gives us a lower bound on the average number of bits needed 
+to represent symbols from x. If symbols are encoded optimally, a more frequent symbol should 
+be assigned a shorter code, while a rare symbol might get a more extended code. This principle is 
+leveraged in data compression techniques like Huffman coding. Entropy H(x) tells us the minimum 
+average number of bits we would need per symbol if we could design our encoding most efficiently. 
+Entropy quantifies the uncertainty or unpredictability in a set of outcomes, guiding efficient data 
 encoding and offering insights into data’s inherent structure and randomness.
-Figure 6.1  illustrates the probability distributions of a fair coin and a biased coin. The bar 
+Figure 6.1 illustrates the probability distributions of a fair coin and a biased coin. The bar 
 plot shows the probability of obtaining “Heads” and “Tails” for each type of coin. The fair coin, 
 represented in blue with a striped pattern, has equal probabilities of 0.5 for both outcomes, resulting 
 in higher entropy, indicating maximum uncertainty. In contrast, the biased coin, shown in orange 
 with a slanted hatch, has a much higher probability for “Heads” (0.9) and a lower probability for 
 “Tails” (0.1), leading to lower entropy and reduced uncertainty.
-6.3  JOINT AND CONDITIONAL ENTROPY
+6.3  JOINT AND CONDITIONAL ENTROPY
 Joint and conditional entropies offer richer insights into systems with multiple interacting variables. 
 They provide a deeper understanding beyond individual uncertainties, offering a clearer picture of 
 the system’s dynamics and the relationships between its components.
-6.3.1   Joint entropy
+6.3.1  Joint Entropy
 When we talk about two random variables, let us say X and Y, their combined uncertainty can be 
-represented by what we term “Joint Entropy.” The joint entropy of X and Y measures the uncer -
-tainty (or unpredictability) associated with the pair ( X, Y) when they are considered together. 
-FIGURE 6.1  Probability distributions of a fair coin and a biased coin. 
- 
-  
+represented by what we term “Joint Entropy.” The joint entropy of X and Y measures the uncer-
+tainty (or unpredictability) associated with the pair (X, Y) when they are considered together. 
+FIGURE 6.1  Probability distributions of a fair coin and a biased coin.
 
 --- PDF PAGE 194 ---
-181 Information Theory
-Mathematically, for discrete random variables X and Y with joint probability distribution P(x, y) , 
-the joint entropy H(X, Y)  is defined as:
- HX YP xy Px y
-xX yY,, log, ()=− () ()
-∈∈∑∑  
+181
+Information Theory
+Mathematically, for discrete random variables X and Y with joint probability distribution P(x, y), 
+the joint entropy H(X, Y) is defined as:
+	
+H X Y
+P x y
+P x y
+x X y Y
+,
+,
+log
+,
+(
+) = −
+(
+)
+(
+)
+∈
+∈
+∑∑
+	
 where:
- •H(X, Y) is the joint entropy of the random variables X and Y,
- •P(x, y) is the joint probability of the outcomes x and y,
+	•
+H(X, Y) is the joint entropy of the random variables X and Y,
+	•
+P(x, y) is the joint probability of the outcomes x and y,
 Here, the sum runs over all possible combinations of outcomes x from X and y from Y. Joint entropy 
 provides a more general view of the system’s unpredictability when both random variables are 
 considered together. For instance, if we have two correlated variables, knowing the outcome of one 
 might reduce the unpredictability of the other, leading to a joint entropy that is less than the sum of 
 their entropies. Suppose we have two random variables, X and Y, where X represents the outcome of 
-a coin toss (Heads or Tails), and Y represents the outcome of rolling a six-  sided die (numbers 1–  6). 
-Let’s assume that X has two possible outcomes: Heads ( H) and Tails ( T), each with a probability of 
-P(X =   H) =  0.5 and P(X =   T) =  0.5. Y has six possible outcomes: Y =  {1, 2, 3, 4, 5, 6}, with each 
-outcome having a probability PY y=( )=1
-6 (fair die). The joint probability distribution P(X, Y)  
+a coin toss (Heads or Tails), and Y represents the outcome of rolling a six-​sided die (numbers 1–​6). 
+Let’s assume that X has two possible outcomes: Heads (H) and Tails (T), each with a probability of 
+P(X =​ H) =​ 0.5 and P(X =​ T) =​ 0.5. Y has six possible outcomes: Y =​ {1, 2, 3, 4, 5, 6}, with each 
+outcome having a probability P Y
+y
+=
+(
+) = 1
+6 (fair die). The joint probability distribution P(X, Y) 
 would give the probability of each combination of X and Y. As X and Y are independent, the joint 
-probability P(X =   x, Y =   y) =   P(X =   x) ⋅⋅ P(Y =   y). For example:
- PX HY PX TY== ( )=× == = ( )=× =,. ,, . 10 51
-61
-1220 51
-61
-12and  
-and so on for all other combinations. Let’s compute joint entropy H(X, Y)  for this example:
- HX YP xy Px y
-xH y,, , ()=− () ()
-∈=∑∑
-16
-2log  
-As Px y,()=1
+probability P(X =​ x, Y =​ y) =​ P(X =​ x) ⋅ P(Y =​ y). For example:
+	
+P X
+H Y
+P X
+T Y
+=
+=
+(
+) =
+×
+=
+=
+=
+(
+) =
+×
+=
+,
+.
+,
+,
+.
+1
+0 5
+1
+6
+1
+12
+2
+0 5
+1
+6
+1
+12
+and
+	
+and so on for all other combinations. Let’s compute joint entropy H(X, Y) for this example:
+	
+H X Y
+P x y
+P x y
+x H y
+,
+,
+,
+(
+) = −
+(
+)
+(
+)
+∈
+=
+∑∑
+1
+6
+2
+log
+	
+As P x y
+,
+(
+) = 1
 12 for each combination, the joint entropy will be:
- HX Y(,)l og (. ).=− ×
-
-=− ×× −
-
-=121
-121
-12121
-123 585 3 5852 biits 
+	
+H X Y
+( , )
+log
+(
+.
+)
+.
+= −
+× 
+
+
+= −
+×
+× −
+
+
+
+=
+12
+1
+12
+1
+12
+12
+1
+12
+3 585
+3 585
+2
+ bits	
 This value, 3.585 bits, represents the total uncertainty in the system when considering both the coin 
 toss and die roll together. The joint entropy is smaller than the sum of the individual entropies of X 
 and Y, reflecting the combined unpredictability of both variables.
-6.3.2   c onditional  entropy
-Conditional entropy, denoted as HY X(), represents the average uncertainty remaining in Y once 
+6.3.2  Conditional Entropy
+Conditional entropy, denoted as H Y X
+(
+), represents the average uncertainty remaining in Y once 
 the value of X is known. In other words, it quantifies how much we still do not know about Y even 
-after observing X. The conditional entropy HY X() can be defined as:
- HYXP xH YX x
-xX(| (| ))= () =
-∈∑   
- 
- 
- 
- 
-  
+after observing X. The conditional entropy H Y X
+(
+) can be defined as:
+	
+H Y X
+P x H Y X
+x
+x X
+( |
+( |
+)
+)
+=
+( )
+=
+∈∑
 
 --- PDF PAGE 195 ---
-182 Mathematical Foundations for Deep Learning
-where HYXx=( ) is the entropy of Y given a particular value x for X. Alternatively, it can be 
+182
+Mathematical Foundations for Deep Learning
+where H Y X
+x
+=
+(
+) is the entropy of Y given a particular value x for X. Alternatively, it can be 
 expressed in terms of joint and marginal probabilities:
- HY XP xy Pyx
-xX yY(| (| ), log)=− ()
-∈∈∑∑  
+	
+H Y X
+P x y
+P y x
+x X y Y
+( |
+( |
+)
+,
+log
+)
+= −
+(
+)
+∈
+∈
+∑∑
+	
 It is a powerful metric to determine how much one variable informs about another, providing 
 insights into the interdependencies and relationships between variables. This measure is central to 
 information theory and has significant implications in various domains, including data analysis and 
 machine learning. Imagine we have two random variables: X represents the weather, with possible 
-outcomes: Sunny (S) or Rainy (R). Y represents whether a person will carry an umbrella, with pos -
+outcomes: Sunny (S) or Rainy (R). Y represents whether a person will carry an umbrella, with pos-
 sible outcomes: Yes (Y) or No (N). Let’s say the following probabilities are given based on past data:
- •P(X =   S) =  0.7, P(X =   R) =  0.3 (the weather is sunny 70% of the time and rainy 30% of the 
+	•
+P(X =​ S) =​ 0.7, P(X =​ R) =​ 0.3 (the weather is sunny 70% of the time and rainy 30% of the 
 time).
- •P(Y =   Y ∣∣ X =  S) =  0.2, P(Y =   N ∣∣ X =  S) =  0.8 (if it’s sunny, the person carries an umbrella 
+	•
+P(Y =​ Y ∣ X =​ S) =​ 0.2, P(Y =​ N ∣ X =​ S) =​ 0.8 (if it’s sunny, the person carries an umbrella 
 20% of the time).
- •P(Y =   Y ∣∣ X =  R) =  0.9, P(Y =   N ∣∣ X =  R) =  0.1 (if it’s rainy, the person carries an umbrella 
+	•
+P(Y =​ Y ∣ X =​ R) =​ 0.9, P(Y =​ N ∣ X =​ R) =​ 0.1 (if it’s rainy, the person carries an umbrella 
 90% of the time).
-The conditional entropy H(Y ∣∣ X) measures the uncertainty in Y (whether the person carries an 
+The conditional entropy H(Y ∣ X) measures the uncertainty in Y (whether the person carries an 
 umbrella) given that we already know X (the weather). We can calculate it using the formula:
- HY XP Xx PY yX xP Yy Xx
-xy)) |( |l og (|()=− = ( ) == == ∑∑ 2 
+	
+H Y X
+P X
+x
+P Y
+y X
+x
+P Y
+y X
+x
+x
+y
+)
+)
+|
+(
+|
+log
+(
+|
+(
+) = −
+=
+(
+)
+=
+=
+=
+=
+∑
+∑
+2
+	
 Now, let’s compute it:
-1. For X =  S (Sunny): P(Y =  Y ∣ X =  S) =   0.2, P(Y =  N ∣ X =  S) =  0.8
- HY XS(| ). log(.) .l og (.). (. ).(== −+ () =− ×− +× − 02 02 08 08 02 2 322 08220 0 322
-02 2 322 08 0 322 0 4644 0 2576 0 722.)
-.. .. .. .( )
-= ×+ ×= += bits 
-2. For X =  R (Rainy): P(Y =  Y ∣ X =  R) =  0.9, P(Y =  N ∣ X =  R) =  0.1
- HY XR(| ). log(.) .l og (.). (. ).(== −+ () =− ×− +× − 09 09 01 01 09 0 152 01223 3 322
-09 0 152 01 3 322 0 1368 0 3322 0 469.)
-.. .. .. .( )
-= ×+ ×= += bits 
-Now, using the total probability P(X) , we can compute the overall conditional entropy:
- HYXP XS HYXS PX RH YX R) || (|()==( )⋅=( )+=( )⋅=  
- HYX(| bits )... .. ..=⋅ +⋅ =+=07 0 722 03 0 469 0 5054 0 1407 0 646  
-Thus, the conditional entropy H(Y ∣∣ X) =  0.646 bits tells us the remaining uncertainty about whether 
+1.	 For X =​ S (Sunny): P(Y =​ Y ∣ X =​ S) =​ 0.2, P(Y =​ N ∣ X =​ S) =​ 0.8
+	
+H Y X
+S
+(
+|
+)
+. log ( . )
+. log ( . )
+.
+(
+.
+)
+.
+(
+=
+= −
++
+(
+) = −
+× −
++
+× −
+0 2
+0 2
+0 8
+0 8
+0 2
+2 322
+0 8
+2
+2
+0 322
+0 2
+2 322
+0 8
+0 322
+0 4644
+0 2576
+0 722
+.
+)
+.
+.
+.
+.
+.
+.
+.
+(
+)
+=
+×
++
+×
+=
++
+=
+ bits
+	
+2.	 For X =​ R (Rainy): P(Y =​ Y ∣ X =​ R) =​ 0.9, P(Y =​ N ∣ X =​ R) =​ 0.1
+	
+H Y X
+R
+(
+|
+)
+. log ( . )
+. log ( . )
+.
+(
+.
+)
+.
+(
+=
+= −
++
+(
+) = −
+× −
++
+× −
+0 9
+0 9
+0 1
+0 1
+0 9
+0 152
+0 1
+2
+2
+3 322
+0 9
+0 152
+0 1
+3 322
+0 1368
+0 3322
+0 469
+.
+)
+.
+.
+.
+.
+.
+.
+.
+(
+)
+=
+×
++
+×
+=
++
+=
+ bits
+	
+Now, using the total probability P(X), we can compute the overall conditional entropy:
+	
+H Y X
+P X
+S
+H Y X
+S
+P X
+R
+H Y X
+R)
+|
+|
+( |
+(
+) =
+=
+(
+)⋅
+=
+(
+)+
+=
+(
+)⋅
+=
+	
+	
+H Y X
+( |
+bits
+)
+.
+.
+.
+.
+.
+.
+.
+=
+⋅
++
+⋅
+=
++
+=
+0 7 0 722
+0 3 0 469
+0 5054
+0 1407
+0 646
+	
+Thus, the conditional entropy H(Y ∣ X) =​ 0.646 bits tells us the remaining uncertainty about whether 
 the person will carry an umbrella after knowing the weather. As this value is less than the entropy of 
 Y alone, it indicates that knowing the weather reduces our uncertainty about Y.
-Figure 6.2  illustrates two key concepts in information theory: joint probability distribution and 
-conditional entropy. The left part of Figure 6.2a  displays the joint probability distribution P(X, Y),  
- 
- 
- 
- 
-  
+Figure 6.2 illustrates two key concepts in information theory: joint probability distribution and 
+conditional entropy. The left part of Figure 6.2a displays the joint probability distribution P(X, Y),
 
 --- PDF PAGE 196 ---
-183 Information Theory
-FIGURE 6.2  (a) Joint probability distribution P(X, Y), and (b) conditional entropy H(Y | X).
-  newgenrtpdf
+183
+Information Theory
+FIGURE 6.2  (a) Joint probability distribution P(X, Y), and (b) conditional entropy H(Y | X).
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 197 ---
-184 Mathematical Foundations for Deep Learning
+184
+Mathematical Foundations for Deep Learning
 showing how two random variables, X and Y, are related. Each cell in the matrix represents the 
 probability of a particular combination of values of X (X1, X2, X3) and Y (Y1, Y2, Y3). For instance, 
 the probability of X2 occurring with Y1 is 0.20, indicating that this combination is more likely 
 compared to others, such as X1 and Y3, which have a lower probability of 0.05. The color scale on 
-the right provides a visual guide, with higher probabilities represented by yellow and lower prob -
-abilities by darker shades. The right part of Figure 6.2b  shows the conditional entropy H(Y ∣ X) 
+the right provides a visual guide, with higher probabilities represented by yellow and lower prob-
+abilities by darker shades. The right part of Figure 6.2b shows the conditional entropy H(Y ∣ X) 
 for each value of X. This measure quantifies the uncertainty or unpredictability of Y given that X 
-has already occurred. For example, when X =  X1, the conditional entropy is approximately 1.522, 
-indicating a moderate level of uncertainty about Y. In contrast, when X =  X2, the entropy value is 
+has already occurred. For example, when X =​ X1, the conditional entropy is approximately 1.522, 
+indicating a moderate level of uncertainty about Y. In contrast, when X =​ X2, the entropy value is 
 lower at around 1.379, suggesting that knowing X2 provides more information about Y compared 
 to other cases.
-6.4  INFORMATION GAIN
+6.4  INFORMATION GAIN
 Information gain quantifies the reduction in uncertainty about one variable given knowledge of 
 another variable. When the value of X significantly reduces the uncertainty of Y, the conditional 
 entropy H(Y | X) becomes much smaller than the entropy H(Y). This reduction in uncertainty indicates 
 that X provides information about Y, suggesting a strong dependency between them. Conversely, if 
-H(Y | X) is approximately equal to H(Y), knowing X does not enhance the prediction of Y signifi -
+H(Y | X) is approximately equal to H(Y), knowing X does not enhance the prediction of Y signifi-
 cantly, indicating that X and Y are largely independent regarding the information they convey. If 
-H(Y | X) =  0, knowing X allows us to predict Y perfectly, indicating a deterministic relationship. If 
-H(Y | X) is high but not equal to H(Y), X provides some information about Y, but significant uncer -
+H(Y | X) =​ 0, knowing X allows us to predict Y perfectly, indicating a deterministic relationship. If 
+H(Y | X) is high but not equal to H(Y), X provides some information about Y, but significant uncer-
 tainty remains. In machine learning, information gain is crucial for feature selection and decision 
 tree algorithms. During feature selection, conditional entropy helps identify features that reduce 
 the uncertainty of the target variable. A feature X that significantly reduces H(Y | X) compared to 
 H(Y) is valuable for the model. Algorithms like decision trees use information gain to select features 
-that provide the highest reduction in entropy. At each step, the feature that offers the most signifi -
+that provide the highest reduction in entropy. At each step, the feature that offers the most signifi-
 cant information gain about the target variable is chosen, improving the tree’s predictive accuracy. 
-Consider a simple weather prediction scenario where we want to predict whether it will rain ( Y) 
-based on whether there are clouds in the sky ( X).
- •Outcomes for Y (Rain): Yes (1), No (0)
- •Outcomes for X (Clouds): Yes (1), No (0)
+Consider a simple weather prediction scenario where we want to predict whether it will rain (Y) 
+based on whether there are clouds in the sky (X).
+	•
+Outcomes for Y (Rain): Yes (1), No (0)
+	•
+Outcomes for X (Clouds): Yes (1), No (0)
 Probabilities are:
- •P(Y =  1) =   0.4 P(Y =  1) =   0.4 P(Y =  1) =   0.4 (probability of rain)
- •P(Y =  0) =   0.6 P(Y =  0) =   0.6 P(Y =  0) =   0.6 (probability of no rain)
- •P(X =  1) =   0.5 P(X =  1) =   0.5 P(X =  1) =   0.5 (probability of clouds)
- •P(X =  0) =   0.5 P(X =  0) =   0.5 P(X =  0) =   0.5 (probability of no clouds)
- •P(Y =  1 ∣ X =  1) =   0.8 P(Y =  1 | X =  1) =   0.8 P(Y =  1 ∣ X =  1) =   0.8 (probability of rain given 
+	•
+P(Y =​ 1) =​ 0.4 P(Y =​ 1) =​ 0.4 P(Y =​ 1) =​ 0.4 (probability of rain)
+	•
+P(Y =​ 0) =​ 0.6 P(Y =​ 0) =​ 0.6 P(Y =​ 0) =​ 0.6 (probability of no rain)
+	•
+P(X =​ 1) =​ 0.5 P(X =​ 1) =​ 0.5 P(X =​ 1) =​ 0.5 (probability of clouds)
+	•
+P(X =​ 0) =​ 0.5 P(X =​ 0) =​ 0.5 P(X =​ 0) =​ 0.5 (probability of no clouds)
+	•
+P(Y =​ 1 ∣ X =​ 1) =​ 0.8 P(Y =​ 1 | X =​ 1) =​ 0.8 P(Y =​ 1 ∣ X =​ 1) =​ 0.8 (probability of rain given 
 clouds)
- •P(Y =  1 ∣ X =  0) =   0.2 P(Y =  1 | X =  0) =   0.2 P(Y =  1 ∣ X =  0) =   0.2 (probability of rain given 
+	•
+P(Y =​ 1 ∣ X =​ 0) =​ 0.2 P(Y =​ 1 | X =​ 0) =​ 0.2 P(Y =​ 1 ∣ X =​ 0) =​ 0.2 (probability of rain given 
 no clouds)
 Let us calculate the entropy:
-1. Entropy of Y (Rain):
- HY() [.log. .l og .] [. (. ).(. )]=− +≈ −× −+ ×−04 04 06 06 04 1 322 06 0 73722≈ ≈0 970 .  bits   
-  
+1.	 Entropy of Y (Rain):
+	
+H Y
+( )
+[ . log
+.
+. log
+. ]
+[ .
+(
+.
+)
+.
+(
+.
+)]
+= −
++
+≈−
+× −
++
+× −
+0 4
+0 4
+0 6
+0 6
+0 4
+1 322
+0 6
+0 737
+2
+2
+≈0 970
+.
+ bits
 
 --- PDF PAGE 198 ---
-185 Information Theory
-2. Conditional Entropy of Y given X:
- HYXP XH YX PX HYX) || (|()==( )⋅=( )+=( )⋅=11 00  
- HY X(| )[ .l og .. log. ].== −+ ≈10 80 80 20 20 72222 bits 
- HY X(| )[ .l og .. log. ].== −+ ≈00 20 20 80 80 72222 bits 
- HYX(| bits )... ..=⋅ +⋅ ≈05 0 722 05 0 722 0 722
-3. Information gain:
-IGYXYYX;. ..()=()−()=−≈HH |b its 0 970 0 722 0 249
+185
+Information Theory
+2.	 Conditional Entropy of Y given X:
+	
+H Y X
+P X
+H Y X
+P X
+H Y X
+)
+|
+|
+( |
+(
+) =
+=
+(
+)⋅
+=
+(
+)+
+=
+(
+)⋅
+=
+1
+1
+0
+0 	
+	
+H Y X
+(
+|
+)
+[ . log
+.
+. log
+. ]
+.
+=
+= −
++
+≈
+1
+0 8
+0 8
+0 2
+0 2
+0 722
+2
+2
+ bits	
+	
+H Y X
+(
+|
+)
+[ . log
+.
+. log
+. ]
+.
+=
+= −
++
+≈
+0
+0 2
+0 2
+0 8
+0 8
+0 722
+2
+2
+ bits	
+	
+H Y X
+( |
+bits
+)
+.
+.
+.
+.
+.
+=
+⋅
++
+⋅
+≈
+0 5 0 722
+0 5 0 722
+0 722
+3.	
+Information gain:
+IG Y X
+Y
+Y X
+;
+.
+.
+.
+(
+) =
+( ) −
+(
+) =
+−
+≈
+H
+H
+|
+bits
+0 970
+0 722
+0 249
 The information gain of 0.249 bits indicates that knowing whether there are clouds in the sky reduces 
 the uncertainty about whether it will rain by 0.249 bits.
-6.5  MUTUAL INFORMATION
+6.5  MUTUAL INFORMATION
 Mutual information is a fundamental quantity in information theory that quantifies the information 
 obtained about one random variable by observing another. It measures the dependence between two 
 variables and has wide applications in feature selection, machine learning, and data analysis. Mutual 
 information provides a quantitative measure of the relationship between two random variables. In 
-contexts like feature selection, it can help determine which features (variables) carry the most infor -
-mation about the target variable, thereby being most relevant for tasks like classification or regres -
+contexts like feature selection, it can help determine which features (variables) carry the most infor-
+mation about the target variable, thereby being most relevant for tasks like classification or regres-
 sion. There are three main basic properties of mutual information:
-1. Symmetry:  Mutual information is symmetric. This means that the amount of information 
+1.	 Symmetry: Mutual information is symmetric. This means that the amount of information 
 gained about X by knowing Y is the same as the amount of information gained about Y by 
-knowing X. It can be shown as: I(X; Y) =  I(Y; X)
-2. Non-  Negative:  Mutual information is always non-  negative. If I(X; Y) =  0, it implies that the 
+knowing X. It can be shown as: I(X; Y) =​ I(Y; X)
+2.	 Non-​Negative: Mutual information is always non-​negative. If I(X; Y) =​ 0, it implies that the 
 two random variables are independent, and knowing the value of one does not provide any 
 information about the other.
-3. Range:  Mutual information can take a value between 0 (when the variables are independent) and 
+3.	 Range: Mutual information can take a value between 0 (when the variables are independent) and 
 the entropy of one of the variables (when one variable is a deterministic function of the other).
 Here are the brief explanations of the mutual information formula:
- I(X; Y) =  H(X) –  H(X | Y) 
+	
+I(X; Y) =​ H(X) –​ H(X | Y)	
 This formula means that the mutual information between X and Y is the difference between the 
-entropy of X (the uncertainty in X) and the conditional entropy of X given Y (the remaining uncer -
+entropy of X (the uncertainty in X) and the conditional entropy of X given Y (the remaining uncer-
 tainty in X when we know Y):
- I(X; Y) =  H(Y) –  H(Y | X) 
+	
+I(X; Y) =​ H(Y) –​ H(Y | X)	
 Similarly, this formula shows that the mutual information between X and Y is the difference between 
 the entropy of Y (the total uncertainty in Y) and the conditional entropy H(Y ∣ X) (the remaining 
-uncertainty in Y given that X is known). 
- 
- 
- 
- 
- 
- 
-  
+uncertainty in Y given that X is known).
 
 --- PDF PAGE 199 ---
-186 Mathematical Foundations for Deep Learning
-Mutual information is a powerful tool because it captures non-  linear dependencies between 
+186
+Mathematical Foundations for Deep Learning
+Mutual information is a powerful tool because it captures non-​linear dependencies between 
 variables, unlike other measures, such as correlation, which capture only linear dependencies. If 
 the mutual information between two variables is high, the variables are strongly related. Suppose 
 we have two random variables: X represents the outcome of flipping a fair coin, with possible 
-outcomes: Heads (H) or Tails (T), each with a probability P(X =   H) =  0.5 and P(X =   T) =  0.5. Y 
+outcomes: Heads (H) or Tails (T), each with a probability P(X =​ H) =​ 0.5 and P(X =​ T) =​ 0.5. Y 
 represents whether or not a person decides to walk based on the weather, with possible outcomes: Walk 
 (W) or Stay (S), each with a probability dependent on the coin flip (to simulate a correlation).
 Let’s assume the probabilities based on the coin flip are:
-If X =  H (Heads), the person decides to walk with probability P(Y =   W ∣∣ X =  H) =  0.8 and stays 
-with P(Y =   S ∣∣ X =  H) =  0.2.
-If X =  T (Tails), the person decides to stay with probability P(Y =   S ∣∣ X =   T) =  0.9, and walks 
-with P(Y =   W ∣∣ X =  T) =  0.1.
-Step 1:  Calculate the individual entropies H(X)  and H(Y) :
-H(X):  Since X is a fair coin flip, the entropy of X is:
-HX PX xP Xx
-x() () log( )( .l og .. log. )=− == =− +=∑ 22 205 05 05 05 1 bit
-H(Y):  To calculate the entropy of Y, we first need the marginal probabilities for Y. These are:
- PY WP YW XH PX HP YW XT PX TP=( )== =⋅ = ( )+= =⋅ = ( ) (|)( |)  
- PY W=( )=⋅( )+⋅( )=+ =08 05 01 05 04 00 50 45 .. .. .. .  
- PY SP YW.=( )=− = ( )=10 55  
-Now, we can calculate H(Y) :
-HY() (. log. .l og .) (. ...=− += −× −+ ×−04 50 45 05 50 55 04 51 152 05 50 86223 31 027 ).=  bits
-Step 2:  Calculate the conditional entropy H(X ∣∣ Y):
-We need the conditional probabilities P(X ∣∣ Y), but it’s easier to calculate H(X ∣∣ Y) using the joint 
+If X =​ H (Heads), the person decides to walk with probability P(Y =​ W ∣ X =​ H) =​ 0.8 and stays 
+with P(Y =​ S ∣ X =​ H) =​ 0.2.
+If X =​ T (Tails), the person decides to stay with probability P(Y =​ S ∣ X =​ T) =​ 0.9, and walks 
+with P(Y =​ W ∣ X =​ T) =​ 0.1.
+Step 1: Calculate the individual entropies H(X) and H(Y):
+H(X): Since X is a fair coin flip, the entropy of X is:
+H X
+P X
+x
+P X
+x
+x
+( )
+(
+)log
+(
+)
+( . log
+.
+. log
+. )
+= −
+=
+=
+= −
++
+=
+∑
+2
+2
+2
+0 5
+0 5
+0 5
+0 5
+1 bit
+H(Y): To calculate the entropy of Y, we first need the marginal probabilities for Y. These are:
+	
+P Y
+W
+P Y
+W X
+H
+P X
+H
+P Y
+W X
+T
+P X
+T P
+=
+(
+) =
+=
+=
+⋅
+=
+(
+)+
+=
+=
+⋅
+=
+(
+)
+(
+|
+)
+(
+|
+)
+	
+	
+P Y
+W
+=
+(
+) =
+⋅
+(
+)+
+⋅
+(
+) =
++
+=
+0 8 0 5
+0 1 0 5
+0 4
+0 05
+0 45
+.
+.
+.
+.
+.
+.
+.
+	
+	
+P Y
+S
+P Y
+W
+.
+=
+(
+)= −
+=
+(
+)=
+1
+0 55	
+Now, we can calculate H(Y):
+H Y
+( )
+( .
+log
+.
+.
+log
+.
+)
+( .
+.
+.
+.
+= −
++
+= −
+× −
++
+× −
+0 45
+0 45
+0 55
+0 55
+0 45
+1 152
+0 55
+0 86
+2
+2
+3
+1 027
+)
+.
+=
+ bits
+Step 2: Calculate the conditional entropy H(X ∣ Y):
+We need the conditional probabilities P(X ∣ Y), but it’s easier to calculate H(X ∣ Y) using the joint 
 probabilities of X and Y:
- PX HY WP YW XH PX H==( )== =⋅ = ( )=×=,( |) .. . 08 05 04  
- PX HY SP YS XH PX H==( )== =⋅ = ( )=×=,( |) .. . 02 05 01  
- PX TY WP YW XT PX T==( )== =⋅ = ( )=×=,( |) .. . 01 05 00 5  
- PX TY SP YS XT PX T==( )== =⋅ = ( )=×=,( |) .. . 09 05 04 5  
-Using the joint probabilities, we calculate the conditional entropy H(X ∣∣ Y):
- HX YP Xx YyPX xY y
-PY yxy(| ),,
-,=− == ( )==( )
-=( )∑ log2  
- 
- 
- 
- 
- 
- 
-  
+	
+P X
+H Y
+W
+P Y
+W X
+H
+P X
+H
+=
+=
+(
+) =
+=
+=
+⋅
+=
+(
+) =
+×
+=
+,
+(
+|
+)
+.
+.
+.
+0 8
+0 5
+0 4	
+	
+P X
+H Y
+S
+P Y
+S X
+H
+P X
+H
+=
+=
+(
+) =
+=
+=
+⋅
+=
+(
+) =
+×
+=
+,
+(
+|
+)
+.
+.
+.
+0 2
+0 5
+0 1	
+	
+P X
+T Y
+W
+P Y
+W X
+T
+P X
+T
+=
+=
+(
+) =
+=
+=
+⋅
+=
+(
+) =
+×
+=
+,
+(
+|
+)
+.
+.
+.
+0 1
+0 5
+0 05	
+	
+P X
+T Y
+S
+P Y
+S X
+T
+P X
+T
+=
+=
+(
+) =
+=
+=
+⋅
+=
+(
+) =
+×
+=
+,
+(
+|
+)
+.
+.
+.
+0 9
+0 5
+0 45	
+Using the joint probabilities, we calculate the conditional entropy H(X ∣ Y):
+	
+H X Y
+P X
+x Y
+y
+P X
+x Y
+y
+P Y
+y
+x y
+(
+|
+)
+,
+,
+,
+= −
+=
+=
+(
+)
+=
+=
+(
+)
+=
+(
+)
+∑
+log2
 
 --- PDF PAGE 200 ---
-187 Information Theory
- HX Y(| ). log.
-..l og.
-..l og.
-..=− ++ +0404
-04 500 500 5
-04 50101
-05 50422 25 504 5
-05 505 62log.
-..
-
-≈  bits 
-Step 3:  Calculate mutual information I(X; Y) :
-Finally, mutual information I(X; Y)  is the difference between the entropy of X and the conditional 
-entropy H(X ∣∣ Y):
-I(X; Y) =  H(X) − H(X ∣ Y) =  1 − 0.56 =   0.44 bits
+187
+Information Theory
+	
+H X Y
+(
+|
+)
+. log
+.
+.
+.
+log
+.
+.
+. log
+.
+.
+.
+= −
++
++
++
+0 4
+0 4
+0 45
+0 05
+0 05
+0 45
+0 1
+0 1
+0 55
+0 4
+2
+2
+2
+5
+0 45
+0 55
+0 56
+2
+log
+.
+.
+.
+
+
+
+≈
+ bits	
+Step 3: Calculate mutual information I(X; Y):
+Finally, mutual information I(X; Y) is the difference between the entropy of X and the conditional 
+entropy H(X ∣ Y):
+I(X; Y) =​ H(X) − H(X ∣ Y) =​ 1 − 0.56 =​ 0.44 bits
 This result tells us that knowing Y provides 0.44 bits of information about X, meaning there is 
-some dependency between the two variables (but not complete dependence). The mutual infor -
+some dependency between the two variables (but not complete dependence). The mutual infor-
 mation quantifies this relationship and can be used to assess the strength of the dependency 
 between X and Y.
-Figure 6.3  provides a view of the relationship between variables X and Y using information-  
-theoretic concepts. In subplot Figure 6.3a , the joint probability distribution P(X, Y) is visualized 
+Figure 6.3 provides a view of the relationship between variables X and Y using information-​
+theoretic concepts. In subplot Figure 6.3a, the joint probability distribution P(X, Y) is visualized 
 as a heatmap. The distribution shows the probability values for combinations of X (with values X1, 
 X2, X3) and Y (with values Y1, Y2, Y3). Each cell in the matrix displays the probability associated 
 with a particular combination of X and Y. For example, P(X2, Y2) has a higher probability value 
 (0.20), highlighted in yellow, compared to other combinations. This heatmap provides insight into 
-how the two variables interact, showing the likelihood of different outcomes. Subplot Figure 6.3b  
+how the two variables interact, showing the likelihood of different outcomes. Subplot Figure 6.3b 
 illustrates the conditional entropy H(Y ∣ X), which measures the uncertainty in Y given that X is 
 known. The bar plot presents the conditional entropy values for each category of X. The values are 
 1.522 for X1, 1.379 for X2, and 1.500 for X3, indicating how much uncertainty remains in Y when 
-each corresponding value of X is observed. Subplot Figure 6.3c  shows the mutual information I(X; 
+each corresponding value of X is observed. Subplot Figure 6.3c shows the mutual information I(X; 
 Y), which quantifies the amount of information shared between X and Y. It is represented as a single 
 bar with a value of 0.059 bits, indicating that there is some degree of dependency between X and Y, 
 although it is relatively small.
-6.6  DATA COMPRESSION
+6.6  DATA COMPRESSION
 Data compression is a method to reduce the quantity of data used to represent information. 
 Understanding the statistical properties of data makes it possible to represent it more compactly 
-without losing essential information. With concepts like entropy, information theory offers a math -
+without losing essential information. With concepts like entropy, information theory offers a math-
 ematical foundation to understand the limits and potential of data compression. The tools and 
 principles derived from this theory have driven the development of many efficient algorithms and 
 standards in digital communication and storage. In simple terms, entropy quantifies the amount 
-of uncertainty or randomness in a source of information. It measures the “surprisal,” how unex -
-pected or uncertain a message is. When considering data compression, a high-  entropy source means 
-that the data is complex to predict and, hence, more challenging to compress, while a low-  entropy 
-source indicates the opposite. For a given source of data or a message, the entropy provides a the -
+of uncertainty or randomness in a source of information. It measures the “surprisal,” how unex-
+pected or uncertain a message is. When considering data compression, a high-​entropy source means 
+that the data is complex to predict and, hence, more challenging to compress, while a low-​entropy 
+source indicates the opposite. For a given source of data or a message, the entropy provides a the-
 oretical lower bound on the average number of bits needed to encode symbols from that source. In 
 other words, it gives the minimum bits required to represent the information without any loss. This 
 understanding is pivotal in designing efficient encoding schemes. If an encoding scheme achieves 
 this bound, it is considered optimal. There are several applications for it in encoding. For instance, 
 if you are trying to encode a text written in English, not all letters or combinations of letters occur 
-with equal frequency. Spaces, vowels like “ e” and “ a,” are more frequent than letters like “ z” or “ q.” 
+with equal frequency. Spaces, vowels like “e” and “a,” are more frequent than letters like “z” or “q.” 
 One can achieve compression by using fewer bits to represent frequently occurring letters and more 
-bits for less frequent ones. This is the basic idea behind Huffman coding, a popular lossless data  
- 
-  
+bits for less frequent ones. This is the basic idea behind Huffman coding, a popular lossless data
 
 --- PDF PAGE 201 ---
-188 Mathematical Foundations for Deep Learning
-FIGURE 6.3  (a) Joint probability distribution P(X, Y), (b) conditional entropy H(Y | X), and (c) mutual information I(X; Y).
-  newgenrtpdf
+188
+Mathematical Foundations for Deep Learning
+FIGURE 6.3  (a) Joint probability distribution P(X, Y), (b) conditional entropy H(Y | X), and (c) mutual information I(X; Y).
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 202 ---
-189 Information Theory
-compression algorithm. Let us have a review on lossless vs. lossy compression. It is essential to dif -
+189
+Information Theory
+compression algorithm. Let us have a review on lossless vs. lossy compression. It is essential to dif-
 ferentiate between two primary types of data compression: lossless and lossy.
-1. Lossless Compression:  This method ensures that the original data can be perfectly 
+1.	 Lossless Compression: This method ensures that the original data can be perfectly 
 reconstructed from the compressed data. It is used in applications where the preservation of 
 original data is crucial, like text files or certain types of image and audio files (e.g., PNG, 
 FLAC).
-2. Lossy Compression:  This method sacrifices some data for higher compression rates, meaning 
+2.	 Lossy Compression: This method sacrifices some data for higher compression rates, meaning 
 the original data cannot be perfectly reconstructed. It is often acceptable for multimedia 
-applications like audio, images, and videos where some loss of detail might not be percep -
+applications like audio, images, and videos where some loss of detail might not be percep-
 tible to human senses (e.g., MP3, JPEG).
 Consider a text written in English where each letter has a different frequency of occurrence. The 
-letter “ e” appears frequently, while the letter “ z” appears much less often. Using Huffman coding, a 
+letter “e” appears frequently, while the letter “z” appears much less often. Using Huffman coding, a 
 lossless data compression technique, we can assign shorter codes to more frequent letters and longer 
 codes to less frequent ones. Suppose the probabilities of four letters are as follows:
- “e”: 0.3; “ a”: 0.25; “ t”: 0.2; and “ z”: 0.05  
+	
+“e”: 0.3; “a”: 0.25; “t”: 0.2; and “z”: 0.05	
 Using Huffman coding, we can assign binary codes like this:
- “e” → 1 (1 bit), “ a” → 01 (2 bits), “ t” → 001 (3 bits) and “ z” → 000 (3 bits)  
-The most frequent letter, “ e,” gets the shortest code (1 bit), while the least frequent letter, “ z,” gets 
+	
+“e” → 1 (1 bit), “a” → 01 (2 bits), “t” → 001 (3 bits) and “z” → 000 (3 bits)	
+The most frequent letter, “e,” gets the shortest code (1 bit), while the least frequent letter, “z,” gets 
 a longer code (3 bits), making the overall encoding more efficient. The entropy of a source, denoted 
-as H(X) , quantifies the uncertainty or “randomness” in the source and provides a lower bound on the 
+as H(X), quantifies the uncertainty or “randomness” in the source and provides a lower bound on the 
 average number of bits required to encode the data. For a source X with probabilities p(xi) for each 
 symbol xi, the entropy is defined as:
- HX px px
-in
-ii ()=− () ()
+	
+H X
+p x
+p x
+i
+n
+i
+i
+( ) = −
+( )
+( )
 =∑
-12log  
-For the example above with letters “ e,” “a,” “t,” and “ z,” the entropy calculation would be:
- HX() (.log. .l og .. log. .l og .) .=− ++ +≈03 03 02 50 25 02 02 00 50 05 12 2229 9 bits  
+1
+2
+log
+	
+For the example above with letters “e,” “a,” “t,” and “z,” the entropy calculation would be:
+	
+H X
+( )
+( . log
+.
+.
+log
+.
+. log
+.
+.
+log
+.
+)
+.
+= −
++
++
++
+≈
+0 3
+0 3
+0 25
+0 25
+0 2
+0 2
+0 05
+0 05
+1
+2
+2
+2
+2
+9 bits	
 This means, on average, 1.9 bits are required to represent a letter from this source, and Huffman 
 coding brings us close to this limit.
-Figure 6.4  explores the frequency distribution of letters in English text and their corresponding 
-encoding lengths using Huffman Encoding. In subplot Figure 6.4 a, the letter probabilities are shown 
+Figure 6.4 explores the frequency distribution of letters in English text and their corresponding 
+encoding lengths using Huffman Encoding. In subplot Figure 6.4a, the letter probabilities are shown 
 as a bar chart, representing the relative frequencies of each letter in English text. The chart reveals 
-that some letters, like “ e” (with a probability of 0.112) and “ t” (with a probability of 0.080), occur 
-more frequently than others, such as “ q” and “ z,” which have much lower probabilities (0.001). This 
+that some letters, like “e” (with a probability of 0.112) and “t” (with a probability of 0.080), occur 
+more frequently than others, such as “q” and “z,” which have much lower probabilities (0.001). This 
 variation in frequencies reflects the nature of English, where certain letters are used far more often. 
 Understanding these probabilities is fundamental for efficient data encoding, as frequent letters 
-can be assigned shorter codes to reduce overall message length. Subplot Figure 6.4 b illustrates 
+can be assigned shorter codes to reduce overall message length. Subplot Figure 6.4b illustrates 
 the Huffman Encoding Lengths assigned to each letter based on the probabilities shown in subplot 
-Figure 6.4 a. In Huffman encoding, letters that appear more frequently are assigned shorter binary 
-codes, while those that occur less frequently are given longer codes. For instance, the letter “ e” with  
- 
- 
-  
+Figure 6.4a. In Huffman encoding, letters that appear more frequently are assigned shorter binary 
+codes, while those that occur less frequently are given longer codes. For instance, the letter “e” with
 
 --- PDF PAGE 203 ---
-190 Mathematical Foundations for Deep Learning
-FIGURE 6.4  (a) Letter probabilities in English text, and (b) Huffman encoding lengths for letters.
-  newgenrtpdf
+190
+Mathematical Foundations for Deep Learning
+FIGURE 6.4  (a) Letter probabilities in English text, and (b) Huffman encoding lengths for letters.
+ 
+ 
+newgenrtpdf
 
 --- PDF PAGE 204 ---
-191 Information Theory
-the highest probability, has an encoding length of 4 bits, while infrequent letters like “ q” and “ z” 
+191
+Information Theory
+the highest probability, has an encoding length of 4 bits, while infrequent letters like “q” and “z” 
 require 11 bits.
-6.7  CHANNEL CAPACITY AND SHANNON’S THEOREM
-In practical terms, Shannon’s theorem laid the theoretical foundation for modern digital communi -
-cation systems. Many communication systems today, like those used in cellular networks or satel -
-lite communication, employ error-  correcting codes to approach the channel capacity as closely as 
+6.7  CHANNEL CAPACITY AND SHANNON’S THEOREM
+In practical terms, Shannon’s theorem laid the theoretical foundation for modern digital communi-
+cation systems. Many communication systems today, like those used in cellular networks or satel-
+lite communication, employ error-​correcting codes to approach the channel capacity as closely as 
 possible and ensure reliable data transfer. Channel capacity is a fundamental concept in information 
 theory. It represents the highest rate at which information can be reliably transmitted over a given 
 communication channel. Expressed in bits per second (bps), the maximum number of bits that can 
@@ -1059,25 +2889,57 @@ up to a specific maximum rate, known as the channel capacity. It is possible to 
 below this rate so that the probability of error in decoding the message can be made arbitrarily small. 
 However, above this rate, no encoding method will avoid a high probability of error. Given a noisy 
 channel with a known capacity, it suggests that one can design encoding and decoding schemes (or 
-error-  correcting codes) to ensure almost error-  free communication as long as the communication 
+error-​correcting codes) to ensure almost error-​free communication as long as the communication 
 rate stays below the channel capacity. However, errors will become unavoidable once you try to 
 transmit information at a rate higher than the channel capacity. Consider a cellular network where 
-the channel has a bandwidth of 1 MHz (1,000,000 Hz), and the signal-  to- noise ratio ( SNR ) is 10 (in 
+the channel has a bandwidth of 1 MHz (1,000,000 Hz), and the signal-​to-​noise ratio (SNR) is 10 (in 
 linear scale, equivalent to 10 dB). Using Shannon’s theorem, we can calculate the maximum channel 
 capacity, which gives the upper limit on how much information can be transmitted reliably over 
 this channel. Shannon’s channel capacity theorem defines the maximum rate C (in bps) at which 
 information can be transmitted over a noisy channel without error as long as the transmission rate is 
 below this capacity. The formula for the channel capacity C is given by:
- CB=+ ( ) logS NR21  
+	
+C
+B
+=
++
+(
+)
+log
+SNR
+2 1
+	
 where:
- •C is the channel capacity in bps,
- •B is the bandwidth of the channel in hertz (Hz),
- •SNR  is the signal-  to- noise ratio (in linear form, not dB).
-For the cellular network example, bandwidth B =  1,000,000 Hz, and SNR  =  10 (in linear scale).
+	•
+C is the channel capacity in bps,
+	•
+B is the bandwidth of the channel in hertz (Hz),
+	•
+SNR is the signal-​to-​noise ratio (in linear form, not dB).
+For the cellular network example, bandwidth B =​ 1,000,000 Hz, and SNR =​ 10 (in linear scale).
 Using the formula:
- C=× + ( )≈× ≈ 1 000 000 11 01 000 000 3 459 3 4592,, ,, .. lo gM bps  
+	
+C =
+×
++
+(
+) ≈
+×
+≈
+1 000 000
+1 10
+1 000 000
+3 459
+3 459
+2
+,
+,
+,
+,
+.
+.
+log
+Mbps	
 This means the maximum channel capacity for this network is approximately 3.459 Mbps. As long 
 as the transmission rate remains below this limit, reliable communication with very low error rates 
-is possible. 
- 
-  
+is possible.

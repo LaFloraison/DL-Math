@@ -1,0 +1,9 @@
+2.5.3  Linear Transformations in Deep Learning
+Linear transformations play a crucial role in deep learning due to their modeling power, efficiency, 
+and interpretability. While individual linear transformations are limited in their ability to capture 
+complex relationships, when stacked and combined with non-​linear activation functions, they 
+enable NNs to model intricate, non-​linear patterns in data. Additionally, linear operations in matrix 
+form are highly optimized on modern hardware, particularly GPUs, making the training and infer-
+ence processes in deep learning more efficient. Furthermore, linear transformations are often more 
+interpretable than their non-​linear counterparts due to their simplicity, which can be valuable in 
+applications where understanding the model’s decision-​making process is essential.

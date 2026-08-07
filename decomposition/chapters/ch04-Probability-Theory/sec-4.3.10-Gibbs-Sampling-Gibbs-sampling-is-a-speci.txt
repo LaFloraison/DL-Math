@@ -1,0 +1,42 @@
+4.3.10  Gibbs Sampling
+Gibbs sampling is a specific type of MCMC method that is particularly suitable for multivariate 
+distributions. It is often used when the components of the distribution are conditionally independent. 
+By iteratively sampling each variable conditional on the current values of the other variables, 
+Gibbs sampling efficiently explores the sample space and can handle complex, high-​dimensional 
+distributions. For a joint distribution p(X, Y), Gibbs sampling iteratively updates the variables by 
+sampling from the conditional distributions:
+	
+X
+p X Y
+t
+t
++
+(
+)
+( )
+(
+)
+1 ~
+|
+	
+	
+Y
+p Y X
+t
+t
++
+(
+)
++
+(
+)
+(
+)
+1
+1
+~
+|
+	
+Suppose you want to sample from a bivariate distribution with variables X and Y. Using Gibbs sam-
+pling, you iteratively sample X conditional on Y, and Y conditional on X. After 10,000 iterations, 
+the algorithm generates a sample that approximates the joint distribution of X and Y.

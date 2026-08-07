@@ -1,0 +1,48 @@
+8.2.1  Manifolds
+A manifold is a topological space that, when examined closely, looks like a flat piece of Euclidean 
+space. To illustrate, think of an ant walking on the surface of a basketball. From the ant’s perspec-
+tive, the surface appears flat, as it can only see a small portion at any given time, even though the 
+surface is curved. This idea of being “locally flat” is the essence of a manifold. The number of 
+coordinates required to describe a point on the manifold determines its dimension. For example, 
+while the surface of a sphere curves in three-​dimensional (3D) space, it is a 2D manifold because 
+any small region looks flat, like a plane. In deep learning, data often exists in high-​dimensional 
+spaces, and understanding the structure and dimensionality of this data is essential for tasks like 
+visualization, dimensionality reduction, and feature extraction. The manifold hypothesis suggests 
+that high-​dimensional data often resides on or near a lower-​dimensional manifold. For instance, 
+images of faces might occupy a lower-​dimensional space within the vast high-​dimensional space 
+of all possible images. Consider a set of handwritten digits. Each image may be high-​dimensional, 
+such as a 28 × 28 pixel grid, but the variations between different images of the same digit can often 
+be captured by just a few parameters, like thickness or slant. This implies that the images of hand-
+written digits sit on a lower-​dimensional manifold within the higher-​dimensional space of all pos-
+sible pixel combinations. Methods such as Principal Component Analysis (PCA) and t-​Distributed 
+Stochastic Neighbor Embedding (t-​SNE) help identify these lower-​dimensional manifolds, making 
+data analysis and visualization more manageable. Understanding manifolds helps deep learning
+
+--- PDF PAGE 254 ---
+241
+Differential Geometry
+practitioners grasp the underlying structure of data, leading to more effective models and deeper 
+insights. Let X ⊂ Rn be a high-​dimensional dataset, and assume that X lies on a manifold M ⊂ Rd, 
+where d ≪ n. The goal of techniques like PCA or autoencoders is to find a mapping f: Rn → Rd, 
+such that:
+	
+x
+f z
+z
+x
+d
+n
+=
+( )
+∈
+∈
+,
+.
+where 
+and
+
+
+	
+Here, z represents the coordinates on the lower-​dimensional manifold, and f maps these coordinates 
+back to the high-​dimensional space. For example, in PCA, the data are projected onto the first few 
+principal components, which form the lower-​dimensional manifold.

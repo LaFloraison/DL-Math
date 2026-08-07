@@ -1,0 +1,99 @@
+5.3.3  Integer Optimization
+Integer optimization (IO), or integer programming (IP), focuses on optimization problems where 
+some or all decision variables must assume integer values. This requirement arises when fractional 
+solutions are impractical, such as determining the number of items to produce, personnel assignments, 
+or scheduling tasks. IO is critical for problems demanding discrete solutions, presenting unique 
+challenges distinct from those of continuous optimization. The types of IO are:
+FIGURE 5.3  Non-​linear optimization with constraints.
+
+--- PDF PAGE 151 ---
+138
+Mathematical Foundations for Deep Learning
+(a)	 Pure Integer Programming (PIP): All decision variables are integers.
+(b)	 Mixed Integer Programming (MIP): Combines integer and continuous variables, addressing 
+a more complete range of practical scenarios.
+(c)	 Binary Integer Programming (BIP): Decision variables are binary (0 or 1), ideal for problems 
+involving binary decisions like turning a process on or off.
+In some optimization problems, the variables are required to be whole numbers (integers). The 
+objective function, which we aim to maximize or minimize, can be linear or non-​linear, leading to 
+situations known as linear IP or non-​linear IP. Similarly, the constraints in these problems can be linear 
+or non-​linear and may also demand that the variables be integers. Several techniques are employed to 
+solve these IP problems. One method is branch and bound (B&B), which involves branching on the 
+fractional parts of variables. This technique systematically explores different possible solutions and 
+uses upper and lower bounds to reduce the search space, making it easier to find the optimal integer 
+solution. Another approach is cutting plane method, which add extra constraints called cutting planes 
+to the problem. These methods derive valid inequalities to eliminate fractional solutions, guiding the 
+search toward integer solutions. Additionally, heuristic methods like rounding or diving provide quick 
+ways to find feasible integer solutions. While these methods are faster, they may not always find the 
+best possible solution but offer an acceptable one. A general IO problem can be formulated as:
+	
+Maximize or minimize Z
+c x
+c x
+c x
+n
+n
+=
++
++…+
+1
+1
+2
+2
+	
+Subject to:
+	
+a x
+a x
+a x
+b
+x x
+x
+n
+n
+n
+11
+1
+12
+2
+1
+1
+1
+2
++
++…+
+≤
+…
+∈
+,
+,
+,
+,
+	
+This formulation captures the requirement that decision variables must be integers, and methods 
+like B&B or cutting plane methods are used to solve these problems. Suppose a company needs 
+to produce tables and chairs. The decision variables are the number of tables T and chairs C to 
+produce. The profit is given by the linear objective function Z
+T
+C
+=
++
+20
+15 , and the constraint is 
+that the total production cannot exceed 100 units T
+C
++
+≤100. As fractional tables or chairs cannot 
+be produced, T and C must be integers. The IO problems are classified as NP-​hard, meaning the 
+computational difficulty can scale exponentially with problem size. The discrete nature of the solu-
+tion space restricts the use of gradient-​based optimization methods that are effective in continuous 
+scenarios. Due to their complexity, IO problems often necessitate specialized computational tools.
+Figure 5.4 illustrates the feasible region defined by the constraint A +​ B ≤ 12 and highlights the 
+optimal solution that maximizes the objective function P =​ 3A +​ 2B. The plot features a grid of 
+discrete points where both A and B range from 0 to 12, representing all possible combinations of 
+these variables. The feasible solutions are depicted using a scatter plot with square markers, colored 
+according to their corresponding objective function values P. The semitransparent light gray shading 
+delineates the feasible region where the constraint A +​ B ≤ 12 is satisfied, providing a boundary 
+that confines the optimization problem’s solution space. At the heart of the feasible region lies the 
+optimal solution, marked prominently with a large golden-​yellow scatter point. This point represents 
+the values of A and B that maximize the objective function P while adhering to the constraint.

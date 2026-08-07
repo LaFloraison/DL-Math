@@ -1,0 +1,283 @@
+2.3.6.7  Optimizers
+(a)	 RMSprop: RMSprop (Root Mean Square Propagation) is an optimizer that adjusts the 
+learning rate for each parameter by using a moving average of the squared gradients. This 
+helps prevent the learning rate from decaying too quickly, as seen in Adagrad, making 
+RMSprop well-​suited for training deep NNs. The update rule for RMSprop is as follows:
+
+--- PDF PAGE 48 ---
+35
+Linear Algebra
+	
+v
+v
+g
+w
+w
+v
+g
+t
+t
+t
+t
+t
+t
+t
+=
++
+−
+(
+)
+=
+−
++
+−
+−
+β
+β
+η
+1
+2
+1
+1
+and
+
+.	
+Here, vt is the moving average of the squared gradients, gt is the current gradient, β is the 
+decay rate, η is the learning rate, and ϵ is a small constant for numerical stability. RMSprop 
+helps normalize the gradients, ensuring that each parameter has a more stable and balanced 
+learning rate. Suppose η =​ 0.01, β =​ 0.9, and the gradient gt =​ 0.5. Initially, v0 =​ 0, and the 
+updated vt and wt values can be computed as:
+v
+w
+w
+1
+2
+1
+0
+0 9
+0
+0 1
+0 5
+0 1
+0 25
+0 025
+0
+=
+×
++
+×
+=
+×
+=
+=
+−
+.
+.
+.
+.
+.
+.
+.
+and
+01
+0 025
+0 5
+.
+. .
++
+×
+
+For small ϵ, the update normalizes the gradient, leading to a more balanced update.
+(b)	 Adam: Adam (Adaptive Moment Estimation) combines the benefits of RMSprop and 
+momentum. It maintains two moving averages: one for the gradient (momentum) and another 
+for the squared gradient. This dual mechanism allows Adam to adapt the learning rate based 
+on the gradient’s magnitude and direction. The update rules are:
+	
+m
+m
+g
+v
+v
+g
+m
+m
+v
+t
+t
+t
+t
+t
+t
+t
+t
+t
+=
++
+−
+(
+)
+=
++
+−
+(
+)
+=
+−
+−
+−
+β
+β
+β
+β
+β
+1
+1
+1
+2
+1
+2
+2
+1
+1
+1
+1
+,
+,
+,
+^
+^ t
+t
+t
+v
+=
+−
+1
+2
+β 	
+	
+w
+w
+v
+m
+t
+t
+t
+t
+=
+−
++
+−1
+η
+ˆ
+ˆ .
+
+	
+Here, mt is the moving average of the gradient, vt is the moving average of the squared gra-
+dient, β1 and β2 are decay rates, η is the learning rate, and ϵ is a small constant. Suppose η =​ 
+0.01, β1 =​ 0.9, β2 =​ 0.999, and gt =​ 0.5. Initially, m0 =​ 0 and v0 =​ 0. The updated values for 
+mt, vt, and the weight update wt are:
+	
+m
+v
+1
+1
+2
+0 9
+0
+0 1
+0 5
+0 05
+0 999
+0
+0 001
+0 5
+0 00
+=
+×
++
+×
+=
+=
+×
++
+×
+=
+.
+.
+.
+.
+.
+.
+.
+.
+and
+025.	
+The bias-​corrected estimates are:
+	
+ˆ
+ˆ
+.
+.
+. ,
+.
+.
+.
+.
+m
+v
+1
+1
+0 05
+1
+0 9
+0 5
+0 00025
+1
+0 999
+0 25
+=
+−
+=
+=
+−
+=
+	
+The weight update becomes:
+	
+w
+w
+1
+0
+0 01
+0 25
+0 5
+=
+−
++
+×
+.
+.
+. .
+
+	
+Adam’s ability to adapt learning rates based on both the gradient’s momentum and its 
+squared magnitude makes it one of the most effective and widely used optimizers in deep 
+learning. RMSprop and Adam are both adaptive learning rate optimizers widely used in 
+training deep NNs, but they differ in their mechanisms and resulting updates. RMSprop 
+adjusts the learning rate for each parameter by maintaining a moving average of the squared 
+gradients, effectively normalizing the gradient and stabilizing updates. Its single moving
+
+--- PDF PAGE 49 ---
+36
+Mathematical Foundations for Deep Learning
+average (using a decay rate like β =​ 0.9) ensures that the learning rate adapts based solely on 
+the magnitude of recent gradients. In contrast, Adam extends RMSprop by also incorporating 
+a moving average of the gradients themselves (momentum), using separate decay rates for 
+the first and second moments (e.g., β₁ =​ 0.9 and β₂ =​ 0.999). Additionally, Adam applies bias 
+correction to these moving averages, especially during the initial training steps, to produce 
+unbiased estimates. As a result, Adam typically provides more balanced and efficient updates 
+by considering both the direction and magnitude of gradients, often leading to faster conver-
+gence and better performance in practice. Consequently, while both optimizers may appear 
+to produce similar updates in simplified examples, especially in early iterations, their outputs 
+diverge as training progresses due to Adam’s additional momentum and bias correction, 
+making Adam generally more robust and effective for a wider range of NN architectures.

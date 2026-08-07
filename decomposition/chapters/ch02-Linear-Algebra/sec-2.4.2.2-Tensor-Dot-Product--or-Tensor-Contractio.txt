@@ -1,0 +1,51 @@
+2.4.2.2  Tensor Dot Product (or Tensor Contraction)
+Extends the idea of the dot product in vectors and matrix multiplication. It involves multiplying 
+elements of tensors and summing the result, often reducing the tensor’s dimensionality.
+(a)	 Tensor Reshaping: It changes the shape of a tensor while preserving its data. It is beneficial 
+in deep learning when preparing data for different layers.
+(b)	 Reduction Operations: This refers to operations like sum, mean, max, or min, where you 
+reduce a tensor to a more minor rank. For example, you might take the sum along one dimen-
+sion, resulting in a tensor of one less dimension.
+2.4.2.3  Matrix-​Specific Operations on 2D Tensors
+There are several operations including:
+(a)	 Transpose: Swap rows with columns.
+(b)	 Inverse: Find the matrix that gives the identity matrix when multiplied with the original.
+(c)	 Determinant: A scalar value representing specific properties of the matrix.
+(d)	 Tensor Slicing and Indexing: Extracting specific portions of a tensor is analogous to slicing 
+lists or arrays.
+(e)	 Broadcasting: They make element-​wise binary operations compatible with tensors of 
+different shapes. For instance, adding a vector to a matrix by duplicating the vector along 
+the rows of the matrix.
+(f)	 Outer Product: Produces a higher-​rank tensor from two lower-​rank tensors. For vectors, it 
+produces a matrix.
+(g)	 Tensor Decompositions: Techniques like SVD or QR decomposition can be extended to 
+tensors.
+In Figure 2.10, various tensor operations are performed on sample tensors using TensorFlow and 
+visualized through heatmaps. The first row of subplots shows the results of element-​wise operations. 
+The element-​wise addition plot displays the sum of corresponding elements from tensors A and B. 
+The element-​wise subtraction plot illustrates the difference between the corresponding elements of 
+A and B. The element-​wise multiplication plot highlights the product of corresponding elements 
+from A and B, while the element-​wise division plot shows the quotient of corresponding elements 
+of A divided by B. The second row of subplots continues with more complex operations. The tensor
+
+--- PDF PAGE 52 ---
+39
+Linear Algebra
+dot product plot presents the result of a dot product operation between tensors A and B, which 
+involves summing the products of corresponding elements along the specified axes. The reshaped 
+tensor plot shows tensor A rearranged into a column vector with a shape of (4, 1). The third row 
+includes summary statistics and transformations of tensor A.
+The tensor sum plot displays the sum of all elements in A as a single value. Similarly, the tensor 
+mean plot presents the mean of all elements in A, and the tensor max plot shows the maximum 
+value among all elements in A. The fourth row focuses on matrix transformations and properties. 
+The transpose of A plot shows the result of swapping the rows and columns of tensor A. The inverse 
+of the identity matrix plot displays the inverse of a 2 × 2 identity matrix, which remains the identity 
+matrix itself. Finally, the determinant of the identity matrix plot shows that the determinant of a 2 × 
+2 identity matrix is 1. Additionally, the SVD results are printed. The singular values (s), left singular 
+vectors (u), and right singular vectors (v) of tensor A are provided. These values and vectors are 
+crucial in many applications, such as data compression and noise reduction.
+FIGURE 2.10  Visualization of tensor operations.
+
+--- PDF PAGE 53 ---
+40
+Mathematical Foundations for Deep Learning
