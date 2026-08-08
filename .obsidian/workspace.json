@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lessons/第01节-1.0-Introduction-to-Deep-Learning-/主线.md",
+                "file": "lessons/第02节-2.1-INTRODUCTION-Linear-algebra-pr/主线.md",
                 "mode": "source",
                 "source": false
               },
@@ -188,20 +188,24 @@
       "bases:新建数据库": false
     }
   },
-  "active": "db75b041ccc44958",
+  "active": "f34b83ab6892bcb4",
   "lastOpenFiles": [
-    "lessons/第04节-4.2.1-Discrete-Probability-Distribut/sedyKG7O6",
-    "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sed32XHYT",
-    "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedpUpSRs",
+    "lessons/第04节-4.2.1-Discrete-Probability-Distribut/sedlgghlo",
+    "lessons/第04节-4.2.1-Discrete-Probability-Distribut/sedec11LK",
+    "lessons/第04节-4.2.1-Discrete-Probability-Distribut/sedJ3EbfK",
+    "lessons/第04节-4.2.1-Discrete-Probability-Distribut/sedBqpYD4",
+    "lessons/第04节-4.2.1-Discrete-Probability-Distribut/sedJKvLWO",
+    "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedAVgOpO",
+    "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedE9bLmU",
+    "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedzA2e51",
+    "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedNQhk3r",
+    "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedmHRZuu",
+    "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedgYcQPY",
+    "lessons/第01节-1.0-Introduction-to-Deep-Learning-/主线.md",
     "lessons/第04节-4.2.2-Continuous-Probability-Distribut/代码.md",
     "lessons/第04节-4.2.2-Continuous-Probability-Distribut/主线.md",
-    "lessons/第04节-4.2.2-Continuous-Probability-Distribut",
-    "CLAUDE.md.tmp.37036.f98b0d207503",
     "lessons/第04节-4.2.1-Discrete-Probability-Distribut/代码.md",
     "lessons/第04节-4.2.1-Discrete-Probability-Distribut/主线.md",
-    "lessons/第04节-4.2.1-Discrete-Probability-Distribut",
-    "lessons/第04节-4.1-INTRODUCTION-In-this-chapter-we-begin-b",
-    "lessons/第01节-1.0-Introduction-to-Deep-Learning-/代码.md",
-    "CLAUDE.md.tmp.37036.df9b77fa3481"
+    "lessons/第01节-1.0-Introduction-to-Deep-Learning-/代码.md"
   ]
 }
