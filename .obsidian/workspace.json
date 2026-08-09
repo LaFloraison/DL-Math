@@ -11,14 +11,10 @@
             "id": "f34b83ab6892bcb4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "lessons/第02节-2.1-INTRODUCTION-Linear-algebra-pr/主线.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "主线"
+              "title": "新标签页"
             }
           }
         ]
@@ -190,6 +186,7 @@
   },
   "active": "f34b83ab6892bcb4",
   "lastOpenFiles": [
+    "lessons/第02节-2.1-INTRODUCTION-Linear-algebra-pr/主线.md",
     "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedBOyZWJ",
     "lessons/第04节-4.2.1-Discrete-Probability-Distribut/sedNvC9YY",
     "lessons/第04节-4.2.1-Discrete-Probability-Distribut/sedtYXJGe",
@@ -200,7 +197,6 @@
     "lessons/第04节-4.2.1-Discrete-Probability-Distribut/sedJKvLWO",
     "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedAVgOpO",
     "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedE9bLmU",
-    "lessons/第04节-4.2.2-Continuous-Probability-Distribut/sedzA2e51",
     "lessons/第01节-1.0-Introduction-to-Deep-Learning-/主线.md",
     "lessons/第04节-4.2.2-Continuous-Probability-Distribut/代码.md",
     "lessons/第04节-4.2.2-Continuous-Probability-Distribut/主线.md",
